@@ -10,7 +10,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body>
         <?php
-        // put your code here
+            include "headerUser.php";
+        ?>
+         <?php
+            include "footerUser.php";
         ?>
     </body>
 </html>
