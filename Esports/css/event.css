@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: cambria;
+}
+
+body{
+    background-color: black;
+}
+
+
+
+.ebanner{
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.ebanner figure{
+    position: relative;
+    width: 800%;
+    margin:0;
+    left: 0;
+    animation: slider 30s infinite;
+}
+.ebanner figure img{
+    width: 12.5%;
+    float: left;
+}
+
+@keyframes slider{
+    0%{
+        left: 0;
+    }
+    10%{
+        left: 0;
+    }
+    14%{
+        left: -100%;
+    }
+    24%{
+        left: -100%;
+    }
+    28%{
+        left: -200%;
+    }
+    38%{
+        left: -200%;
+    }
+    42%{
+        left: -300%;
+    }
+    52%{
+        left: -300%;
+    }
+    56%{
+        left: -400%;
+    }
+    66%{
+        left: -400%;
+    }
+    70%{
+        left: -500%;
+    }
+    80%{
+        left: -500%;
+    }
+    84%{
+        left: -600%;
+    }
+    94%{
+        left: -600%;
+    }
+    98%{
+        left: -700%;
+    }
+    100%{
+        left: -700%;
+    }
+}
+
+h1{
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 140px;
+    margin:auto;
+}
+
+

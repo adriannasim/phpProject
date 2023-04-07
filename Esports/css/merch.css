@@ -1,0 +1,161 @@
+ html {
+    background-color: black;
+    margin-top: 15px;
+    overflow-x: hidden;
+}
+*{
+    margin:0;
+    font-family: cambria; 
+}
+
+.mbanner img{
+   margin-top: 120px;
+   height: 300px;
+   width: 1200px;
+   z-index: 0;
+} 
+
+.logo{
+    margin: auto;
+    margin-top: -50px;
+    width: 200px;
+    height: 50px;
+    z-index: 1;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: cambria;
+    letter-spacing: 2px;
+    width: 140px;
+    margin:auto;
+    margin-top: 20px;
+}
+h3{
+    font-family: cambria;
+    text-align:center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.merch{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0; 
+}
+.content{
+    width: 20%;
+    margin: 5px 30px 30px 30px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: whitesmoke; 
+    padding: 10px 10px 30px 10px;
+    transition: .4s;
+    
+}
+.content:hover{
+    transform: translate(0px, -20px);
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+h5{
+    font-family: cambria;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px; 
+}
+.content button{
+    text-align: center;
+    font-size: 20px;
+    font-family: cambria;
+    color: white;
+    width: 70%;
+    padding: 15px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-top:30px;
+    background-color: black;
+
+}
+.content button:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.merchfunc button{
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    border-radius: 20px;
+    border: 2px white solid;
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-left: 460%;
+    transition: .4s;
+    
+}
+
+.merchfunc button:hover {
+    transform: scale3d(1.1,1.1,1.1); 
+    background-color: black;
+    color: white;
+    border: 1px white solid;
+    cursor: pointer;
+}
+
+.merchfunc p{
+    font-size: 10pt;
+    float: right;
+    margin-left: -10px;
+    padding: 5px;
+    color: whitesmoke;
+}
+
+.hidden table{
+    margin: auto;
+    margin-left: 200px;
+}
+
+.hidden button{
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 12px;
+    background-color: black;
+    margin: 20px 10px;
+    justify-content: center;
+    width: 160px;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    float: right;
+    transition: transform .3s ease;
+}
+
+.hidden button:hover{
+    background-color: #ccffff;
+    color: black;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
