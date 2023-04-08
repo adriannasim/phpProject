@@ -7,7 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <head>
     <title>Buy Ticket</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="ticket.css">
+    <link rel="stylesheet" href="css/ticket.css">
 </head>
 
 <body>
