@@ -40,6 +40,6 @@
 }
 
 /* When you mouse over the container, fade in the overlay title */
-.ticket-container:hover .overlay {
+.ticket-container:hover .ticket-overlay {
   opacity: 5;
 }
