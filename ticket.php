@@ -23,7 +23,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           <div class="ticket-overlay">
               <h2>MLBB Tournament Grand Finale</h2>
               <div class="ticket-overlay1">
-                <button class="ticket-button">Register Now !</button>
+                <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
               </div>
           </div> 
       </div>

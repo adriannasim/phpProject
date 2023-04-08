@@ -84,13 +84,57 @@ body{
   background-color: #eee;
   padding: 20px;
   border-radius: 20px;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   font-size: 20px;
-  box-shadow: 5px 5px 5px #27C7C5;
 }
 
 .ticket-mlbb-table td{
   padding: 20px;
+}
+
+.ticket-mlbb-seat{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+.ticket-register {
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 20px;
+  font-family: Cambria;
+}
+
+.ticket-reset {
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 20px;
+  font-family: Cambria;
+}
+
+.ticket-register:hover {
+  transform: scale(1.2) rotate(-1deg);
+}
+
+.ticket-reset:hover {
+  transform: scale(1.2) rotate(-1deg);
 }
 
