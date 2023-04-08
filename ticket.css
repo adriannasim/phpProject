@@ -1,10 +1,25 @@
+body{
+  background-color: black;
+  color: white;
+  font-family: Cambria;
+}
 
 * {box-sizing: border-box}
 
 /* Container needed to position the overlay. Adjust the width as needed */
 .ticket-container {
   position: relative;
-  width: 100%;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid white;
+  transition: all 250ms;
+  border-radius: 25px;
+}
+
+.ticket-container:hover {
+  transform: scale(1.05);
 }
 
 /* Make the image to responsive */
@@ -12,6 +27,7 @@
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 25px;
 }
 
 /* The overlay effect - lays on top of the container and over the image */
@@ -19,7 +35,7 @@
   position: absolute;
   bottom: 0;
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  background: rgba(0, 0, 0, 0.8); /* Black see-through */
   color: #f1f1f1;
   width: 100%;
   transition: .5s ease;
@@ -31,15 +47,31 @@
   height:auto;
 }
 
-.overlay h3 {
-  text-align: center;
-}
-
-.overlay2 p {
+.ticket-overlay1 p {
   text-align: left;
 }
 
-/* When you mouse over the container, fade in the overlay title */
-.ticket-container:hover .overlay {
-  opacity: 5;
+.ticket-container:hover .ticket-overlay {
+  opacity: 1;
+  border-radius: 0px 0px 25px 25px;
 }
+
+.ticket-button{
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  font-family: Cambria;
+}
+
+.ticket-button:hover {
+  transform: scale(1.2) rotate(-1deg);
+}
+
