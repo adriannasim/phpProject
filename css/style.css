@@ -59,8 +59,8 @@ body {
 .footer {
     color: rgb(212, 212, 212);
     width: 100%;
-    background: linear-gradient(90deg, rgba(85,83,96,1) 0%, rgba(69,67,77,1) 20%, rgba(47,46,52,1) 40%, rgba(47,46,52,1) 60%, rgba(69,67,77,1) 80%, rgba(85,83,96,1) 100%);
-    min-height: 560px;
+    background: black;
+    min-height: 600px;
 }
 
 .footer a {
@@ -96,7 +96,11 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.footer-divider {
+.footer-divider1 {
+    margin-top: 10px;
+}
+
+.footer-divider2 {
     text-align: center;
     width: 35%;
 }
