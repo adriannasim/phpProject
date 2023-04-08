@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
       <h2>Upcoming Events</h2>
       
         <div class="ticket-container">
-            <img src="b2.png" alt="MLBB" class="ticket-container-image">
+            <img src="img/ticket/b2.png" alt="MLBB" class="ticket-container-image">
             <div class="ticket-overlay">
                 <h3>MLBB Tournament Grand Finale</h3>
                 <p><b>Date:</b> April 28, 2023</p>
@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         </div>
       <br><br>
         <div class="ticket-container">
-            <img src="b3.png" alt="Valorant" class="ticket-container-image">
+            <img src="img/ticket/b3.png" alt="Valorant" class="ticket-container-image">
             <div class="ticket-overlay">
                 <h3>VALORANT: Battle Of The Ace</h3>
                 <div class="overlay2">
@@ -41,7 +41,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         </div>
       <br><br>
         <div class="ticket-container">
-            <img src="b4.png" alt="War Zone" class="ticket-container-image">
+            <img src="img/ticket/b4.png" alt="War Zone" class="ticket-container-image">
             <div class="ticket-overlay">
                 <h3>War Zone S2</h3>
                 <p><b>Date:</b> June 12, 2023 (MON) - June 16, 2023 (FRI)</p>
