@@ -49,8 +49,8 @@
                                 THE MPL MY/SG CHAMPION OF S2 RYNN !</p>
                         </div>
                         <div class="event-date">
-                            <p>Date : 28<sup>th</sup> April 2023<br>
-                                Time : 10 A.M - 4 P.M<br>
+                            <p> Date  : 28<sup>th</sup> April 2023<br>
+                                Time  : 10 A.M - 4 P.M<br>
                                 Venue : CA, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">
@@ -75,8 +75,8 @@
                             friends. What are you waiting for? Grab your tickets NOW!</p>
                         </div>
                         <div class="event-date">
-                            <p>Date : 25<sup>th</sup> May 2023<br>
-                                Time : 10 A.M - 4 P.M<br>
+                            <p> Date  : 25<sup>th</sup> May 2023<br>
+                                Time  : 10 A.M - 4 P.M<br>
                                 Venue : FOYER, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">
@@ -99,8 +99,8 @@
                             gaming potential!</p>
                         </div>
                         <div class="event-date">
-                            <p>Date : 12<sup>th</sup> June 2023 - 16<sup>th</sup> June 2023<br>
-                                Time : To Be Confirmed<br>
+                            <p> Date  : 12<sup>th</sup> June 2023 - 16<sup>th</sup> June 2023<br>
+                                Time  : To Be Confirmed<br>
                                 Venue : CA, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">

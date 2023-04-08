@@ -10,6 +10,10 @@
             <img src="img/logo.png" alt="" width="100%"/>
         </div>
         <h1>Cart</h1>
+        <div class="controlbtn">
+            <a href="merch.php"><button>Back to Merch &#10558;</button></a>
+            <a href="mHistory.php"><button id="controlbtn2">Purchase History &#10559;</button></a>
+        </div>
         <div class="wrapper">
             <div class="cart-section">
                 <div class="cart-details">
@@ -101,15 +105,49 @@
                     <hr>
                     <p><span>Total Amount (RM)</span><br><input type="text" name="subtotal" disabled></p>
                     <hr>
-                    <button class="checkout">Check Out</button>
+                    <a href="#payment"><button class="checkout" onclick="showHidePayment()">Check Out</button></a>
                 </div>
             </div>
         </div>
-        
-        <div class="payment">
-            <div class="">
-                
+        <div class="hide-payment">
+            <h3 id="payment">Billing and Payment</h3>
+            <div class="hidden-payment">
+                <div class="payment-details">
+                    <form action="" method="post">
+                        <div class="contact-details">
+                            <p>Name<p>
+                                <input type="text" name="txtname" size="50" placeholder="Enter your name" /><br><br>
+                            <p>Email Address</p>
+                            <input type="text" name="txtemail" placeholder="example@gmail.com"/><br><br>
+                            <p>Phone Number</p>
+                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789"/><br><br>
+                        </div>
+                        <h4>Select payment method</h4>
+                        <div class="payment-img">
+                            <img src="img/mastercard.png">
+                            <img src="img/visa.png">
+                            <img src="img/paypal.png">
+                            <img src="img/amex.png">
+                        </div>
+                        <div class="card-details">
+                            <p>Card Owner</p>
+                            <input type="text" name="txtowner" placeholder="Name on card"/>
+                            <p>Card Number</p>
+                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" />
+                            <p>Exp Month</p>
+                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" />
+                            <p>Exp Year</p>
+                            <input type="text" name="txtexpyear" placeholder="e.g 2024" />
+                            <p>CVV</p>
+                            <input type="password" name="txtcvv" placeholder="CVV" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="pay-btn">
+                <button type="submit" class="paybtn">Confirm Payment</button>
             </div>
         </div>
+        <script src="payment.js"></script>
     </body>
 </html>
