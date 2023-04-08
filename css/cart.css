@@ -1,0 +1,235 @@
+ html {
+    background-color: black;
+    margin-top: 15px;
+    overflow-x: hidden;
+}
+*{
+    margin:0;
+    font-family: cambria; 
+    box-sizing: border-box;
+}
+.logo{
+    margin: auto;
+    margin-top: -50px;
+    width: 200px;
+    height: 50px;
+    z-index: 1;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 140px;
+    margin:auto;
+    margin-top: 120px;
+}
+.controlbtn button{
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 2px white solid;
+    margin-left: 180px;
+    width: 190px;
+    height: 40px;
+    cursor: pointer;
+    transition: all .3s ease; 
+}
+.controlbtn button:hover{
+    transform: scale(1.1); 
+    background-color: black;
+    color: white;
+    border: 1px white solid; 
+}
+#controlbtn2{
+    margin-left: 980px;
+    margin-top: -40px;
+}
+.wrapper{
+    max-width: 1000px;
+    margin: 30px auto;
+}
+.cart-section{
+    display: flex;
+}
+.cart-details{
+    flex: 75%;
+}
+.prod-box{
+    display: flex;
+    width: 97%;
+    height: 230px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    background-color: white;
+    transition: all .5s ease;
+    box-shadow: 0 4px 25px 0 #979797;
+}
+.prod-box:hover {
+    transform: scale(1.05);
+}
+.prod-box img{
+    width: 230px;
+    height: 230px;
+    margin-left: 20px;
+}
+.box-content{
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+.box-content h3, h4, p{
+    letter-spacing: 0.2em;
+    margin-bottom: 30px;
+}
+.units{
+    font-weight: bold;
+}
+.units input{
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+.units i{
+    font-size: 22px;
+    cursor: pointer;
+}
+.remove{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 2px solid black;
+    transition: all .3s ease;
+}
+.removebtn{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.remove:hover{
+    transform: scale(1.05);
+    background-color: #c32c2c;
+    border: 1px solid #c32c2c;
+}
+.side-bar{
+    flex:25%;
+    margin-left: 20px;
+    padding: 20px;
+    height: 430px;
+    background-color: white;
+    box-shadow: 0 4px 25px 0 #979797;
+}
+.side-bar input{
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 20px;
+    font-size: 20px;
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    
+}
+.side-bar h3{
+    font-size: 21px;
+    letter-spacing: .1em;
+    margin-bottom: 20px;
+}
+.side-bar hr{
+    margin-bottom: 25px;
+}
+.checkout{
+    background-color: black;
+    border: 2px solid black;
+    color:white;
+    font-size: 16px;
+    letter-spacing: .1em;
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 98px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.checkout:hover{
+    transform: scale(1.1);
+}
+#payment{
+    color: white;
+    font-size: 25px;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+.hidden-payment{
+    padding: 20px;
+    border-radius: 50px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+}
+.payment-details{
+    margin: 40px 100px;
+}
+.payment-details p, h4{
+    letter-spacing: 0.1em;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-details input, .card-details input{
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid black;
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    letter-spacing: .1em;
+}
+.payment-img{
+    width: 500px;
+    float: left;
+}
+.payment-img img{
+    padding: 5px;
+    width: 90px;
+    height: 80px;
+}
+.card-details{
+    float: right;
+    position: relative;
+    top: -500px;
+}
+.pay-btn button{
+    background-color: white;
+    color: black;
+    width: 170px;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 584px;
+    padding: 10px;
+    border: 2px solid white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    transition: all .3s ease;
+}
+.pay-btn button:hover{
+    transform: scale(1.1);
+    background-color: black;
+    color:white;
+     border: 2px solid white;
+     cursor: pointer;
+}

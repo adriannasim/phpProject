@@ -1,0 +1,64 @@
+ html {
+    background-color: black;
+    margin-top: 15px;
+    overflow-x: hidden;
+}
+*{
+    margin:0;
+    font-family: cambria; 
+}
+.logo{
+    margin: auto;
+    margin-top: -50px;
+    width: 200px;
+    height: 50px;
+    z-index: 1;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: cambria;
+    letter-spacing: 2px;
+    margin:auto;
+    margin-top: 120px;
+}
+
+.filter-history{
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+.controlbtn button, .history-btn button, .ddlhistory{
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    border-radius: 25px;
+    border: 2px white solid;
+    width: 170px;
+    height: 40px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all .3s ease; 
+}
+.controlbtn button{
+    margin-top: 50px;
+    font-weight: bold;
+}
+#controlbtn2{
+    margin-left: 960px;
+}
+.history-btn button:hover, .ddlhistory:hover, .controlbtn button:hover{
+    transform: scale(1.1); 
+    background-color: black;
+    color: white;
+    border: 1px white solid; 
+}
+.record h3{
+    color: #dadada;
+    letter-spacing: .2em;
+    font-size: 16px;
+    margin-top: 100px;
+    text-align: center;
+}

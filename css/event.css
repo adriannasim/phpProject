@@ -7,9 +7,6 @@
 body{
     background-color: black;
 }
-
-
-
 .ebanner{
     overflow: hidden;
     margin-bottom: 30px;
@@ -76,7 +73,6 @@ body{
         left: -700%;
     }
 }
-
 h1{
     color: white;
     text-align: center;
@@ -84,5 +80,165 @@ h1{
     width: 140px;
     margin:auto;
 }
+.searchEvent{
+    margin: auto;
+    text-align: center;
+    width: 400px;
+    height: 100px;
+    margin-top: 30px;
+}
+.searchEvent input{
+    padding: 10px 5px;
+    margin: 10px;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 20px;
+    letter-spacing: .1em;
+    text-align: center;
+    background-color: black;
+}
 
+.searchEvent button{
+    padding: 10px 5px;
+    font-size: 16px;
+    letter-spacing: .1em;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    transition: all .3s ease;
+    
+}
+.searchEvent button span{
+    color: black;
+    transition: all .3s ease;
+}
+.searchEvent button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+.filterEvent{
+    margin: auto;
+    margin-left: 200px;
+}
+.filterEvent button{
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 12px;
+    background-color: black;
+    margin: 5px 10px;
+    width: 160px;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    float: left;
+    transition: transform .3s ease;
+}
+.filterEvent button:hover{
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
+.events{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 105%;
+    transform: translate(-50%,-50%)
+}
+
+.event-card{
+    width: 800px;
+    height: 700px;
+    margin-bottom: -60px;
+}
+
+.event-front, .event-back{
+    backface-visibility: hidden;
+    width: 800px;
+    height: 700px;
+    position: absolute;
+    overflow: hidden;
+    transition: transform .6s linear;
+}
+.event-front{
+    cursor: pointer;
+    transform: perspective(600px) rotateY(0deg);
+}
+.event-back{
+    background-color: captiontext;
+    transform: perspective(600px) rotateY(180deg);
+}
+.event-back h2{
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: .2em;
+    line-height: 2em;
+    background-color: #cde3f9;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 6px 6px 20px #03488d;
+}
+.event-desc img{
+    width: 400px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.event-details{
+    color: black;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: .1em;
+    line-height: 1.5em;
+}
+.event-desc{
+    margin-top: 30px;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #e2eef9;
+    box-shadow: 6px 6px 20px #03488d;
+}
+
+.event-date{
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    background-color: #fafcfd;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 6px 6px 20px #03488d;
+}
+.event-btn button{
+    background-color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    width: 120px;
+    padding: 15px;
+    border: 2px solid white;
+    cursor: pointer;
+    margin:auto;
+    margin-left: 45%;
+    margin-top:20px;
+    transition: all 0.3s ease;
+}
+.event-btn button:hover{
+    background-color: black;
+    color: white;
+    transform: scale(1.2);
+}
+.event-card:hover > .event-front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.event-card:hover > .event-back{
+    transform: perspective(600px) rotateY(0deg);
+}
