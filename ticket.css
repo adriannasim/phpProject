@@ -6,7 +6,6 @@ body{
 
 * {box-sizing: border-box}
 
-/* Container needed to position the overlay. Adjust the width as needed */
 .ticket-container {
   position: relative;
   width: 80%;
@@ -22,7 +21,6 @@ body{
   transform: scale(1.05);
 }
 
-/* Make the image to responsive */
 .ticket-container-image {
   display: block;
   width: 100%;
@@ -30,7 +28,6 @@ body{
   border-radius: 25px;
 }
 
-/* The overlay effect - lays on top of the container and over the image */
 .ticket-overlay {
   position: absolute;
   bottom: 0;
@@ -73,5 +70,27 @@ body{
 
 .ticket-button:hover {
   transform: scale(1.2) rotate(-1deg);
+}
+
+.ticket-mlbb-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+.ticket-mlbb-form {
+  color:black;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 20px;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 20px;
+  box-shadow: 5px 5px 5px #27C7C5;
+}
+
+.ticket-mlbb-table td{
+  padding: 20px;
 }
 
