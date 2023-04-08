@@ -6,6 +6,7 @@
     </head>
     <body>
         <div class="footer">
+        <hr class="footer-divider1"/>
             <div class="footer-contact">
                 <h2>Contact Us</h2>
 
@@ -31,10 +32,11 @@
                 <br/>
                 <a href=""><h2>Support</h2></a>
             </div>
-            <hr class="footer-divider"/>
+            <hr class="footer-divider2"/>
             <div class="footer-copy">
                 <p>&copy; <b>2023 TARUMT ESPORTS &amp; GAMING CLUB.</b> All rights reserved.</p>
             </div>
+            <script src="javascripts/helpdesk.js" defer></script>
         </div>
     </body>
 </html>

@@ -9,7 +9,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ticket.css">
 </head>
-  
+
 <body>
     <?php include "headerUser.php"?>
     <br>

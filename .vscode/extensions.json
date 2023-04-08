@@ -2,6 +2,7 @@
     "recommendations": [
         "devsense.phptools-vscode",
         "xdebug.php-debug",
-        "brapifra.phpserver"
+        "brapifra.phpserver",
+        "github.vscode-pull-request-github"
     ]
 }
