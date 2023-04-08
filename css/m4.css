@@ -1,0 +1,155 @@
+html {
+    background-color: black;
+    margin-top: 15px;
+    overflow-x: hidden;
+    font-family: cambria;
+}
+*{
+    margin: 0;
+     box-sizing: border-box;
+}
+.logo{
+    margin: auto;
+    margin-top: -50px;
+    width: 200px;
+    height: 50px;
+    z-index: 1;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-family: cambria;
+    letter-spacing: 2px;
+    width: 140px;
+    margin:auto;
+    margin-top: 120px;
+}
+
+.slide-container{
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+.img-container{
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    transition: left 2s;
+    background-color: black;
+    
+}
+.slider-img{
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.btn-container{
+    top: 5px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.slider-btn{
+    display: inline-grid;
+    height: 40px;
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 15px;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.slider-btn:hover{
+    transform: scale(1.1);
+    font-size: 35px;
+    
+}
+#slider-img1:target ~ .img-container{
+    left: 0;
+}
+#slider-img2:target ~ .img-container{
+    left: -500px;
+}
+.product{
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    margin: auto;
+    background-color:whitesmoke;
+    border-radius: 50px 50px 0 0;
+    letter-spacing: 0.1em;
+    background-color: white;
+}
+
+.prod-title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    letter-spacing: 2px;
+    padding: 20px;
+    background-color: #000066;
+    color: white;
+    border-radius: 50px 50px 0 0;
+}
+
+.prod-specs, .prod-select, .prod-btn{
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.prod-price{
+    text-align:center;
+    margin-left: -50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+.prod-details{
+    float: left;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    line-height: 3em;
+    margin-right:250px; 
+}
+.prod-select, .prod-qty{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.prod-qty input{
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px
+}
+
+.prod-btn button{
+    border: 2px solid black;
+    background-color: white;
+    font-family: cambria;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    width: 130px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 20px;
+    transition: all .3s ease;
+}
+.prod-btn button:hover{
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+}
