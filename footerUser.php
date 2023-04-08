@@ -35,6 +35,9 @@
             <div class="footer-copy">
                 <p>&copy; <b>2023 TARUMT ESPORTS &amp; GAMING CLUB.</b> All rights reserved.</p>
             </div>
+            <div class="footer-talkto">
+                <script src="javascripts/helpdesk.js"></script>
+            </div>
         </div>
     </body>
 </html>

@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <?php
             include "headerUser.php";
         ?>
-         <?php
+        <?php
             include "footerUser.php";
         ?>
     </body>

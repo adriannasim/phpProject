@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 /*End of global styles*/
 
@@ -104,3 +105,7 @@ body {
     text-align: center;
 }
 /*End of footer styles*/
+
+/*Start of helpdeskUser.php styles*/
+
+/*End of helpdeskUser.php styles*/
