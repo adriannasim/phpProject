@@ -6,15 +6,15 @@
     </head>
     <body>
         <div class="logo">
-            <img src="img/logo.png" alt="" width="100%"/>
+            <img src="img/merch/logo.png" alt="" width="100%"/>
         </div>
         <h1>Product</h1>
         <div class="slide-container">
             <span id="slider-img1"></span>
             <span id="slider-img2"></span>
             <div class="img-container">
-                <img src="img/m7-front.jpg" class="slider-img" width="50%"/>
-                <img src="img/m7-back.jpg" class="slider-img" width="50%"/>
+                <img src="img/merch/m7-front.jpg" class="slider-img" width="50%"/>
+                <img src="img/merch/m7-back.jpg" class="slider-img" width="50%"/>
             </div>
 
         </div>

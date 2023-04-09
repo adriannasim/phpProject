@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="logo">
-            <img src="img/logo.png" alt="" width="100%"/>
+            <img src="img/merch/logo.png" alt="" width="100%"/>
         </div>
         
         <h1>Purchase History</h1>
