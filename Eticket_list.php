@@ -68,7 +68,7 @@
                         <td>Participant</td>
                         <td>40</td>
                         <td>50</td>
-                        <td>-</td>
+                        <td><a href="participant.php">View</a></td>
                     </tr>
                     <tr>
                         <td>WARZONE S2 FUN CAMP</td>
