@@ -57,6 +57,7 @@ h1{
     overflow: hidden;
     margin-bottom: 25px;
     background-color: white;
+    color: black;
     transition: all .5s ease;
     box-shadow: 0 4px 25px 0 #979797;
 }
@@ -117,6 +118,7 @@ h1{
     padding: 20px;
     height: 430px;
     background-color: white;
+    color: black;
     box-shadow: 0 4px 25px 0 #979797;
 }
 .side-bar input{
@@ -169,6 +171,7 @@ h1{
     width: 1000px;
     height: 650px;
     background-color: white;
+    color: black;
 }
 .payment-details{
     margin: 40px 100px;
