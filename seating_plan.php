@@ -304,7 +304,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </tr>
             </table>
         </div>
-        <button>Edit</button>
+        <div class="edit">
+        <a href="edit_seat.php">Edit Standard Seat</a>
+        <a href="edit_VIPseat.php">Edit VIP Seat</a>
+</div>
         <div class="back">
         <a href="Event_List.php">Back</a>
         </div>
