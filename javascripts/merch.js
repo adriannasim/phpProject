@@ -13,3 +13,8 @@ function showHideFilter(){
     }
 }
 
+const btnSize = document.querySelector('.size');
+
+btnSize.addEventListener('click', () =>{
+    btnSize.classList.add('clickedbtn');
+});

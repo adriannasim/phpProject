@@ -60,5 +60,6 @@
             </div>
         </div>
         <script src="javascripts/payment.js"></script>
+        <script src="javascripts/merch.js"></script>
     </body>
 </html>
