@@ -1,6 +1,4 @@
-body{
-    overflow-x: hidden;
-}
+
 .ebanner{
     overflow: hidden;
     margin-top: 50px;
@@ -86,6 +84,7 @@ h1{
     padding: 10px 5px;
     margin: 10px;
     font-size: 16px;
+    font-family: Cambria;
     border: 2px solid white;
     border-radius: 20px;
     letter-spacing: .1em;
@@ -97,6 +96,7 @@ h1{
     padding: 10px 5px;
     font-size: 16px;
     letter-spacing: .1em;
+    font-family: Cambria;
     width: 100px;
     border: 2px solid white;
     border-radius: 20px;
@@ -129,6 +129,7 @@ h1{
     margin: 5px 10px;
     width: 160px;
     font-size: 16px;
+    font-family: Cambria;
     letter-spacing: 0.1em;
     font-weight: bold;
     float: left;

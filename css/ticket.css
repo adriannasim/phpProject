@@ -158,3 +158,55 @@ body{
   margin: 0 auto;
   font-size: 20px;
 }
+
+.ticket-payment{
+  color: white;
+  font-size: 25px;
+  letter-spacing: .1em;
+  text-align: center;
+  background-color:teal;
+  border:1px; 
+  border-radius:25px;
+  width:70%;
+  margin:auto;
+  font-family: Cambria;
+}
+
+.ticket-payment input{
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(234, 230, 230, 0.612);
+  border-radius:25px;
+}
+
+
+.paymentmethod img{
+  padding: 15px;
+  margin-top: 20px;
+  width: 110px;
+  height: 90px;
+  transition: all 0.3s ease;
+}
+.paymentmethod img:hover, .paymentmethod img:active{
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.ticket-confirmPayment {
+  background-color: white;
+  border-radius: 100px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 20px;
+  font-family: Cambria;
+}
+
+.ticket-confirmPayment:hover {
+  transform: scale(1.2) rotate(-1deg);
+}
