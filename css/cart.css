@@ -14,7 +14,7 @@ h1{
     letter-spacing: 2px;
     width: 140px;
     margin:auto;
-    margin-top: 120px;
+    margin-top: 30px;
 }
 .controlbtn button{
     font-size: 16px;
@@ -27,13 +27,13 @@ h1{
     margin-left: 180px;
     width: 190px;
     height: 40px;
-    cursor: pointer;
     transition: all .3s ease; 
 }
 .controlbtn button:hover{
     transform: scale(1.1); 
     background-color: black;
     color: white;
+    cursor: pointer;
     border: 1px white solid; 
 }
 #controlbtn2{
