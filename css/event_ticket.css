@@ -17,7 +17,7 @@ body{
     margin: 0 auto;
     text-align: center;
 }
-button, .list a, .add a{
+button, .list a, .add a, .back a{
     display: inline-block;
     outline: none;
     cursor: pointer;

@@ -70,6 +70,7 @@ body{
 
 .ticket-button:hover {
   transform: scale(1.2) rotate(-1deg);
+  box-shadow:0 0 15px 4px rgb(199, 39, 227);
 }
 
 .ticket-mlbb-image {
@@ -93,6 +94,12 @@ body{
   width: 70%;
   margin: 0 auto;
   font-size: 20px;
+}
+
+.ticket-mlbb-form input{
+  padding:10px;
+  border:0;
+  border-radius:25px;
 }
 
 .ticket-mlbb-contacttable td{
@@ -137,10 +144,12 @@ body{
 
 .ticket-paynow:hover {
   transform: scale(1.2) rotate(-1deg);
+  box-shadow:0 0 15px 4px rgba(25, 167, 159, 0.523);
 }
 
 .ticket-reset:hover {
   transform: scale(1.2) rotate(-1deg);
+  box-shadow:0 0 15px 4px rgba(167, 25, 25, 0.523);
 }
 
 .ticket-valorant-image {
@@ -159,6 +168,12 @@ body{
   font-size: 20px;
 }
 
+.ticket-valorant-form input {
+  padding:10px;
+  border:0;
+  border-radius:25px;
+}
+
 .ticket-payment{
   color: white;
   font-size: 25px;
@@ -175,7 +190,7 @@ body{
 .ticket-payment input{
   padding:10px;
   border:0;
-  box-shadow:0 0 15px 4px rgba(234, 230, 230, 0.612);
+  box-shadow:0 0 15px 4px rgba(74, 73, 73, 0.612);
   border-radius:25px;
 }
 
@@ -205,8 +220,10 @@ body{
   border: 0;
   font-size: 20px;
   font-family: Cambria;
+
 }
 
 .ticket-confirmPayment:hover {
   transform: scale(1.2) rotate(-1deg);
+  box-shadow:0 0 15px 4px rgba(245, 239, 239, 0.915);
 }

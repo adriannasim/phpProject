@@ -10,7 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <link rel="stylesheet" href="css/ticket.css">
 </head>
 
-<body style="background-image: url('img/ticket/back.jpg'); background-repeat: no-repeat; ">
+<body>
     <?php include "headerUser.php"?>
     <br>
 
@@ -57,7 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     </tr>
                     <tr>
                       <td>Participantion Fee</td>
-                      <td>: RM100 per team (5 pax)</td>
+                      <td>: RM20 per team (5 pax)</td>
                     </tr>
                     <tr>
                       <td>Spectator Fee</td>

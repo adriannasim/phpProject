@@ -305,6 +305,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </table>
         </div>
         <button>Edit</button>
-        <a href="Eticket_list.php">Back</a>
+        <div class="back">
+        <a href="Event_List.php">Back</a>
+        </div>
     </body>
 </html>

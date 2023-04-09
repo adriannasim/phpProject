@@ -47,10 +47,15 @@
                             <input type="password" name="txtcvv" placeholder="  CVV" pattern="[0-9]{3}" size="50" style="height:40px" required/>
                         </div>
                         <br><br>
-                            <button type="submit" class="ticket-confirmPayment" >Confirm Payment</button> 
+                            <button type="submit" class="ticket-confirmPayment" onclick="paymentSuccessful()">Confirm Payment</button> 
                         <br><br><br>
                     </form>
                 </div>
+                <script>
+                    function paymentSuccessful(){
+                        alert("Payment successful!");
+                    }
+                </script>
                 <br><br>
         <?php include "footerUser.php"?> 
 </body>
