@@ -1,9 +1,9 @@
 
 .mbanner img{
+    margin-left: 75px;
    margin-top: 120px;
    height: 300px;
    width: 1200px;
-   z-index: 0;
 }  
 #merch{
     color: white;
