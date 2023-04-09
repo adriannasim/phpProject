@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <title>Merch</title>
         <link href="css/merch.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
         <?php include "headerUser.php"?>
@@ -15,7 +16,7 @@
                 <tr>
                     <td><a href="cart.php"><button class="cart">Cart</button></a></td>
                      <td><a href="mHistory.php"><button class="history">History</button></a></td>
-                    <td><button class="filter" onclick="showHideFilter()">Filter<p>&#9660;</p></button></td>
+                    <td><button class="filter" onclick="showHideFilter()">Filter   <i class="fa fa-filter"></i></button></td>
                 </tr>
             </table>
             <section class="hidden">
