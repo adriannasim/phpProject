@@ -122,10 +122,10 @@
                         </div>
                         <h4>Select payment method</h4>
                         <div class="payment-img">
-                            <img src="img/merch/mastercard.png">
-                            <img src="img/merch/visa.png">
-                            <img src="img/merch/paypal.png">
-                            <img src="img/merch/amex.png">
+                            <input type="radio" name="rbpayment" required><img src="img/merch/mastercard.png"></a>
+                            <input type="radio" name="rbpayment"><img src="img/merch/visa.png">
+                            <input type="radio" name="rbpayment"><img src="img/merch/paypal.png">
+                            <input type="radio" name="rbpayment"><img src="img/merch/amex.png">
                         </div>
                         <div class="card-details">
                             <p>Card Owner</p>
