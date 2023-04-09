@@ -129,17 +129,3 @@ tr,td,th{
 .form td{
     height:40px;
 }
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 0.5em;
-  }
-  nav li {
-    margin: 0 1em;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-  }

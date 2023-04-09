@@ -13,3 +13,6 @@ function showHidePayment(){
     }
 }
 
+function addedFunc(){
+    alert("Item added to cart");
+}

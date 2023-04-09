@@ -54,12 +54,12 @@
                     </span>
                     <div class="prod-btn">
                 <a href="merch.php"><button type="button" class="prodbtn" ><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Back</button></a>
-                <button type="submit" class="prodbtn" id="prodbtn2">Add To Cart&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>  
+                <button type="submit" onclick="addedFunc()" class="prodbtn" id="prodbtn2">Add To Cart&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>  
             </div>
                 </form>
-
             </div>
-            
         </div>
+        <script src="javascripts/payment.js"></script>
+        <script src="javascripts/merch.js"></script>
     </body>
 </html>
