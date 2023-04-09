@@ -7,7 +7,7 @@
 
     </head>
     <body>
-        <?php ?>
+        <?php include "headerAdmin.php"?>
         <h1>Event List</h1>
         <br>
         <div class="list">
@@ -68,7 +68,7 @@
                         <td>Participant</td>
                         <td>40</td>
                         <td>50</td>
-                        <td>-</td>
+                        <td><a href="participant.php">View</a></td>
                     </tr>
                     <tr>
                         <td>WARZONE S2 FUN CAMP</td>
@@ -83,7 +83,9 @@
             </table>
         </div>
         <br>
-        <a href="new_seat.php">Add </a>
+        <div class="add">
+        <a href="new_event.php">Add </a>
+        </div>
         <?php ?>
     </body>
 </html>

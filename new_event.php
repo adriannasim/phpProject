@@ -93,8 +93,10 @@ select{
                 </table>
             </div>
             <br>
-            <button input type="submit" value="Create Event" name="Create Event"/>Create Event</button>
-        <a href="Eticket_list.php">Back</a>
+            <button input type="submit" value="Create Event" name="Create Event">Create Event</button>
+            <div class="back">
+            <a href="Event_List.php">Back</a>
+        </div>
     </form>
 
 </body>

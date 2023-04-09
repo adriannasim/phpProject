@@ -139,7 +139,7 @@ h1{
     letter-spacing: .1em;
     padding: 10px;
     margin-top: 15px;
-    margin-left: 98px;
+    margin-left: 125px;
     cursor: pointer;
     transition: all .3s ease;
 }
@@ -160,6 +160,7 @@ h1{
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 120px;
     width: 1000px;
     height: 650px;
     background-color: white;
@@ -204,12 +205,11 @@ h1{
 .payment-img img{
     padding: 5px;
     margin-top: 20px;
-    width: 90px;
-    height: 80px;
+    width: 70px;
+    height: 60px;
     transition: all 0.3s ease;
 }
-.payment-img img:hover, .payment-img img:active{
-    cursor: pointer;
+.payment-img img:hover{
     transform: scale(1.1);
     box-shadow: 2px 2px 30px grey;
     border-radius: 20px;
@@ -221,7 +221,6 @@ h1{
     top: -500px;
 }
 .pay-btn button{
-    float: none;
     background-color: white;
     color: black;
     width: 190px;
@@ -240,6 +239,6 @@ h1{
     transform: scale(1.1);
     background-color: black;
     color:white;
-     border: 2px solid white;
-     cursor: pointer;
+    border: 2px solid white;
+    cursor: pointer;
 }

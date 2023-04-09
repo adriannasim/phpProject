@@ -15,9 +15,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <div class="screenNplayer"> 
             <table>
                 <tr>
-                    <th colspan="14">
+                    <td colspan="14">
                         Screen
-                    </th>
+                    </td>
                 </tr>
                 <tr>
                     <th>Player1</th>
@@ -26,14 +26,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <th>Player4</th>
                     <th>Player5</th>
                     <th>Empty</th>
-                    <th>Empty</th>
                     <th>Player6</th>
                     <th>Player7</th>
                     <th>Player8</th>
                     <th>Player9</th>
                     <th>Player10</th>
-
-
                 </tr>
             </table>
         </div>
@@ -308,6 +305,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </table>
         </div>
         <button>Edit</button>
-        <a href="Eticket_list.php">Back</a>
+        <div class="back">
+        <a href="Event_List.php">Back</a>
+        </div>
     </body>
 </html>

@@ -1,4 +1,6 @@
-
+html{
+    overflow-x: hidden;
+}
 .ebanner{
     overflow: hidden;
     margin-top: 50px;
@@ -145,7 +147,7 @@ h1{
 .events{
     position: relative;
     left: 70%;
-    margin-top: 90%;
+    margin-top: 95%;
     transform: translate(-50%,-50%);
     margin-bottom: -90%;
 }
@@ -208,7 +210,7 @@ h1{
 }
 .event-desc{
     margin-top: 30px;
-    font-size: 14px;
+    font-size: 16px;
     padding: 15px;
     background-color: #e2eef9;
     box-shadow: 6px 6px 20px #03488d;

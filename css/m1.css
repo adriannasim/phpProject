@@ -177,3 +177,7 @@ h1{
     cursor: pointer;
 }
 
+.clickedbtn{
+    background-color: black;
+    color: white;
+}
