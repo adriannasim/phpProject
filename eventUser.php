@@ -50,7 +50,7 @@
                             <p>What awaits you is something like no other...Witness the final battle 
                                 between the last 4 teams standing with a special guest appearance :
                                 THE MPL MY/SG CHAMPION OF S2 RYNN !<br><br> Join us in Mobile Legends' Grand Finale
-                            to meet a real professional gamer in real life !<br><br></p>
+                            to meet a real professional gamer in real life !</p>
                         </div>
                         <div class="event-date">
                             <p> Date  : 28<sup>th</sup> April 2023<br>
@@ -76,7 +76,7 @@
                             <img src="img/event/val.jpg">
                             <p>Ever dream of fighting side-by-side with your best buddies in an
                             E-Sports gaming event? This could be your battle. Assemble all your
-                            comrades because it's showtime!<br><br>
+                            comrades because it's showtime!<br>
                             NOTE : Participants are required to register together in a TEAM OF 5 <br><br>
                             For NON-Gamers : FEAR NOT! You can also witness the ultimate victory of your 
                             friends. What are you waiting for? Grab your tickets NOW!</p>
