@@ -1,12 +1,3 @@
- html {
-    background-color: black;
-    margin-top: 15px;
-    overflow-x: hidden;
-}
-*{
-    margin:0;
-    font-family: cambria; 
-}
 h1{
     color: white;
     text-align: center;

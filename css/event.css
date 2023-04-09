@@ -1,12 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-family: cambria;
-}
 
-body{
-    background-color: black;
-}
 .ebanner{
     overflow: hidden;
     margin-top: 50px;
@@ -92,6 +84,7 @@ h1{
     padding: 10px 5px;
     margin: 10px;
     font-size: 16px;
+    font-family: Cambria;
     border: 2px solid white;
     border-radius: 20px;
     letter-spacing: .1em;
@@ -103,6 +96,7 @@ h1{
     padding: 10px 5px;
     font-size: 16px;
     letter-spacing: .1em;
+    font-family: Cambria;
     width: 100px;
     border: 2px solid white;
     border-radius: 20px;
@@ -135,6 +129,7 @@ h1{
     margin: 5px 10px;
     width: 160px;
     font-size: 16px;
+    font-family: Cambria;
     letter-spacing: 0.1em;
     font-weight: bold;
     float: left;
@@ -148,23 +143,24 @@ h1{
 }
 
 .events{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 135%;
-    transform: translate(-50%,-50%)
+    position: relative;
+    left: 70%;
+    margin-top: 90%;
+    transform: translate(-50%,-50%);
+    margin-bottom: -90%;
 }
 
 .event-card{
     width: 800px;
-    height: 800px;
-    margin-bottom: -60px;
+    height: 600px;
+    margin-bottom: 230px;
+    border: 1px solid black;
 }
 
 .event-front, .event-back{
     backface-visibility: hidden;
     width: 800px;
-    height: 700px;
+    margin-bottom: 30px;
     position: absolute;
     overflow: hidden;
     transition: transform .6s linear;
@@ -173,8 +169,17 @@ h1{
     cursor: pointer;
     transform: perspective(600px) rotateY(0deg);
 }
+
+.event-front h2{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;;
+    letter-spacing: .2em;
+    font-size: 30px;
+}
 .event-back{
-    background-color: black;
+    background-color: rgba(0, 0, 0, .25);
+    height: 820px;
     transform: perspective(600px) rotateY(180deg);
 }
 .event-back h2{
@@ -232,11 +237,12 @@ h1{
     margin-left: 45%;
     margin-top:20px;
     transition: all 0.3s ease;
+    
 }
 .event-btn button:hover{
     background-color: black;
     color: white;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .event-card:hover > .event-front{
     transform: perspective(600px) rotateY(-180deg);

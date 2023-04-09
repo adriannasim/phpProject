@@ -9,11 +9,11 @@
         <?php include "headerUser.php"?>
         <div class="ebanner">
             <figure>
-                <img src="img/event/b1.png" id="b1">
+                <a href="homepage.php"><img src="img/event/b1.png" id="b1"></a>
                 <a href='#mlbb'><img src="img/event/b2.png" id="b2"></a>
                 <a href='#valorant'><img src="img/event/b3.png" id="b3"></a>
                 <a href='#warzone'><img src="img/event/b4.png" id="b4"></a>
-                <img src="img/event/b5.png" id="b5">
+                <a href="ticket.php"><img src="img/event/b5.png" id="b5"></a>
                 <img src="img/event/b6.png" id="b6"/>
                 <a href="merch.php"><img src="img/merch/merch-banner.png" alt="alt" id="b7"/></a>
                 <img src="img/event/b1.png" id="b1"/>
@@ -39,6 +39,8 @@
             <div class="event-card">
                 <div class="event-front" id="mlbb">
                     <img src="img/event/b2.png" width="100%">
+                    <h2>MOBILE LEGENDS : BANG BANG GRAND FINALE</h2>
+                    <img src="img/event/mlbb2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>MOBILE LEGENDS : BANG BANG GRAND FINALE</h2>
@@ -47,7 +49,8 @@
                             <img src="img/event/mlbb.jpg">
                             <p>What awaits you is something like no other...Witness the final battle 
                                 between the last 4 teams standing with a special guest appearance :
-                                THE MPL MY/SG CHAMPION OF S2 RYNN !</p>
+                                THE MPL MY/SG CHAMPION OF S2 RYNN !<br><br> Join us in Mobile Legends' Grand Finale
+                            to meet a real professional gamer in real life !</p>
                         </div>
                         <div class="event-date">
                             <p> Date  : 28<sup>th</sup> April 2023<br>
@@ -55,7 +58,7 @@
                                 Venue : CA, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">
-                            <button class="book">Book Now</button>
+                            <a href="ticket-mlbb.php"><button class="book">Book Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -63,6 +66,8 @@
             <div class="event-card">
                 <div class="event-front" id="valorant">
                     <img src="img/event/b3.png" width="100%">
+                    <h2>VALORANT : BATTLE OF THE ACE</h2>
+                    <img src="img/event/val2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>VALORANT : BATTLE OF THE ACE</h2>
@@ -82,7 +87,7 @@
                                 Venue : FOYER, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">
-                            <button class="book">Join Now</button>
+                        <a href="ticket-valorant.php"><button class="book">Join Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -90,6 +95,8 @@
             <div class="event-card">
                 <div class="event-front" id="warzone">
                     <img src="img/event/b4.png" width="100%">
+                    <h2>WARZONE S2 : GAMING FUN CAMP</h2>
+                    <img src="img/event/warzone2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>WARZONE S2 : GAMING FUN CAMP</h2>
@@ -106,12 +113,12 @@
                                 Venue : CA, TAR UMT<br></p>
                         </div>
                         <div class="event-btn">
-                            <button class="book">Join Now</button>
+                        <a href="ticket-warzone.php"><button class="book">Join Now</button></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-<?php include "footerUser.php"?>  
+        </div> 
+        <?php include "footerUser.php"; ?>
     </body>
 </html>
