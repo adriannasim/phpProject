@@ -114,11 +114,11 @@
                     <form action="" method="post">
                         <div class="contact-details">
                             <p>Name<p>
-                                <input type="text" name="txtname" size="50" placeholder="Enter your name" required/><br><br>
+                                <input type="text" name="txtname" maxlength="50" placeholder="Enter your name" required/><br><br>
                             <p>Email Address</p>
-                            <input type="text" name="txtemail" placeholder="example@gmail.com" required/><br><br>
+                            <input type="email" name="txtemail" placeholder="example@gmail.com" required/><br><br>
                             <p>Phone Number</p>
-                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789" required/><br><br>
+                            <input type="tel" name="txtphone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="E.g: 012-3456789" required/><br><br>
                         </div>
                         <h4>Select payment method</h4>
                         <div class="payment-img">
@@ -129,15 +129,35 @@
                         </div>
                         <div class="card-details">
                             <p>Card Owner</p>
-                            <input type="text" name="txtowner" placeholder="Name on card" required/>
+                            <input type="text" name="txtowner" maxlength="50" placeholder="Name on card" required/>
                             <p>Card Number</p>
-                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" required/>
+                            <input type="text" name="txtcardnum" maxlength="19" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1111-1111-1111-1111" required/>
                             <p>Exp Month</p>
-                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" required/>
+                            <select name="by-month" class="expdate">
+                        <option selected="selected" disabled>By Month</option>
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option>Nov</option>
+                        <option>Dec</option>
+                    </select>
                             <p>Exp Year</p>
-                            <input type="text" name="txtexpyear" placeholder="e.g 2024" required/>
+                            <select name="by-year" class="expdate">
+                        <option selected="selected" disabled>By Year</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                    </select>
                             <p>CVV</p>
-                            <input type="password" name="txtcvv" placeholder="CVV" required/>
+                            <input type="password" name="txtcvv" maxlength="3" placeholder="CVV" required/>
                         </div>
                         <div class="pay-btn">
                             <button type="submit" class="paybtn" >Confirm Payment</button> 

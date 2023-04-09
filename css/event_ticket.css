@@ -1,13 +1,15 @@
 body{
     font-family: Arial, sans-serif;
 }
-.screenNplayer table{
+.screenNplayer table, .screenNplayer td{
     border-collapse: collapse;
     width: 100%;
     border-style: solid;
-    margin: 0 auto;
+    margin: 0 13.5%;
     text-align: center;
+    background-color: lightblue;
 }
+
 .list table{
     border-collapse: collapse;
     width: 100%;
