@@ -6,7 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>index</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <?php
