@@ -84,7 +84,7 @@
         </div>
         <br>
         <div class="add">
-        <a href="new_seat.php">Add </a>
+        <a href="new_event.php">Add </a>
         </div>
         <?php ?>
     </body>
