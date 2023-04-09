@@ -47,7 +47,7 @@
                             <img src="img/event/mlbb.jpg">
                             <p>What awaits you is something like no other...Witness the final battle 
                                 between the last 4 teams standing with a special guest appearance :
-                                THE MPL MY/SG CHAMPION OF S2 RYNN ! Join us in Mobile Legends' Grand Finale
+                                THE MPL MY/SG CHAMPION OF S2 RYNN !<br><br> Join us in Mobile Legends' Grand Finale
                             to meet a real professional gamer in real life !</p>
                         </div>
                         <div class="event-date">
