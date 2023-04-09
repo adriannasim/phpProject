@@ -204,12 +204,11 @@ h1{
 .payment-img img{
     padding: 5px;
     margin-top: 20px;
-    width: 90px;
-    height: 80px;
+    width: 70px;
+    height: 60px;
     transition: all 0.3s ease;
 }
-.payment-img img:hover, .payment-img img:active{
-    cursor: pointer;
+.payment-img img:hover{
     transform: scale(1.1);
     box-shadow: 2px 2px 30px grey;
     border-radius: 20px;
