@@ -6,6 +6,7 @@
         <link href="css/event.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php include "headerUser.php"?>
         <div class="ebanner">
             <figure>
                 <img src="img/event/b1.png" id="b1">
@@ -14,7 +15,7 @@
                 <a href='#warzone'><img src="img/event/b4.png" id="b4"></a>
                 <img src="img/event/b5.png" id="b5">
                 <img src="img/event/b6.png" id="b6"/>
-                <a href="merch.php"><img src="img/event/merch-banner.png" alt="alt" id="b7"/></a>
+                <a href="merch.php"><img src="img/merch/merch-banner.png" alt="alt" id="b7"/></a>
                 <img src="img/event/b1.png" id="b1"/>
             </figure>
         </div>
@@ -70,7 +71,8 @@
                             <img src="img/event/val.jpg">
                             <p>Ever dream of fighting side-by-side with your best buddies in an
                             E-Sports gaming event? This could be your battle. Assemble all your
-                            comrades because it's showtime!<br>
+                            comrades because it's showtime!<br><br>
+                            NOTE : Participants are required to register together in a TEAM OF 5 <br><br>
                             For NON-Gamers : FEAR NOT! You can also witness the ultimate victory of your 
                             friends. What are you waiting for? Grab your tickets NOW!</p>
                         </div>
@@ -110,6 +112,6 @@
                 </div>
             </div>
         </div>
-
+<?php include "footerUser.php"?>  
     </body>
 </html>

@@ -6,9 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
-        <div class="logo">
-            <img src="img/merch/logo.png" alt="" width="100%"/>
-        </div>
+        <?php include "headerUser.php"?>
         <h1>Cart</h1>
         <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>
@@ -116,11 +114,11 @@
                     <form action="" method="post">
                         <div class="contact-details">
                             <p>Name<p>
-                                <input type="text" name="txtname" size="50" placeholder="Enter your name" /><br><br>
+                                <input type="text" name="txtname" size="50" placeholder="Enter your name" required/><br><br>
                             <p>Email Address</p>
-                            <input type="text" name="txtemail" placeholder="example@gmail.com"/><br><br>
+                            <input type="text" name="txtemail" placeholder="example@gmail.com" required/><br><br>
                             <p>Phone Number</p>
-                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789"/><br><br>
+                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789" required/><br><br>
                         </div>
                         <h4>Select payment method</h4>
                         <div class="payment-img">
@@ -131,23 +129,24 @@
                         </div>
                         <div class="card-details">
                             <p>Card Owner</p>
-                            <input type="text" name="txtowner" placeholder="Name on card"/>
+                            <input type="text" name="txtowner" placeholder="Name on card" required/>
                             <p>Card Number</p>
-                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" />
+                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" required/>
                             <p>Exp Month</p>
-                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" />
+                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" required/>
                             <p>Exp Year</p>
-                            <input type="text" name="txtexpyear" placeholder="e.g 2024" />
+                            <input type="text" name="txtexpyear" placeholder="e.g 2024" required/>
                             <p>CVV</p>
-                            <input type="password" name="txtcvv" placeholder="CVV" />
+                            <input type="password" name="txtcvv" placeholder="CVV" required/>
+                        </div>
+                        <div class="pay-btn">
+                            <button type="submit" class="paybtn" >Confirm Payment</button> 
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="pay-btn">
-                <button type="submit" class="paybtn">Confirm Payment</button>
-            </div>
         </div>
+        <?php include "footerUser.php"?>
         <script src="javascripts/payment.js"></script>
     </body>
 </html>

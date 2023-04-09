@@ -14,15 +14,6 @@
    width: 1200px;
    z-index: 0;
 } 
-
-.logo{
-    margin: auto;
-    margin-top: -50px;
-    width: 200px;
-    height: 50px;
-    z-index: 1;
-}
-
 h1{
     color: white;
     text-align: center;
@@ -159,4 +150,5 @@ h5{
     cursor: pointer;
     transform: scale(1.1);
 }
+
 

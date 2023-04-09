@@ -8,14 +8,6 @@
     font-family: cambria; 
     box-sizing: border-box;
 }
-.logo{
-    margin: auto;
-    margin-top: -50px;
-    width: 200px;
-    height: 50px;
-    z-index: 1;
-}
-
 h1{
     color: white;
     text-align: center;
@@ -175,7 +167,7 @@ h1{
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
-    height: 600px;
+    height: 650px;
     background-color: white;
 }
 .payment-details{
@@ -204,21 +196,31 @@ h1{
 }
 .payment-img img{
     padding: 5px;
+    margin-top: 20px;
     width: 90px;
     height: 80px;
+    transition: all 0.3s ease;
 }
+.payment-img img:hover, .payment-img img:active{
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 2px 2px 30px grey;
+    border-radius: 20px;
+}
+
 .card-details{
     float: right;
     position: relative;
     top: -500px;
 }
 .pay-btn button{
+    float: none;
     background-color: white;
     color: black;
     width: 170px;
     height: 50px;
-    margin-top: 30px;
-    margin-left: 584px;
+    margin-top: 90px;
+    margin-left:290px; 
     padding: 10px;
     border: 2px solid white;
     font-size: 15px;
