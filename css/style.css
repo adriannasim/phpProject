@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    color: white;
 }
 /*End of global styles*/
 
@@ -111,5 +112,37 @@ body {
 /*End of footer styles*/
 
 /*Start of helpdeskUser.php styles*/
+.helpUser-header {
+    text-align: center;
+}
+
+.helpUser-form {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.89);
+    margin: 10px 35% 10px 35%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.helpUser-form-group input, .helpUser-form-group textarea {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 10px;
+    margin-bottom: 10px;
+}
+
+.helpUser-form-group textarea {
+    height: 30%;
+    width: 50%;
+    resize: none;
+}
+
+.helpUser-form-group input:focus, .helpUser-form-group textarea:focus {
+    border: 3px solid black;
+}
 
 /*End of helpdeskUser.php styles*/
