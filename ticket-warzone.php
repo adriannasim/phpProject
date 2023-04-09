@@ -33,7 +33,7 @@
             </div>
             <br>
             <input type="reset" value="Reset" class="ticket-reset">  
-            <input type="submit" value="Pay Now" class="ticket-paynow">
+            <input type="submit" value="Pay Now" class="ticket-paynow" onclick="window.location.href = 'ticket-payment.php'">
         </form>
     </div>
     <br><br>

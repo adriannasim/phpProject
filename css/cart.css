@@ -155,6 +155,7 @@ h1{
 .checkout:hover{
     transform: scale(1.1);
 }
+
 #payment{
     color: white;
     font-size: 25px;
