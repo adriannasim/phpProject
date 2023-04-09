@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <title>Product</title>
         <link href="css/m2.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
         <div class="logo">
@@ -41,13 +42,14 @@
                         <label for="qty">Quantity</label>
                         <input type="number" name="qty" value="1" min="1" max="30">
                     </span>
+                    <div class="prod-btn">
+                <a href="merch.php"><button type="button" class="prodbtn" ><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Back</button></a>
+                <button type="submit" class="prodbtn" id="prodbtn2">Add To Cart&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>
+            </div>
                 </form>
 
             </div>
-            <div class="prod-btn">
-                <a href="merch.php"><button type="button" class="prodbtn" >&#8678; Back </button></a>
-                <button type="button" class="prodbtn" >Add To Cart &#128722;</button>  
-            </div>
+            
         </div>
     </body>
 </html>

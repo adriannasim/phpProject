@@ -9,6 +9,7 @@ body{
 }
 .ebanner{
     overflow: hidden;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 .ebanner figure{
@@ -150,13 +151,13 @@ h1{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: 105%;
+    margin-top: 135%;
     transform: translate(-50%,-50%)
 }
 
 .event-card{
     width: 800px;
-    height: 700px;
+    height: 800px;
     margin-bottom: -60px;
 }
 
@@ -173,7 +174,7 @@ h1{
     transform: perspective(600px) rotateY(0deg);
 }
 .event-back{
-    background-color: captiontext;
+    background-color: black;
     transform: perspective(600px) rotateY(180deg);
 }
 .event-back h2{
@@ -182,6 +183,7 @@ h1{
     letter-spacing: .2em;
     line-height: 2em;
     background-color: #cde3f9;
+    color: black;
     border-radius: 20px 20px 0 0;
     box-shadow: 6px 6px 20px #03488d;
 }

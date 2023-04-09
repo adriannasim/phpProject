@@ -5,13 +5,11 @@
         <link href="css/merch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="logo">
-            <img src="img/merch/logo.png" alt="" width="100%"/>
-        </div>
+        <?php include "headerUser.php"?>
         <div class="mbanner">
-            <img src="img/merch/merch-banner.png" />
+            <a href="#merch"><img src="img/merch/merch-banner.png" /></a>
         </div>
-        <h1>Merch</h1>
+        <h1 id="merch">Merch</h1>
         <div class="merchfeature">
             <table class="merchfunc">
                 <tr>
@@ -82,6 +80,7 @@
                 <a href="m8.php"><button class="buy3">Buy Now</button></a>
             </div>
         </div>
+        <?php include "footerUser.php"?>
         <script src="javascripts/merch.js"></script>
     </body>
 </html>
