@@ -28,7 +28,7 @@
                 <a href=""><img src="img/footer/whatsapp.svg" /></a>
             </div>
             <div class="footer-support">
-                <a href="helpdeskUser.php"><h2>Feedback</h2></a>
+                <a href=""><h2>Feedback</h2></a>
                 <br/>
                 <a href=""><h2>Support</h2></a>
             </div>
