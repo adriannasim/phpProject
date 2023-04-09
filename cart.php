@@ -6,9 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
-        <div class="logo">
-            <img src="img/logo.png" alt="" width="100%"/>
-        </div>
+        <?php include "headerUser.php"?>
         <h1>Cart</h1>
         <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>
@@ -18,7 +16,7 @@
             <div class="cart-section">
                 <div class="cart-details">
                     <div class="prod-box">
-                        <img src="img/m1-front.jpg" alt="alt"/>
+                        <img src="img/merch/m1-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Gaming Controller T-Shirt</h3>
                             <h4>Price: RM 50</h4>
@@ -28,7 +26,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m2-front.jpg" alt="alt"/>
+                        <img src="img/merch/m2-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Typical Gamer Baseball Cap</h3>
                             <h4>Price: RM 40</h4>
@@ -38,7 +36,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m3-front.jpg" alt="alt"/>
+                        <img src="img/merch/m3-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Saving the World by Levels Tote Bag</h3>
                             <h4>Price: RM 35</h4>
@@ -48,7 +46,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m4-front.jpg" alt="alt"/>
+                        <img src="img/merch/m4-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>I Paused My Game Tote Bag</h3>
                             <h4>Price: RM 35</h4>
@@ -58,7 +56,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m5-back.jpg" alt="alt"/>
+                        <img src="img/merch/m5-back.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Typical Gamer Hoodie</h3>
                             <h4>Price: RM 80</h4>
@@ -68,7 +66,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m6-front.jpg" alt="alt"/>
+                        <img src="img/merch/m6-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Typical Gamer Sweater</h3>
                             <h4>Price: RM 75</h4>
@@ -78,7 +76,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m7-front.jpg" alt="alt"/>
+                        <img src="img/merch/m7-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Hipster T-Shirt</h3>
                             <h4>Price: RM 50</h4>
@@ -88,7 +86,7 @@
                         </div>
                     </div>
                     <div class="prod-box">
-                        <img src="img/m8-front.jpg" alt="alt"/>
+                        <img src="img/merch/m8-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Air Force Gaming Baseball Cap</h3>
                             <h4>Price: RM 40</h4>
@@ -116,38 +114,39 @@
                     <form action="" method="post">
                         <div class="contact-details">
                             <p>Name<p>
-                                <input type="text" name="txtname" size="50" placeholder="Enter your name" /><br><br>
+                                <input type="text" name="txtname" size="50" placeholder="Enter your name" required/><br><br>
                             <p>Email Address</p>
-                            <input type="text" name="txtemail" placeholder="example@gmail.com"/><br><br>
+                            <input type="text" name="txtemail" placeholder="example@gmail.com" required/><br><br>
                             <p>Phone Number</p>
-                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789"/><br><br>
+                            <input type="text" name="txtphone" placeholder="E.g: 012-3456789" required/><br><br>
                         </div>
                         <h4>Select payment method</h4>
                         <div class="payment-img">
-                            <img src="img/mastercard.png">
-                            <img src="img/visa.png">
-                            <img src="img/paypal.png">
-                            <img src="img/amex.png">
+                            <img src="img/merch/mastercard.png">
+                            <img src="img/merch/visa.png">
+                            <img src="img/merch/paypal.png">
+                            <img src="img/merch/amex.png">
                         </div>
                         <div class="card-details">
                             <p>Card Owner</p>
-                            <input type="text" name="txtowner" placeholder="Name on card"/>
+                            <input type="text" name="txtowner" placeholder="Name on card" required/>
                             <p>Card Number</p>
-                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" />
+                            <input type="text" name="txtcardnum" placeholder="1111-1111-1111-1111" required/>
                             <p>Exp Month</p>
-                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" />
+                            <input type="text" name="txtexpmonth" placeholder="e.g Jan" required/>
                             <p>Exp Year</p>
-                            <input type="text" name="txtexpyear" placeholder="e.g 2024" />
+                            <input type="text" name="txtexpyear" placeholder="e.g 2024" required/>
                             <p>CVV</p>
-                            <input type="password" name="txtcvv" placeholder="CVV" />
+                            <input type="password" name="txtcvv" placeholder="CVV" required/>
+                        </div>
+                        <div class="pay-btn">
+                            <button type="submit" class="paybtn" >Confirm Payment</button> 
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="pay-btn">
-                <button type="submit" class="paybtn">Confirm Payment</button>
-            </div>
         </div>
-        <script src="payment.js"></script>
+        <?php include "footerUser.php"?>
+        <script src="javascripts/payment.js"></script>
     </body>
 </html>
