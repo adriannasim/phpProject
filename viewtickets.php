@@ -17,19 +17,25 @@
                 <th>Event</th>
                 <th>Ticket Type</th>
                 <th>Fee</th>
+                <th>Time</th>
+                <th>Venue</th>
                 <th>Seat</th>
             </tr>
             <tr>
                 <td>MLBB Tournament</td>
                 <td>VIP</td>
                 <td>RM50</td>
-                <td>Row: A<br>Column: 7</td>
+                <td>10AM - 4PM</td>
+                <td>CA, TAR UMT</td>
+                <td><b>Row:</b> A<br><b>Column:</b> 7</td>
             </tr>
             <tr>
                 <td>Valorant</td>
                 <td>Standard</td>
                 <td>RM40</td>
-                <td>Row: C<br>Column: 9</td>
+                <td>10AM - 4PM</td>
+                <td>FOYER, TAR UMT</td>
+                <td><b>Row:</b> C<br><b>Column:</b> 9</td>
             </tr>
         </table>
     </div>
