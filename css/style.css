@@ -252,3 +252,82 @@ body {
     padding: 5px 0;
 }
 /*End of helpdeskUser.php styles*/
+
+/*Start of addEvent.php styles*/
+.addEvent-header {
+    text-align: center;
+}
+
+.addEvent-form {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.89);
+    margin: 10px 20% 10px 20%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.addEvent-form label {
+    color: black;
+}
+
+.addEvent-form-group input, .addEvent-form-group textarea {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 10px;
+    margin-bottom: 10px;
+}
+
+.addEvent-form-group textarea {
+    height: 30%;
+    width: 50%;
+    resize: none;
+}
+
+.addEvent-form-group input:focus, .addEvent-form-group textarea:focus {
+    border: 3px solid black;
+}
+
+.addEvent-form-btn input {
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4f6874;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.addEvent-form-error {
+    color: white;
+    background-color: rgb(241, 75, 83);
+    margin: 0 25% 10px 25%;
+    padding: 5px 0;
+}
+
+.addEvent-form-success {
+    color: white;
+    background-color: green;
+    margin: 0 25% 10px 25%;
+    padding: 5px 0;
+}
+/*End of addEvent.php styles*/
+
+/*Start of editEvent.php styles*/
+.editEvents-header {
+    text-align: center;
+}
+.editEvents-searchBar {
+    margin: 10px 40% 10px 40%;
+}
+
+.editEvents-searchBar td {
+    width: 300px;
+}
+
+
+/*End of editEvent.php styles*/
