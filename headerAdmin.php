@@ -22,8 +22,8 @@
                         <li class="headerA-dropBtn"><a href="">Ticketing</a></li>
                         <div class="headerA-dropctn">
                             <ul>
-                                <li><a href="updateSeats.php">Edit Event Seats</a></li>
-                                <li><a href="editBookings.php">Edit Bookings</a></li>
+                                <li><a href="new_seat.php">New Seats</a></li>
+                                <li><a href="seating_plan.php">Change Seating Plan</a></li>
                             </ul>
                         </div>
                     </div>
