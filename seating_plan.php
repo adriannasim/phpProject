@@ -10,7 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <link href="css/event_ticket.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
+    <?php include "headerAdmin.php"?>
         <h1>Seating Plan</h1>
         <div class="screenNplayer"> 
             <table>

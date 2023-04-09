@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             color: white;
         }
 
-        a {
+        .back a {
             display: inline-block;
             outline: none;
             cursor: pointer;
@@ -65,7 +65,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             text-decoration: none;
         }
 
-        a:hover {
+        .back a:hover {
             transition-duration: 0.5s;
             color: black;
             background-color: #9999ff;
@@ -75,6 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 </head>
 
 <body>
+<?php include "headerAdmin.php"?>
     <h1>Participant Table For Valorant</h1>
     <table>
         <thead>
@@ -115,7 +116,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </tr>
         </tbody>
     </table>
+    <div class="back">
     <a href="Event_List.php">Back</a>
+    </div>
 </body>
 
 </html>
