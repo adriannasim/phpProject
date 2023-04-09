@@ -62,22 +62,22 @@
                         <td><a href="seating_plan.php">View</a></td>
                     </tr>
                     <tr>
-                        <td>WARZONE S2</td>
+                        <td>VALORANT </td>
+                        <td>20/05/2023</td>
+                        <td>10AM - 4PM</td>
+                        <td>Participant</td>
+                        <td>40</td>
+                        <td>50</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>WARZONE S2 FUN CAMP</td>
                         <td>12/6/2023 - 16/6/2023</td>
                         <td>TO BE SPECIFED</td>
                         <td>Standard</td>
                         <td>20</td>
-                        <td>120</td>
-                        <td><a href="seating_plan.php">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>WARZONE S2</td>
-                        <td>12/6/2023 - 16/6/2023</td>
-                        <td>TO BE SPECIFED</td>
-                        <td>VIP</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td><a href="seating_plan.php">View</a></td>
+                        <td>-</td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
