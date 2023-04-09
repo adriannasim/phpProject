@@ -151,7 +151,7 @@ h1{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: 135%;
+    margin-top: 138%;
     transform: translate(-50%,-50%)
 }
 
@@ -159,6 +159,7 @@ h1{
     width: 800px;
     height: 800px;
     margin-bottom: -60px;
+    border: 1px solid black;
 }
 
 .event-front, .event-back{
@@ -172,6 +173,14 @@ h1{
 .event-front{
     cursor: pointer;
     transform: perspective(600px) rotateY(0deg);
+}
+
+.event-front h2{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;;
+    letter-spacing: .2em;
+    font-size: 30px;
 }
 .event-back{
     background-color: black;

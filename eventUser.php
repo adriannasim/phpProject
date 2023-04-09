@@ -39,6 +39,8 @@
             <div class="event-card">
                 <div class="event-front" id="mlbb">
                     <img src="img/event/b2.png" width="100%">
+                    <h2>MOBILE LEGENDS : BANG BANG GRAND FINALE</h2>
+                    <img src="img/event/mlbb2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>MOBILE LEGENDS : BANG BANG GRAND FINALE</h2>
@@ -48,7 +50,7 @@
                             <p>What awaits you is something like no other...Witness the final battle 
                                 between the last 4 teams standing with a special guest appearance :
                                 THE MPL MY/SG CHAMPION OF S2 RYNN !<br><br> Join us in Mobile Legends' Grand Finale
-                            to meet a real professional gamer in real life !</p>
+                            to meet a real professional gamer in real life !<br><br></p>
                         </div>
                         <div class="event-date">
                             <p> Date  : 28<sup>th</sup> April 2023<br>
@@ -64,6 +66,8 @@
             <div class="event-card">
                 <div class="event-front" id="valorant">
                     <img src="img/event/b3.png" width="100%">
+                    <h2>VALORANT : BATTLE OF THE ACE</h2>
+                    <img src="img/event/val2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>VALORANT : BATTLE OF THE ACE</h2>
@@ -91,6 +95,8 @@
             <div class="event-card">
                 <div class="event-front" id="warzone">
                     <img src="img/event/b4.png" width="100%">
+                    <h2>WARZONE S2 : GAMING FUN CAMP</h2>
+                    <img src="img/event/warzone2.png" width="100%">
                 </div>
                 <div class="event-back">
                     <h2>WARZONE S2 : GAMING FUN CAMP</h2>
@@ -112,7 +118,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-<?php include "footerUser.php"?>  
+        </div> 
     </body>
 </html>
