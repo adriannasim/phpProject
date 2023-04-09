@@ -1,7 +1,7 @@
 body{
-  background-color: black;
   color: white;
   font-family: Cambria;
+
 }
 
 * {box-sizing: border-box}
@@ -32,7 +32,7 @@ body{
   position: absolute;
   bottom: 0;
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.8); /* Black see-through */
+  background: rgba(0, 0, 0, 0.8); 
   color: #f1f1f1;
   width: 100%;
   transition: .5s ease;
@@ -44,7 +44,7 @@ body{
   height:auto;
 }
 
-.ticket-overlay1 p {
+.ticket-overlay1  td{
   text-align: left;
 }
 
@@ -76,6 +76,12 @@ body{
   display: block;
   width: 100%;
   height: auto;
+}
+
+.ticket-mlbb-seat {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 25px;
 }
 
@@ -89,30 +95,29 @@ body{
   font-size: 20px;
 }
 
-.ticket-mlbb-table td{
+.ticket-mlbb-contacttable td{
   padding: 20px;
 }
 
-.ticket-mlbb-seat{
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 25px;
+
+.ticket-mlbb-seattable td{
+  padding: 20px;
 }
 
-.ticket-register {
+.ticket-paynow {
   background-color: white;
   border-radius: 100px;
   color: black;
   cursor: pointer;
   display: inline-block;
   padding: 7px 20px;
-  text-align: center;
+  text-align: right;
   text-decoration: none;
   transition: all 250ms;
   border: 0;
   font-size: 20px;
   font-family: Cambria;
+  float: right;
 }
 
 .ticket-reset {
@@ -130,7 +135,7 @@ body{
   font-family: Cambria;
 }
 
-.ticket-register:hover {
+.ticket-paynow:hover {
   transform: scale(1.2) rotate(-1deg);
 }
 
@@ -138,3 +143,18 @@ body{
   transform: scale(1.2) rotate(-1deg);
 }
 
+.ticket-valorant-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ticket-valorant-form {
+  color:black;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 20px;
+}

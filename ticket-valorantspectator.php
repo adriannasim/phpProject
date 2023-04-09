@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MLBB Tournament Registration Form</title>
+    <title>VALORANT Registration Form</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/ticket.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -9,12 +9,12 @@
 
 <body> 
     <?php include "headerUser.php"?>
-    <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
-    <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1>
     <br>
+    <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">SPECTATOR</h1>
     <div class="ticket-mlbb-form">
         <form>
-            <div class="ticket-mlbb-contacttable">
+        
+        <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
                 <table>
                     <tr>
@@ -32,7 +32,7 @@
                 </table>
             </div>
 
-    <br><hr><br>
+        <br><hr><br>
             <h2><i>Choose your seat</i></h2>
             <img src="img\ticket\Ticket.png" alt="seat" class="ticket-mlbb-seat">
             <br>
@@ -90,7 +90,7 @@
             <input type="submit" value="Pay Now" class="ticket-paynow">
         </form>
     </div>
-    <br><br>
+
     <?php include "footerUser.php"?>  
 </body>
 </html>
