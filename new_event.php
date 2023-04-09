@@ -25,7 +25,7 @@ select{
         <link href="css/event_ticket.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
+    <?php include "headerAdmin.php"?>
         <h1>Add New Event Details</h1>
         <br>
         <form action="/create-event" method="post">
