@@ -115,7 +115,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </tr>
         </tbody>
     </table>
-    <a href="Eticket_list.php">Back</a>
+    <a href="Event_List.php">Back</a>
 </body>
 
 </html>
