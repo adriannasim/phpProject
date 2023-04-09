@@ -1,36 +1,8 @@
-<?php 
-function checkInput(){
-    global $name, $email, $msg, $nameErr, $emailErr, $msgErr;
-    $error = false;
-    $nameErr = $emailErr = $msgErr = "";
-
-    if($name == NULL) {
-        $nameErr = 'Please enter your name';
-        $error = true;
-    }
-
-    if ($email == NULL) {
-        $emailErr = 'Please enter your email';
-        $error = true;
-    } else if (!preg_match("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/", $email)) {
-        $emailErr = 'Please enter a valid email';
-        $error = true;
-    }
-
-    if($msg == NULL) {
-        $msgErr = 'Please enter your message';
-        $error = true;
-    }
-
-    return $error;
-}
-?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>HelpDesk</title>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <script src="helpUser.js" defer></script>
     </head>
     <body>
         <?php include "headerUser.php"; ?>

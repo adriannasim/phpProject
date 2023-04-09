@@ -13,7 +13,7 @@
     <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">War Zone S2: Gaming Event</h1>
     <br>
     <div class="ticket-mlbb-form">
-        <form>
+        <form action="ticket-payment.php">
             <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
                 <table>
@@ -33,7 +33,7 @@
             </div>
             <br>
             <input type="reset" value="Reset" class="ticket-reset">  
-            <input type="submit" value="Pay Now" class="ticket-paynow" onclick="window.location.href = 'ticket-payment.php'">
+            <input type="submit" value="Pay Now" class="ticket-paynow">
         </form>
     </div>
     <br><br>

@@ -1,0 +1,18 @@
+.viewTicketTable table, th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 20px;
+    font-family: Cambria;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.viewTicketTable tr:hover{
+    background-color: lightseagreen;
+}
+
+.viewTicketTable th{
+    background-color: #04AA6D;
+    color: white;
+}

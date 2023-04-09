@@ -24,7 +24,7 @@
             <div class="searchEvent">
                 <form action="" method="get">
                     <input type="text" name="search" placeholder="Browse for Events"/>
-                    <button class="searchbtn">Search<span><b> &#8594;</b></span></button>
+                    <button class="searchbtn">Search  <i class="fa fa-search"></i></button>
                 </form>
             </div>
             <div class="filterEvent">

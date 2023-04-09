@@ -13,8 +13,8 @@
                         <li class="headerA-dropBtn"><a href="">Events</a></li>
                         <div class="headerA-dropctn">
                             <ul>
-                                <li><a href="addEvents.php">Add Events</a></li>
-                                <li><a href="editEvents.php">Edit Events</a></li>
+                                <li><a href="eventAdd.php">Add Events</a></li>
+                                <li><a href="eventEdit.php">Edit Events</a></li>
                             </ul>
                         </div>
                     </div>
