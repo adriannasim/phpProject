@@ -82,6 +82,6 @@
                 <a href="m8.php"><button class="buy3">Buy Now</button></a>
             </div>
         </div>
-        <script src="merch.js"></script>
+        <script src="javascripts/merch.js"></script>
     </body>
 </html>

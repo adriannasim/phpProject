@@ -148,6 +148,6 @@
                 <button type="submit" class="paybtn">Confirm Payment</button>
             </div>
         </div>
-        <script src="payment.js"></script>
+        <script src="javascripts/payment.js"></script>
     </body>
 </html>
