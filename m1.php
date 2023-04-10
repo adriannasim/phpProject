@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="logo">
-            <img src="img/merch/logo.png" alt="" width="100%"/>
+            <img src="img/header/logo.png" alt="" width="100%"/>
         </div>
         <h1>Product</h1>
         <div class="slide-container">
