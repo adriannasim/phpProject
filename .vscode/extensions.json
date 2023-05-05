@@ -3,6 +3,7 @@
         "devsense.phptools-vscode",
         "xdebug.php-debug",
         "brapifra.phpserver",
-        "github.vscode-pull-request-github"
+        "github.vscode-pull-request-github",
+        "formulahendry.vscode-mysql"
     ]
 }
