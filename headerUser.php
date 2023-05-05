@@ -13,7 +13,7 @@
                     <li class="header-navBtn-center"><a href="ticket.php">Buy Tickets</a></li>
                     <li class="header-navBtn-center"><a href="merch.php">Our Merchandise</a></li>
                     <li class="header-navBtn-center"><a href="helpdeskUser.php">Need Help?</a></li>
-                    <li class="header-navBtn-right"><a href="user.php"><img src="img/header/user.png" width="30px" height="30px"/></a></li>
+                    <li class="header-navBtn-right"><a href="viewtickets.php"><img src="img/header/user.png" width="30px" height="30px"/></a></li>
                     <li class="header-navBtn-right"><a href="cart.php"><img style="filter: invert(1);" src="img/header/cart.png" width="50px" height="30px"/></a></li>
                 </ul>
             </div>
