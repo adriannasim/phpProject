@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2023 at 10:16 AM
+-- Generation Time: May 05, 2023 at 07:35 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `esports&gaming`
+-- Database: `chang`
 --
 
 -- --------------------------------------------------------
@@ -154,6 +154,17 @@ CREATE TABLE `purchase` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `seat`
+--
+
+CREATE TABLE `seat` (
+  `SeatID` varchar(4) NOT NULL,
+  `Seat_Type` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ticket_buy`
 --
 
@@ -174,7 +185,8 @@ CREATE TABLE `ticket_info` (
   `TicketID` varchar(5) NOT NULL,
   `TicketPrice` double(7,2) NOT NULL,
   `TicketType` varchar(5) NOT NULL,
-  `TicketQty` int(3) NOT NULL
+  `TicketQty` int(3) NOT NULL,
+  `SeatID` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -257,6 +269,12 @@ ALTER TABLE `purchase`
   ADD PRIMARY KEY (`PurchaseID`);
 
 --
+-- Indexes for table `seat`
+--
+ALTER TABLE `seat`
+  ADD PRIMARY KEY (`SeatID`);
+
+--
 -- Indexes for table `ticket_buy`
 --
 ALTER TABLE `ticket_buy`
@@ -266,13 +284,24 @@ ALTER TABLE `ticket_buy`
 -- Indexes for table `ticket_info`
 --
 ALTER TABLE `ticket_info`
-  ADD PRIMARY KEY (`TicketID`);
+  ADD PRIMARY KEY (`TicketID`),
+  ADD KEY `SeatID` (`SeatID`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`UserID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `ticket_info`
+--
+ALTER TABLE `ticket_info`
+  ADD CONSTRAINT `ticket_info_ibfk_1` FOREIGN KEY (`SeatID`) REFERENCES `seat` (`SeatID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
