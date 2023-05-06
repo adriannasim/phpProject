@@ -85,6 +85,7 @@ h1{
 .searchEvent input{
     padding: 10px 5px;
     margin: 10px;
+    color: white;
     font-size: 16px;
     font-family: Cambria;
     border: 2px solid white;
