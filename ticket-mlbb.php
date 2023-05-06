@@ -9,25 +9,88 @@
 
 <body> 
     <?php include "headerUser.php"?>
+    <?php
+        include "./header.php";
+        require_once './db_config/helper.php';
+        ?>
+        <h1> Insert Student</h1>
+        
+        <?php
+        if (!empty($_POST)){
+
+            $name=trim($_POST['name']);
+            $email=trim($_POST['email']);
+            $phone=trim($_POST['phone']);
+            if(isset($_POST['ticketType'])){
+            $ticketType=trim($_POST['ticketType']);
+            }else{
+                $ticketType="";
+            }
+            
+            //check/ validate  all the user input
+            $error['name']=checkRegisterName($name);
+            $error['email']=checkRegisterEmail($email);
+            $error['phone']= checkRegisterPhone($phone);
+            $error['ticketType']= checkTicketType($ticketType);
+
+            $error=array_filter($error);
+            
+            if(empty($error)){
+                //no error, insert record, later
+                //STEP 1:create connection
+                $con=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+                //step 2: sql statement
+                $sql="INSERT INTO Student(StudentID,StudentName,Gender,Program) VALUES(?,?,?,?)";
+                $stmt=$con->prepare($sql);
+                $stmt->bind_param('ssss',$id,$name,$gender,$program);
+                
+                //step 3: run sql
+                $stmt->execute();
+                
+                //check how many record inserted?
+                if($stmt->affected_rows>0){
+                    printf("<div class='info'>
+                            Student <b>%s</b> has been inserted. [<a href='list-student.php'>Back to list</a>]</div>",$name);
+                }else{
+                    //inserted failed
+                    echo "<div class='error'>Unable to insert.</div>";
+                }
+                //step 4: close connection
+                $con->close();
+                $stmt->close();
+            }else{
+                //with error, DISPLAY error message
+                echo"<ul class='error'>";
+                foreach ($error as $value){
+                    echo"<li>$value</li>";
+                }
+                echo"</ul>";
+                 
+            }
+        }else{
+            
+        }
+    ?>
+
     <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
     <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1>
     <br>
     <div class="ticket-mlbb-form">
-        <form action="ticket-payment.php">
+        <form action="ticket-payment.php" method="post">
             <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
                 <table>
                     <tr>
                         <td><label for="name"><i class="fa fa-user"><b> Full Name</b></label></td>
-                        <td>: <input type="text" id="name" name="name" placeholder="Enter your name" size="50" style="height:30px" required></td>
+                        <td>: <input type="text" id="name" name="name" placeholder="Enter your name" size="50" style="height:30px" value="<?php echo (isset($name))?$name:'';?>"></td>
                     </tr>
                     <tr>
                         <td><label for="email"><i class="fa fa-envelope"><b> Email</b></label></td>
-                        <td>: <input type="email" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" required> <br><small>Format: example@example.com</small></td>
+                        <td>: <input type="email" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))?$email:'';?>"> <br><small>Format: example@example.com</small></td>
                     </tr>
                     <tr>
                         <td><label for="phone"><i class="fa fa-phone"></i><b> Contact Number</b></label></td>
-                        <td>: <input type="tel" id="phone" name="phone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="Enter your phone number" size="50" style="height:30px" required> <br><small>Format: 012-3456789</small></td>
+                        <td>: <input type="tel" id="phone" name="phone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="Enter your phone number" size="50" style="height:30px" value="<?php echo (isset($phone))?$phone:'';?>"> <br><small>Format: 012-3456789</small></td>
                     </tr>
                 </table>
             </div>
@@ -41,7 +104,7 @@
                     <tr>
                         <td><label for="ticketType"><i class="fa fa-ticket"></i><b> Ticket type:</b></label></td>
                         <td>
-                            <input type="radio" id="vip" name="ticketType" value="VIP" required>
+                            <input type="radio" id="vip" name="ticketType" value="VIP" >
                             <label for="vip">VIP [ RM50 ]</label>
                             <input type="radio" id="standard" name="ticketType" value="Standard">
                             <label for="standard">Standard [ RM40 ]</label>
@@ -50,7 +113,7 @@
                     <tr>
                         <td>
                             <label for="row"><b>Row:</b></label>
-                            <select name="row" id="row" style="height:30px; width:100px;" required>
+                            <select name="row" id="row" style="height:30px; width:100px;" >
                                 <option value="" disabled selected>Choose row</option>
                                 <option value="a">A</option>
                                 <option value="b">B</option>
@@ -66,7 +129,7 @@
                         </td>
                         <td>
                             <label for="column"><b>Column:</b></label>
-                            <select name="column" id="column" style="height:30px; width:130px;" required>
+                            <select name="column" id="column" style="height:30px; width:130px;" >
                                 <option value="" disabled selected>Choose column</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

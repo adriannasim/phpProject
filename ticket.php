@@ -16,7 +16,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
     <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">Upcoming Events</h1>
 
-    <br><br>
+    <br>
+    <br>
 
       <div class="ticket-container">
           <img src="img/ticket/b2.png" alt="MLBB" class="ticket-container-image">
