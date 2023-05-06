@@ -53,7 +53,7 @@ define("DB_NAME", "tw");
         if ($result = $con->query($sql)) {
             while ($record = $result->fetch_object()) {
                 printf("
-                        <tr class='order-details' colspan='4'>
+                        <tr class='order-details'>
                         <td>%s</td>
                         <td>%s</td>
                         <td>%s</td>
@@ -64,6 +64,8 @@ define("DB_NAME", "tw");
                     ", $record->MbuyID, $record->MbuyTotal, $record->MbuyQty, $record->MerchID, $status);
             }
         }
+        $result->free();
+        $con->close();
         ?>
 
     </table>

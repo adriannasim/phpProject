@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php include "headerUser.php"?>
-        <h1>Purchase History</h1>
+        <h1>Merch Purchase History</h1>
         <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>
             <a href="cart.php"><button id="controlbtn2">Go to Cart &#10559;</button></a>

@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                       <td></td>
                     </tr>
                     <tr>
-                      <td>Participantion Fee</td>
+                      <td>Participation Fee</td>
                       <td>: RM20 per team (5 pax)</td>
                     </tr>
                     <tr>

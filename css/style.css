@@ -7,9 +7,6 @@ body {
     background-color: black;
     color: white;
 }
-h1{
-
-}
 /*End of global styles*/
 
 /*Start of headerUser styles*/
@@ -30,34 +27,70 @@ h1{
 
 .header-navBar ul {
     list-style: none;
+}
+.header-navBar > ul{
     height: 50px;
-    margin: 0 10px 0 10%;
+    margin: 0 10px 0 2%;
     padding: 0;
 }
 
-.header-navBar li {
-    padding: 10px 10px;
-}
+.header-dropBtn, .header-btn {
+    padding: 0px 10px;
+} 
 
 .header-navBar a {
     text-decoration: none;
     color: white;
     text-align: center;
     padding: 16px 10px 15px 10px;
+    display: block;
 }
 
-.header-navBtn-center {
-    display: inline-block;
-    margin-top: 5.6px;
-}
-
-.header-navBtn-center a:hover {
+.header-navBtn:hover {
     background-color: #7f7f86;
-    transition: 0.8s;
 }
 
-.header-navBtn-right {
-    width: 50px;
+.header-dropdown, .header-navBtn {
+    position: relative;
+    display: inline-block;
+}
+
+.header-dropctn {
+    display: none;
+    position: absolute;
+    background-color: #b9b9b9;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header-dropctn ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header-dropctn a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+}
+
+.header-dropctn a:hover {
+    background-color: #ddd;
+}
+
+.header-dropdown:hover .header-dropctn {
+    display: block;
+}
+
+.header-dropdown:hover .header-dropBtn {
+    background-color: #7f7f86;
+}
+
+.header-navBtn-right{
+    list-style-type: none;
+    width: 55px;
+    margin-top: -55px;
     float: right;
     transition: all 1s ease;
 }
