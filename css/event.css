@@ -146,7 +146,7 @@ h1{
     left: 70%;
     margin-top: 95%;
     transform: translate(-50%,-50%);
-    margin-bottom: -90%;
+    margin-bottom: -80%;
 }
 
 .event-card{
@@ -166,7 +166,7 @@ h1{
 }
 .event-front{
     cursor: pointer;
-    transform: perspective(600px) rotateY(0deg);
+    transition: all 1s ease;
 }
 
 .event-front h2{
@@ -177,19 +177,20 @@ h1{
     font-size: 30px;
 }
 .event-back{
-    background-color: rgba(0, 0, 0, .25);
-    height: 820px;
-    transform: perspective(600px) rotateY(180deg);
+    height: 750px;
+    transition: all 1s ease;
+    opacity: 0;
+    border-radius: 30px;
+    box-shadow: 4px 4px 60px white;
 }
 .event-back h2{
     font-size: 26px;
     text-align: center;
     letter-spacing: .2em;
     line-height: 2em;
-    background-color: #cde3f9;
-    color: black;
+    color:white;
+    text-shadow: 8px 8px 15px rgb(168, 168, 168);
     border-radius: 20px 20px 0 0;
-    box-shadow: 6px 6px 20px #03488d;
 }
 .event-desc img{
     width: 400px;
@@ -199,33 +200,33 @@ h1{
     display: block;
 }
 .event-details{
-    color: black;
+    color: white;
     width: 100%;
-    font-weight: bold;
     letter-spacing: .1em;
     line-height: 1.5em;
 }
 .event-desc{
-    margin-top: 30px;
     font-size: 16px;
     padding: 15px;
-    background-color: #e2eef9;
-    box-shadow: 6px 6px 20px #03488d;
 }
 
 .event-date{
-    margin-top: 30px;
+    background-color: white;
+    color: black;
+    margin-top: -15px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 60px;
     font-size: 16px;
     text-align: center;
     padding: 15px;
-    background-color: #fafcfd;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 6px 6px 20px #03488d;
+    font-weight: bold;
 }
 .event-btn button{
-    background-color: white;
     text-align: center;
     font-size: 15px;
+    background-color: white;
+    color: black;
     font-weight: bold;
     letter-spacing: 0.1em;
     width: 120px;
@@ -236,16 +237,18 @@ h1{
     margin-left: 45%;
     margin-top:20px;
     transition: all 0.3s ease;
-    
 }
 .event-btn button:hover{
     background-color: black;
     color: white;
+    border: 2px solid white;
     transform: scale(1.1);
 }
 .event-card:hover > .event-front{
-    transform: perspective(600px) rotateY(-180deg);
+    cursor: pointer;
+    opacity: 0;
 }
 .event-card:hover > .event-back{
-    transform: perspective(600px) rotateY(0deg);
+    cursor: pointer;
+    opacity: 1;
 }
