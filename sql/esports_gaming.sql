@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2023 at 07:35 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 06, 2023 at 06:53 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `chang`
+-- Database: `esports&gaming`
 --
 
 -- --------------------------------------------------------
@@ -53,9 +53,7 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `cart` (
   `CartID` varchar(5) NOT NULL,
-  `UserID` varchar(10) NOT NULL,
-  `TbuyID` varchar(5) NOT NULL,
-  `MbuyID` varchar(5) NOT NULL
+  `UserID` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -66,13 +64,20 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `event` (
   `EventID` varchar(5) NOT NULL,
+  `TicketID` varchar(5) NOT NULL,
   `EventName` varchar(50) NOT NULL,
   `EventDate` date NOT NULL,
   `EventTime` time NOT NULL,
   `EventVenue` varchar(50) NOT NULL,
-  `EventDesc` varchar(255) NOT NULL,
-  `TicketID` varchar(5) NOT NULL
+  `EventDesc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`EventID`, `TicketID`, `EventName`, `EventDate`, `EventTime`, `EventVenue`, `EventDesc`) VALUES
+('CA001', 'AU001', 'MLBB Grand Finale', '2023-04-28', '10:00:00', 'CA, TAR UMT', 'What awaits you is something like no other...Witness the final battle between the last 4 teams standing with a special guest appearance: THE MPL MY/SG CHAMPION OF S2 RYNN ! Join us in Mobile Legends\' Grand Finale to meet a real professional gamer in real ');
 
 -- --------------------------------------------------------
 
@@ -109,9 +114,10 @@ CREATE TABLE `helpdesk_support` (
 
 CREATE TABLE `merch_buy` (
   `MbuyID` varchar(5) NOT NULL,
+  `MerchID` varchar(5) NOT NULL,
+  `CartID` varchar(5) NOT NULL,
   `MbuyTotal` double(7,2) NOT NULL,
-  `MbuyQty` int(3) NOT NULL,
-  `MerchID` varchar(5) NOT NULL
+  `MbuyQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -148,7 +154,8 @@ CREATE TABLE `purchase` (
   `PurchaseID` varchar(5) NOT NULL,
   `CartID` varchar(5) NOT NULL,
   `UserID` varchar(10) NOT NULL,
-  `PaymentID` varchar(5) NOT NULL
+  `PaymentID` varchar(5) NOT NULL,
+  `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -158,8 +165,20 @@ CREATE TABLE `purchase` (
 --
 
 CREATE TABLE `seat` (
-  `SeatID` varchar(4) NOT NULL,
-  `Seat_Type` varchar(50) NOT NULL
+  `SeatID` varchar(5) NOT NULL,
+  `SeatTypeID` varchar(5) NOT NULL,
+  `TicketID` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seat_type`
+--
+
+CREATE TABLE `seat_type` (
+  `SeatTypeID` varchar(5) NOT NULL,
+  `SeatType` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -170,9 +189,10 @@ CREATE TABLE `seat` (
 
 CREATE TABLE `ticket_buy` (
   `TbuyID` varchar(5) NOT NULL,
+  `TicketID` varchar(5) NOT NULL,
+  `CartID` varchar(5) NOT NULL,
   `TbuyTotal` double(7,2) NOT NULL,
-  `TbuyQty` int(3) NOT NULL,
-  `TicketID` varchar(5) NOT NULL
+  `TbuyQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -184,10 +204,16 @@ CREATE TABLE `ticket_buy` (
 CREATE TABLE `ticket_info` (
   `TicketID` varchar(5) NOT NULL,
   `TicketPrice` double(7,2) NOT NULL,
-  `TicketType` varchar(5) NOT NULL,
-  `TicketQty` int(3) NOT NULL,
-  `SeatID` varchar(4) DEFAULT NULL
+  `TicketType` varchar(20) NOT NULL,
+  `TicketQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket_info`
+--
+
+INSERT INTO `ticket_info` (`TicketID`, `TicketPrice`, `TicketType`, `TicketQty`) VALUES
+('AU001', 20.00, 'Standard', 120);
 
 -- --------------------------------------------------------
 
@@ -197,11 +223,11 @@ CREATE TABLE `ticket_info` (
 
 CREATE TABLE `user` (
   `UserID` char(10) NOT NULL,
+  `PaymentID` varchar(5) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Tel` varchar(11) NOT NULL,
-  `PaymentID` varchar(5) NOT NULL
+  `Tel` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -218,19 +244,24 @@ ALTER TABLE `admin`
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`BookingID`);
+  ADD PRIMARY KEY (`BookingID`),
+  ADD UNIQUE KEY `EventID` (`EventID`),
+  ADD UNIQUE KEY `UserID` (`UserID`),
+  ADD UNIQUE KEY `TicketID` (`TicketID`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`CartID`);
+  ADD PRIMARY KEY (`CartID`),
+  ADD UNIQUE KEY `UserID` (`UserID`);
 
 --
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`EventID`);
+  ADD PRIMARY KEY (`EventID`),
+  ADD UNIQUE KEY `TicketID` (`TicketID`);
 
 --
 -- Indexes for table `feedback`
@@ -248,7 +279,9 @@ ALTER TABLE `helpdesk_support`
 -- Indexes for table `merch_buy`
 --
 ALTER TABLE `merch_buy`
-  ADD PRIMARY KEY (`MbuyID`);
+  ADD PRIMARY KEY (`MbuyID`),
+  ADD UNIQUE KEY `CartID` (`CartID`),
+  ADD UNIQUE KEY `MerchID` (`MerchID`);
 
 --
 -- Indexes for table `merch_info`
@@ -266,42 +299,45 @@ ALTER TABLE `payment`
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`PurchaseID`);
+  ADD PRIMARY KEY (`PurchaseID`),
+  ADD UNIQUE KEY `CartID` (`CartID`),
+  ADD UNIQUE KEY `UserID` (`UserID`),
+  ADD UNIQUE KEY `PaymentID` (`PaymentID`);
 
 --
 -- Indexes for table `seat`
 --
 ALTER TABLE `seat`
-  ADD PRIMARY KEY (`SeatID`);
+  ADD PRIMARY KEY (`SeatID`),
+  ADD UNIQUE KEY `TicketID` (`TicketID`),
+  ADD UNIQUE KEY `SeatTypeID` (`SeatTypeID`);
+
+--
+-- Indexes for table `seat_type`
+--
+ALTER TABLE `seat_type`
+  ADD PRIMARY KEY (`SeatTypeID`);
 
 --
 -- Indexes for table `ticket_buy`
 --
 ALTER TABLE `ticket_buy`
-  ADD PRIMARY KEY (`TbuyID`);
+  ADD PRIMARY KEY (`TbuyID`),
+  ADD UNIQUE KEY `TicketID` (`TicketID`),
+  ADD UNIQUE KEY `CartID` (`CartID`);
 
 --
 -- Indexes for table `ticket_info`
 --
 ALTER TABLE `ticket_info`
-  ADD PRIMARY KEY (`TicketID`),
-  ADD KEY `SeatID` (`SeatID`);
+  ADD PRIMARY KEY (`TicketID`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`UserID`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `ticket_info`
---
-ALTER TABLE `ticket_info`
-  ADD CONSTRAINT `ticket_info_ibfk_1` FOREIGN KEY (`SeatID`) REFERENCES `seat` (`SeatID`);
+  ADD PRIMARY KEY (`UserID`),
+  ADD UNIQUE KEY `PaymentID` (`PaymentID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
