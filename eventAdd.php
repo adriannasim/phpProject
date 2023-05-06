@@ -21,29 +21,29 @@
                     $error = array();
 
                     if($name == NULL) {
-                        $error['name'] = 'Please enter the event name';
+                        $error['name'] = '⚠ Please enter the event name';
                     }
                 
                     if ($date == NULL) {
-                        $error['eventDate'] = 'Please enter the event date';
+                        $error['eventDate'] = '⚠ Please enter the event date';
                     }
                 
                     if($time == NULL) {
-                        $error['eventTime'] = 'Please enter the event time';
+                        $error['eventTime'] = '⚠ Please enter the event time';
                     }
 
                     if($venue == NULL) {
-                        $error['venue'] = 'Please enter the event venue';
+                        $error['venue'] = '⚠ Please enter the event venue';
                     }
 
                     if($desc == NULL) {
-                        $error['desc'] = 'Please enter the event description';
+                        $error['desc'] = '⚠ Please enter the event description';
                     }
 
                     if((empty($error))) {
                         echo "<div class='addEvent-form-success'>";
                         printf("<p>
-                                Event Added Successfully.
+                                Event Added Successfully !
                                 </p>");
                         echo "</div>";
                     } else {

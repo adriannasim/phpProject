@@ -1,9 +1,14 @@
 /*Start of global styles*/
 body {
+    font-family: Cambria;
+    letter-spacing: 0.1em;
     margin: 0;
     padding: 0;
     background-color: black;
     color: white;
+}
+h1{
+
 }
 /*End of global styles*/
 
@@ -25,20 +30,20 @@ body {
 
 .header-navBar ul {
     list-style: none;
-    height: 44px;
+    height: 50px;
     margin: 0 10px 0 10%;
     padding: 0;
 }
 
 .header-navBar li {
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 
 .header-navBar a {
     text-decoration: none;
     color: white;
     text-align: center;
-    padding: 10px 10px 15px 10px;
+    padding: 16px 10px 15px 10px;
 }
 
 .header-navBtn-center {
@@ -52,8 +57,36 @@ body {
 }
 
 .header-navBtn-right {
+    width: 50px;
     float: right;
+    transition: all 1s ease;
 }
+.header-navBtn-right:hover{
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake{
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    20% {
+        transform: translate(-3px,0px) rotate(-1deg);
+    }
+    40% {
+        transform: translate(1px,-1px) rotate(0deg);
+    }
+    60% {
+        transform: translate(-1px,0px) rotate(1deg);
+    }
+    80% {
+        transform: translate(1px,1px) rotate(0deg);
+    }
+    100% {
+        transform: translate(3px,0px) rotate(-1deg);
+    }
+
+}
+
 
 /*End of headerUser styles*/
 
@@ -78,20 +111,20 @@ body {
 }
 
 .headerA-navBar > ul {
-    height: 44px;
+    height: 50px;
     margin: 0 10% 0 10%;
     padding: 0;
 }
 
 .headerA-dropBtn, .headerA-btn {
-    padding: 5px 10px;
+    padding: 0px 10px;
 }
 
 .headerA-navBar a {
     text-decoration: none;
     color: white;
     text-align: center;
-    padding: 0 10px 15px 10px;
+    padding: 16px 10px 15px 10px;
     display: block;
 }
 
@@ -262,19 +295,21 @@ body {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.89);
     margin: 10px 20% 10px 20%;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 20px;
 }
 
 .addEvent-form label {
     color: black;
 }
-
+.addEvent-form-group input{
+    margin-top: 10px;
+}
 .addEvent-form-group input, .addEvent-form-group textarea {
     width: 50%;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
     background-color: white;
     padding: 12px 20px 12px 10px;
@@ -284,6 +319,7 @@ body {
 .addEvent-form-group textarea {
     height: 30%;
     width: 50%;
+    margin-top: 10px;
     resize: none;
 }
 
@@ -292,28 +328,40 @@ body {
 }
 
 .addEvent-form-btn input {
+    font-family: cambria;
+    letter-spacing: .1em;
     width: 20%;
-    height: 30px;
+    height: 50px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: #4f6874;
     color: white;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin: 10px;
+    transition: all 0.2s ease;
+}
+.addEvent-form-btn input:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    transform: scale(1.1);
 }
 
 .addEvent-form-error {
+    text-align: left;
     color: white;
     background-color: rgb(241, 75, 83);
-    margin: 0 25% 10px 25%;
-    padding: 5px 0;
+    margin: 10px 25% 10px 25%;
+    padding: 5px 15px;
+    border-radius: 5px;
 }
 
 .addEvent-form-success {
     color: white;
     background-color: green;
-    margin: 0 25% 10px 25%;
+    margin: 10px 25% 10px 25%;
     padding: 5px 0;
+    border-radius: 5px;
 }
 /*End of addEvent.php styles*/
 
@@ -322,12 +370,192 @@ body {
     text-align: center;
 }
 .editEvents-searchBar {
+    text-align: center;
+    width: 20%;
     margin: 10px 40% 10px 40%;
+    
+}
+
+.editEvents-searchBar-label{
+    width: 250px;
 }
 
 .editEvents-searchBar td {
-    width: 300px;
+    width: 250px;
+    padding: 10px 10px;
 }
 
+.editEvents-searchBar-input input{
+    width: 250px;
+    padding: 10px 5px;
+    border-radius: 30px;
+    border: 1px solid white;
+    letter-spacing: .1em;
+    font-size: 16px;
+    text-align: center;
+    font-family: Cambria;
+    background-color: black;
+}
+.editEvents-searchBar-input input:focus{
+    color: white;
+}
+
+.editEvents-searchBtn{
+    padding: 10px 5px;
+    font-size: 16px;
+    letter-spacing: .1em;
+    font-family: Cambria;
+    width: 100px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    transition: all .3s ease;
+}
+.editEvents-searchBtn:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
 
 /*End of editEvent.php styles*/
+
+/*Start of merchAdmin.php styles*/
+.merchAdmin-header {
+    text-align: center;
+}
+.merchfunc-admin button{
+    font-size: 12pt;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    border-radius: 20px;
+    border: 2px white solid;
+    width: 140px;
+    height: 40px;
+    margin: 10px 10px 0 330%;
+    cursor: pointer;
+    transition: .4s;
+}
+.merchfunc-admin button:hover{
+    transform: scale3d(1.1,1.1,1.1); 
+    background-color: black;
+    color: white;
+    border: 1px white solid;
+}
+/*End of merchAdmin.php styles*/
+/*Start of merchAdd.php styles*/
+.addMerch-form{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.89);
+    color: black;
+    margin: 20px 20% 10px 20%;
+    padding: 20px;
+    border-radius: 20px;
+}
+.addMerch-form-group-rd input{
+    margin: 20px 0;
+    width: 50px;
+}
+.addMerch-form-group-file input{
+    margin:10px 38%;
+    text-align: center;
+    padding: 5px;
+}
+
+.addMerch-form-group input{
+    text-align: center;
+    width: 250px;
+    padding: 10px 5px;
+    margin: 10px 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    letter-spacing: .1em;
+    font-size: 16px;
+    font-family: Cambria;
+}
+.addMerch-form-btn input{
+    font-family: cambria;
+    letter-spacing: .1em;
+    width: 20%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4f6874;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+    transition: all 0.2s ease;
+}
+.addMerch-form-btn input:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    transform: scale(1.1);
+}
+.addMerch-form-error{
+    text-align: left;
+    color: white;
+    background-color: rgb(241, 75, 83);
+    margin: 10px 25% 10px 25%;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.addMerch-form-success{
+    color: white;
+    background-color: green;
+    margin: 10px 25% 10px 25%;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+/*End of merchAdd.php styles*/
+/*Start of merchView.php styles*/
+.order-info{
+    width: 70%;
+    margin: 30px 20px;
+    margin-left: 15%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.order-details{
+    border: 2px solid white;
+    margin-bottom: 20px;
+    border-collapse: separate;
+}
+.order-info th,td{
+    padding: 20px;
+}
+.order-info td input {
+    width: 30%;
+    background-color: red;
+}
+.order-info input ~ .chkbox:checked{
+    background-color: green;
+}
+.viewMerch-btn{
+    margin-left: 40%;
+}
+.viewMerch-btn input{
+    font-family: cambria;
+    letter-spacing: .1em;
+    width: 15%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4f6874;
+    color: white;
+    font-size: 16px;
+    margin: 20px;
+    transition: all 0.2s ease;
+}
+.viewMerch-btn input:hover{
+    cursor: pointer;
+    transform: scale3d(1.1,1.1,1.1); 
+    background-color: black;
+    color: white;
+    border: 1px white solid;
+}
+/*End of merchView.php styles*/

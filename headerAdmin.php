@@ -27,8 +27,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="headerA-navBtn">
-                        <li class="headerA-btn"><a href="merchAdmin.php">Merchandise</a></li>
+                    <div class="headerA-dropdown">
+                        <li class="headerA-dropBtn"><a href="">Merchandise</a></li>
+                        <div class="headerA-dropctn">
+                            <ul>
+                                <li><a href="merchAdd.php">Add Products</a></li>
+                                <li><a href="merchView.php">View Orders</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="headerA-navBtn">
                         <li class="headerA-btn"><a href="helpdeskAdmin.php">HelpDesk</a></li>
