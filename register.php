@@ -1,7 +1,7 @@
 <?php
     session_start();
     include ("config/config.php");
-    if(isset($_POST["submit"])) {
+    if(isset($_POST["register"])) {
         $UserID = $_POST["registerID"];
         $Name = $_POST["registerName"];
         $Email = $_POST["registerEmail"];
@@ -46,7 +46,7 @@
             <input class="field_class" name="registerTel" type="text" placeholder="Enter TelNo." required>
             <label>Create a password:</label>
             <input id="pass" class="field_class" name="password_txt" type="password" placeholder="Create a password" required>
-            <button class="submit_class" type="submit" name="login_btn">Enter</button>
+            <button class="submit_class" type="submit" name="register">Enter</button>
     </form>
 </main>
 </body>

@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                     <tr>
                       <td><b>Fee</b></td> 
                       <td></td>
-                    </tr>
+                    </tr>
                     <tr>
                       <td>VIP</td>
                       <td>: RM50 per pax</td>
