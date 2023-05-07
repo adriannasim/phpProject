@@ -58,7 +58,7 @@
                     
                     if($stmt->affected_rows>0){
                         printf("<div class='info'>
-                                Registration form for <b>%s</b> has been submitted. [<a href='ticket-payment.php'>Pay Now</a>]</div>",$name);
+                                Registration form for <b>%s</b> has been submitted.</div>",$name);
                     }else{
                         echo "<div class='error'>Unable to register.</div>";
                     }
