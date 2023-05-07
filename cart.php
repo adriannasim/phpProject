@@ -122,7 +122,7 @@
                 WHERE u.UserID = '$UserID';";
             if ($paymentResult = $connection -> query($sqlPayment)) {
                 while($paymentRec = $paymentResult->fetch_object()) {
-                    $name = ($paymentRec->Name);
+                    $name = $paymentRec->Name;
                     $email = $paymentRec->Email;
                     $tel = $paymentRec->Tel;
                 }

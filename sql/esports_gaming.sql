@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 03:49 PM
+-- Generation Time: May 07, 2023 at 04:31 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -259,7 +259,7 @@ INSERT INTO `ticket_info` (`TicketID`, `TicketPrice`, `TicketType`, `TicketQty`)
 
 CREATE TABLE `user` (
   `UserID` char(10) NOT NULL,
-  `PaymentID` varchar(5) NOT NULL,
+  `PaymentID` varchar(5) DEFAULT NULL,
   `Password` varchar(50) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
