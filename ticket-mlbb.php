@@ -10,7 +10,7 @@
 <body> 
     <?php
         include "headerUser.php";
-        //require_once './db_config/ticket-helper.php';
+        require_once 'ticket-helper.php';
     ?>
 
     <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
@@ -50,19 +50,19 @@
                 $error=array_filter($error);
                 
                 if(empty($error)){
-                    $con=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+                    $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
                     $sql="INSERT INTO Ticket (name, email, phone, ticket_type, row, column) VALUES(?,?,?,?,?,?)";
                     $stmt=$con->prepare($sql);
                     $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
                     $stmt->execute();
-                    /*
+                    
                     if($stmt->affected_rows>0){
                         printf("<div class='info'>
-                                Registration for <b>%s</b> has been submitted. [<a href='list-student.php'>Back to list</a>]</div>",$name);
+                                Registration form for <b>%s</b> has been submitted. [<a href='ticket-payment.php'>Pay Now</a>]</div>",$name);
                     }else{
-                        echo "<div class='error'>Unable to insert.</div>";
+                        echo "<div class='error'>Unable to register.</div>";
                     }
-                    */
+                    
                     $con->close();
                     $stmt->close();
                 }else{
@@ -87,7 +87,7 @@
                     </tr>
                     <tr>
                         <td><label for="email"><i class="fa fa-envelope"><b> Email</b></label></td>
-                        <td>: <input type="email" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))?$email:'';?>"> <br><small>Format: example@example.com</small></td>
+                        <td>: <input type="text" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))?$email:'';?>"> <br><small>Format: example@example.com</small></td>
                     </tr>
                     <tr>
                         <td><label for="phone"><i class="fa fa-phone"></i><b> Contact Number</b></label></td>
