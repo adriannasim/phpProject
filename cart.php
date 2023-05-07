@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include ("config/config.php");
+    $UserID = "adrianna";
+    //$UserID = $_SESSION['UserID'];
+?>
 
 <html>
     <head>
@@ -16,118 +22,130 @@
         <div class="wrapper">
             <div class="cart-section">
                 <div class="cart-details">
-                    <div class="prod-box">
-                  
-                        <img src="img/merch/m1-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Gaming Controller T-Shirt</h3>
-                            <h4>Price: RM 50</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m2-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Typical Gamer Baseball Cap</h3>
-                            <h4>Price: RM 40</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m3-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Saving the World by Levels Tote Bag</h3>
-                            <h4>Price: RM 35</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m4-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>I Paused My Game Tote Bag</h3>
-                            <h4>Price: RM 35</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m5-back.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Typical Gamer Hoodie</h3>
-                            <h4>Price: RM 80</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m6-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Typical Gamer Sweater</h3>
-                            <h4>Price: RM 75</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m7-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Hipster T-Shirt</h3>
-                            <h4>Price: RM 50</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
-                    <div class="prod-box">
-                        <img src="img/merch/m8-front.jpg" alt="alt"/>
-                        <div class="box-content">
-                            <h3>Air Force Gaming Baseball Cap</h3>
-                            <h4>Price: RM 40</h4>
-                            <p class="units">Quantity: <input type="text" disabled> <i class="fa fa-plus-square"></i> <i class="fa fa-minus-square"></i></p>
-                            <button class="remove"><i class="fa fa-trash"></i>
-                                <span class="removebtn">Remove</span></button>
-                        </div>
-                    </div>
+                    <?php 
+                    $totalqty = 0;
+                    $totalamount = 0;
+                    //Show Merch
+                    $sqlMerch = "SELECT * FROM merch_info mi
+                        JOIN merch_buy mb ON mi.MerchID = mb.MerchID
+                        JOIN cart c ON mb.CartID = c.CartID
+                        WHERE c.UserID = '$UserID' AND c.checkout = 0;";
+                    if ($merchResult = $connection -> query($sqlMerch)) {
+                        while($merchRec = $merchResult->fetch_object()) {
+                            printf("
+                                <div class='prod-box'>
+                                <img src='img/merch/%s.jpg' alt='alt'/>
+                                    <div class='box-content'>
+                                        <h3>%s</h3>
+                                        <h4>Price: RM %s</h4>
+                                        <p class='units'>Quantity: <input type='text' value='%s' disabled>
+                                        <form method='post'>
+                                        <input type='hidden' name='mbuy_id' value='%s'>
+                                        <button type='submit' name='remove' class='remove'>
+                                            <i class='fa fa-trash'></i>
+                                            <span class='removebtn'>Remove</span>
+                                        </button>
+                                        </div>
+                                        </div>
+                                    </form>
+                            ",$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID);
+                            $totalqty += $merchRec->MbuyQty;
+                            $totalamount += $merchRec->MbuyQty * $merchRec->MerchPrice;
+
+                            //get cartID
+                            $CartID = $merchRec->CartID;
+                        }
+                    }
+                    //remove button
+                    if (isset($_POST['remove'])) {
+                        $MerchBuyID = $_POST['mbuy_id'];
+                        $sqlRemove = "DELETE FROM merch_buy WHERE MbuyID = '$MerchBuyID';";
+                        if (($connection->prepare($sqlRemove))->execute()) {
+                            echo "<script>alert('Item Removed');
+                                window.location = 'cart.php'</script>";
+                        }
+                    }
+                    
+                    //Show Ticket
+                    $sqlTicket = "SELECT * FROM ticket_info ti
+                        JOIN ticket_buy tb ON ti.TicketID = tb.TicketID
+                        JOIN event e ON ti.TicketID = e.TicketID
+                        JOIN cart c ON tb.CartID = c.CartID
+                        WHERE c.UserID = '$UserID' AND c.checkout = 0;";
+                    if ($ticketResult = $connection -> query($sqlTicket)) {
+                        while($ticketRec = $ticketResult->fetch_object()) {
+                            printf("
+                                <div class='prod-box'>
+                                    <div class='box-content'>
+                                        <h3>Ticket: %s</h3>
+                                        <h4>Price: RM %s</h4>
+                                        <p class='units'>Quantity: <input type='text' value='%s' disabled>
+                                        <form method='post'>
+                                        <input type='hidden' name='mbuy_id' value='%s'>
+                                        <button type='submit' name='remove' class='remove'>
+                                            <i class='fa fa-trash'></i>
+                                            <span class='removebtn'>Remove</span>
+                                        </button>
+                                        </div>
+                                        </div>
+                                    </form>
+                            ", $ticketRec->EventName, $ticketRec->TicketPrice, $ticketRec->TbuyQty, $ticketRec->TbuyID);
+                            $totalqty += $ticketRec->TbuyQty;
+                            $totalamount += $ticketRec->TbuyQty * $ticketRec->TicketPrice;
+                        }
+                    }
+                    //remove button
+                    if (isset($_POST['remove'])) {
+                        $MerchBuyID = $_POST['mbuy_id'];
+                        $sqlRemove = "DELETE FROM merch_buy WHERE MbuyID = '$MerchBuyID';";
+                        if (($connection->prepare($sqlRemove))->execute()) {
+                            echo "<script>alert('Item Removed');
+                                window.location = 'cart.php'</script>";
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="side-bar">
                     <h3>Receipt Summary</h3>
                     <hr>
-                    <p><span>Total Items (QTY)</span><br><input type="text" name="itemUnit" disabled></p>
+                    <p><span>Total Items (QTY)</span><br><input type="text" name="itemUnit" value="<?php echo $totalqty ?>" disabled></p>
                     <hr>
-                    <p><span>Total Amount (RM)</span><br><input type="text" name="subtotal" disabled></p>
+                    <p><span>Total Amount (RM)</span><br><input type="text" name="subtotal" value="<?php echo $totalamount ?>" disabled></p>
                     <hr>
                     <a href="#payment"><button class="checkout" onclick="showHidePayment()">Check Out</button></a>
                 </div>
             </div>
         </div>
         <div class="hide-payment">
+        <?php
+            $sqlPayment = "SELECT * FROM user u
+                WHERE u.UserID = '$UserID';";
+            if ($paymentResult = $connection -> query($sqlPayment)) {
+                while($paymentRec = $paymentResult->fetch_object()) {
+                    $name = $paymentRec->Name;
+                    $email = $paymentRec->Email;
+                    $tel = $paymentRec->Tel;
+                }
+            }
+        ?>
             <h3 id="payment">Billing and Payment</h3>
             <div class="hidden-payment">
                 <div class="payment-details">
                     <form action="" method="post">
                         <div class="contact-details">
                             <p>Name<p>
-                                <input type="text" name="txtname" maxlength="50" placeholder="Enter your name" required/><br><br>
+                                <input type="text" name="txtname" maxlength="50" placeholder="Enter your name" value="<?php echo $name ?>" required/><br><br>
                             <p>Email Address</p>
-                            <input type="email" name="txtemail" placeholder="example@gmail.com" required/><br><br>
+                            <input type="email" name="txtemail" placeholder="example@gmail.com" value="<?php echo $email ?>" required/><br><br>
                             <p>Phone Number</p>
-                            <input type="tel" name="txtphone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="E.g: 012-3456789" required/><br><br>
+                            <input type="tel" name="txtphone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="E.g: 012-3456789" value="<?php echo $tel ?>" required/><br><br>
                         </div>
                         <h4>Select payment method</h4>
                         <div class="payment-img">
-                            <input type="radio" name="rbpayment" required><img src="img/merch/mastercard.png"></a>
-                            <input type="radio" name="rbpayment"><img src="img/merch/visa.png">
-                            <input type="radio" name="rbpayment"><img src="img/merch/paypal.png">
-                            <input type="radio" name="rbpayment"><img src="img/merch/amex.png">
+                            <input type="radio" name="rbpayment" value="mastercard" checked><img src="img/merch/mastercard.png"></label>
+                            <input type="radio" name="rbpayment" value="visa"><img src="img/merch/visa.png">
+                            <input type="radio" name="rbpayment" value="paypal"><img src="img/merch/paypal.png">
+                            <input type="radio" name="rbpayment" value="amex"><img src="img/merch/amex.png">
                         </div>
                         <div class="card-details">
                             <p>Card Owner</p>
@@ -162,7 +180,7 @@
                             <input type="password" name="txtcvv" maxlength="3" placeholder="CVV" required/>
                         </div>
                         <div class="pay-btn">
-                            <button type="submit" class="paybtn" >Confirm Payment</button> 
+                            <button type="submit" name="payment" class="paybtn" >Confirm Payment</button> 
                         </div>
                     </form>
                 </div>
@@ -172,3 +190,20 @@
         <script src="javascripts/payment.js"></script>
     </body>
 </html>
+<?php
+   if (isset($_POST['payment'])) {
+    $PaymentMethod = $_POST['rbpayment'];
+    $sqlPayment = "UPDATE user u JOIN cart c 
+        SET u.PaymentID = (SELECT PaymentID FROM payment WHERE PaymentType = '$PaymentMethod'),
+            c.checkout = 1 
+            WHERE u.UserID = '$UserID';";
+    $sqlPayment2 = "INSERT INTO purchase (UserID, CartID, Status) VALUES ('$UserID', $CartID, 'Processing');";
+
+    if (($connection->prepare($sqlPayment))->execute()) {
+        if (($connection->prepare($sqlPayment2))->execute()) {
+            echo "<script>alert('Order Received. Please check your purchase history for updates.');
+                window.location = 'mHistory.php'</script>";
+        }
+    }
+}
+?>

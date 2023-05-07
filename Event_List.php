@@ -41,7 +41,7 @@
                         <td>VIP</td>
                         <td>40</td>
                         <td>50</td>
-                        <td><a href="seating_plan.php">View</a></td>
+                        <td><a href="seating_plan_vip.php">View</a></td>
                     </tr>
                     <tr>
                         <td>VALORANT </td>
@@ -59,7 +59,7 @@
                         <td>VIP</td>
                         <td>40</td>
                         <td>50</td>
-                        <td><a href="seating_plan.php">View</a></td>
+                        <td><a href="seating_plan_vip.php">View</a></td>
                     </tr>
                     <tr>
                         <td>VALORANT </td>

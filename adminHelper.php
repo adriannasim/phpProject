@@ -1,5 +1,20 @@
 <?php
+//Define db
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "esports&gaming");
+
 /*Start of eventAdd.php validation*/
+function checkEventID($eventID, $chkEventID){
+    if($eventID == NULL){
+        return "⚠ Please enter the event name";
+    }else if(strlen($eventID) > 5){
+        return "⚠ Maximum 5 characters for event name";
+    }else if(strcmp($eventID, $chkEventID) == 0){
+        return "⚠ Event ID already exists";
+    }
+}
 function checkEventName($name){
     if($name == NULL){
         return "⚠ Please enter the event name";

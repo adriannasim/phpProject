@@ -5,21 +5,14 @@
     <title>Merch Admin</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
-<?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "tw");
-?>
-
 <body>
-    <?php include "headerAdmin.php"; ?>
+    <?php include "adminHelper.php"; include "headerAdmin.php"; ?>
     <?php
     $header = array(
         'MbuyID' => 'Order ID',
-        'MbuyTotal' => 'Total Amount',
-        'MbuyQty' => 'Quantity',
-        'MerchID' => 'Product ID'
+        'MerchID' => 'Product ID',
+        'CartID' => 'Cart ID',
+        'MbuyQty' => 'Quantity'
     );
     ?>
     <div class="merchAdmin-header">
@@ -40,12 +33,14 @@ define("DB_NAME", "tw");
             <th>%s</th>
             ", $value);
         }
+        $status = "Pending";
         if(isset($_POST['viewMerch-update'])){
-            $status = isset($status) ? "Complete" : "Pending";
-        }else{
+            if(isset($_POST['status'])){
+            $status = isset($status) ? $status = "Complete" : $status = "Pending";
+            }else{
             $status = "Pending";
         }
-        
+        }
         ?>
         <th>Status</th>
         <th>Update Status</th>
@@ -61,7 +56,7 @@ define("DB_NAME", "tw");
                         <td>%s</td>
                         <td><form action= '' method='post'><input type='checkbox' name='status'><span class='chkbox'></span></form></td>
                         </tr>
-                    ", $record->MbuyID, $record->MbuyTotal, $record->MbuyQty, $record->MerchID, $status);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID,$record->MbuyQty, $status);
             }
         }
         $result->free();
@@ -71,7 +66,7 @@ define("DB_NAME", "tw");
     </table>
     <form action= '' method='post'>
     <div class="viewMerch-btn">
-        <input type="reset" value="Cancel" />
+        <input type="reset" value="Reset" onclick="location = 'merchView.php'"/>
         <input type="submit" value="Update" name="viewMerch-update" />
     </div>
     </form>

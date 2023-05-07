@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    include ("config/config.php");
+    $UserID = "admin";
+    //$UserID = $_SESSION['UserID'];
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,6 +19,7 @@
             <div class="addEvent-form">
             <?php
                 if(!empty($_POST)) {
+                    $eventID = trim($_POST['id']);
                     $name = trim($_POST['name']);
                     $date = trim($_POST['eventDate']);
                     $time = trim($_POST['eventTime']);
@@ -20,6 +27,13 @@
                     $desc = trim($_POST['desc']);
                     $error = array();
                     
+                    $sqlCheck = "SELECT EventID FROM event WHERE EventID = '$eventID'";
+                    $result = mysqli_query($connection, $sqlCheck);
+                    if (mysqli_num_rows($result) == 1) {
+                        $chkEventID = $eventID;
+                    } 
+
+                    $error['id'] = checkEventID($eventID, $chkEventID);
                     $error['name'] = checkEventName($name);
                     $error['venue'] = checkEventVenue($venue);
                     $error['desc'] = checkEventDesc($desc);
@@ -33,11 +47,14 @@
                     }
 
                     if((empty($error))) {
-                        echo "<div class='addEvent-form-success'>";
-                        printf("<p>
+                        $eventAdd = "INSERT INTO event VALUES ('$eventID', '$name', '$date', '$time', '$venue', '$desc');";
+                        if (($connection->prepare($eventAdd))->execute()) {
+                            echo "<div class='addEvent-form-success'>";
+                            printf("<p>
                                 Event Added Successfully !
                                 </p>");
-                        echo "</div>";
+                            echo "</div>";
+                        }
                     } else {
                         echo "<div class='addEvent-form-error'>";
                         printf("<p>
@@ -45,11 +62,13 @@
                                 </p>", implode("</p><p>",$error));
                         echo "</div>";
                     }
-                } else {
-                    
                 }
                 ?>
                 <form action="" method="post">
+                    <div class="addEvent-form-group">
+                        <label for="name">Event ID</label><br/>
+                        <input type="text" name="id" id="id" value="<?php echo (isset($eventID))? $eventID: "";?>"/>
+                    </div>
                     <div class="addEvent-form-group">
                         <label for="name">Event Name</label><br/>
                         <input type="text" name="name" id="name" value="<?php echo (isset($name))? $name: "";?>"/>
@@ -64,7 +83,7 @@
                     </div>
                     <div class="addEvent-form-group">
                         <label for="venue">Event Venue</label><br/>
-                        <textarea name="venue" id="venue" ><?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?></textarea>
+                        <input type="text" name="venue" id="venue" ><?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?></textarea>
                     </div>
                     <div class="addEvent-form-group">
                         <label for="desc">Event Description</label><br/>
