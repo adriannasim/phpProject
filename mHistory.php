@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    include ("config/config.php");
+    $UserID = "adrianna";
+    //$UserID = $_SESSION['UserID'];
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
