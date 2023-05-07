@@ -18,24 +18,22 @@
     <br>
     <div class="ticket-mlbb-form">
         <?php 
-
             if (!empty($_POST)){
-
                 $name=trim($_POST['name']);
                 $email=trim($_POST['email']);
                 $phone=trim($_POST['phone']);
                 if(isset($_POST['ticketType'])){
-                $ticketType=trim($_POST['ticketType']);
+                    $ticketType=trim($_POST['ticketType']);
                 }else{
                     $ticketType="";
                 }
                 if(isset($_POST['row'])){
-                $row=trim($_POST['row']);
+                    $row=trim($_POST['row']);
                 }else{
                     $row="";
                 }
                 if(isset($_POST['column'])){
-                $column=trim($_POST['column']);
+                    $column=trim($_POST['column']);
                 }else{
                     $column="";
                 }
@@ -67,7 +65,7 @@
                     $con->close();
                     $stmt->close();
                     */
-                }else if (!empty($error)) {
+                }else {
                     echo "<ul class='error'>";
                     printf("<p>%s</p>", implode("<p></p>", $error));
                 }
@@ -76,7 +74,7 @@
             }
         ?>
 
-        <form action="ticket-payment.php" method="post">
+        <form method="post">
             <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
                 <table>
@@ -95,7 +93,7 @@
                 </table>
             </div>
 
-    <br><hr><br>
+            <br><hr><br>
             <h2><i>Choose your seat</i></h2>
             <img src="img\ticket\Ticket.png" alt="seat" class="ticket-mlbb-seat">
             <br>
