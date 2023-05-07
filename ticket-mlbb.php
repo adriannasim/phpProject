@@ -8,75 +8,73 @@
 </head>
 
 <body> 
-    <?php include "headerUser.php"?>
     <?php
-        include "./header.php";
-        require_once './db_config/helper.php';
-        ?>
-        <h1> Insert Student</h1>
-        
-        <?php
-        if (!empty($_POST)){
-
-            $name=trim($_POST['name']);
-            $email=trim($_POST['email']);
-            $phone=trim($_POST['phone']);
-            if(isset($_POST['ticketType'])){
-            $ticketType=trim($_POST['ticketType']);
-            }else{
-                $ticketType="";
-            }
-            
-            //check/ validate  all the user input
-            $error['name']=checkRegisterName($name);
-            $error['email']=checkRegisterEmail($email);
-            $error['phone']= checkRegisterPhone($phone);
-            $error['ticketType']= checkTicketType($ticketType);
-
-            $error=array_filter($error);
-            
-            if(empty($error)){
-                //no error, insert record, later
-                //STEP 1:create connection
-                $con=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-                //step 2: sql statement
-                $sql="INSERT INTO Student(StudentID,StudentName,Gender,Program) VALUES(?,?,?,?)";
-                $stmt=$con->prepare($sql);
-                $stmt->bind_param('ssss',$id,$name,$gender,$program);
-                
-                //step 3: run sql
-                $stmt->execute();
-                
-                //check how many record inserted?
-                if($stmt->affected_rows>0){
-                    printf("<div class='info'>
-                            Student <b>%s</b> has been inserted. [<a href='list-student.php'>Back to list</a>]</div>",$name);
-                }else{
-                    //inserted failed
-                    echo "<div class='error'>Unable to insert.</div>";
-                }
-                //step 4: close connection
-                $con->close();
-                $stmt->close();
-            }else{
-                //with error, DISPLAY error message
-                echo"<ul class='error'>";
-                foreach ($error as $value){
-                    echo"<li>$value</li>";
-                }
-                echo"</ul>";
-                 
-            }
-        }else{
-            
-        }
+        include "headerUser.php";
+        require_once 'ticket-helper.php';
     ?>
 
     <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
     <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1>
     <br>
     <div class="ticket-mlbb-form">
-        <form action="ticket-payment.php" method="post">
+        <?php 
+            if (!empty($_POST)){
+                $name=trim($_POST['name']);
+                $email=trim($_POST['email']);
+                $phone=trim($_POST['phone']);
+                if(isset($_POST['ticketType'])){
+                    $ticketType=trim($_POST['ticketType']);
+                }else{
+                    $ticketType="";
+                }
+                if(isset($_POST['row'])){
+                    $row=trim($_POST['row']);
+                }else{
+                    $row="";
+                }
+                if(isset($_POST['column'])){
+                    $column=trim($_POST['column']);
+                }else{
+                    $column="";
+                }
+                
+                $error['name']=checkRegisterName($name);
+                $error['email']=checkRegisterEmail($email);
+                $error['phone']= checkRegisterPhone($phone);
+                $error['ticketType']= checkTicketType($ticketType);
+                $error['row']= checkRow($row);
+                $error['column']= checkColumn($column);
+
+                $error=array_filter($error);
+                
+                if(empty($error)){
+                    /*
+                    $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+                    $sql="INSERT INTO Ticket (name, email, phone, ticket_type, row, column) VALUES(?,?,?,?,?,?)";
+                    $stmt=$con->prepare($sql);
+                    $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
+                    $stmt->execute();
+                    
+                    if($stmt->affected_rows>0){
+                        printf("<div class='info'>
+                                Registration form for <b>%s</b> has been submitted.</div>",$name);
+                    }else{
+                        echo "<div class='error'>Unable to register.</div>";
+                    }
+                    
+                    $con->close();
+                    $stmt->close();
+                    */
+                }else {
+                    echo "<ul class='error'>";
+                    printf("<p>%s</p>", implode("<p></p>", $error));
+                }
+            }else{
+                
+            }
+        ?>
+
+        <form method="post">
             <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
                 <table>
@@ -86,7 +84,7 @@
                     </tr>
                     <tr>
                         <td><label for="email"><i class="fa fa-envelope"><b> Email</b></label></td>
-                        <td>: <input type="email" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))?$email:'';?>"> <br><small>Format: example@example.com</small></td>
+                        <td>: <input type="text" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))?$email:'';?>"> <br><small>Format: example@example.com</small></td>
                     </tr>
                     <tr>
                         <td><label for="phone"><i class="fa fa-phone"></i><b> Contact Number</b></label></td>
@@ -95,7 +93,7 @@
                 </table>
             </div>
 
-    <br><hr><br>
+            <br><hr><br>
             <h2><i>Choose your seat</i></h2>
             <img src="img\ticket\Ticket.png" alt="seat" class="ticket-mlbb-seat">
             <br>

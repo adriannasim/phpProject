@@ -33,18 +33,20 @@ function checkRegisterPhone($phone){
 
 function checkTicketType($ticketType){
     if($ticketType==null){
-        return "Please select your [GENDER].";
-    }else if(!array_key_exists($ticketType, getAllTicketType())){
-        return "Invalid [Gender] entered.";
+        return "Please select your ticket type!";
     }
-   
 }
 
-function getAllTicketType(){
-    return array(
-        "M" => "👦 Male",
-        "F" => "👧 Female"
-    );
-}  
+function checkRow($row){
+    if($row==null){
+        return "Please select your seat row!";
+    }
+}
+
+function checkColumn($column){
+    if($column==null){
+        return "Please select your seat column!";
+    }
+}
 
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2023 at 06:53 PM
+-- Generation Time: May 07, 2023 at 04:31 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -52,9 +52,17 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `cart` (
-  `CartID` varchar(5) NOT NULL,
-  `UserID` varchar(10) NOT NULL
+  `CartID` int(5) NOT NULL,
+  `UserID` varchar(10) NOT NULL,
+  `checkout` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`CartID`, `UserID`, `checkout`) VALUES
+(1, 'adrianna', 0);
 
 -- --------------------------------------------------------
 
@@ -115,10 +123,16 @@ CREATE TABLE `helpdesk_support` (
 CREATE TABLE `merch_buy` (
   `MbuyID` varchar(5) NOT NULL,
   `MerchID` varchar(5) NOT NULL,
-  `CartID` varchar(5) NOT NULL,
-  `MbuyTotal` double(7,2) NOT NULL,
+  `CartID` int(5) NOT NULL,
   `MbuyQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `merch_buy`
+--
+
+INSERT INTO `merch_buy` (`MbuyID`, `MerchID`, `CartID`, `MbuyQty`) VALUES
+('MB001', 'M0001', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -133,6 +147,13 @@ CREATE TABLE `merch_info` (
   `MerchQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `merch_info`
+--
+
+INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `MerchQty`) VALUES
+('M0001', 50.00, 'Gaming Controller T-Shirt', 50);
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +165,16 @@ CREATE TABLE `payment` (
   `PaymentType` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PaymentID`, `PaymentType`) VALUES
+('P0001', 'Mastercard'),
+('P0002', 'Visa'),
+('P0003', 'Paypal'),
+('P0004', 'AmericanEx');
+
 -- --------------------------------------------------------
 
 --
@@ -151,10 +182,9 @@ CREATE TABLE `payment` (
 --
 
 CREATE TABLE `purchase` (
-  `PurchaseID` varchar(5) NOT NULL,
-  `CartID` varchar(5) NOT NULL,
+  `PurchaseID` int(5) NOT NULL,
   `UserID` varchar(10) NOT NULL,
-  `PaymentID` varchar(5) NOT NULL,
+  `CartID` int(5) NOT NULL,
   `Status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -190,10 +220,16 @@ CREATE TABLE `seat_type` (
 CREATE TABLE `ticket_buy` (
   `TbuyID` varchar(5) NOT NULL,
   `TicketID` varchar(5) NOT NULL,
-  `CartID` varchar(5) NOT NULL,
-  `TbuyTotal` double(7,2) NOT NULL,
+  `CartID` int(5) NOT NULL,
   `TbuyQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket_buy`
+--
+
+INSERT INTO `ticket_buy` (`TbuyID`, `TicketID`, `CartID`, `TbuyQty`) VALUES
+('TB001', 'AU001', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -223,12 +259,19 @@ INSERT INTO `ticket_info` (`TicketID`, `TicketPrice`, `TicketType`, `TicketQty`)
 
 CREATE TABLE `user` (
   `UserID` char(10) NOT NULL,
-  `PaymentID` varchar(5) NOT NULL,
+  `PaymentID` varchar(5) DEFAULT NULL,
   `Password` varchar(50) NOT NULL,
   `Name` varchar(30) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Tel` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UserID`, `PaymentID`, `Password`, `Name`, `Email`, `Tel`) VALUES
+('adrianna', '', 'adrianna', 'Adrianna', 'adrianna@gmail.com', '016-4121629');
 
 --
 -- Indexes for dumped tables
@@ -300,9 +343,8 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`PurchaseID`),
-  ADD UNIQUE KEY `CartID` (`CartID`),
   ADD UNIQUE KEY `UserID` (`UserID`),
-  ADD UNIQUE KEY `PaymentID` (`PaymentID`);
+  ADD UNIQUE KEY `CartID` (`CartID`);
 
 --
 -- Indexes for table `seat`
@@ -338,6 +380,34 @@ ALTER TABLE `ticket_info`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`UserID`),
   ADD UNIQUE KEY `PaymentID` (`PaymentID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `CartID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `merch_buy`
+--
+ALTER TABLE `merch_buy`
+  MODIFY `CartID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `PurchaseID` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ticket_buy`
+--
+ALTER TABLE `ticket_buy`
+  MODIFY `CartID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

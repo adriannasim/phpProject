@@ -1,4 +1,25 @@
- <!DOCTYPE html>
+<?php
+    session_start();
+    include ("config/config.php");
+    if(isset($_POST["submit"])) {
+        $UserID = $_POST["admin-login_txt"];
+        $UserPassword = $_POST["password_txt"];
+
+        $sqlLogin = "SELECT * FROM admin WHERE UserID = '$UserID' AND Password = '$UserPassword'";
+        $result = mysqli_query($connection, $sqlLogin);
+        $row = mysqli_fetch_array($result);
+        if (mysqli_num_rows($result) == 1) {
+            $_SESSION["UserID"] = $UserID;
+            header("Location: homepage.php");
+        }
+    }
+    else {
+        echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
+            window.location = 'admin-login.php'</script>";
+    }
+?>
+
+<!DOCTYPE html>
     <meta charset="UFT-8">
     <link href="css/games.css" rel="stylesheet" type="text/css"/>
     <body>

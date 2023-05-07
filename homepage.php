@@ -4,29 +4,12 @@
         <title>Homepage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/css.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
         <header>
-            
-            <div class="flex">
-                <nav>
-                    <button id="nav-toggle" class="">
-                        <span class="strip"></span>
-                        <span class="strip"></span>
-                        <span class="strip"></span>
-                    </button>
-
-                        <ul id="nav-menu-container">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="#">Games</a></li>
-                        <li><a href="#">games</a></li>
-                        <li><a href="#">games</a></li>
-                    </ul>
-                </nav>
-                <a href="login.php" id="login-register-button">Login/Register</a>
-            </div>
+            <?php include "headerUser.php"?>
         </header>
 
         <main>
@@ -126,8 +109,6 @@
                         </div>
             </section>
         </main>
-
-        
-      
+        <?php include "footerUser.php"?>
     </body>
 </html>
