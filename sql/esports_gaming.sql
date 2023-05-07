@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 04:31 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: May 07, 2023 at 06:00 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -197,7 +197,9 @@ CREATE TABLE `purchase` (
 CREATE TABLE `seat` (
   `SeatID` varchar(5) NOT NULL,
   `SeatTypeID` varchar(5) NOT NULL,
-  `TicketID` varchar(5) NOT NULL
+  `TicketID` varchar(5) NOT NULL,
+  `Row` int(3) NOT NULL,
+  `Col` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
