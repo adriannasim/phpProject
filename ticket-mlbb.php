@@ -50,6 +50,7 @@
                 $error=array_filter($error);
                 
                 if(empty($error)){
+                    /*
                     $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
                     $sql="INSERT INTO Ticket (name, email, phone, ticket_type, row, column) VALUES(?,?,?,?,?,?)";
                     $stmt=$con->prepare($sql);
@@ -65,12 +66,10 @@
                     
                     $con->close();
                     $stmt->close();
-                }else{
-                    echo"<ul class='error'>";
-                    foreach ($error as $value){
-                        echo"<li>$value</li>";
-                    }
-                    echo"</ul>"; 
+                    */
+                }else if (!empty($error)) {
+                    echo "<ul class='error'>";
+                    printf("<p>%s</p>", implode("<p></p>", $error));
                 }
             }else{
                 
