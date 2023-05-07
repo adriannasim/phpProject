@@ -27,6 +27,7 @@
             $result = $con->query($sql);
             if ($record = $result->fetch_object()) {
                 $id = $record->EventID;
+                $ticketID = $record->TicketID;
                 $name = $record->EventName;
                 $date = $record->EventDate;
                 $time = $record->EventTime;
@@ -40,6 +41,7 @@
             $result->free();
         } else if(!empty($_POST)){
             $id = trim($_POST["id"]);
+            $ticketID = trim($_POST["ticket"]);
             $name = trim($_POST["name"]);
             $date = trim($_POST["date"]);
             $time = trim($_POST["time"]);
@@ -70,6 +72,10 @@
                     <td><?php echo $id;?><input type="hidden" name="id" value="<?php echo $id;?>"></td>
                 <tr>
                 <tr>
+                    <th>Ticket ID : </th>
+                    <td><?php echo $ticketID;?><input type="hidden" name="ticket" value="<?php echo $ticketID;?>"></td>
+                <tr>
+                <tr>
                     <th>Event Name : </th>
                     <td><input type="text" name="name" value="<?php echo $name;?>"></td>
                 <tr>
@@ -79,7 +85,7 @@
                 <tr>
                 <tr>
                     <th>Event Time : </th>
-                    <td><input type="time" name="time" value="<?php echo $time;;?>"></td>
+                    <td><input type="time" name="time" value="<?php echo $time;?>"></td>
                 <tr>
                 <tr>
                     <th>Event Venue : </th>

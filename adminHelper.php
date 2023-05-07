@@ -3,7 +3,7 @@
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "tw");
+define("DB_NAME", "esports&gaming");
 
 /*Start of eventAdd.php validation*/
 function checkEventID($eventID, $chkEventID){
