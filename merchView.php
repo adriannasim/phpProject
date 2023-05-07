@@ -5,15 +5,8 @@
     <title>Merch Admin</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
-<?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "tw");
-?>
-
 <body>
-    <?php include "headerAdmin.php"; ?>
+    <?php include "adminHelper.php"; include "headerAdmin.php"; ?>
     <?php
     $header = array(
         'MbuyID' => 'Order ID',

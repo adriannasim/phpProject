@@ -1,4 +1,10 @@
 <?php
+//Define db
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "tw");
+
 /*Start of eventAdd.php validation*/
 function checkEventID($eventID, $chkEventID){
     if($eventID == NULL){
