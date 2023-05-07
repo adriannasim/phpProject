@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,62 +24,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
-                    <tr>
-                        <td>MLBB GRAND FINALE</td>
-                        <td>28/04/2023</td>
-                        <td>10AM - 4PM</td>
-                        <td>Standard</td>
-                        <td>20</td>
-                        <td>120</td>
-                        <td><a href="seating_plan.php">View</a></td>
-
-                    </tr>
-                    <tr>
-                        <td>MLBB GRAND FINALE</td>
-                        <td>28/04/2023</td>
-                        <td>10AM - 4PM</td>
-                        <td>VIP</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td><a href="seating_plan.php">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>VALORANT </td>
-                        <td>20/05/2023</td>
-                        <td>10AM - 4PM</td>
-                        <td>Standard</td>
-                        <td>20</td>
-                        <td>120</td>
-                        <td><a href="seating_plan.php">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>VALORANT </td>
-                        <td>20/05/2023</td>
-                        <td>10AM - 4PM</td>
-                        <td>VIP</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td><a href="seating_plan.php">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>VALORANT </td>
-                        <td>20/05/2023</td>
-                        <td>10AM - 4PM</td>
-                        <td>Participant</td>
-                        <td>40</td>
-                        <td>50</td>
-                        <td><a href="participant.php">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>WARZONE S2 FUN CAMP</td>
-                        <td>12/6/2023 - 16/6/2023</td>
-                        <td>TO BE SPECIFED</td>
-                        <td>Standard</td>
-                        <td>20</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
+                <?php
+                session_start();
+                include ("config/config.php");
+                $sqlEvent = "SELECT * FROM event 
+                    JOIN ticket_info ON event.TicketID = ticket_info.TicketID 
+                    ORDER BY EventDate;";
+                $result = mysqli_query($connection, $sqlEvent);
+                if (mysqli_num_rows($result) > 0) {
+                    while($record = $result->fetch_object()) {
+                        printf("<tr>
+                            <td>%s</td>
+                            <td>%s</td>
+                            <td>%s</td>
+                            <td>%s</td>
+                            <td>%s</td>
+                            <td>%s</td>
+                            <td>%s</td>
+                            </tr>",
+                            $record->EventName, $record->EventDate, $record->EventTime, $record->TicketType, $record->TicketPrice, $record->TicketQty, "<a href='seating_plan.php'>View</a>"
+                        );
+                    }  
+                } 
+                ?>
                 </tbody>
             </table>
         </div>

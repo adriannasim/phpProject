@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,6 +17,7 @@
             <div class="cart-section">
                 <div class="cart-details">
                     <div class="prod-box">
+                  
                         <img src="img/merch/m1-front.jpg" alt="alt"/>
                         <div class="box-content">
                             <h3>Gaming Controller T-Shirt</h3>
