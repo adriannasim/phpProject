@@ -7,11 +7,11 @@ define("DB_NAME","xy");
 
 function checkRegisterName($name){
     if($name==null){
-        return "Please enter your name!";
+        return "Please enter your <b>name</b>!";
     }else if(strlen($name)>30){
-        return "Maximum 30 characters only for name!";
+        return "Maximum 30 characters only for <b>name</b>!";
     }else if(!preg_match("/^[A-Za-z @,\"\.\/]+$/",$name)){
-        return "Invalid name!";
+        return "Invalid <b>name</b>!";
     }else{
         $flag=1;
     }
@@ -19,9 +19,9 @@ function checkRegisterName($name){
 
 function checkRegisterEmail($email){
     if($email==null){
-        return "Please enter your email!";
+        return "Please enter your <b>email</b>!";
     }else if(!preg_match("/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/",$email)){
-        return "Invalid email!";
+        return "Invalid <b>email</b>!";
     }else{
         $flag=1;
     }
@@ -29,9 +29,9 @@ function checkRegisterEmail($email){
 
 function checkRegisterPhone($phone){
     if($phone==null){
-        return "Please enter your phone number!";
+        return "Please enter your <b>phone number</b>!";
     }else if(!preg_match("/^(01)[0-46-9][-][0-9]{7,8}$/",$phone)){
-        return "Invalid phone number!";
+        return "Invalid <b>phone number</b>!";
     }else{
         $flag=1;
     }
@@ -39,7 +39,7 @@ function checkRegisterPhone($phone){
 
 function checkTicketType($ticketType){
     if($ticketType==null){
-        return "Please select your ticket type!";
+        return "Please select your <b>ticket type</b>!";
     }else{
         $flag=1;
     }
@@ -47,7 +47,7 @@ function checkTicketType($ticketType){
 
 function checkRow($row){
     if($row==null){
-        return "Please select your seat row!";
+        return "Please select your <b>seat row</b>!";
     }else{
         $flag=1;
     }
@@ -55,7 +55,7 @@ function checkRow($row){
 
 function checkColumn($column){
     if($column==null){
-        return "Please select your seat column!";
+        return "Please select your <b>seat column</b>!";
     }else{
         $flag=1;
     }

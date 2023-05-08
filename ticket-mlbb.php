@@ -14,11 +14,6 @@
         require_once 'ticket-helper.php';
     ?>
 
-    
-            
-
-
-
     <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
     <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1>
     <br>
@@ -63,10 +58,10 @@
             }
         } 
                 if(empty($error)){
-                  /*  
-                    
+                   
+                    /*
                     $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-                    $sql="INSERT INTO ticket_buy(name, email, phone, ticket_type, row, column) VALUES(?,?,?,?,?,?)";
+                    $sql="INSERT INTO ticket_buy(name, email, phone, ticket_type, row, col) VALUES(?,?,?,?,?,?)";
                     $stmt=$con->prepare($sql);
                     $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
                     $stmt->execute();
@@ -78,12 +73,13 @@
                         echo "<div class='error'>Unable to register.</div>";
                     }
                     
-                    $con->close();
+                    $con->close(); 
                     $stmt->close();
                     */
                 }else {
-                    echo "<ul class='error'>";
+                    echo "<ul class='ticket-error'>";
                     printf("<p>%s</p>", implode("<p></p>", $error));
+                    echo "</ul>";
                 }
                 
             
