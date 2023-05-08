@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 06:00 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 08, 2023 at 05:17 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,6 +31,13 @@ CREATE TABLE `admin` (
   `UserID` varchar(10) NOT NULL,
   `Password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`UserID`, `Password`) VALUES
+('admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -72,20 +79,20 @@ INSERT INTO `cart` (`CartID`, `UserID`, `checkout`) VALUES
 
 CREATE TABLE `event` (
   `EventID` varchar(5) NOT NULL,
-  `TicketID` varchar(5) NOT NULL,
   `EventName` varchar(50) NOT NULL,
   `EventDate` date NOT NULL,
   `EventTime` time NOT NULL,
   `EventVenue` varchar(50) NOT NULL,
-  `EventDesc` varchar(255) NOT NULL
+  `EventDesc` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`EventID`, `TicketID`, `EventName`, `EventDate`, `EventTime`, `EventVenue`, `EventDesc`) VALUES
-('CA001', 'AU001', 'MLBB Grand Finale', '2023-04-28', '10:00:00', 'CA, TAR UMT', 'What awaits you is something like no other...Witness the final battle between the last 4 teams standing with a special guest appearance: THE MPL MY/SG CHAMPION OF S2 RYNN ! Join us in Mobile Legends\' Grand Finale to meet a real professional gamer in real ');
+INSERT INTO `event` (`EventID`, `EventName`, `EventDate`, `EventTime`, `EventVenue`, `EventDesc`) VALUES
+('CA001', 'MLBB Grand Finale', '2023-04-28', '10:00:00', 'CA, TAR UMT', 'What awaits you is something like no other...Witness the final battle between the last 4 teams standing with a special guest appearance: THE MPL MY/SG CHAMPION OF S2 RYNN ! Join us in Mobile Legends\' Grand Finale to meet a real professional gamer in real life!'),
+('FA001', 'Valorant: Battle of the Ace', '2023-05-25', '10:00:00', 'FOYER, TAR UMT', 'Ever dream of fighting side-by-side with your best buddies in an E-Sports gaming event? This could be your battle. Assemble all your comrades because it\'s showtime!\r\nNOTE : Participants are required to register together in a TEAM OF 5\r\nFor NON-Gamers : FEAR NOT! You can also witness the ultimate victory of your friends. What are you waiting for? Grab your tickets NOW!');
 
 -- --------------------------------------------------------
 
@@ -144,6 +151,10 @@ CREATE TABLE `merch_info` (
   `MerchID` varchar(5) NOT NULL,
   `MerchPrice` double(7,2) NOT NULL,
   `MerchDesc` varchar(255) NOT NULL,
+  `Material` varchar(100) DEFAULT NULL,
+  `Color` varchar(100) DEFAULT NULL,
+  `Style` varchar(100) DEFAULT NULL,
+  `FitType` varchar(100) DEFAULT NULL,
   `MerchQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -151,8 +162,8 @@ CREATE TABLE `merch_info` (
 -- Dumping data for table `merch_info`
 --
 
-INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `MerchQty`) VALUES
-('M0001', 50.00, 'Gaming Controller T-Shirt', 50);
+INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `MerchQty`) VALUES
+('M0001', 50.00, 'Gaming Controller T-Shirt', NULL, NULL, NULL, NULL, 50);
 
 -- --------------------------------------------------------
 
@@ -197,9 +208,7 @@ CREATE TABLE `purchase` (
 CREATE TABLE `seat` (
   `SeatID` varchar(5) NOT NULL,
   `SeatTypeID` varchar(5) NOT NULL,
-  `TicketID` varchar(5) NOT NULL,
-  `Row` int(3) NOT NULL,
-  `Col` int(3) NOT NULL
+  `TicketID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -241,6 +250,7 @@ INSERT INTO `ticket_buy` (`TbuyID`, `TicketID`, `CartID`, `TbuyQty`) VALUES
 
 CREATE TABLE `ticket_info` (
   `TicketID` varchar(5) NOT NULL,
+  `EventID` varchar(5) NOT NULL,
   `TicketPrice` double(7,2) NOT NULL,
   `TicketType` varchar(20) NOT NULL,
   `TicketQty` int(3) NOT NULL
@@ -250,8 +260,8 @@ CREATE TABLE `ticket_info` (
 -- Dumping data for table `ticket_info`
 --
 
-INSERT INTO `ticket_info` (`TicketID`, `TicketPrice`, `TicketType`, `TicketQty`) VALUES
-('AU001', 20.00, 'Standard', 120);
+INSERT INTO `ticket_info` (`TicketID`, `EventID`, `TicketPrice`, `TicketType`, `TicketQty`) VALUES
+('AU001', 'CA001', 20.00, 'Standard', 120);
 
 -- --------------------------------------------------------
 
@@ -305,8 +315,7 @@ ALTER TABLE `cart`
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`EventID`),
-  ADD UNIQUE KEY `TicketID` (`TicketID`);
+  ADD PRIMARY KEY (`EventID`);
 
 --
 -- Indexes for table `feedback`
@@ -374,7 +383,8 @@ ALTER TABLE `ticket_buy`
 -- Indexes for table `ticket_info`
 --
 ALTER TABLE `ticket_info`
-  ADD PRIMARY KEY (`TicketID`);
+  ADD PRIMARY KEY (`TicketID`),
+  ADD UNIQUE KEY `EventID` (`EventID`);
 
 --
 -- Indexes for table `user`

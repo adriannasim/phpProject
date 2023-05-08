@@ -59,8 +59,8 @@
                     echo '<ul class="error">';
                     printf("<p>%s</p>", implode("<p></p>", $error));
                     echo '</ul>';
+                }
             }
-        }
         }
         ?>
         <?php if ($hideForm == false) : ?>

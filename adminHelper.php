@@ -20,7 +20,7 @@ function checkEventName($name){
         return "⚠ Please enter the event name";
     }else if(strlen($name) > 50){
         return "⚠ Maximum 50 characters for event name";
-    }else if(!preg_match("/^[A-Za-z,\'\ ]+$/", $name)){
+    }else if(!preg_match("/^[A-Za-z,\'\: ]+$/", $name)){
         return "⚠ Please enter a valid event name";
     }
 }
@@ -36,10 +36,10 @@ function checkEventVenue($venue){
 function checkEventDesc($desc){
     if($desc == NULL){
         return"⚠ Please enter the event description";
-    }else if(strlen($desc) > 255){
-        return "⚠ Maximum 255 characters for event description";
-    }else if(!preg_match("/^[\w\ ]{10,255}$/", $desc)){
-        return "⚠ Minimum 10 characters for event description/Illegal character detected";
+    }else if(strlen($desc) > 500){
+        return "⚠ Maximum 500 characters for event description";
+    }else if(strlen($desc) < 10){
+        return "⚠ Minimum 10 characters for event description";
     }
 }
 /*End of eventAdd.php validation*/

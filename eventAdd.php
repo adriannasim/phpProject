@@ -20,11 +20,11 @@
             <?php
                 if(!empty($_POST)) {
                     $eventID = trim($_POST['id']);
-                    $name = trim($_POST['name']);
+                    $name = mysqli_real_escape_string($connection, trim($_POST['name']));
                     $date = trim($_POST['eventDate']);
                     $time = trim($_POST['eventTime']);
                     $venue = trim($_POST['venue']);
-                    $desc = trim($_POST['desc']);
+                    $desc = mysqli_real_escape_string($connection, trim($_POST['desc']));
                     $error = array();
                     
                     $sqlCheck = "SELECT EventID FROM event WHERE EventID = '$eventID'";
@@ -32,12 +32,16 @@
                     if (mysqli_num_rows($result) == 1) {
                         $chkEventID = $eventID;
                     } 
+                    else {
+                        $chkEventID = "";
+                    }
 
                     $error['id'] = checkEventID($eventID, $chkEventID);
                     $error['name'] = checkEventName($name);
                     $error['venue'] = checkEventVenue($venue);
                     $error['desc'] = checkEventDesc($desc);
-                
+                    $error = array_filter($error);
+
                     if ($date == NULL) {
                         $error['eventDate'] = '⚠ Please enter the event date';
                     }
@@ -47,11 +51,11 @@
                     }
 
                     if((empty($error))) {
-                        $eventAdd = "INSERT INTO event VALUES ('$eventID', '$name', '$date', '$time', '$venue', '$desc');";
+                        $eventAdd = "INSERT INTO event VALUES ('$eventID', NULL, '$name', '$date', '$time', '$venue', '$desc');";
                         if (($connection->prepare($eventAdd))->execute()) {
                             echo "<div class='addEvent-form-success'>";
                             printf("<p>
-                                Event Added Successfully !
+                                Event Added Successfully ! <a href='eventManage.php'>Back to Manage Events</a>
                                 </p>");
                             echo "</div>";
                         }
@@ -83,7 +87,7 @@
                     </div>
                     <div class="addEvent-form-group">
                         <label for="venue">Event Venue</label><br/>
-                        <input type="text" name="venue" id="venue" ><?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?></textarea>
+                        <input type="text" name="venue" id="venue" value="<?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?>"></textarea>
                     </div>
                     <div class="addEvent-form-group">
                         <label for="desc">Event Description</label><br/>

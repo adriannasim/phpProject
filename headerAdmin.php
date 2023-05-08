@@ -14,7 +14,7 @@
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="eventAdd.php">Add Events</a></li>
-                                <li><a href="eventEdit.php">Manage Events</a></li>
+                                <li><a href="eventManage.php">Manage Events</a></li>
                             </ul>
                         </div>
                     </div>
