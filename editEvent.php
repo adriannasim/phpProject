@@ -50,7 +50,7 @@
             $error['desc'] = checkEventDesc($desc);
             $error = array_filter($error);
             if (empty($error)) {$sql = "UPDATE event SET EventName = ?, EventDate = ?, EventTime = ?, EventVenue = ?, EventDesc = ? WHERE EventID = ?";
-                $stmt->bind_param("sssssss",$id, $name, $date, $time, $venue, $desc, $ticket);
+                $stmt->bind_param("sssssss", $name, $date, $time, $venue, $desc, $ticket);
                 if ($stmt->execute()) {
                     echo "<div class='correct'> Event Data Updated !<br/><a href='eventEdit.php'>Back to Manage Events</a></div>";
                 } else {
@@ -68,19 +68,19 @@
                 <tr>
                     <th>Event ID : </th>
                     <td><?php echo $id;?><input type="hidden" name="id" value="<?php echo $id;?>"></td>
-                <tr>
+                </tr>
                 <tr>
                     <th>Event Name : </th>
                     <td><input type="text" name="name" value="<?php echo $name;?>"></td>
-                <tr>
+                </tr>
                 <tr>
                     <th>Event Date : </th>
                     <td><input type="date" name="date" value="<?php echo $date;?>"></td>
-                <tr>
+                </tr>
                 <tr>
                     <th>Event Time : </th>
                     <td><input type="time" name="time" value="<?php echo $time;;?>"></td>
-                <tr>
+                </tr>                 
                 <tr>
                     <th>Event Venue : </th>
                     <td><input type="text" name="venue" value="<?php echo $venue;?>"></td>
