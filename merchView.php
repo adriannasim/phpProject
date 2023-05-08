@@ -10,9 +10,9 @@
     <?php
     $header = array(
         'MbuyID' => 'Order ID',
-        'MbuyTotal' => 'Total Amount',
-        'MbuyQty' => 'Quantity',
-        'MerchID' => 'Product ID'
+        'MerchID' => 'Product ID',
+        'CartID' => 'Cart ID',
+        'MbuyQty' => 'Quantity'
     );
     ?>
     <div class="merchAdmin-header">
@@ -33,12 +33,14 @@
             <th>%s</th>
             ", $value);
         }
+        $status = "Pending";
         if(isset($_POST['viewMerch-update'])){
-            $status = isset($status) ? "Complete" : "Pending";
-        }else{
+            if(isset($_POST['status'])){
+            $status = isset($status) ? $status = "Complete" : $status = "Pending";
+            }else{
             $status = "Pending";
         }
-        
+        }
         ?>
         <th>Status</th>
         <th>Update Status</th>
@@ -54,7 +56,7 @@
                         <td>%s</td>
                         <td><form action= '' method='post'><input type='checkbox' name='status'><span class='chkbox'></span></form></td>
                         </tr>
-                    ", $record->MbuyID, $record->MbuyTotal, $record->MbuyQty, $record->MerchID, $status);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID,$record->MbuyQty, $status);
             }
         }
         $result->free();
@@ -64,7 +66,7 @@
     </table>
     <form action= '' method='post'>
     <div class="viewMerch-btn">
-        <input type="reset" value="Cancel" />
+        <input type="reset" value="Reset" onclick="location = 'merchView.php'"/>
         <input type="submit" value="Update" name="viewMerch-update" />
     </div>
     </form>

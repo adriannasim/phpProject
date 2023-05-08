@@ -15,6 +15,7 @@
     <?php
     $header = array(
         "EventID" => "Event ID",
+        "TicketID"=> "Ticket ID",
         "EventName" => "Event Name",
         "EventDate" => "Event Date",
         "EventTime" => "Event Time",
@@ -59,8 +60,9 @@
                         <td>%s</td>
                         <td>%s</td>
                         <td>%s</td>
+                        <td>%s</td>
                         <td><button id='edit'><a href='editEvent.php?id=$record->EventID'>Edit</a></button><button id='delete'><a href='deleteEvent.php?id=$record->EventID'>Delete</a></button></td>
-                        </tr>",$record->EventID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc);
+                        </tr>",$record->EventID, $record->TicketID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc);
                     }
                 }
                 ?>

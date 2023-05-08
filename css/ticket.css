@@ -102,6 +102,11 @@ body{
   border-radius:25px;
 }
 
+.ticket-mlbb-form input:hover {
+  border:10px;
+  border-color: #030c10;
+}
+
 .ticket-mlbb-contacttable td{
   padding: 20px;
 }
@@ -226,4 +231,10 @@ body{
 .ticket-confirmPayment:hover {
   transform: scale(1.2) rotate(-1deg);
   box-shadow:0 0 15px 4px rgba(245, 239, 239, 0.915);
+}
+
+.ticket-error{
+  border-radius: 10px;
+  background-color: rgb(241, 109, 109);
+  padding: 20px;
 }
