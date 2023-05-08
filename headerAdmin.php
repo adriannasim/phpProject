@@ -10,11 +10,11 @@
             <div class="headerA-navBar">
                 <ul>
                     <div class="headerA-dropdown">
-                        <li class="headerA-dropBtn"><a href="Event_List.php">Events</a></li>
+                        <li class="headerA-dropBtn"><a href="eventManage.php">Events</a></li>
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="eventAdd.php">Add Events</a></li>
-                                <li><a href="eventManage.php">Manage Events</a></li>
+                                <li><a href="new_event.php">Manage Event Ticketing</a></li>
                             </ul>
                         </div>
                     </div>
