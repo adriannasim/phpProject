@@ -12,16 +12,25 @@
 </head>
 
 <body>
-    <?php include "adminHelper.php"; include "headerAdmin.php"; ?>
+    <?php include "adminHelper.php";
+    include "headerAdmin.php"; ?>
     <div class="merchAdmin-header">
         <h1>Merch Admin</h1>
     </div>
+<<<<<<< Updated upstream
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>
+=======
+    <div class="merchfunc-admin">
+        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
+        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
+        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+    </div>
+>>>>>>> Stashed changes
     <div class="addMerch-form">
         <?php
         if (!empty($_POST)) {
@@ -54,6 +63,7 @@
             $error['qty'] = checkProdQty($qty);
             $error['pCategory'] = checkProdCategory($pCategory);
             $error['size'] = checkProdSize($size);
+            $error = array_filter($error);
 
             if ((empty($error))) {
                 $sql = "INSERT INTO products (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -71,35 +81,41 @@
             }
         }
         ?>
-        <form action="" method="post" >
+        <form action="" method="post">
             <h2>Add Products</h2>
             <div class="addMerch-form-group">
                 <label for="prod-id">Product ID</label>
-                <input type="text" name="prod-id" id="prod-id" placeholder="E.g P0001" value="<?php echo (isset($id))? $id: "";?>"/>
+                <input type="text" name="prod-id" id="prod-id" placeholder="E.g P0001"
+                    value="<?php echo (isset($id)) ? $id : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-name">Product Name</label>
-                <input type="text" name="prod-name" id="prod-name" value="<?php echo (isset($name))? $name: "";?>" />
+                <input type="text" name="prod-name" id="prod-name" value="<?php echo (isset($name)) ? $name : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-price">Product Price (RM)</label>
-                <input type="text" name="prod-price" id="prod-price"  placeholder="E.g 50" value="<?php echo (isset($price))? $price: "";?>"/>
+                <input type="text" name="prod-price" id="prod-price" placeholder="E.g 50"
+                    value="<?php echo (isset($price)) ? $price : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-desc1">Product Material</label>
-                <input type="text" name="prod-desc1" id="prod-desc1" placeholder="E.g cotton" value="<?php echo (isset($material))? $material: "";?>" />
+                <input type="text" name="prod-desc1" id="prod-desc1" placeholder="E.g cotton"
+                    value="<?php echo (isset($material)) ? $material : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-desc2">Product Color</label>
-                <input type="text" name="prod-desc2" id="prod-desc2" placeholder="E.g white" value="<?php echo (isset($color))? $color: "";?>" />
+                <input type="text" name="prod-desc2" id="prod-desc2" placeholder="E.g white"
+                    value="<?php echo (isset($color)) ? $color : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-desc3">Product Style</label>
-                <input type="text" name="prod-desc3" id="prod-desc3" placeholder="E.g casual" value="<?php echo (isset($style))? $style: "";?>" />
+                <input type="text" name="prod-desc3" id="prod-desc3" placeholder="E.g casual"
+                    value="<?php echo (isset($style)) ? $style : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-desc4">Product Fit Type</label>
-                <input type="text" name="prod-desc4" id="prod-desc4" placeholder="E.g oversized" value="<?php echo (isset($fitType))? $fitType: "";?>" />
+                <input type="text" name="prod-desc4" id="prod-desc4" placeholder="E.g oversized"
+                    value="<?php echo (isset($fitType)) ? $fitType : ""; ?>" />
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-desc5">Product Quantity</label>
@@ -124,7 +140,7 @@
                 <label for="unisize">Unisize (S-XL)</label><br />
             </div>
             <div class="addMerch-form-btn">
-                <input type="reset" onclick="location = 'merchAdd.php'"/>
+                <input type="reset" onclick="location = 'merchAdd.php'" />
                 <input type="submit" value="Add" name="addMerch-form-submit" />
             </div>
         </form>
