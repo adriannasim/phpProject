@@ -44,6 +44,13 @@ function checkEventDesc($desc){
 }
 /*End of eventAdd.php validation*/
 /*Start of eventTicket.php validation*/
+function checkTicketID($ticketID){
+    if($ticketID == NULL){
+        return "⚠ Please enter the ticket ID";
+    }else if(!preg_match("/^[A-Z\d]{5}$/",$ticketID)){
+        return "⚠ Please enter a valid ticket ID";
+    }
+}
 function checkTicketPrice($price){
     if($price == NULL){
         return "⚠ Please enter the ticket price";

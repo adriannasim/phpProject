@@ -15,7 +15,6 @@
 
 <body>
     <?php
-    include "adminHelper.php";
     include "headerAdmin.php";
     ?>
     <?php

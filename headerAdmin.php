@@ -32,6 +32,7 @@
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="merchAdd.php">Add Products</a></li>
+                                <li><a href="merchManage.php">View Orders</a></li>
                                 <li><a href="merchView.php">View Orders</a></li>
                             </ul>
                         </div>

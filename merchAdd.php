@@ -14,6 +14,7 @@
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
+            <td><a href="merchManage.php"><button class="merch-manage">Manage Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>
@@ -141,11 +142,6 @@
                 <label for="freesize">Free Size</label>
                 <input type="radio" name="prod-size" id="unisize" value="Unisize" />
                 <label for="unisize">Unisize (S-XL)</label><br />
-            </div>
-            <div class="addMerch-form-group-file">
-                <label for="prod-imgfile">Insert Product Image</label><br />
-                <input type="file" name="prod-imgfile" id="prod-imgfile"  />
-                <input type="hidden" name="MAX_FILE SIZE" value="1048576" />
             </div>
             <div class="addMerch-form-btn">
                 <input type="reset" onclick="location = 'merchAdd.php'"/>

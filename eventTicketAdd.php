@@ -41,6 +41,7 @@
             $type = trim($_POST["type"]);
             $qty = trim($_POST["qty"]);
 
+            $error['ticketID'] = checkTicketID($ticketID);
             $error['price'] = checkTicketPrice($price);
             $error['qty'] = checkQty($qty);
             $error['type'] = checkType($type);
