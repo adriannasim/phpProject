@@ -121,7 +121,7 @@
                 <label for="prod-size">Product Size</label>
                 <input type="radio" name="prod-size" id="freesize" value="FreeSize" />
                 <label for="freesize">Free Size</label>
-                <input type="radio" name="prod-size" id="unisize" value="Unisize" />
+                <input type="radio" name="prod-size" id="unisize" value="UniSize" />
                 <label for="unisize">Unisize (S-XL)</label><br />
             </div>
             <div class="addMerch-form-btn">

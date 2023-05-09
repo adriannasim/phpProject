@@ -36,8 +36,8 @@
                 $color = $record->Color;
                 $style = $record->Style;
                 $fitType = $record->FitType;
-                $category = $record->category;
-                $size = $record->size;
+                $category = $record->Category;
+                $size = $record->Size;
                 $qty = $record->MerchQty;
                 $hideForm = false;
             } else {
