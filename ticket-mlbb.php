@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/ticket.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body> 
@@ -19,74 +20,79 @@
     <br>
     <div class="ticket-mlbb-form">
     <?php 
-            $flag = 0; 
-            if (!empty($_POST)) {
-                $name=trim($_POST['name']);
-                $email=trim($_POST['email']);
-                $phone=trim($_POST['phone']);
-                if(isset($_POST['ticketType'])){
-                    $ticketType=trim($_POST['ticketType']);
-                }else{
-                    $ticketType="";
-                }
-                if(isset($_POST['row'])){
-                    $row=trim($_POST['row']);
-                }else{
-                    $row="";
-                }
-                if(isset($_POST['column'])){
-                    $column=trim($_POST['column']);
-                }else{
-                    $column="";
-                }
-                
-                $error['name']=checkRegisterName($name);
-                $error['email']=checkRegisterEmail($email);
-                $error['phone']= checkRegisterPhone($phone);
-                $error['ticketType']= checkTicketType($ticketType);
-                $error['row']= checkRow($row);
-                $error['column']= checkColumn($column);
+        $error = array();
 
-                $error=array_filter($error);
-                echo $flag;
-                if($flag==1){
-                    
-                    
-                    header("Location: ticket-payment.php");
-                    
-    
+        if (!empty($_POST)) {
+            $name=trim($_POST['name']);
+            $email=trim($_POST['email']);
+            $phone=trim($_POST['phone']);
+            if(isset($_POST['ticketType'])){
+                $ticketType=trim($_POST['ticketType']);
+            }else{
+                $ticketType="";
             }
-        } 
-                if(empty($error)){
-                   
-                    /*
-                    $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-                    $sql="INSERT INTO ticket_buy(name, email, phone, ticket_type, row, col) VALUES(?,?,?,?,?,?)";
-                    $stmt=$con->prepare($sql);
-                    $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
-                    $stmt->execute();
-                    
-                    if($stmt->affected_rows>0){
-                        printf("<div class='info'>
-                                Registration form for <b>%s</b> has been submitted. [<a href='ticket-payment.php'>Pay Now</a>]</div>",$name);
-                    }else{
-                        echo "<div class='error'>Unable to register.</div>";
-                    }
-                    
-                    $con->close(); 
-                    $stmt->close();
-                    */
-                }else {
-                    echo "<ul class='ticket-error'>";
-                    printf("<p>%s</p>", implode("<p></p>", $error));
-                    echo "</ul>";
-                }
-                
-            
-            
-        ?>
+            if(isset($_POST['row'])){
+                $row=trim($_POST['row']);
+            }else{
+                $row="";
+            }
+            if(isset($_POST['column'])){
+                $column=trim($_POST['column']);
+            }else{
+                $column="";
+            }
 
-        <form method="post" id="myFormId" onsubmit="return validateForm()">
+            $error['name']=checkRegisterName($name);
+            $error['email']=checkRegisterEmail($email);
+            $error['phone']= checkRegisterPhone($phone);
+            $error['ticketType']= checkTicketType($ticketType);
+            $error['row']= checkRow($row);
+            $error['column']= checkColumn($column);                
+        } 
+
+        $formSubmitted = !empty($_POST);
+
+        $hasErrors = false;
+        foreach ($error as $errorMessage) {
+            if (!empty($errorMessage)) {
+                $hasErrors = true;
+                break;
+        }
+    }    
+
+    if(!$hasErrors && !empty($_POST)){
+                   
+        /*
+        $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+        $sql="INSERT INTO ticket_buy(name, email, phone, ticket_type, row, col) VALUES(?,?,?,?,?,?)";
+        $stmt=$con->prepare($sql);
+        $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
+        $stmt->execute();
+                    
+        if($stmt->affected_rows>0){
+            printf("<div class='info'>
+                Registration form for <b>%s</b> has been submitted. [<a href='ticket-payment.php'>Pay Now</a>]</div>",$name);
+            }else{
+                echo "<div class='error'>Unable to register.</div>";
+            }
+                    
+        $con->close(); 
+        $stmt->close();
+        */
+                    
+        printf("<div class='ticket-success'>Registration form has been submitted. <a href='ticket-payment.php'>Pay Now</a></div>");
+                    
+    }else {
+        if ($formSubmitted) {
+        echo "<ul class='ticket-error'>";
+        printf("<p>%s</p>", implode("<p></p>", $error));
+        echo "</ul>";
+        }
+    }
+                    
+    ?>
+
+        <form method="post" action="">
             
             <div class="ticket-mlbb-contacttable">
                 <h2><i>Contact Information</i></h2>
@@ -165,7 +171,7 @@
             </div>
             <br>
             <input type="button" value="Reset" class="ticket-reset" onclick="location='ticket-mlbb.php'">  
-            <input type="submit" value="Pay Now" class="ticket-paynow" >
+            <input type="submit" value="Submit" class="ticket-paynow" >
         </form>
         
         </div>

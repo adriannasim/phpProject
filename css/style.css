@@ -357,6 +357,7 @@ body {
 
 .addEvent-form-group input {
     margin-top: 10px;
+    font-family: cambria;
 }
 
 .addEvent-form-group input,
@@ -422,69 +423,86 @@ body {
 }
 
 /*End of addEvent.php styles*/
-
+.editEvents-searchBar{
+    margin-left: 40%;
+    
+}
+.editEvents-searchBar input{
+    width: 260px;
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    font-size: 12pt;
+}
+.editEvents-searchBar button{
+    font-family: cambria;
+    font-size: 12pt;
+    width: 120px;
+    height: 50px;
+    margin-left: 10px;
+    letter-spacing: 0.1em;
+    border: 1px solid white;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+.editEvents-searchBar button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+/*Start of eventTicketManage.php styles*/
+#with-hd{
+    font-size: 18pt;
+    margin-top: 60px;
+    margin-left: 40%;
+    border: 1px solid white;
+    width: 20%;
+    height: 30px;
+    border-radius: 30px;
+    padding:10px 5px;
+}
+#without-hd{
+    font-size: 18pt;
+    margin-top: 60px;
+    margin-left: 38%;
+    border: 1px solid white;
+    height: 30px;
+    width: 25%;
+    border-radius: 30px;
+    padding:10px 5px;
+}
+#edit,#add, #delete{
+    width: 80px;
+    height: 55px;
+    margin: 5px;
+}
+#add-no-ticket{
+    width: 80px;
+    height: 55px;
+    margin-left: -90px;
+    margin-right: 15px;
+}
+hr{
+    width: 85%;
+}
+/*End of eventTicketManage.php styles*/
 /*Start of eventEdit.php styles*/
 .editEvents-header {
     text-align: center;
-}
-
-.editEvents-searchBar {
-    text-align: center;
-    width: 20%;
-    margin: 10px 40% 10px 40%;
-
-}
-
-.editEvents-searchBar-label {
-    width: 250px;
-}
-
-.editEvents-searchBar td {
-    width: 250px;
-    padding: 10px 10px;
-}
-
-.editEvents-searchBar-input input {
-    width: 250px;
-    padding: 10px 5px;
-    border-radius: 30px;
-    border: 1px solid white;
-    letter-spacing: .1em;
-    font-size: 16px;
-    text-align: center;
-    font-family: Cambria;
-    background-color: black;
-}
-
-.editEvents-searchBar-input input:focus {
-    color: white;
-}
-
-.editEvents-searchBtn {
-    padding: 10px 5px;
-    font-size: 16px;
-    letter-spacing: .1em;
-    font-family: Cambria;
-    width: 100px;
-    border: 1px solid white;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
-    transition: all .3s ease;
-}
-
-.editEvents-searchBtn:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 1px solid black;
 }
 
 .event-details {
     width: 80%;
     margin-left: 10%;
     margin-top: -5%;
+    margin-bottom: 5%;
     border-collapse: collapse;
 }
 .event-details th{
@@ -493,9 +511,8 @@ body {
 }
 .event-details td{
     padding: 20px;
-    color: black;
-    border: 2px solid black;
-    background-color: #ffffff;
+    color: white;
+    border: 2px solid white;
 }
 .event-details button a{
     font-size: 15px;
@@ -515,6 +532,12 @@ body {
     transition: all 0.1s ease;
 }
 #edit:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    border: 1px solid black;
+    background-color: rgb(181, 246, 248);
+}
+#add:hover, #add-no-ticket:hover{
     cursor: pointer;
     transform: scale(1.1);
     border: 1px solid black;
@@ -632,19 +655,23 @@ body {
 .merchAdmin-header {
     text-align: center;
 }
-
+.merchfunc-admin{
+    margin-left: 30%;
+    margin-bottom: 40px;
+}
 .merchfunc-admin button {
     font-size: 12pt;
     text-align: center;
     letter-spacing: 0.1em;
     font-family: cambria;
-    border-radius: 20px;
+    border-radius: 25px;
     border: 2px white solid;
-    width: 140px;
-    height: 40px;
-    margin: 10px 10px 0 330%;
+    width: 170px;
+    height: 50px;
+    padding: 10px 5px;
+    margin: 10px 10px 0 0;
     cursor: pointer;
-    transition: .4s;
+    transition: .2s;
 }
 
 .merchfunc-admin button:hover {
@@ -664,9 +691,13 @@ body {
     padding: 20px;
     border-radius: 20px;
 }
+.addMerch-form-table{
+    margin: auto;
+    color: black;
+}
 
 .addMerch-form-group-rd input {
-    margin: 20px 0;
+    margin: 30px 0 50px 0;
     width: 50px;
 }
 
@@ -784,3 +815,55 @@ td {
 }
 
 /*End of merchView.php styles*/
+/*Start of merchManage.php styles*/
+.editMerch-searchBar{
+    margin-left: 40%;
+    
+}
+.editMerch-searchBar input{
+    width: 260px;
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    font-size: 12pt;
+}
+.editMerch-searchBar button{
+    font-family: cambria;
+    font-size: 12pt;
+    width: 120px;
+    height: 50px;
+    margin-left: 10px;
+    letter-spacing: 0.1em;
+    border: 1px solid white;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+.editMerch-searchBar button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.order-details button{
+    width: 60px;
+    margin: 10px 0;
+    padding: 7px 2px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+}
+.order-details a{
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: cambria;
+    color: black;
+}
+/*End of merchManage.php styles*/

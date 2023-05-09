@@ -1,8 +1,8 @@
-<?php 
-    session_start();
-    include ("config/config.php");
-    $UserID = "admin";
-    //$UserID = $_SESSION['UserID'];
+<?php
+session_start();
+include("config/config.php");
+$UserID = "admin";
+//$UserID = $_SESSION['UserID'];
 ?>
 <html>
 
@@ -33,35 +33,29 @@
         </div>
         <div class="editEvents-form">
             <form action="" method="get">
-                <table class="editEvents-searchBar">
-                    <tr>
-                        <td class="editEvents-searchBar-label">Event Name:</td>
-                    </tr>
-                    <tr>
-                        <td class="editEvents-searchBar-input">
-                            <input type="text" name="eventName" id="eventName" placeholder="E.g Valorant" />
-                        </td>
-                        <td colspan="2" style="text-align:center;">
-                            <button type="submit" class="editEvents-searchBtn" name="search">Search <i class="fa fa-search"></i></button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <table class="event-details">
-                <?php
-                if (isset($_GET['search'])) {
-                    $search = mysqli_real_escape_string($connection, (trim($_GET['eventName'])));
-                    $sql = "SELECT * FROM event WHERE EventName LIKE '%$search%';";
-                } else {
-                    $sql = "SELECT * FROM event";
-                }
-                $result = $connection->query($sql);
-                foreach ($header as $value) {
-                    printf("<th>%s</th>", $value);
-                }
-                printf("<th>Action</th>");
-                while ($record = $result->fetch_object()) {
-                    printf("
+                <div class="editEvents-searchBar">
+                    <input type="text" name="eventName" id="eventName" placeholder="Enter Event Name" />
+                    <button type="submit" class="editEvents-searchBtn" name="search">Search <i
+                            class="fa fa-search"></i></button>
+
+        </div>
+        </form>
+        <table class="event-details">
+            <?php
+            if (isset($_GET['search'])) {
+                $search = mysqli_real_escape_string($connection, (trim($_GET['eventName'])));
+                $sql = "SELECT * FROM event WHERE EventName LIKE '%$search%';";
+            } else {
+                $sql = "SELECT * FROM event";
+            }
+            $result = $connection->query($sql);
+            foreach ($header as $value) {
+                printf("<th>%s</th>", $value);
+            }
+            printf("<th>Action</th>");
+            while ($record = $result->fetch_object()) {
+                printf(
+                    "
                     <tr>
                         <td>%s</td>
                         <td>%s</td>
@@ -74,12 +68,12 @@
                             <button id='delete'><a href='deleteEvent.php?id=$record->EventID'>Delete</a></button>
                         </td>
                     </tr>"
-                    ,$record->EventID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc
-                    );
-                }
-                ?>
-            </table>
-        </div>
+                    , $record->EventID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc
+                );
+            }
+            ?>
+        </table>
+    </div>
     </div>
 </body>
 
