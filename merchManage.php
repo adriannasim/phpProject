@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Merch Admin</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
+
 <body>
-    <?php include "adminHelper.php"; include "headerAdmin.php"; ?>
+    <?php include "adminHelper.php";
+    include "headerAdmin.php"; ?>
     <?php
     $header = array(
         'MerchID' => 'Product ID',
@@ -18,36 +21,18 @@
     <div class="merchAdmin-header">
         <h1>Merch Admin</h1>
     </div>
-<<<<<<< Updated upstream
-    <table class="merchfunc-admin">
-        <tr>
-            <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
-            <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
-        </tr>
-    </table>
-=======
     <div class="merchfunc-admin">
-        
-            <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
-            <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
-            <a href="merchView.php"><button class="merch-view">View Orders</button></a>
-        
-</div>
->>>>>>> Stashed changes
+
+        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
+        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
+        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+    </div>
     <form method="get">
-        <table class="editEvents-searchBar">
-            <tr>
-                <td class="editEvents-searchBar-label">Merch Name:</td>
-            </tr>
-            <tr>
-                <td class="editEvents-searchBar-input">
-                    <input type="text" name="merchName" id="merchName" placeholder="E.g Valorant" />
-                </td>
-                <td colspan="2" style="text-align:center;">
-                    <button type="submit" class="editEvents-searchBtn" name="search">Search <i class="fa fa-search"></i></button>
-                </td>
-            </tr>
-        </table>
+        <div class="editMerch-searchBar">
+            <input type="text" name="merchName" id="merchName" placeholder="Enter Merch Name" />
+            <button type="submit" class="editEvents-searchBtn" name="search">Search <i
+                    class="fa fa-search"></i></button>
+        </div>
     </form>
     <table class="order-info">
         <?php

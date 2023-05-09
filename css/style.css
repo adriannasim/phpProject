@@ -477,9 +477,8 @@ hr{
 }
 .event-details td{
     padding: 20px;
-    color: black;
-    border: 2px solid black;
-    background-color: #ffffff;
+    color: white;
+    border: 2px solid white;
 }
 .event-details button a{
     font-size: 15px;
@@ -624,6 +623,7 @@ hr{
 }
 .merchfunc-admin{
     margin-left: 30%;
+    margin-bottom: 40px;
 }
 .merchfunc-admin button {
     font-size: 12pt;
@@ -656,6 +656,10 @@ hr{
     margin: 20px 20% 10px 20%;
     padding: 20px;
     border-radius: 20px;
+}
+.addMerch-form-table{
+    margin: auto;
+    color: black;
 }
 
 .addMerch-form-group-rd input {
@@ -777,3 +781,53 @@ td {
 }
 
 /*End of merchView.php styles*/
+/*Start of merchManage.php styles*/
+.editMerch-searchBar{
+    margin-left: 40%;
+    
+}
+.editMerch-searchBar input{
+    width: 260px;
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    font-family: cambria;
+    font-size: 12pt;
+}
+.editMerch-searchBar button{
+    font-family: cambria;
+    font-size: 12pt;
+    width: 120px;
+    height: 50px;
+    margin-left: 10px;
+    border: 1px solid white;
+     background: white;
+    color: black;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+.editMerch-searchBar button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.order-details button{
+    width: 70px;
+    margin: 10px 0;
+    padding: 7px 2px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+}
+.order-details a{
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: cambria;
+    color: black;
+}
+/*End of merchManage.php styles*/
