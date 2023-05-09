@@ -37,24 +37,9 @@
             <h1>Manage Event Tickets</h1>
         </div>
         <div class="editEvents-form">
-            <form action="" method="get">
-                <table class="editEvents-searchBar">
-                    <tr>
-                        <td class="editEvents-searchBar-label">Event Name:</td>
-                    </tr>
-                    <tr>
-                        <td class="editEvents-searchBar-input">
-                            <input type="text" name="eventName" id="eventName" placeholder="E.g Valorant" />
-                        </td>
-                        <td colspan="2" style="text-align:center;">
-                            <button type="submit" class="editEvents-searchBtn" name="search">Search <i class="fa fa-search"></i></button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
             <table class="event-details">
             <div class="editEvents-header">
-                <h4>Edit Event Ticket</h4>
+                <h4 id="with-hd">Edit Event Ticket</h4>
             </div>
             <?php
             if (isset($_GET['search'])) {
@@ -81,7 +66,7 @@
                     <td>%s</td>
                     <td>%s</td>
                     <td>
-                        <button id='edit'><a href='eventTicketAdd.php?id=$record->EventID'>Add Ticket</a></button>
+                        <button id='add'><a href='eventTicketAdd.php?id=$record->EventID'>Add Ticket</a></button>
                         <button id='edit'><a href='eventTicket.php?id=$record->TicketID'>Edit</a></button>
                         <button id='delete'><a href='eventTicketDelete.php?id=$record->TicketID'>Delete</a></button>
                     </td>
@@ -95,7 +80,7 @@
             <hr />
             <table class="event-details">
             <div class="editEvents-header">
-                <h4>Events Without Tickets</h4>
+                <h4 id="without-hd">Events Without Tickets</h4>
             </div>
             <?php
             foreach ($header2 as $value) {
@@ -108,7 +93,7 @@
                     <td>%s</td>
                     <td>%s</td>
                     <td>
-                        <button id='edit'><a href='eventTicketAdd.php?id=$record2->EventID'>Add Ticket</a></button>
+                        <button id='add-no-ticket'><a href='eventTicketAdd.php?id=$record2->EventID'>Add Ticket</a></button>
                     </td>
                 </tr>"
                 ,$record2->EventID, $record2->EventName

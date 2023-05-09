@@ -32,6 +32,10 @@
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="merchAdd.php">Add Products</a></li>
+<<<<<<< Updated upstream
+=======
+                                <li><a href="merchManage.php">Manage Products</a></li>
+>>>>>>> Stashed changes
                                 <li><a href="merchView.php">View Orders</a></li>
                             </ul>
                         </div>

@@ -18,12 +18,22 @@
     <div class="merchAdmin-header">
         <h1>Merch Admin</h1>
     </div>
+<<<<<<< Updated upstream
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>
+=======
+    <div class="merchfunc-admin">
+        
+            <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
+            <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
+            <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+        
+</div>
+>>>>>>> Stashed changes
     <form method="get">
         <table class="editEvents-searchBar">
             <tr>
