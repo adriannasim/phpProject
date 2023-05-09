@@ -54,6 +54,7 @@
             $error['qty'] = checkProdQty($qty);
             $error['pCategory'] = checkProdCategory($pCategory);
             $error['size'] = checkProdSize($size);
+            $error = array_filter($error);
 
             if ((empty($error))) {
                 $sql = "INSERT INTO products (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
