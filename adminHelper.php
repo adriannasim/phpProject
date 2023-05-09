@@ -138,6 +138,13 @@ function checkProdSize($size){
         return "⚠ Please select the size information";
     }
 }
+function checkProdQty($qty){
+    if($qty==NULL){
+        return "⚠ Please enter a quantity";
+    }else if(!preg_match("/^\d{1,3}$/", $qty)){
+        return "⚠ Please enter a valid amount of quantity";
+    }
+}
 /*End of merchAdd.php validation*/
 
 ?>

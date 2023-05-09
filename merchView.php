@@ -21,7 +21,6 @@
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
-            <td><a href="merchManage.php"><button class="merch-manage">Manage Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>

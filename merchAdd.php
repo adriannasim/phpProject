@@ -1,5 +1,10 @@
+<?php 
+    session_start();
+    include ("config/config.php");
+    $UserID = "admin";
+    //$UserID = $_SESSION['UserID'];
+?>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Merch Admin</title>
@@ -14,7 +19,6 @@
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
-            <td><a href="merchManage.php"><button class="merch-manage">Manage Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>
@@ -28,6 +32,7 @@
             $color = trim($_POST['prod-desc2']);
             $style = trim($_POST['prod-desc3']);
             $fitType = trim($_POST['prod-desc4']);
+            $qty = trim($_POST['prod-desc5']);
             if (isset($_POST['prod-cat'])) {
                 $pCategory = trim($_POST['prod-cat']);
             } else {
@@ -38,37 +43,6 @@
             } else {
                 $size = "";
             }
-            if (isset($_FILES['prod-imgfile'])) {
-                $file = $_FILES('prod-imgfile');
-                if ($file['error'] > 0) {
-                    switch ($file['error']) {
-                        case UPLOAD_ERR_NO_FILE:
-                            $error = "⚠ Please upload the product image";
-                            break;
-                        case UPLOAD_ERR_FORM_SIZE:
-                            $error = "⚠ File uploaded is too large. Maximum 1MB allowed!";
-                            break;
-                        default:
-                            $error = "⚠ There is an error when uploading the file!";
-                            break;
-                    }
-                } else if ($file['size'] > 1048576) {
-                    $error = "⚠ File uploaded is too large. Max 1MB allowed!";
-                } else {
-                    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-                    if (
-                        $ext != 'jpg' &&
-                        $ext != 'jpeg' &&
-                        $ext != 'gif' &&
-                        $ext != 'png'
-                    ) {
-                        $error = "⚠ Only JPG, JPEG, GIF and PNG images are allowed";
-                    } else {
-                        $newFileName = uniqid() . '.' . $ext;
-                        move_uploaded_file($file['tmp_name'], 'uploads/' . $newFileName);
-                    }
-                }
-            }
             $error = array();
             $error['id'] = checkProdID($id);
             $error['name'] = checkProdName($name);
@@ -77,21 +51,23 @@
             $error['color'] = checkProdColor($color);
             $error['style'] = checkProdStyle($style);
             $error['fitType'] = checkProdFittype($fitType);
+            $error['qty'] = checkProdQty($qty);
             $error['pCategory'] = checkProdCategory($pCategory);
             $error['size'] = checkProdSize($size);
 
             if ((empty($error))) {
-                echo "<div class='addMerch-form-success'>";
-                printf("<p>
-                                Product Added Successfully !
-                                </p>");
-                echo "</div>";
-            } else {
-                echo "<div class='addMerch-form-error'>";
-                printf("<p>
-                                %s
-                                </p>", implode("</p><p>", $error));
-                echo "</div>";
+                $sql = "INSERT INTO products (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $connection->prepare($sql);
+                $stmt->bind_param("ssssssssss", $id, $price, $name, $material, $color, $style, $fitType, $pCategory, $size, $qty);
+                if ($stmt->execute()) {
+                    echo "<div class='addMerch-form-success'>";
+                    printf("<p>Product Added Successfully !</p>");
+                    echo "</div>";
+                } else {
+                    echo "<div class='addMerch-form-error'>";
+                        printf("<p>%s </p>", implode("</p><p>", $error));
+                    echo "</div>";
+                }
             }
         }
         ?>
@@ -124,6 +100,10 @@
             <div class="addMerch-form-group">
                 <label for="prod-desc4">Product Fit Type</label>
                 <input type="text" name="prod-desc4" id="prod-desc4" placeholder="E.g oversized" value="<?php echo (isset($fitType))? $fitType: "";?>" />
+            </div>
+            <div class="addMerch-form-group">
+                <label for="prod-desc5">Product Quantity</label>
+                <input type="text" name="prod-desc5" id="prod-desc5" placeholder="E.g 50" value="<?php echo (isset($qty))? $qty: "";?>" />
             </div>
             <div class="addMerch-form-group-rd">
                 <label for="prod-cat">Product Category</label>
