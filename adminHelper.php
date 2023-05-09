@@ -43,6 +43,31 @@ function checkEventDesc($desc){
     }
 }
 /*End of eventAdd.php validation*/
+/*Start of eventTicket.php validation*/
+function checkTicketPrice($price){
+    if($price == NULL){
+        return "⚠ Please enter the ticket price";
+    }else if(!preg_match("/^\d+(\.\d{2})?$/", $price)){
+        return "⚠ Please enter a valid price";
+    }
+}
+function checkType($type){
+    if($type == NULL){
+        return "⚠ Please enter the ticket type";
+    }else if(strlen($type) > 20){
+        return "⚠ Maximum 20 characters for ticket type";
+    }else if(!preg_match("/^[A-Za-z,\'\: ]+$/", $type)){
+        return "⚠ Please enter a valid ticket type";
+    }
+}
+function checkQty($qty){
+    if($qty == NULL){
+        return "⚠ Please enter the ticket quantity";
+    }else if(!preg_match("/^\d{1,3}$/", $qty)){
+        return "⚠ Please enter a valid amount of quantity";
+    }
+}
+/*End of eventTicket.php validation*/
 /*Start of merchAdd.php validation*/
 function checkProdID($id){
     if($id == NULL){

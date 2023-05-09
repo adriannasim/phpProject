@@ -87,7 +87,7 @@
                     </div>
                     <div class="addEvent-form-group">
                         <label for="venue">Event Venue</label><br/>
-                        <input type="text" name="venue" id="venue" value="<?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?>"></textarea>
+                        <input type="text" name="venue" id="venue" value="<?php echo isset($_POST['venue']) ? $_POST['venue'] : '';?>"/>
                     </div>
                     <div class="addEvent-form-group">
                         <label for="desc">Event Description</label><br/>
