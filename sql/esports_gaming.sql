@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2023 at 04:45 PM
+-- Generation Time: May 09, 2023 at 08:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -92,6 +92,7 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`EventID`, `EventName`, `EventDate`, `EventTime`, `EventVenue`, `EventDesc`) VALUES
 ('CA001', 'MLBB Grand Finale', '2023-04-28', '10:00:00', 'CA, TAR UMT', 'What awaits you is something like no other...Witness the final battle between the last 4 teams standing with a special guest appearance: THE MPL MY/SG CHAMPION OF S2 RYNN ! Join us in Mobile Legends\' Grand Finale to meet a real professional gamer in real life!'),
+('CA004', 'Warzone S2 Fun Camp', '2023-12-06', '11:00:00', 'CA, TAR UMT', 'Join us in Warzone S2 where you can participate in team building, gaming tournaments and workshops to expand your social circle and test your gaming potential!'),
 ('FA001', 'Valorant: Battle of the Ace', '2023-05-25', '10:00:00', 'FOYER, TAR UMT', 'Ever dream of fighting side-by-side with your best buddies in an E-Sports gaming event? This could be your battle. Assemble all your comrades because it\'s showtime!\r\nNOTE : Participants are required to register together in a TEAM OF 5\r\nFor NON-Gamers : FEAR NOT! You can also witness the ultimate victory of your friends. What are you waiting for? Grab your tickets NOW!');
 
 -- --------------------------------------------------------
@@ -128,7 +129,7 @@ CREATE TABLE `helpdesk_support` (
 --
 
 CREATE TABLE `merch_buy` (
-  `MbuyID` varchar(5) NOT NULL,
+  `MbuyID` int(5) NOT NULL,
   `MerchID` varchar(5) NOT NULL,
   `CartID` int(5) NOT NULL,
   `MbuyQty` int(3) NOT NULL
@@ -139,7 +140,7 @@ CREATE TABLE `merch_buy` (
 --
 
 INSERT INTO `merch_buy` (`MbuyID`, `MerchID`, `CartID`, `MbuyQty`) VALUES
-('MB001', 'M0001', 1, 2);
+(1, 'M0001', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -165,7 +166,7 @@ CREATE TABLE `merch_info` (
 --
 
 INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `Category`, `Size`, `MerchQty`) VALUES
-('M0001', 50.00, 'Gaming Controller T-Shirt', NULL, NULL, NULL, NULL, NULL, NULL, 50);
+('M0001', 50.00, 'Gaming Controller T-Shirt', 'Cotton', 'Black', 'Casual', 'FreeSize', 'T-Shirt', 'FreeSize', 50);
 
 -- --------------------------------------------------------
 
@@ -231,7 +232,7 @@ CREATE TABLE `seat_type` (
 --
 
 CREATE TABLE `ticket_buy` (
-  `TbuyID` varchar(5) NOT NULL,
+  `TbuyID` int(5) NOT NULL,
   `TicketID` varchar(5) NOT NULL,
   `CartID` int(5) NOT NULL,
   `TbuyQty` int(3) NOT NULL
@@ -242,7 +243,7 @@ CREATE TABLE `ticket_buy` (
 --
 
 INSERT INTO `ticket_buy` (`TbuyID`, `TicketID`, `CartID`, `TbuyQty`) VALUES
-('TB001', 'AU001', 1, 1);
+(1, 'AU001', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -406,7 +407,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `merch_buy`
 --
 ALTER TABLE `merch_buy`
-  MODIFY `CartID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MbuyID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `purchase`
@@ -418,7 +419,7 @@ ALTER TABLE `purchase`
 -- AUTO_INCREMENT for table `ticket_buy`
 --
 ALTER TABLE `ticket_buy`
-  MODIFY `CartID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `TbuyID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
