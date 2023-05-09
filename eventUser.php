@@ -57,10 +57,11 @@
                                 Time  : 10 A.M - 4 P.M<br>
                                 Venue : CA, TAR UMT<br></p>
                         </div>
+                    </div>
                         <div class="event-btn">
                             <a href="ticket-mlbb.php"><button class="book">Book Now</button></a>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="event-card">
@@ -86,10 +87,11 @@
                                 Time  : 10 A.M - 4 P.M<br>
                                 Venue : FOYER, TAR UMT<br></p>
                         </div>
+                    </div>
                         <div class="event-btn">
                         <a href="ticket-valorant.php"><button class="book">Join Now</button></a>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="event-card">
@@ -112,10 +114,10 @@
                                 Time  : To Be Confirmed<br>
                                 Venue : CA, TAR UMT<br></p>
                         </div>
+                    </div>
                         <div class="event-btn">
                         <a href="ticket-warzone.php"><button class="book">Join Now</button></a>
                         </div>
-                    </div>
                 </div>
             </div>
         </div> 

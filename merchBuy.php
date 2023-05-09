@@ -12,9 +12,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
-        <div class="logo">
-            <img src="img/header/logo.png" alt="" width="100%"/>
-        </div>
+        <?php
+        include "headerUser.php";
+        ?>
         <h1>Product</h1>
         <div class="slide-container">
             <span id="slider-img1"></span>

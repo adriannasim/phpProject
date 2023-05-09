@@ -118,7 +118,7 @@ $UserID = "admin";
                 </tr>
             </table>
             <div class="addMerch-form-group-rd">
-                <label for="prod-cat">Product Category</label>
+                <label for="prod-cat">Product Category</label><br>
                 <input type="radio" name="prod-cat" id="tshirt" value="T-Shirt">
                 <label for="tshirt">T-Shirt</label>
                 <input type="radio" name="prod-cat" id="hoodie" value="Hoodie/Sweater">
@@ -129,7 +129,7 @@ $UserID = "admin";
                 <label for="totebags">Totebags</label><br />
             </div>
             <div class="addMerch-form-group-rd">
-                <label for="prod-size">Product Size</label>
+                <label for="prod-size">Product Size</label><br>
                 <input type="radio" name="prod-size" id="freesize" value="FreeSize" />
                 <label for="freesize">Free Size</label>
                 <input type="radio" name="prod-size" id="unisize" value="Unisize" />

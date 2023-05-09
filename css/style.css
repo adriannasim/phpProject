@@ -423,6 +423,40 @@ body {
 }
 
 /*End of addEvent.php styles*/
+.editEvents-searchBar{
+    margin-left: 40%;
+    
+}
+.editEvents-searchBar input{
+    width: 260px;
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    font-size: 12pt;
+}
+.editEvents-searchBar button{
+    font-family: cambria;
+    font-size: 12pt;
+    width: 120px;
+    height: 50px;
+    margin-left: 10px;
+    letter-spacing: 0.1em;
+    border: 1px solid white;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    transition: all .2s ease;
+}
+.editEvents-searchBar button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
 /*Start of eventTicketManage.php styles*/
 #with-hd{
     font-size: 18pt;
@@ -663,7 +697,7 @@ hr{
 }
 
 .addMerch-form-group-rd input {
-    margin: 20px 0;
+    margin: 30px 0 50px 0;
     width: 50px;
 }
 
@@ -792,6 +826,7 @@ td {
     border-radius: 30px;
     text-align: center;
     border: 1px solid white;
+    letter-spacing: 0.1em;
     font-family: cambria;
     font-size: 12pt;
 }
@@ -801,8 +836,9 @@ td {
     width: 120px;
     height: 50px;
     margin-left: 10px;
+    letter-spacing: 0.1em;
     border: 1px solid white;
-     background: white;
+    background: white;
     color: black;
     border-radius: 30px;
     transition: all .2s ease;
@@ -815,7 +851,7 @@ td {
     border: 1px solid white;
 }
 .order-details button{
-    width: 70px;
+    width: 60px;
     margin: 10px 0;
     padding: 7px 2px;
     border: 1px solid black;

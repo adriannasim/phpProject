@@ -8,13 +8,6 @@
     margin: 0;
      box-sizing: border-box;
 }
-.logo{
-    margin: auto;
-    margin-top: -50px;
-    width: 200px;
-    height: 50px;
-    z-index: 1;
-}
 h1{
     color: white;
     text-align: center;
@@ -22,7 +15,7 @@ h1{
     letter-spacing: 2px;
     width: 140px;
     margin:auto;
-    margin-top: 120px;
+    margin-top: 50px;
 }
 
 .slide-container{
@@ -92,8 +85,7 @@ h1{
 
 .prod-title{
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto;
     letter-spacing: 2px;
     padding: 20px;
     background-color: #000066;
@@ -104,12 +96,14 @@ h1{
 .prod-specs, .prod-select, .prod-btn{
     padding-left: 150px;
     padding-right: 150px;
+    color: black;
 }
 .prod-price{
     text-align:center;
     margin-left: -50px;
     margin-top: 30px;
     margin-bottom: 30px;
+    color: black;
     font-size: 25px;
 }
 .prod-details{
@@ -118,6 +112,7 @@ h1{
     font-weight: bold;
     letter-spacing: 0.2em;
     line-height: 3em;
+    color: black;
     margin-right:250px; 
 }
 .prod-select, .select-size, .size-btn, .prod-qty{
