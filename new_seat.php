@@ -1,43 +1,69 @@
 <!DOCTYPE html>
 <html>
-
+<?php 
+    session_start();
+    include ("config/config.php");
+    $UserID = "admin";
+    //$UserID = $_SESSION['UserID'];
+?>
 <head>
     <meta charset="UTF-8">
     <style></style>
     <title>Add event seat</title>
 </head>
+<style>
+    form{
+        text-align: center;
+        background-color: white;
+    }
+    h1{
+        text-align: center;
 
-<?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "esport");
-?>
-
+    }
+    .event{
+        text-align: center;
+        font-size: 200%;
+        color: black;
+        padding: 25px;
+    }
+    .seat{
+        text-align: center;
+        font-size: 200%;
+        color: black;
+        padding: 25px;
+    }
+</style>
 <body>
     <?php
     include "headerAdmin.php"
         ?>
     <h1>Create event seat</h1>
     <?php
-    //create connection
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     // Get data from database
     $sql = "SELECT * FROM event GROUP BY EventName";
-    $result = $conn->query($sql);
+    $result = $connection->query($sql);
     ?>
-    <div class="event">
         <form action="" method="POST">
+            <div class="form">
+        <div class="event">
             <label for="event">Choose an event:</label>
             <select name="event" id="event">
                 <?php while ($row = $result->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['EventID']; ?>"><?php echo $row['EventName']; ?></option>
-                <?php } ?>
+                    <option value="<?php echo $row['EventID']; ?>"><?php echo $row['EventName'];
+                } ?></option>
             </select>
+            </div>
+            <div class="seat">
             <label for="amount">Choose amount of seat:<label>
-                <select name="amount" id="amount">
-                    <option value=""
+                    <select name="amount" id="amount">
+                    <?php while ($row = $result->fetch_assoc()) { ?>
+                    <option value="<?php echo $row['TicketID']; ?>"><?php echo $row['TicketQty'];
+                } ?></option>
+
+                        
+            </div>
             <input type="submit" value="Submit">
+            </div>
         </form>
 
 </body>
