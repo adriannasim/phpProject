@@ -237,4 +237,15 @@ body{
   border-radius: 10px;
   background-color: rgb(241, 109, 109);
   padding: 20px;
+  
+}
+
+#error-box {
+  display: none;
+}
+
+.ticket-success{
+  border-radius: 10px;
+  background-color: rgb(94, 210, 102);
+  padding: 20px;
 }

@@ -12,8 +12,6 @@ function checkRegisterName($name){
         return "Maximum 30 characters only for <b>name</b>!";
     }else if(!preg_match("/^[A-Za-z @,\"\.\/]+$/",$name)){
         return "Invalid <b>name</b>!";
-    }else{
-        $flag=1;
     }
 }
 
@@ -22,8 +20,6 @@ function checkRegisterEmail($email){
         return "Please enter your <b>email</b>!";
     }else if(!preg_match("/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/",$email)){
         return "Invalid <b>email</b>!";
-    }else{
-        $flag=1;
     }
 }
 
@@ -32,32 +28,24 @@ function checkRegisterPhone($phone){
         return "Please enter your <b>phone number</b>!";
     }else if(!preg_match("/^(01)[0-46-9][-][0-9]{7,8}$/",$phone)){
         return "Invalid <b>phone number</b>!";
-    }else{
-        $flag=1;
     }
 }
 
 function checkTicketType($ticketType){
     if($ticketType==null){
         return "Please select your <b>ticket type</b>!";
-    }else{
-        $flag=1;
     }
 }
 
 function checkRow($row){
     if($row==null){
         return "Please select your <b>seat row</b>!";
-    }else{
-        $flag=1;
     }
 }
 
 function checkColumn($column){
     if($column==null){
         return "Please select your <b>seat column</b>!";
-    }else{
-        $flag=1;
     }
 }
 
