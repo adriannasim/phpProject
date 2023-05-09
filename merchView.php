@@ -5,8 +5,10 @@
     <title>Merch Admin</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <?php include "adminHelper.php"; include "headerAdmin.php"; ?>
+    <?php include "adminHelper.php";
+    include "headerAdmin.php"; ?>
     <?php
     $header = array(
         'MbuyID' => 'Order ID',
@@ -18,12 +20,20 @@
     <div class="merchAdmin-header">
         <h1>Merch Admin</h1>
     </div>
+<<<<<<< Updated upstream
     <table class="merchfunc-admin">
         <tr>
             <td><a href="merchAdd.php"><button class="merch-add">Add Products</button></a></td>
             <td><a href="merchView.php"><button class="merch-view">View Orders</button></a></td>
         </tr>
     </table>
+=======
+    <div class="merchfunc-admin">
+        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
+        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
+        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+    </div>
+>>>>>>> Stashed changes
     <table class="order-info">
         <?php
         $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -34,12 +44,12 @@
             ", $value);
         }
         $status = "Pending";
-        if(isset($_POST['viewMerch-update'])){
-            if(isset($_POST['status'])){
-            $status = isset($status) ? $status = "Complete" : $status = "Pending";
-            }else{
-            $status = "Pending";
-        }
+        if (isset($_POST['viewMerch-update'])) {
+            if (isset($_POST['status'])) {
+                $status = isset($status) ? $status = "Complete" : $status = "Pending";
+            } else {
+                $status = "Pending";
+            }
         }
         ?>
         <th>Status</th>
@@ -56,7 +66,7 @@
                         <td>%s</td>
                         <td><form action= '' method='post'><input type='checkbox' name='status'><span class='chkbox'></span></form></td>
                         </tr>
-                    ", $record->MbuyID, $record->MerchID, $record->CartID,$record->MbuyQty, $status);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status);
             }
         }
         $result->free();
@@ -64,11 +74,11 @@
         ?>
 
     </table>
-    <form action= '' method='post'>
-    <div class="viewMerch-btn">
-        <input type="reset" value="Reset" onclick="location = 'merchView.php'"/>
-        <input type="submit" value="Update" name="viewMerch-update" />
-    </div>
+    <form action='' method='post'>
+        <div class="viewMerch-btn">
+            <input type="reset" value="Reset" onclick="location = 'merchView.php'" />
+            <input type="submit" value="Update" name="viewMerch-update" />
+        </div>
     </form>
 </body>
 

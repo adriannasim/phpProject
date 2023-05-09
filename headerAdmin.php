@@ -14,7 +14,7 @@
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="eventAdd.php">Add Events</a></li>
-                                <li><a href="new_event.php">Manage Event Ticketing</a></li>
+                                <li><a href="eventTicketManage.php">Manage Event Ticketing</a></li>
                             </ul>
                         </div>
                     </div>
@@ -28,10 +28,14 @@
                         </div>
                     </div>
                     <div class="headerA-dropdown">
-                        <li class="headerA-dropBtn"><a href="">Merchandise</a></li>
+                        <li class="headerA-dropBtn"><a href="merchManage.php">Merchandise</a></li>
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="merchAdd.php">Add Products</a></li>
+<<<<<<< Updated upstream
+=======
+                                <li><a href="merchManage.php">Manage Products</a></li>
+>>>>>>> Stashed changes
                                 <li><a href="merchView.php">View Orders</a></li>
                             </ul>
                         </div>

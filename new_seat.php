@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
+<?php
+session_start();
+include("config/config.php");
+$UserID = "admin";
+//$UserID = $_SESSION['UserID'];
+?>
 
 <head>
     <meta charset="UTF-8">
     <style></style>
     <title>Add event seat</title>
 </head>
+<style>
+    form {
+        text-align: center;
+        background-color: white;
+    }
 
-<?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "esport");
-?>
+    h1 {
+        text-align: center;
+
+    }
+
+    .event {
+        text-align: center;
+        font-size: 200%;
+        color: black;
+        padding: 25px;
+    }
+
+    .seattype {
+        text-align: center;
+        font-size: 200%;
+        color: black;
+        padding: 25px;
+    }
+
+    .seat {
+        text-align: center;
+        font-size: 200%;
+        color: black;
+        padding: 25px;
+    }
+</style>
 
 <body>
     <?php
@@ -20,26 +51,44 @@ define("DB_NAME", "esport");
         ?>
     <h1>Create event seat</h1>
     <?php
-    //create connection
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     // Get data from database
     $sql = "SELECT * FROM event GROUP BY EventName";
-    $result = $conn->query($sql);
+    $result = $connection->query($sql);
+    $sql1 = "SELECT * FROM ticket_info GROUP BY TicketID";
+    $result1 = $connection->query($sql1);
+    $result2 = $connection->query($sql1);
     ?>
-    <div class="event">
-        <form action="" method="POST">
-            <label for="event">Choose an event:</label>
-            <select name="event" id="event">
-                <?php while ($row = $result->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['EventID']; ?>"><?php echo $row['EventName']; ?></option>
-                <?php } ?>
-            </select>
-            <label for="amount">Choose amount of seat:<label>
-                <select name="amount" id="amount">
-                    <option value=""
+    <form action="" method="POST">
+        <div class="form">
+            <div class="event">
+                <label for="event">Choose an event:</label>
+                <select name="event" id="event">
+                    <?php while ($row = $result->fetch_assoc()) { ?>
+                        <option value="<?php echo $row['EventID']; ?>"><?php echo $row['EventName'];
+                    } ?></option>
+                </select>
+            </div>
+            <div class="seattype">
+                <label for="type">Choose type of seat:<label>
+                        <select name="type" id="type">
+                            <?php while ($row = $result1->fetch_assoc()) { ?>
+                                <option value="<?php echo $row['TicketID']; ?>"><?php echo $row['TicketType'];
+                            } ?></option>
+                        </select>
+            </div>
+            <div class="seat">
+                <label for="amount">Choose amount of seat:<label>
+                        <select name="amount" id="amount">
+                            <?php while ($row = $result2->fetch_assoc()) { ?>
+                                <option value="<?php echo $row['TicketID']; ?>"><?php echo $row['TicketQty'];
+                            } ?></option>
+                        </select>
+            </div>
             <input type="submit" value="Submit">
-        </form>
-
+            
+        </div>
+    </form>
+    <img _ngcontent-xlc-c12="" class="screen" src="https://poster.gsc.com.my/campaign/default_web.png">
 </body>
 
 </html>

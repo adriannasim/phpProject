@@ -69,7 +69,7 @@
                     //Show Ticket
                     $sqlTicket = "SELECT * FROM ticket_info ti
                         JOIN ticket_buy tb ON ti.TicketID = tb.TicketID
-                        JOIN event e ON ti.TicketID = e.TicketID
+                        JOIN event e ON ti.EventID = e.EventID
                         JOIN cart c ON tb.CartID = c.CartID
                         WHERE c.UserID = '$UserID' AND c.checkout = 0;";
                     if ($ticketResult = $connection -> query($sqlTicket)) {

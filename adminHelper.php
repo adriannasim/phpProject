@@ -8,11 +8,13 @@ define("DB_NAME", "esports&gaming");
 /*Start of eventAdd.php validation*/
 function checkEventID($eventID, $chkEventID){
     if($eventID == NULL){
-        return "⚠ Please enter the event name";
+        return "⚠ Please enter the event ID";
     }else if(strlen($eventID) > 5){
-        return "⚠ Maximum 5 characters for event name";
+        return "⚠ Maximum 5 characters for event ID";
     }else if(strcmp($eventID, $chkEventID) == 0){
         return "⚠ Event ID already exists";
+    }else if(!preg_match("/^[A-Z\d]{5}$/", $eventID)){
+        return "⚠ Please enter a valid event ID";
     }
 }
 function checkEventName($name){
@@ -20,7 +22,7 @@ function checkEventName($name){
         return "⚠ Please enter the event name";
     }else if(strlen($name) > 50){
         return "⚠ Maximum 50 characters for event name";
-    }else if(!preg_match("/^[A-Za-z,\'\: ]+$/", $name)){
+    }else if(!preg_match("/^[a-zA-Z0-9\-\.\'\!\: ]+$/", $name)){
         return "⚠ Please enter a valid event name";
     }
 }
@@ -43,6 +45,38 @@ function checkEventDesc($desc){
     }
 }
 /*End of eventAdd.php validation*/
+/*Start of eventTicket.php validation*/
+function checkTicketID($ticketID){
+    if($ticketID == NULL){
+        return "⚠ Please enter the ticket ID";
+    }else if(!preg_match("/^[A-Z\d]{5}$/",$ticketID)){
+        return "⚠ Please enter a valid ticket ID";
+    }
+}
+function checkTicketPrice($price){
+    if($price == NULL){
+        return "⚠ Please enter the ticket price";
+    }else if(!preg_match("/^\d+(\.\d{2})?$/", $price)){
+        return "⚠ Please enter a valid price";
+    }
+}
+function checkType($type){
+    if($type == NULL){
+        return "⚠ Please enter the ticket type";
+    }else if(strlen($type) > 20){
+        return "⚠ Maximum 20 characters for ticket type";
+    }else if(!preg_match("/^[A-Za-z,\'\: ]+$/", $type)){
+        return "⚠ Please enter a valid ticket type";
+    }
+}
+function checkQty($qty){
+    if($qty == NULL){
+        return "⚠ Please enter the ticket quantity";
+    }else if(!preg_match("/^\d{1,3}$/", $qty)){
+        return "⚠ Please enter a valid amount of quantity";
+    }
+}
+/*End of eventTicket.php validation*/
 /*Start of merchAdd.php validation*/
 function checkProdID($id){
     if($id == NULL){
@@ -104,6 +138,13 @@ function checkProdCategory($pCategory){
 function checkProdSize($size){
     if($size==NULL){
         return "⚠ Please select the size information";
+    }
+}
+function checkProdQty($qty){
+    if($qty==NULL){
+        return "⚠ Please enter a quantity";
+    }else if(!preg_match("/^\d{1,3}$/", $qty)){
+        return "⚠ Please enter a valid amount of quantity";
     }
 }
 /*End of merchAdd.php validation*/

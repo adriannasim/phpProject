@@ -15,7 +15,6 @@
 
 <body>
     <?php
-    include "adminHelper.php";
     include "headerAdmin.php";
     ?>
     <?php
@@ -50,34 +49,33 @@
             </form>
             <table class="event-details">
                 <?php
-                if (isset($_POST['search'])) {
-                    $search = mysqli_real_escape_string($connection, (trim($_POST['eventName'])));
+                if (isset($_GET['search'])) {
+                    $search = mysqli_real_escape_string($connection, (trim($_GET['eventName'])));
                     $sql = "SELECT * FROM event WHERE EventName LIKE '%$search%';";
                 } else {
                     $sql = "SELECT * FROM event";
                 }
-                if ($result = $connection->query($sql)) {
-                    foreach ($header as $value) {
-                        printf("<th>%s</th>", $value);
-                    }
-                    printf("<th>Action</th>");
-                    while ($record = $result->fetch_object()) {
-                        printf("
-                        <tr>
-                            <td>%s</td>
-                            <td>%s</td>
-                            <td>%s</td>
-                            <td>%s</td>
-                            <td>%s</td>
-                            <td>%s</td>
-                            <td>
-                                <button id='edit'><a href='editEvent.php?id=$record->EventID'>Edit</a></button>
-                                <button id='delete'><a href='deleteEvent.php?id=$record->EventID'>Delete</a></button>
-                            </td>
-                        </tr>"
-                        ,$record->EventID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc
-                        );
-                    }
+                $result = $connection->query($sql);
+                foreach ($header as $value) {
+                    printf("<th>%s</th>", $value);
+                }
+                printf("<th>Action</th>");
+                while ($record = $result->fetch_object()) {
+                    printf("
+                    <tr>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>
+                            <button id='edit'><a href='editEvent.php?id=$record->EventID'>Edit</a></button>
+                            <button id='delete'><a href='deleteEvent.php?id=$record->EventID'>Delete</a></button>
+                        </td>
+                    </tr>"
+                    ,$record->EventID, $record->EventName, $record->EventDate, $record->EventTime, $record->EventVenue, $record->EventDesc
+                    );
                 }
                 ?>
             </table>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 05:17 PM
+-- Generation Time: May 09, 2023 at 04:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -155,6 +155,8 @@ CREATE TABLE `merch_info` (
   `Color` varchar(100) DEFAULT NULL,
   `Style` varchar(100) DEFAULT NULL,
   `FitType` varchar(100) DEFAULT NULL,
+  `Category` varchar(30) DEFAULT NULL,
+  `Size` varchar(10) DEFAULT NULL,
   `MerchQty` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -162,8 +164,8 @@ CREATE TABLE `merch_info` (
 -- Dumping data for table `merch_info`
 --
 
-INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `MerchQty`) VALUES
-('M0001', 50.00, 'Gaming Controller T-Shirt', NULL, NULL, NULL, NULL, 50);
+INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `Category`, `Size`, `MerchQty`) VALUES
+('M0001', 50.00, 'Gaming Controller T-Shirt', NULL, NULL, NULL, NULL, NULL, NULL, 50);
 
 -- --------------------------------------------------------
 
@@ -261,7 +263,8 @@ CREATE TABLE `ticket_info` (
 --
 
 INSERT INTO `ticket_info` (`TicketID`, `EventID`, `TicketPrice`, `TicketType`, `TicketQty`) VALUES
-('AU001', 'CA001', 20.00, 'Standard', 120);
+('AU001', 'CA001', 20.00, 'Standard', 120),
+('AU002', 'CA001', 40.00, 'VIP', 50);
 
 -- --------------------------------------------------------
 
@@ -308,8 +311,7 @@ ALTER TABLE `booking`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`CartID`),
-  ADD UNIQUE KEY `UserID` (`UserID`);
+  ADD PRIMARY KEY (`CartID`);
 
 --
 -- Indexes for table `event`
@@ -334,8 +336,7 @@ ALTER TABLE `helpdesk_support`
 --
 ALTER TABLE `merch_buy`
   ADD PRIMARY KEY (`MbuyID`),
-  ADD UNIQUE KEY `CartID` (`CartID`),
-  ADD UNIQUE KEY `MerchID` (`MerchID`);
+  ADD UNIQUE KEY `CartID` (`CartID`);
 
 --
 -- Indexes for table `merch_info`
@@ -376,15 +377,13 @@ ALTER TABLE `seat_type`
 --
 ALTER TABLE `ticket_buy`
   ADD PRIMARY KEY (`TbuyID`),
-  ADD UNIQUE KEY `TicketID` (`TicketID`),
   ADD UNIQUE KEY `CartID` (`CartID`);
 
 --
 -- Indexes for table `ticket_info`
 --
 ALTER TABLE `ticket_info`
-  ADD PRIMARY KEY (`TicketID`),
-  ADD UNIQUE KEY `EventID` (`EventID`);
+  ADD PRIMARY KEY (`TicketID`);
 
 --
 -- Indexes for table `user`
