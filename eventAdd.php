@@ -51,7 +51,7 @@
                     }
 
                     if((empty($error))) {
-                        $eventAdd = "INSERT INTO event VALUES ('$eventID', NULL, '$name', '$date', '$time', '$venue', '$desc');";
+                        $eventAdd = "INSERT INTO event VALUES ('$eventID', '$name', '$date', '$time', '$venue', '$desc');";
                         if (($connection->prepare($eventAdd))->execute()) {
                             echo "<div class='addEvent-form-success'>";
                             printf("<p>

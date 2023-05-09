@@ -8,11 +8,13 @@ define("DB_NAME", "esports&gaming");
 /*Start of eventAdd.php validation*/
 function checkEventID($eventID, $chkEventID){
     if($eventID == NULL){
-        return "⚠ Please enter the event name";
+        return "⚠ Please enter the event ID";
     }else if(strlen($eventID) > 5){
-        return "⚠ Maximum 5 characters for event name";
+        return "⚠ Maximum 5 characters for event ID";
     }else if(strcmp($eventID, $chkEventID) == 0){
         return "⚠ Event ID already exists";
+    }else if(!preg_match("/^[A-Z\d]{5}$/", $eventID)){
+        return "⚠ Please enter a valid event ID";
     }
 }
 function checkEventName($name){
@@ -20,7 +22,7 @@ function checkEventName($name){
         return "⚠ Please enter the event name";
     }else if(strlen($name) > 50){
         return "⚠ Maximum 50 characters for event name";
-    }else if(!preg_match("/^[A-Za-z,\'\: ]+$/", $name)){
+    }else if(!preg_match("/^[a-zA-Z0-9\-\.\'\!\: ]+$/", $name)){
         return "⚠ Please enter a valid event name";
     }
 }
