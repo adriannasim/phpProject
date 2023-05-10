@@ -687,33 +687,6 @@ input[type=hidden] {
     text-align: center;
 }
 
-.merchfunc-admin {
-    margin-left: 30%;
-    margin-bottom: 40px;
-}
-
-.merchfunc-admin button {
-    font-size: 12pt;
-    text-align: center;
-    letter-spacing: 0.1em;
-    font-family: cambria;
-    border-radius: 25px;
-    border: 2px white solid;
-    width: 170px;
-    height: 50px;
-    padding: 10px 5px;
-    margin: 10px 10px 0 0;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.merchfunc-admin button:hover {
-    transform: scale3d(1.1, 1.1, 1.1);
-    background-color: black;
-    color: white;
-    border: 1px white solid;
-}
-
 /*End of merchAdmin.php styles*/
 /*Start of merchAdd.php styles*/
 .addMerch-form {

@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Merch Admin</title>
+    <title>Manage Products</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -19,13 +19,7 @@
     );
     ?>
     <div class="merchAdmin-header">
-        <h1>Merch Admin</h1>
-    </div>
-    <div class="merchfunc-admin">
-
-        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
-        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
-        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+        <h1>Manage Products</h1>
     </div>
     <form method="get">
         <div class="editMerch-searchBar">
@@ -60,8 +54,8 @@
                             <td>%s</td>
                             <td>%s</td>
                             <td>
-                                <button id='delete'><a href='deleteMerch.php?id=$record->MerchID'>Delete</a></button>
-                                <button id='edit'><a href='editMerch.php?id=$record->MerchID'>Edit</a></button>
+                            <button id='edit'><a href='editMerch.php?id=$record->MerchID'>Edit</a></button>
+                            <button id='delete'><a href='deleteMerch.php?id=$record->MerchID'>Delete</a></button>
                             </td>
                         </tr>
                     ", $record->MerchID, $record->MerchDesc, $record->MerchPrice, $record->MerchQty);
