@@ -14,6 +14,9 @@
 </head>
 
 <body>
+<div class="userAcc-header">
+        <h1>User Profile</h1>
+    </div>
     <?php
     include "config/config.php"; 
     include "headerUser.php";
