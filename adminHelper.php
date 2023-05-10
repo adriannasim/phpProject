@@ -5,6 +5,50 @@ define("DB_USER", "root");
 define("DB_PASS", "");
 define("DB_NAME", "esports&gaming");
 
+/*Start of user validation*/
+function checkUserID($UserID, $chkID){
+    if($UserID == NULL){
+        return "⚠ Please enter a UserID";
+    }else if(strlen($UserID) > 10){
+        return "⚠ Maximum 10 characters for UserID";
+    }else if(strcmp($UserID, $chkID) == 0){
+        return "⚠ UserID already exists, please try another one";
+    }else if(!preg_match("/^[A-Za-z0-9]+$/", $UserID)){
+        return "⚠ Illegal character detected in UserID";
+    }
+}
+function checkUserName($Name){
+    if($Name == NULL){
+        return "⚠ Please enter a Name";
+    }else if(strlen($Name) > 30){
+        return "⚠ Maximum 30 characters for Name";
+    }else if(!preg_match("/^[A-Za-z]+$/", $Name)){
+        return "⚠ Illegal character/numbers detected in Name";
+    }
+}
+function checkUserEmail($Email){
+    if($Email == NULL){
+        return "⚠ Please enter an Email";
+    }else if(!preg_match("/^[^\s@]+@[^\s@]+\.[^\s@]+$/", $Email)){
+        return "⚠ Please enter a valid Email";
+    }
+}
+function checkUserTel($TelNo){
+    if($TelNo == NULL){
+        return "⚠ Please enter a TelNo.";
+    }else if(!preg_match("/^\d{3}-\d{7}$/", $TelNo)){
+        return "⚠ Please enter a valid TelNo.";
+    }
+}
+function checkUserPsw($Password){
+    if($Password == NULL){
+        return "⚠ Please enter a Password";
+    }else if(strlen($Password) > 50){
+        return "⚠ Maximum 50 characters for Password";
+    }
+}
+/*End of user validation*/
+
 /*Start of eventAdd.php validation*/
 function checkEventID($eventID, $chkEventID){
     if($eventID == NULL){
@@ -46,11 +90,13 @@ function checkEventDesc($desc){
 }
 /*End of eventAdd.php validation*/
 /*Start of eventTicket.php validation*/
-function checkTicketID($ticketID){
+function checkTicketID($ticketID, $chkID){
     if($ticketID == NULL){
         return "⚠ Please enter the ticket ID";
     }else if(!preg_match("/^[A-Z\d]{5}$/",$ticketID)){
         return "⚠ Please enter a valid ticket ID";
+    }else if(strcmp($ticketID, $chkID) == 0){
+        return "⚠ Product ID already exists";
     }
 }
 function checkTicketPrice($price){
@@ -78,13 +124,14 @@ function checkQty($qty){
 }
 /*End of eventTicket.php validation*/
 /*Start of merchAdd.php validation*/
-function checkProdID($id){
+function checkProdID($id, $chkID){
     if($id == NULL){
         return "⚠ Please enter the product id";
     }else if(!preg_match("/^[A-Z\d]{5}$/",$id)){
         return "⚠ Invalid product ID format";
+    }else if(strcmp($id, $chkID) == 0){
+        return "⚠ Product ID already exists";
     }
-
 }
 function checkProdName($name){
     if($name == NULL){

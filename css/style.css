@@ -930,6 +930,37 @@ td {
 
 /*End of editMerch.php styles*/
 
+/*Start of helpdeskAdmin.php styles*/
+.helpdeskAdmin-header{
+    text-align: center;
+}
+.helpdesk-view-table{
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+.helpdesk-view-table th, td{
+    padding: 15px ;
+}
+.helpdesk-view-table td{
+    border: 1px solid white;
+}
+.helpdesk-view-table button{
+    border-radius: 10px;
+    border: 1px solid black;
+    transition: all .2s ease;
+}
+.helpdesk-view-table a{
+    text-decoration: none;
+    color: black;
+    letter-spacing: .1em;
+    font-family: cambria;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+/*End of helpdeskAdmin.php styles*/
+
 /*Start of userAcc.php styles*/
 .user-image img {
     border: 1px solid white;
@@ -1006,5 +1037,4 @@ td {
     margin: 10px 35%;
     font-size: 14pt;
 }
-
 /*End of userAcc-edit.php styles*/

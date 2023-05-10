@@ -10,12 +10,12 @@
         $row = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) == 1) {
             $_SESSION["UserID"] = $UserID;
-            header("Location: homepage.php");
+            header("Location: eventUser.php");
         }
     }
     else {
         echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
-            window.location = 'login.php'</script>";
+            window.location = 'index.php'</script>";
     }
 ?>
 <!DOCTYPE html>
@@ -36,6 +36,7 @@
         </div>
         <div class="info_div">
             <p>Don't have an account? <a href="register.php">Register Here!</a></p>
+            <p>Admin<a href="admin-login.php">Login</a></p>
         </div>
     </form>
        

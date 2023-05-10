@@ -39,18 +39,24 @@ $UserID = "admin";
         padding: 25px;
     }
 
-    .seat {
+    .seat,
+    .seattypeID {
         text-align: center;
-        font-size: 200%;
+        font-size: 150%;
         color: black;
         padding: 25px;
+    }
+
+    .submit {
+        text-align: center;
     }
 </style>
 
 <body>
     <?php
-    include "headerAdmin.php"
-        ?>
+    include "headerAdmin.php";
+    require_once "seat_helper.php";
+    ?>
     <h1>Create event seat</h1>
     <?php
     // Get data from database
@@ -59,6 +65,29 @@ $UserID = "admin";
     $sql1 = "SELECT * FROM ticket_info GROUP BY TicketID";
     $result1 = $connection->query($sql1);
     $result2 = $connection->query($sql1);
+
+    if (!empty($_POST)) {
+        //YES,user clicked on the button
+        //retrieve input from the form
+        $id = trim($_POST['typeID']);
+        $type = trim($_POST['type']);
+        $sqlCheck = "SELECT SeatTypeID FROM seat_type WHERE SeatTypeID ='$id'";
+        $result = mysqli_query($connection, $sqlCheck);
+        if (mysqli_num_rows($result) == 1) {
+            $chkTypeID = $id;
+        } else {
+            $chkTypeID = "";
+        }
+        //check/validate the user inputs
+        $error["id"] = isTypeIDExist($id, $chkTypeID);
+        $error = array_filter($error);
+        if ((empty($error))) {
+            $add = "INSERT INTO seat_type VALUES('$id','$type');";
+            if (($connection->prepare($add))->execute()) {
+            }
+        }
+    }
+
     ?>
     <form action="" method="POST">
         <div class="form">
@@ -70,13 +99,14 @@ $UserID = "admin";
                     } ?></option>
                 </select>
             </div>
+
+            <div class="seattypeID">
+                <label for="typeID">Enter Seat Type ID :<label>
+                        <input type="text" name="typeID" value=<?php echo (isset($id)) ? $id : ""; ?> />
+            </div>
             <div class="seattype">
-                <label for="type">Choose type of seat:<label>
-                        <select name="type" id="type">
-                            <?php while ($row = $result1->fetch_assoc()) { ?>
-                                <option value="<?php echo $row['TicketID']; ?>"><?php echo $row['TicketType'];
-                            } ?></option>
-                        </select>
+                <label for="type">Enter type of seat:<label>
+                        <input type="text" name="type" value=<?php echo (isset($type)) ? $type : ""; ?> />
             </div>
             <div class="seat">
                 <label for="amount">Choose amount of seat:<label>
@@ -86,8 +116,9 @@ $UserID = "admin";
                             } ?></option>
                         </select>
             </div>
-
-            <input type="submit" value="Submit">
+            <div class="submit">
+                <input type="submit" value="Add">
+            </div>
 
         </div>
     </form>
