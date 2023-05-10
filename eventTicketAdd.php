@@ -1,8 +1,11 @@
-<?php 
+<?php
     session_start();
-    include ("config/config.php");
-    $UserID = "admin";
-    //$UserID = $_SESSION['UserID'];
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
     global $hideForm;
 ?>
 <html>
@@ -22,16 +25,18 @@
             if ($record = $result->fetch_object()) {
                 $id = $record->EventID;
                 $name = $record->EventName;
+                printf("
+                <div class='addEvent'>
+                    <div class='addEvent-header'>
+                        <h1>Add Event Ticket for %s</h1>
+                    </div>", $name
+                );
             } else {
                 echo "<div class='error'>Record not found !<a href='eventTicketManage.php'>Back to Manage Events</a></div>";
                 $hideForm = true;
             }
         }
         ?>
-        <div class="addEvent">
-            <div class="addEvent-header">
-                <h1>Add Event Ticket for <?php echo $name ?></h1>
-            </div>
         <?php
         if(!empty($_POST)){
             $id = trim($_POST["id"]);
@@ -42,7 +47,7 @@
             $qty = trim($_POST["qty"]);
             $error = array();
 
-            $sqlCheck = "SELECT TicketID FROM ticker_info WHERE TicketID = '$ticketID'";
+            $sqlCheck = "SELECT TicketID FROM ticket_info WHERE TicketID = '$ticketID'";
             $result = mysqli_query($connection, $sqlCheck);
             if (mysqli_num_rows($result) == 1) {
                 $chkID = $ticketID;
@@ -64,11 +69,13 @@
                     echo "<script>alert('Event Ticket Data Added !');
                             window.location.href = 'eventTicketManage.php';
                         </script>";
-                } else {
-                    echo '<ul class="error">';
-                    printf("<p>%s</p>", implode("<p></p>", $error));
-                    echo '</ul>';
                 }
+            } else {
+                echo "<div class='addEvent-form-error'>";
+                printf("<p>
+                        %s
+                        </p>", implode("</p><p>",$error));
+                echo "</div>";
             }
         }
         ?>

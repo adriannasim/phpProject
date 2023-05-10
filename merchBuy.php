@@ -1,8 +1,11 @@
 <?php
     session_start();
-    include ("config/config.php");
-    $UserID = "adrianna";
-    //$UserID = $_SESSION['UserID'];
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         (isset($_GET["id"])) ? $id = $_GET["id"]: $id = "";

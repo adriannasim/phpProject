@@ -1,8 +1,11 @@
 <?php
-session_start();
-include("config/config.php");
-$UserID = "admin";
-//$UserID = $_SESSION['UserID'];
+    session_start();
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 ?>
 <html>
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include ("config/config.php");
-    if(isset($_POST["submit"])) {
+    if(isset($_POST["login_btn"])) {
         $UserID = $_POST["login_txt"];
         $UserPassword = $_POST["password_txt"];
 
@@ -12,10 +12,10 @@
             $_SESSION["UserID"] = $UserID;
             header("Location: eventUser.php");
         }
-    }
-    else {
-        echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
-            window.location = 'index.php'</script>";
+        else {
+            echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
+                window.location = 'index.php'</script>";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
         </div>
         <div class="info_div">
             <p>Don't have an account? <a href="register.php">Register Here!</a></p>
-            <p>Admin<a href="admin-login.php">Login</a></p>
+            <p>Admin <a href="admin-login.php">Login</a></p>
         </div>
     </form>
        

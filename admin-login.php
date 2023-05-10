@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include ("config/config.php");
-    if(isset($_POST["submit"])) {
+    include "config/config.php";
+    if(isset($_POST["login_btn"])) {
         $UserID = $_POST["admin-login_txt"];
         $UserPassword = $_POST["password_txt"];
 
@@ -10,12 +10,12 @@
         $row = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) == 1) {
             $_SESSION["UserID"] = $UserID;
-            header("Location: homepage.php");
+            header("location: eventManage.php");
         }
-    }
-    else {
-        echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
-            window.location = 'admin-login.php'</script>";
+        else {
+            echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');
+                window.location = 'admin-login.php'</script>";
+        }
     }
 ?>
 
