@@ -91,7 +91,7 @@ $UserID = "admin";
                     <table class="edit-form-table">
                         <tr class="addMerch-form-group">
                             <td><label for="prod-id">Product ID</label></td>
-                            <!-- <td><input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id; ?>" hidden /></td> -->
+                            <input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id; ?>" hidden />
                             <td><input type="text" name="id" id="id" value="<?php echo $id; ?>" disabled /></td>
                         </tr>
                         <tr class="addMerch-form-group">
@@ -130,7 +130,6 @@ $UserID = "admin";
                     $categoryArray = array('T-Shirt', 'Hoodie/Sweater', 'Hats', 'Totebags');
                     $sizeArray = array('FreeSize', 'UniSize');
                     foreach ($categoryArray as $value) {
-                        echo '<label for="'.$value.'">' . $value . '</label>';
                         echo '<input type="radio" name="category" id="' . $value . '" value="' . $value . '"';
                         if ($category == $value) {
                             echo ' checked';
@@ -138,6 +137,7 @@ $UserID = "admin";
                             echo '';
                         }
                         echo '>';
+                        echo '<label for="'.$value.'">' . $value . '</label>';
                     }
                     ?>
                     </div>
@@ -146,7 +146,6 @@ $UserID = "admin";
                     <?php
                     $size = (isset($size))?  $size: "";
                     foreach ($sizeArray as $value) {
-                        echo '<label for="'.$value.'">' . $value . '</label>';
                         echo '<input type="radio" name="size" id="' . $value . '" value="' . $value . '"';
                         if ($size == $value) {
                             echo ' checked';
@@ -154,6 +153,7 @@ $UserID = "admin";
                             echo '';
                         }
                         echo '>';
+                        echo '<label for="'.$value.'">' . $value . '</label>';
                     }
                     ?>
                     </div>

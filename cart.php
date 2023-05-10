@@ -41,7 +41,7 @@
                                         <p class='units'>Quantity: <input type='text' value='%s' disabled>
                                         <form method='post'>
                                         <input type='hidden' name='mbuy_id' value='%s'>
-                                        <button type='submit' name='remove' class='remove'>
+                                        <button type='submit' name='removeM' class='remove'>
                                             <i class='fa fa-trash'></i>
                                             <span class='removebtn'>Remove</span>
                                         </button>
@@ -57,7 +57,7 @@
                         }
                     }
                     //remove button
-                    if (isset($_POST['remove'])) {
+                    if (isset($_POST['removeM'])) {
                         $MerchBuyID = $_POST['mbuy_id'];
                         $sqlRemove = "DELETE FROM merch_buy WHERE MbuyID = '$MerchBuyID';";
                         if (($connection->prepare($sqlRemove))->execute()) {
@@ -81,13 +81,13 @@
                                         <h4>Price: RM %s</h4>
                                         <p class='units'>Quantity: <input type='text' value='%s' disabled>
                                         <form method='post'>
-                                        <input type='hidden' name='mbuy_id' value='%s'>
-                                        <button type='submit' name='remove' class='remove'>
+                                        <input type='hidden' name='tbuy_id' value='%s'>
+                                        <button type='submit' name='removeT' class='remove'>
                                             <i class='fa fa-trash'></i>
                                             <span class='removebtn'>Remove</span>
                                         </button>
-                                        </div>
-                                        </div>
+                                    </div>
+                                </div>
                                     </form>
                             ", $ticketRec->EventName, $ticketRec->TicketPrice, $ticketRec->TbuyQty, $ticketRec->TbuyID);
                             $totalqty += $ticketRec->TbuyQty;
@@ -95,9 +95,9 @@
                         }
                     }
                     //remove button
-                    if (isset($_POST['remove'])) {
-                        $MerchBuyID = $_POST['mbuy_id'];
-                        $sqlRemove = "DELETE FROM merch_buy WHERE MbuyID = '$MerchBuyID';";
+                    if (isset($_POST['removeT'])) {
+                        $TicketBuyID = $_POST['tbuy_id'];
+                        $sqlRemove = "DELETE FROM ticket_buy WHERE TbuyID = '$TicketBuyID';";
                         if (($connection->prepare($sqlRemove))->execute()) {
                             echo "<script>alert('Item Removed');
                                 window.location = 'cart.php'</script>";

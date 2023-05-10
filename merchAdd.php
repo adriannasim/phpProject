@@ -127,7 +127,6 @@ $UserID = "admin";
                     $pCategory = (isset($pCategory))? $pCategory: "";
                     $categoryArray = array('T-Shirt', 'Hoodie/Sweater', 'Hats', 'Totebags');
                     foreach ($categoryArray as $value) {
-                        echo '<label for="'.$value.'">' . $value . '</label>';
                         echo '<input type="radio" name="prod-cat" id="' . $value . '" value="' . $value . '"';
                         if ($pCategory == $value) {
                             echo ' checked';
@@ -135,6 +134,7 @@ $UserID = "admin";
                             echo '';
                         }
                         echo '>';
+                        echo '<label for="'.$value.'">' . $value . '</label>';
                     }
                     ?>
                     </div>
@@ -144,7 +144,6 @@ $UserID = "admin";
                     $size = (isset($size))?  $size: "";
                     $sizeArray = array('FreeSize', 'UniSize');
                     foreach ($sizeArray as $value) {
-                        echo '<label for="'.$value.'">' . $value . '</label>';
                         echo '<input type="radio" name="prod-size" id="' . $value . '" value="' . $value . '"';
                         if ($size == $value) {
                             echo ' checked';
@@ -152,6 +151,7 @@ $UserID = "admin";
                             echo '';
                         }
                         echo '>';
+                        echo '<label for="'.$value.'">' . $value . '</label>';
                     }
                     ?>
                     </div>

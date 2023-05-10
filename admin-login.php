@@ -36,7 +36,7 @@
             <button class="submit_class" type="submit" name="login_btn">Enter</button>
         </div>
         <div class="info_div">
-            <p>Don't have an account? <a href="register/reg-form.php">Register Here!</a></p>
+            <p>Back to user <a href="index.php">login</a></p>
         </div>
     </form>
 </main>
