@@ -483,6 +483,10 @@ body {
     border-radius: 30px;
     padding: 10px 5px;
 }
+.editEvents-form{
+    margin-left: -5%;
+    width: 106%;
+}
 
 #edit,
 #add,
@@ -861,7 +865,6 @@ td {
     color: white;
     border: 1px solid white;
 }
-
 .order-details button {
     width: 60px;
     margin: 10px 0;
