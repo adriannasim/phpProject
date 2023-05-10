@@ -43,7 +43,7 @@ $UserID = "admin";
     .seattypeID {
         text-align: center;
         font-size: 200%;
-        color: black;   
+        color: black;
         padding: 25px;
     }
 
@@ -93,9 +93,9 @@ $UserID = "admin";
         <div class="form">
             <div class="event">
                 <label for="event">Choose an event:</label>
-                <select name="event" id="event">
+                <select name="event" id="event" value="<?php echo (isset($row['EventID']))? $row['EventID']: "";?>">
                     <?php while ($row = $result->fetch_assoc()) { ?>
-                        <option value="<?php echo $row['EventID']; ?>"><?php echo $row['EventName'];
+                        <option value="<?php echo $row['EventID']; ?>" <?php if (isset($_POST['EventID']) && $_POST['EventID']==$row['EventID']) echo "selected";?>><?php echo $row['EventName'];
                     } ?></option>
                 </select>
             </div>
@@ -117,7 +117,7 @@ $UserID = "admin";
                         </select>
             </div>
             <div class="submit">
-                <input type="submit" value="Add">
+                <input type="submit" value="Add" onclick="location:dasdas.php">
             </div>
 
         </div>

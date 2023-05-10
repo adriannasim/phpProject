@@ -500,7 +500,7 @@ include("config/config.php");
         <a href="edit_VIPseat.php">Edit VIP Seat</a>
     </div>
     <div class="back">
-        <a href="Event_List.php">Back</a>
+        <a href="eventManage.php">Back</a>
     </div>
 </body>
 

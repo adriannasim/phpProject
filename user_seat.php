@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <?php
-    session_start();
-    include "config/config.php";
-    $UserID = $_SESSION['UserID'];
+session_start();
+include "config/config.php";
+$UserID = $_SESSION['UserID'];
 
-    if ($UserID == '') {
-        header("location: index.php");
-    }
+if ($UserID == '') {
+    header("location: index.php");
+}
 ?>
 
 <head>
@@ -468,8 +468,9 @@
     }
     ?>
     <form action="" method="POST">
-
-        <?php include "footerUser.php"; ?>
+    <a href="ticket-mlbb.php">Back</a>
+    </form>
+    <?php include "footerUser.php"; ?>
 </body>
 
 </html>
