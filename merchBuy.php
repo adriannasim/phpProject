@@ -112,10 +112,10 @@
                     <h3>RM %s</h3>
                 </div>
                 <div class='prod-details'>
-                    <p>Specifications<br>Material: %s<br>Color: %s<br>Style: %s<br>Fit Type: %s </p>
+                    <p>Specifications<br>Material: %s<br>Color: %s<br>Style: %s<br>Fit Type: %s <br>Size: %s</p>
                 </div>
             </div>
-        ", $id, $id, $name, $price, $material, $color, $style, $fitType);
+        ", $id, $id, $name, $price, $material, $color, $style, $fitType, $size);
         ?>
             <div class="prod-select">
                 <form action="" method="post">
