@@ -126,6 +126,7 @@ $UserID = "admin";
                     <div class="addMerch-form-group-rd">
                     <label for="prod-desc4">Product Category</label><br/>
                     <?php 
+                    $category = (isset($category))? $category: "";
                     $categoryArray = array('T-Shirt', 'Hoodie/Sweater', 'Hats', 'Totebags');
                     $sizeArray = array('FreeSize', 'UniSize');
                     foreach ($categoryArray as $value) {
@@ -133,6 +134,8 @@ $UserID = "admin";
                         echo '<input type="radio" name="category" id="' . $value . '" value="' . $value . '"';
                         if ($category == $value) {
                             echo ' checked';
+                        } else {
+                            echo '';
                         }
                         echo '>';
                     }
@@ -141,14 +144,16 @@ $UserID = "admin";
                     <div class="addMerch-form-group-rd">
                     <label for="prod-desc4">Product Size</label><br/>
                     <?php
+                    $size = (isset($size))?  $size: "";
                     foreach ($sizeArray as $value) {
-                        echo '<label for="'.$value.'">' . $value . '';
+                        echo '<label for="'.$value.'">' . $value . '</label>';
                         echo '<input type="radio" name="size" id="' . $value . '" value="' . $value . '"';
                         if ($size == $value) {
                             echo ' checked';
+                        } else {
+                            echo '';
                         }
                         echo '>';
-                        echo '</label>';
                     }
                     ?>
                     </div>

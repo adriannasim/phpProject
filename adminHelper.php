@@ -78,13 +78,14 @@ function checkQty($qty){
 }
 /*End of eventTicket.php validation*/
 /*Start of merchAdd.php validation*/
-function checkProdID($id){
+function checkProdID($id, $chkID){
     if($id == NULL){
         return "⚠ Please enter the product id";
     }else if(!preg_match("/^[A-Z\d]{5}$/",$id)){
         return "⚠ Invalid product ID format";
+    }else if(strcmp($id, $chkID) == 0){
+        return "⚠ Product ID already exists";
     }
-
 }
 function checkProdName($name){
     if($name == NULL){

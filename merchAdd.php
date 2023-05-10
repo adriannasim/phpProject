@@ -45,7 +45,17 @@ $UserID = "admin";
                 $size = "";
             }
             $error = array();
-            $error['id'] = checkProdID($id);
+
+            $sqlCheck = "SELECT MerchID FROM merch_info WHERE MerchID = '$id'";
+            $result = mysqli_query($connection, $sqlCheck);
+            if (mysqli_num_rows($result) == 1) {
+                $chkID = $id;
+            } 
+            else {
+                $chkID = "";
+            }
+
+            $error['id'] = checkProdID($id, $chkID);
             $error['name'] = checkProdName($name);
             $error['price'] = checkProdPrice($price);
             $error['material'] = checkProdMaterial($material);
@@ -56,7 +66,7 @@ $UserID = "admin";
             $error['pCategory'] = checkProdCategory($pCategory);
             $error['size'] = checkProdSize($size);
             $error = array_filter($error);
-
+            
             if ((empty($error))) {
                 $sql = "INSERT INTO merch_info (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $connection->prepare($sql);
@@ -118,23 +128,39 @@ $UserID = "admin";
                 </tr>
             </table>
             <div class="addMerch-form-group-rd">
-                <label for="prod-cat">Product Category</label><br>
-                <input type="radio" name="prod-cat" id="tshirt" value="T-Shirt">
-                <label for="tshirt">T-Shirt</label>
-                <input type="radio" name="prod-cat" id="hoodie" value="Hoodie/Sweater">
-                <label for="hoodie">Hoodie/Sweater</label>
-                <input type="radio" name="prod-cat" id="hats" value="Hats">
-                <label for="hats">Hats</label>
-                <input type="radio" name="prod-cat" id="totebags" value="Totebags">
-                <label for="totebags">Totebags</label><br />
-            </div>
-            <div class="addMerch-form-group-rd">
-                <label for="prod-size">Product Size</label><br>
-                <input type="radio" name="prod-size" id="freesize" value="FreeSize" />
-                <label for="freesize">Free Size</label>
-                <input type="radio" name="prod-size" id="unisize" value="UniSize" />
-                <label for="unisize">Unisize (S-XL)</label><br />
-            </div>
+                    <label for="prod-cat">Product Category</label><br/>
+                    <?php 
+                    $pCategory = (isset($pCategory))? $pCategory: "";
+                    $categoryArray = array('T-Shirt', 'Hoodie/Sweater', 'Hats', 'Totebags');
+                    foreach ($categoryArray as $value) {
+                        echo '<label for="'.$value.'">' . $value . '</label>';
+                        echo '<input type="radio" name="prod-cat" id="' . $value . '" value="' . $value . '"';
+                        if ($pCategory == $value) {
+                            echo ' checked';
+                        } else {
+                            echo '';
+                        }
+                        echo '>';
+                    }
+                    ?>
+                    </div>
+                    <div class="addMerch-form-group-rd">
+                    <label for="prod-size">Product Size</label><br/>
+                    <?php
+                    $size = (isset($size))?  $size: "";
+                    $sizeArray = array('FreeSize', 'UniSize');
+                    foreach ($sizeArray as $value) {
+                        echo '<label for="'.$value.'">' . $value . '</label>';
+                        echo '<input type="radio" name="prod-size" id="' . $value . '" value="' . $value . '"';
+                        if ($size == $value) {
+                            echo ' checked';
+                        } else {
+                            echo '';
+                        }
+                        echo '>';
+                    }
+                    ?>
+                    </div>
             <div class="addMerch-form-btn">
                 <input type="reset" onclick="location = 'merchAdd.php'" />
                 <input type="submit" value="Add" name="addMerch-form-submit" />
