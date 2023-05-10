@@ -58,7 +58,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=1'">Register Now !</button>
       </div> 
   </div>
 
@@ -85,7 +85,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=2'">Register Now !</button>
       </div> 
   </div>
 
@@ -112,7 +112,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=3'">Register Now !</button>
       </div> 
   </div>
     <br><br>  
