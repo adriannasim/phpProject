@@ -116,36 +116,12 @@ h1{
     color: black;
     border: 2px solid black;
 }
-.filterEvent{
-    margin: auto;
-    margin-left: 200px;
-}
-.filterEvent button{
-    color: white;
-    border: 1px solid white;
-    border-radius: 30px;
-    padding: 12px;
-    background-color: black;
-    margin: 5px 10px;
-    width: 160px;
-    font-size: 16px;
-    font-family: Cambria;
-    letter-spacing: 0.1em;
-    font-weight: bold;
-    float: left;
-    transition: transform .3s ease;
-}
-.filterEvent button:hover{
-    background-color: whitesmoke;
-    color: black;
-    cursor: pointer;
-    transform: scale(1.1);
-}
 
 .events{
     position: relative;
     left: 70%;
-    margin-top: 95%;
+    right: -20%;
+    margin-top: 85%;
     transform: translate(-50%,-50%);
     margin-bottom: -80%;
 }
@@ -178,7 +154,7 @@ h1{
     font-size: 30px;
 }
 .event-back{
-    height: 750px;
+    height: 700px;
     transition: all 1s ease;
     opacity: 0;
     border-radius: 30px;

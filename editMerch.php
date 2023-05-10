@@ -1,10 +1,11 @@
-<?php 
-    session_start();
-    include ("config/config.php");
-    $UserID = "admin";
-    //$UserID = $_SESSION['UserID'];
+<?php
+session_start();
+include("config/config.php");
+$UserID = "admin";
+//$UserID = $_SESSION['UserID'];
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Edit Merch</title>
@@ -24,7 +25,7 @@
     <div class="editEvent-form">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            (isset($_GET["id"])) ? $id = $_GET["id"]: $id = "";
+            (isset($_GET["id"])) ? $id = $_GET["id"] : $id = "";
 
             $sql = "SELECT * FROM merch_info WHERE MerchID = '$id'";
             $result = $connection->query($sql);
@@ -44,8 +45,8 @@
                 echo "<div class='error'>Record not found !<a href='merchManage.php'>Back to Manage Merch</a></div>";
                 $hideForm = true;
             }
-        }    
-        if(!empty($_POST)){
+        }
+        if (!empty($_POST)) {
             $id = trim($_POST["hiddenid"]);
             $name = trim($_POST["name"]);
             $price = trim($_POST["price"]);
@@ -95,7 +96,8 @@
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-name">Product Name</label>
-                <input type="text" name="name" id="name" value="<?php echo $name;?>"/>
+                <input type="text" name="hiddenname" id="hiddenname" value="<?php echo $name;?>" hidden/>
+                <input type="text" name="name" id="name" value="<?php echo $name;?>" disabled/>
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-price">Product Price (RM)</label>
