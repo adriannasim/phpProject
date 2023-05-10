@@ -46,10 +46,21 @@ $UserID = "admin";
                         </script>";
                 }
             }
+            else if (isset($_POST['revert'])) {
+                $CartID = $_POST['revert'];
+                $update = "UPDATE cart SET checkout = '0' WHERE cart.CartID = '$CartID'";
+                $stmt = $connection->prepare($update);
+                if ($stmt->execute()) {
+                    echo "<script>alert('Orders Updated !');
+                            window.location.href = 'merchView.php';
+                        </script>";
+                }
+            }
         }
         ?>
         <th>Status</th>
         <th>Update Status</th>
+        <th>Revert Status</th>
         <?php
         if ($result = $connection->query($sql)) {
             while ($record = $result->fetch_object()) {
@@ -66,8 +77,9 @@ $UserID = "admin";
                         <td>%s</td>
                         <td>%s</td>
                         <td><input type='checkbox' value='%s' name='status'><span class='chkbox'></span></td>
+                        <td><input type='checkbox' value='%s' name='revert'><span class='chkbox'></span></td>
                         </tr>
-                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status, $record->MbuyID);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status, $record->MbuyID, $record->MbuyID);
             }
         }
         $result->free();
