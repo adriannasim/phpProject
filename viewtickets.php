@@ -7,7 +7,9 @@
 </head>
 
 <body>
-    <?php include "headerUser.php"?>
+    <?php include "headerUser.php";
+    include "config/config.php";
+    ?>
     <h1>Ticket Purchase History</h1>
     <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>
