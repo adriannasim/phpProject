@@ -51,8 +51,10 @@
                 <td><?php echo $Tel?></td>
             </tr>
             <tr class="user-manage-btn">
-                <td colspan="2"><a href="userAcc-edit.php" id="edit-profile-btn"><button>Edit Profile</button></a>
+                <td colspan="2">
+                    <a href="userAcc-edit.php" id="edit-profile-btn"><button>Edit Profile</button></a>
                     <a href="userAcc-chg-pw.php" id="chg-pw-btn"><button>Change Password</button></a>
+                    <a href="logout.php" id="logout-btn"><button>Logout</button></a>
                 </td>
             </tr>
         </table>
