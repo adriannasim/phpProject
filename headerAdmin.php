@@ -10,7 +10,7 @@
             <div class="headerA-navBar">
                 <ul>
                     <div class="headerA-dropdown">
-                        <li class="headerA-dropBtn"><a href="">Events</a></li>
+                        <li class="headerA-dropBtn"><a href="eventManage.php">Events</a></li>
                         <div class="headerA-dropctn">
                             <ul>
                             <li><a href="eventAdd.php">Add Events</a></li>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="headerA-dropdown">
-                        <li class="headerA-dropBtn"><a href="">Merchandise</a></li>
+                        <li class="headerA-dropBtn"><a href="merchManage.php">Merchandise</a></li>
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="merchAdd.php">Add Products</a></li>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="headerA-navBtn">
-                        <li class="headerA-btn"><a href="helpdeskAdmin.php">HelpDesk</a></li>
+                        <li class="headerA-btn"><a href="https://dashboard.tawk.to/#/dashboard">HelpDesk</a></li>
                     </div>
                 </ul>
             </div>
