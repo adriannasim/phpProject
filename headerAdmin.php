@@ -41,6 +41,9 @@
                     <div class="headerA-navBtn">
                         <li class="headerA-btn"><a href="https://dashboard.tawk.to/#/dashboard">HelpDesk</a></li>
                     </div>
+                    <div class="headerA-navBtn">
+                        <li class="headerA-btn"><a href="logout.php">Logout</a></li>
+                    </div>
                 </ul>
             </div>
         </div>
