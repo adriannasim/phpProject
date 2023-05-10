@@ -938,6 +938,22 @@ td {
     font-size: 16px;
     font-family: Cambria;
 }
+.edit-form-btn{
+    margin-left: 40px;
+}
+.edit-form-btn input{
+    font-family: cambria;
+    letter-spacing: .1em;
+    width: 20%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4f6874;
+    color: white;
+    font-size: 16px;
+    margin: 10px;
+    transition: all 0.2s ease;
+}
 
 /*End of editMerch.php styles*/
 

@@ -83,7 +83,7 @@ $UserID = "admin";
                 </tr>
                 <tr class="addMerch-form-group">
                     <td><label for="prod-name">Product Name</label></td>
-                    <td><input type="text" name="prod-name" id="prod-name"
+                    <td><input type="text" name="prod-name" id="prod-name" placeholder="E.g Gaming T-Shirt"
                             value="<?php echo (isset($name)) ? $name : ""; ?>" /></td>
                 </tr>
                 <tr class="addMerch-form-group">
@@ -93,22 +93,22 @@ $UserID = "admin";
                 </tr>
                 <tr class="addMerch-form-group">
                     <td><label for="prod-desc1">Product Material</label></td>
-                    <td><input type="text" name="prod-desc1" id="prod-desc1" placeholder="E.g cotton"
+                    <td><input type="text" name="prod-desc1" id="prod-desc1" placeholder="E.g Cotton"
                             value="<?php echo (isset($material)) ? $material : ""; ?>" /></td>
                 </tr>
                 <tr class="addMerch-form-group">
                     <td><label for="prod-desc2">Product Color</label></td>
-                    <td><input type="text" name="prod-desc2" id="prod-desc2" placeholder="E.g white"
+                    <td><input type="text" name="prod-desc2" id="prod-desc2" placeholder="E.g White"
                             value="<?php echo (isset($color)) ? $color : ""; ?>" /></td>
                 </tr>
                 <tr class="addMerch-form-group">
                     <td><label for="prod-desc3">Product Style</label></td>
-                    <td> <input type="text" name="prod-desc3" id="prod-desc3" placeholder="E.g casual"
+                    <td> <input type="text" name="prod-desc3" id="prod-desc3" placeholder="E.g Casual"
                             value="<?php echo (isset($style)) ? $style : ""; ?>" /></td>
                 </tr>
                 <tr class="addMerch-form-group">
                     <td><label for="prod-desc4">Product Fit Type</label></td>
-                    <td><input type="text" name="prod-desc4" id="prod-desc4" placeholder="E.g oversized"
+                    <td><input type="text" name="prod-desc4" id="prod-desc4" placeholder="E.g Oversized"
                             value="<?php echo (isset($fitType)) ? $fitType : ""; ?>" /></td>
                 </tr>
                 <tr class="addMerch-form-group">
