@@ -24,7 +24,7 @@
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="new_seat.php">New Seats</a></li>
-                                <li><a href="seating_plan.php">Change Seating Plan</a></li>
+                                <li><a href="seating_plan.php">View Seats</a></li>
                             </ul>
                         </div>
                     </div>

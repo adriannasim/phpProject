@@ -14,8 +14,10 @@ $UserID = "admin";
 </head>
 <style>
     form {
-        text-align: center;
-        background-color: white;
+        background-color: lightskyblue;
+        margin-top: 10px;
+        padding: 10px;
+        color: black;
     }
 
     h1 {
@@ -84,11 +86,11 @@ $UserID = "admin";
                             } ?></option>
                         </select>
             </div>
+
             <input type="submit" value="Submit">
-            
+
         </div>
     </form>
-    <img _ngcontent-xlc-c12="" class="screen" src="https://poster.gsc.com.my/campaign/default_web.png">
 </body>
 
 </html>

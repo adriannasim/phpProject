@@ -1,30 +1,52 @@
-body{
+body {
     font-family: Arial, sans-serif;
 }
-.screenNplayer table, .screenNplayer td{
-    border-collapse: collapse;
+
+h1 {
+    text-align: center;
+}
+
+.screenNplayer {
     width: 100%;
+
+}
+
+.screenNplayer table,
+.screenNplayer td {
+    border-collapse: collapse;
+    width: 75%;
     border-style: solid;
     margin: 0 13.5%;
     text-align: center;
     background-color: lightblue;
 }
 
-.list table{
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list table {
     border-collapse: collapse;
     width: 100%;
     border-style: solid;
     margin: 0 auto;
     text-align: center;
 }
-button, .list a, .add a, .back a , .edit a{
+
+button,
+.list a,
+.add a,
+.back a,
+.edit a {
     display: inline-block;
     outline: none;
     cursor: pointer;
     font-size: 14px;
     line-height: 1;
     border-radius: 300px;
-    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: .3s;
     border: 1px solid transparent;
     letter-spacing: 2px;
@@ -39,45 +61,48 @@ button, .list a, .add a, .back a , .edit a{
     background-color: white;
     text-decoration: none;
 }
-a:hover{
+
+.add a:hover {
     transition-duration: 0.5s;
     color: black;
     background-color: #9999ff;
     transform: translateY(-2px);
 }
-.list tr,.list t{
+
+.list tr,
+.list td {
     height: 50px;
 }
-body{
+
+body {
     background-color: black;
     color: white;
 }
-th{
+
+th {
     border-color: white;
-    background-color :black;
+    background-color: black;
 }
-td{
+
+td {
     border-color: white;
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     margin-top: 10px;
-    padding:10px;
+    padding: 10px;
     color: black;
 
 }
-tr,td,th{
-    border-style:solid;
-}
-.screenNplayer{
-    width: 100%;
-    max-width: 1500px;
 
+tr,
+td,
+th {
+    border-style: solid;
 }
-
 
 .seating-plan {
     width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .seating-plan table {
@@ -117,15 +142,18 @@ tr,td,th{
 .seating-plan .seat.selected {
     background-color: #2196f3;
 }
-.seating-plan th{
-    text-align:center;
+
+.seating-plan th {
+    text-align: center;
 }
-.form table{
+
+.form table {
     border-collapse: collapse;
     width: 100%;
     border-style: solid;
     text-align: left;
 }
-.form td{
-    height:40px;
+
+.form td {
+    height: 40px;
 }
