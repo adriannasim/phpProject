@@ -36,7 +36,6 @@ if (mysqli_num_rows($result) > 0) {
     }
 }
 
-// display the ticket prices
 ?>
 <div class="ticket-container">
     <img src="img/ticket/b2.png" alt="MLBB" class="ticket-container-image">
