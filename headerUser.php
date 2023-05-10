@@ -36,7 +36,7 @@
                     <li class="header-btn"><a href="helpdeskUser.php">Need Help?</a></li>
                 </div>
             </ul>
-            <li class="header-navBtn-right"><a href="viewtickets.php"><img src="img/header/user.png" width="30px"
+            <li class="header-navBtn-right"><a href="userAcc.php"><img src="img/header/user.png" width="30px"
                         height="30px" /></a></li>
             <li class="header-navBtn-right"><a href="cart.php"><img style="filter: invert(1);" src="img/header/cart.png"
                         width="50px" height="30px" /></a></li>

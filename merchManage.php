@@ -60,8 +60,8 @@
                             <td>%s</td>
                             <td>%s</td>
                             <td>
-                                <button id='edit'><a href='editMerch.php?id=$record->MerchID'>Edit</a></button>
                                 <button id='delete'><a href='deleteMerch.php?id=$record->MerchID'>Delete</a></button>
+                                <button id='edit'><a href='editMerch.php?id=$record->MerchID'>Edit</a></button>
                             </td>
                         </tr>
                     ", $record->MerchID, $record->MerchDesc, $record->MerchPrice, $record->MerchQty);
