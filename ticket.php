@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
+<?php
+session_start();
+include("config/config.php");
+$UserID = "adrianna";
+//$UserID = $_SESSION['UserID'];
+?>
 <html>
 <head>
     <title>Buy Tickets</title>
@@ -18,31 +19,49 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
     <br>
     <br>
+    <?php
+// Assuming you have already established a database connection
+$sql = "SELECT * FROM ticket_info";
+$result = mysqli_query($connection, $sql);
 
-      <div class="ticket-container">
-          <img src="img/ticket/b2.png" alt="MLBB" class="ticket-container-image">
-          <div class="ticket-overlay">
-              <h2>MLBB Tournament Grand Finale</h2>
-              <div class="ticket-overlay1">
-              <table>
-                    <tr>
-                      <td><b>Fee</b></td> 
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>VIP</td>
-                      <td>: RM50 per pax</td>
-                    </tr>
-                    <tr>
-                      <td>Standard</td>
-                      <td>: RM40 per pax</td>
-                    </tr>
-              </table>
-              <br>
-              </div>
-                <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
-          </div> 
-      </div>
+// check if query was successful
+if (mysqli_num_rows($result) > 0) {
+    // fetch data from result set
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['TicketID'] == 'AU002') {
+            $vip_price = $row['TicketPrice'];
+        } else if ($row['TicketID'] == 'AU001') {
+            $standard_price = $row['TicketPrice'];
+        }
+    }
+}
+
+// display the ticket prices
+?>
+<div class="ticket-container">
+    <img src="img/ticket/b2.png" alt="MLBB" class="ticket-container-image">
+    <div class="ticket-overlay">
+        <h2>MLBB Tournament Grand Finale</h2>
+        <div class="ticket-overlay1">
+            <table>
+                <tr>
+                    <td><b>Fee</b></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>VIP</td>
+                    <td>: RM<?php echo $vip_price; ?> per pax</td>
+                </tr>
+                <tr>
+                    <td>Standard</td>
+                    <td>: RM<?php echo $standard_price; ?> per pax</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+      </div> 
+  </div>
 
     <br><br><br><br>
 
@@ -52,25 +71,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
               <h2>VALORANT: Battle Of The Ace</h2>
               <div class="ticket-overlay1">
               <table>
-                    <tr>
-                      <td><b>Fee</b></td> 
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Participation Fee</td>
-                      <td>: RM20 per team (5 pax)</td>
-                    </tr>
-                    <tr>
-                      <td>Spectator Fee</td>
-                      <td>: (VIP) RM50 per pax | (Standard) RM40 per pax</td>
-                    </tr>
-              </table>
-              <br>
-              </div>
-                <button class="ticket-button" onclick="window.location.href = 'ticket-valorant.php'">Register Now !</button>
-              
-            </div> 
-      </div>
+                <tr>
+                    <td><b>Fee</b></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>VIP</td>
+                    <td>: RM<?php echo $vip_price; ?> per pax</td>
+                </tr>
+                <tr>
+                    <td>Standard</td>
+                    <td>: RM<?php echo $standard_price; ?> per pax</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+      </div> 
+  </div>
 
       <br><br><br><br>
 
@@ -78,13 +96,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           <img src="img/ticket/b4.png" alt="War Zone" class="ticket-container-image">
           <div class="ticket-overlay">
               <h2>War Zone S2</h2>
-              <p style="text-align: left"><b>Fee </b>: RM10 per pax</p>
               <div class="ticket-overlay1">
-                <button class="ticket-button" onclick="window.location.href = 'ticket-warzone.php'">Register Now !</button>
-              </div>
-          </div> 
-      </div>
-
+              <table>
+                <tr>
+                    <td><b>Fee</b></td> 
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>VIP</td>
+                    <td>: RM<?php echo $vip_price; ?> per pax</td>
+                </tr>
+                <tr>
+                    <td>Standard</td>
+                    <td>: RM<?php echo $standard_price; ?> per pax</td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php'">Register Now !</button>
+      </div> 
+  </div>
     <br><br>  
 
     <?php include "footerUser.php"?>        
