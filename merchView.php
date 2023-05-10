@@ -8,7 +8,7 @@ $UserID = "admin";
 
 <head>
     <meta charset="UTF-8">
-    <title>Merch Admin</title>
+    <title>View Orders</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -24,12 +24,7 @@ $UserID = "admin";
     );
     ?>
     <div class="merchAdmin-header">
-        <h1>Merch Admin</h1>
-    </div>
-    <div class="merchfunc-admin">
-        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
-        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
-        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+        <h1>View Orders</h1>
     </div>
     <form action='' method='post'>
         <table class="order-info">

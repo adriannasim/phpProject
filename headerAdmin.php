@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="headerA-dropdown">
-                        <li class="headerA-dropBtn"><a href="merchManage.php">Merchandise</a></li>
+                        <li class="headerA-dropBtn"><a href="">Merchandise</a></li>
                         <div class="headerA-dropctn">
                             <ul>
                                 <li><a href="merchAdd.php">Add Products</a></li>
