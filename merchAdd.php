@@ -8,7 +8,7 @@ $UserID = "admin";
 
 <head>
     <meta charset="UTF-8">
-    <title>Merch Admin</title>
+    <title>Add Products</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -16,12 +16,7 @@ $UserID = "admin";
     <?php include "adminHelper.php";
     include "headerAdmin.php"; ?>
     <div class="merchAdmin-header">
-        <h1>Merch Admin</h1>
-    </div>
-    <div class="merchfunc-admin">
-        <a href="merchAdd.php"><button class="merch-add">Add Products</button></a>
-        <a href="merchManage.php"><button class="merch-manage">Manage Products</button></a>
-        <a href="merchView.php"><button class="merch-view">View Orders</button></a>
+        <h1>Add Products</h1>
     </div>
     <div class="addMerch-form">
         <?php
@@ -84,7 +79,6 @@ $UserID = "admin";
         }
         ?>
         <form action="" method="post">
-            <h2>Add Products</h2>
             <table class="addMerch-form-table">
                 <tr class="addMerch-form-group">
                     <td><label for="prod-id">Product ID</label></td>
