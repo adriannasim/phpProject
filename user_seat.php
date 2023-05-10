@@ -15,6 +15,7 @@ include("config/config.php");
 </head>
 
 <body>
+
         <?php include "headerUser.php" ?>
     <h1>Seating Plan</h1>
     <div class="screenNplayer">

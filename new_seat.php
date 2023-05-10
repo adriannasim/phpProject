@@ -39,11 +39,14 @@ $UserID = "admin";
         padding: 25px;
     }
 
-    .seat {
+    .seat , .seattypeID{
         text-align: center;
-        font-size: 200%;
+        font-size: 150%;
         color: black;
         padding: 25px;
+    }
+    .submit{
+        text-align: center;
     }
 </style>
 
@@ -59,6 +62,34 @@ $UserID = "admin";
     $sql1 = "SELECT * FROM ticket_info GROUP BY TicketID";
     $result1 = $connection->query($sql1);
     $result2 = $connection->query($sql1);
+    function isTypeIDExist($id){
+        $exist = false;
+        
+        //step 1 :connection to link PHP app with DB
+        $connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+        
+        //step 2 :sql statement 
+        $sql = "SELECT * FROM seat_type WHERE SeatTypeID ='$id'";
+        
+        //step 3 : run sql code
+        if($result = $connection->query($sql)){
+            //same PK found
+            if($result->num_rows >0){
+                $exist = true;
+            }
+        }
+        //step 4 :free result/close connection
+        $result-> free();
+        $connection -> close();
+        return $exist;
+    }
+    if (!empty($_POST)) {
+        //YES,user clicked on the button
+        //retrieve input from the form
+        $id = trim($_POST['typeID']);
+        //check/validate all the user inputs
+        $error["id"] = isTypeIDExist($id);
+    }
     ?>
     <form action="" method="POST">
         <div class="form">
@@ -78,6 +109,15 @@ $UserID = "admin";
                             } ?></option>
                         </select>
             </div>
+            <div class="seattypeID">
+                <label for="typeID">Enter Seat Type ID :<label>
+                    <input type="text" name="typeID" value=<?php if(isset ($id)){
+                        echo $id;
+                    }else {
+                        echo"";
+                    }
+                    ?> />
+
             <div class="seat">
                 <label for="amount">Choose amount of seat:<label>
                         <select name="amount" id="amount">
@@ -86,8 +126,9 @@ $UserID = "admin";
                             } ?></option>
                         </select>
             </div>
-
-            <input type="submit" value="Submit">
+            <div class="submit">
+                <input type="submit" value="Add">
+            </div>
 
         </div>
     </form>
