@@ -927,6 +927,18 @@ td {
     margin: 10px;
     transition: all 0.2s ease;
 }
+#id{
+    border: none;
+}
+.error{
+    text-align: left;
+    color: white;
+    background-color: rgb(241, 75, 83);
+    margin: 10px 25% 10px 25%;
+    padding: 5px 15px;
+    border-radius: 5px;
+    list-style: none;
+}
 
 /*End of editMerch.php styles*/
 
