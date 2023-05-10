@@ -253,3 +253,99 @@ fieldset.mlbb{
   background-color: rgb(94, 210, 102);
   padding: 20px;
 }
+
+#payment2{
+  color: white;
+  font-size: 25px;
+  letter-spacing: .1em;
+  text-align: center;
+}
+
+.hidden-payment2{
+  padding:1px;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 120px;
+  width: 1000px;
+  height: 650px;
+  background-color: white;
+  color: black;
+}
+.payment-details2{
+  margin: 40px 100px;
+}
+.payment-details2 p{
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-details2 input, .card-details2 input{
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid black;
+  width: 300px;
+  height: 50px;
+  font-size: 18px;
+  font-family: cambria;
+  letter-spacing: .1em;
+}
+.expdate2{
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid black;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  font-family: cambria;
+  letter-spacing: .1em;
+}
+.payment-img2{
+  width: 500px;
+  float: left;
+}
+.payment-img2 img{
+  padding: 5px;
+  margin-top: 20px;
+  width: 70px;
+  height: 60px;
+  transition: all 0.3s ease;
+}
+.payment-img2 img:hover{
+  transform: scale(1.1);
+  box-shadow: 2px 2px 30px grey;
+  border-radius: 20px;
+}
+
+.card-details2{
+  float: right;
+  position: relative;
+  top: -500px;
+}
+.pay-btn2 button{
+  background-color: white;
+  color: black;
+  width: 190px;
+  height: 50px;
+  margin-top: 90px;
+  margin-left:290px;
+  padding: 10px;
+  border: 2px solid white;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  clear: both;
+  transition: all .3s ease;
+}
+.pay-btn2 button:hover{
+  transform: scale(1.1);
+  background-color: black;
+  color:white;
+  border: 2px solid white;
+  cursor: pointer;
+}
