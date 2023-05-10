@@ -61,7 +61,7 @@ $UserID = "adrianna";
                     for ($j = 0; $j < count($EventID); $j++) {
                         if (strcmp($EventName[$j], $searchRecord->EventName) == 0) {
                             printf("
-                            <div class='event-card'>
+                            <div class='event-card' style='margin-top:-800px; margin-bottom:1000px;'>
                                 <div class='event-front'>
                                     <img src='img/event/%s.png' width='100%%'>
                                     <h2>%s</h2>

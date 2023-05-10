@@ -423,11 +423,12 @@ body {
 }
 
 /*End of addEvent.php styles*/
-.editEvents-searchBar{
+.editEvents-searchBar {
     margin-left: 40%;
-    
+
 }
-.editEvents-searchBar input{
+
+.editEvents-searchBar input {
     width: 260px;
     height: 50px;
     border-radius: 30px;
@@ -437,7 +438,8 @@ body {
     font-family: cambria;
     font-size: 12pt;
 }
-.editEvents-searchBar button{
+
+.editEvents-searchBar button {
     font-family: cambria;
     font-size: 12pt;
     width: 120px;
@@ -450,15 +452,17 @@ body {
     border-radius: 30px;
     transition: all .2s ease;
 }
-.editEvents-searchBar button:hover{
+
+.editEvents-searchBar button:hover {
     cursor: pointer;
     transform: scale(1.1);
     background-color: black;
     color: white;
     border: 1px solid white;
 }
+
 /*Start of eventTicketManage.php styles*/
-#with-hd{
+#with-hd {
     font-size: 18pt;
     margin-top: 60px;
     margin-left: 40%;
@@ -466,9 +470,10 @@ body {
     width: 20%;
     height: 30px;
     border-radius: 30px;
-    padding:10px 5px;
+    padding: 10px 5px;
 }
-#without-hd{
+
+#without-hd {
     font-size: 18pt;
     margin-top: 60px;
     margin-left: 38%;
@@ -476,22 +481,28 @@ body {
     height: 30px;
     width: 25%;
     border-radius: 30px;
-    padding:10px 5px;
+    padding: 10px 5px;
 }
-#edit,#add, #delete{
+
+#edit,
+#add,
+#delete {
     width: 80px;
     height: 55px;
     margin: 5px;
 }
-#add-no-ticket{
+
+#add-no-ticket {
     width: 80px;
     height: 55px;
     margin-left: -90px;
     margin-right: 15px;
 }
-hr{
+
+hr {
     width: 85%;
 }
+
 /*End of eventTicketManage.php styles*/
 /*Start of eventEdit.php styles*/
 .editEvents-header {
@@ -505,16 +516,19 @@ hr{
     margin-bottom: 5%;
     border-collapse: collapse;
 }
-.event-details th{
+
+.event-details th {
     padding-top: 100px;
     padding-bottom: 20px;
 }
-.event-details td{
+
+.event-details td {
     padding: 20px;
     color: white;
     border: 2px solid white;
 }
-.event-details button a{
+
+.event-details button a {
     font-size: 15px;
     letter-spacing: 0.1em;
     font-weight: bold;
@@ -522,7 +536,8 @@ hr{
     font-family: cambria;
     color: black;
 }
-.event-details button{
+
+.event-details button {
     float: right;
     width: 70px;
     margin: 10px 0;
@@ -531,19 +546,23 @@ hr{
     border-radius: 10px;
     transition: all 0.1s ease;
 }
-#edit:hover{
+
+#edit:hover {
     cursor: pointer;
     transform: scale(1.1);
     border: 1px solid black;
     background-color: rgb(181, 246, 248);
 }
-#add:hover, #add-no-ticket:hover{
+
+#add:hover,
+#add-no-ticket:hover {
     cursor: pointer;
     transform: scale(1.1);
     border: 1px solid black;
     background-color: rgb(196, 247, 196);
 }
-#delete:hover{
+
+#delete:hover {
     cursor: pointer;
     transform: scale(1.1);
     border: 1px solid black;
@@ -556,27 +575,33 @@ hr{
 .edit-header {
     text-align: center;
 }
-.edit-form-table{
+
+.edit-form-table {
     width: 70%;
     margin-top: 50px;
     margin-left: 18%;
 }
-.edit-form-table th{
+
+.edit-form-table th {
     font-size: 14pt;
     vertical-align: top;
 }
-.edit-form-table input{
+
+.edit-form-table input {
     min-width: 70%;
     height: 45px;
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
 }
-.edit-form-table input[type=date], input[type=time], input[type=hidden]{
+
+.edit-form-table input[type=date],
+input[type=time],
+input[type=hidden] {
     font-size: 12pt;
 }
 
-.edit-form-table textarea{
+.edit-form-table textarea {
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 5px;
@@ -589,7 +614,8 @@ hr{
     margin-top: 10px;
     resize: none;
 }
-.edit-form-btn{
+
+.edit-form-btn {
     margin-left: 40%;
 }
 
@@ -614,9 +640,10 @@ hr{
     color: white;
     border: 2px white solid;
 }
+
 /*End of editEvent.php styles*/
 /*Start of deleteEvent.php styles*/
-.dltMsg{
+.dltMsg {
     background-color: rgb(0, 0, 0);
     border-radius: 20px;
     border: 2px white solid;
@@ -626,11 +653,13 @@ hr{
     font-size: 14pt;
     text-align: center;
 }
-.dlt-back-btn{
+
+.dlt-back-btn {
     margin-left: 40%;
     margin-top: -5%;
 }
-.dlt-back-btn button{
+
+.dlt-back-btn button {
     font-family: cambria;
     letter-spacing: .1em;
     width: 15%;
@@ -643,6 +672,7 @@ hr{
     margin: 20px;
     transition: all 0.2s ease;
 }
+
 .dlt-back-btn button:hover {
     cursor: pointer;
     transform: scale3d(1.1, 1.1, 1.1);
@@ -650,15 +680,18 @@ hr{
     color: white;
     border: 2px white solid;
 }
+
 /*End of deleteEvent.php styles*/
 /*Start of merchAdmin.php styles*/
 .merchAdmin-header {
     text-align: center;
 }
-.merchfunc-admin{
+
+.merchfunc-admin {
     margin-left: 30%;
     margin-bottom: 40px;
 }
+
 .merchfunc-admin button {
     font-size: 12pt;
     text-align: center;
@@ -691,7 +724,8 @@ hr{
     padding: 20px;
     border-radius: 20px;
 }
-.addMerch-form-table{
+
+.addMerch-form-table {
     margin: auto;
     color: black;
 }
@@ -817,11 +851,12 @@ td {
 
 /*End of merchView.php styles*/
 /*Start of merchManage.php styles*/
-.editMerch-searchBar{
+.editMerch-searchBar {
     margin-left: 40%;
-    
+
 }
-.editMerch-searchBar input{
+
+.editMerch-searchBar input {
     width: 260px;
     height: 50px;
     border-radius: 30px;
@@ -831,7 +866,8 @@ td {
     font-family: cambria;
     font-size: 12pt;
 }
-.editMerch-searchBar button{
+
+.editMerch-searchBar button {
     font-family: cambria;
     font-size: 12pt;
     width: 120px;
@@ -844,14 +880,16 @@ td {
     border-radius: 30px;
     transition: all .2s ease;
 }
-.editMerch-searchBar button:hover{
+
+.editMerch-searchBar button:hover {
     cursor: pointer;
     transform: scale(1.1);
     background-color: black;
     color: white;
     border: 1px solid white;
 }
-.order-details button{
+
+.order-details button {
     width: 60px;
     margin: 10px 0;
     padding: 7px 2px;
@@ -859,7 +897,8 @@ td {
     border-radius: 10px;
     transition: all 0.1s ease;
 }
-.order-details a{
+
+.order-details a {
     font-size: 15px;
     letter-spacing: 0.1em;
     font-weight: bold;
@@ -867,27 +906,66 @@ td {
     font-family: cambria;
     color: black;
 }
+
 /*End of merchManage.php styles*/
+/*Start of editMerch.php styles*/
+.edit-form {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.89);
+    color: black;
+    margin: 20px 20% 10px 20%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.edit-form-table {
+    margin: auto;
+    color: black;
+}
+.editMerch-form-group-rd input{
+    margin: 30px 0 50px 0;
+    width: 50px;
+}
+.editMerch-form-group input{
+    text-align: center;
+    width: 250px;
+    padding: 10px 5px;
+    margin: 10px 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    letter-spacing: .1em;
+    font-size: 16px;
+    font-family: Cambria;
+}
+
+/*End of editMerch.php styles*/
+
 /*Start of userAcc.php styles*/
-.user-image img{
+.user-image img {
     border: 1px solid white;
     margin: 5% 43%;
 }
-.user-info-table{
+
+.user-info-table {
     width: 35%;
     margin: 10px 35%;
     font-size: 14pt;
 }
-.user-manage-btn td{
+
+.user-manage-btn td {
     text-align: center;
 }
-#edit-profile-btn{
+
+#edit-profile-btn {
     margin-left: -50px;
 }
-#chg-pw-btn{
+
+#chg-pw-btn {
     margin-left: 25px;
 }
-.user-manage-btn button{
+
+.user-manage-btn button {
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 12pt;
@@ -899,35 +977,45 @@ td {
     border-radius: 5px;
     transition: all .2s ease;
 }
-.user-manage-btn button:hover{
+
+.user-manage-btn button:hover {
     cursor: pointer;
     transform: scale(1.1);
     color: white;
     background: black;
     border: 1px solid white;
 }
+
 /*End of userAcc.php styles*/
 /*Start of userAcc-edit.php styles*/
-.user-info-edit-table{
+.user-info-edit-table {
     width: 30%;
     margin: 10px 35%;
     font-size: 14pt;
 }
-#user-manage-reset, #userAcc-chg-pw-reset{
+
+#user-manage-reset,
+#userAcc-chg-pw-reset {
     margin-left: 15px;
 }
-#user-manage-submit, #userAcc-chg-pw-submit{
+
+#user-manage-submit,
+#userAcc-chg-pw-submit {
     margin-left: 25px;
 }
-#userAcc-chg-pw-reset{
+
+#userAcc-chg-pw-reset {
     margin-left: -35px;
 }
-#userAcc-chg-pw-submit{
+
+#userAcc-chg-pw-submit {
     margin-left: 25px;
 }
-.user-info-edit-table input{
+
+.user-info-edit-table input {
     width: 80%;
     margin: 10px 35%;
     font-size: 14pt;
 }
+
 /*End of userAcc-edit.php styles*/

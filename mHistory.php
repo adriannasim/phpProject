@@ -29,27 +29,6 @@
                         <option>Hats</option>
                         <option>Tote Bags</option>
                     </select>
-                    <select name="bymonth" class="ddlhistory">
-                        <option selected="selected" disabled>By Month</option>
-                        <option>Jan</option>
-                        <option>Feb</option>
-                        <option>Mar</option>
-                        <option>Apr</option>
-                        <option>May</option> 
-                        <option>Jun</option>
-                        <option>Jul</option>
-                        <option>Aug</option>
-                        <option>Sep</option>
-                        <option>Oct</option>
-                        <option>Nov</option>
-                        <option>Dec</option>
-                    </select>
-                    <select name="byyear" class="ddlhistory">
-                        <option selected="selected" disabled>By Year</option>
-                        <option>2023</option>
-                        <option>2022</option>
-                        <option>2021</option>
-                    </select>
                 </form>
             </div>
         </div>
