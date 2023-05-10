@@ -1,5 +1,13 @@
-<html>
+<?php
+    session_start();
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
 
+    if ($UserID == '') {
+        header("location: index.php");
+    }
+?>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Edit Merch</title>
@@ -15,14 +23,13 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         (isset($_GET["id"])) ?
         $id = $_GET["id"]: $id = "";
-                $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
                 $sql = "DELETE FROM merch_info WHERE MerchID = '$id'";
-                $result = mysqli_query($con, $sql);
+                $result = mysqli_query($connection, $sql);
                 if ($result) {
                     printf( "<div class='dltMsg'><p>The Event ( %s ) Has Been Deleted Successfully !
                     </p></div>", $id);
                 } else {
-                    die(mysqli_error($con));
+                    die(mysqli_error($connection));
                 }
     }
     ?>

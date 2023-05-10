@@ -1,9 +1,3 @@
-<?php
-session_start();
-include("config/config.php");
-$UserID = "admin";
-//$UserID = $_SESSION['UserID'];
-?>
 <html>
 
 <head>
@@ -16,6 +10,7 @@ $UserID = "admin";
 <body>
     <?php
     include "headerAdmin.php";
+    include "config/config.php";
     ?>
     <?php
     $header = array(

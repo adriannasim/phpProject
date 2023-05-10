@@ -1,10 +1,12 @@
 <?php
     session_start();
-    include ("config/config.php");
-    $UserID = "adrianna";
-    //$UserID = $_SESSION['UserID'];
-?>
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
 
+    if ($UserID == '') {
+        header("location: index.php");
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,7 +15,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
     <body>
-        <?php include "headerUser.php"?>
+        <?php 
+        include "headerUser.php";
+        ?>
         <h1>Cart</h1>
         <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>

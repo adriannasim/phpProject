@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
+?>
 <html>
 
 <head>
@@ -30,9 +39,8 @@
     </form>
     <table class="order-info">
         <?php
-        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if (isset($_GET['search'])) {
-            $search = mysqli_real_escape_string($con, (trim($_GET['merchName'])));
+            $search = mysqli_real_escape_string($connection, (trim($_GET['merchName'])));
             $sql = "SELECT * FROM merch_info WHERE MerchDesc LIKE '%$search%' GROUP BY MerchID;";
         } else {
             $sql = "SELECT * FROM merch_info GROUP BY MerchID";
@@ -45,7 +53,7 @@
         ?>
         <th>Action</th>
         <?php
-        if ($result = $con->query($sql)) {
+        if ($result = $connection->query($sql)) {
             while ($record = $result->fetch_object()) {
                 printf("
                         <tr class='order-details'>
@@ -62,7 +70,6 @@
             }
         }
         $result->free();
-        $con->close();
         ?>
 
     </table>
