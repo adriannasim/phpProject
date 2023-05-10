@@ -867,3 +867,66 @@ td {
     color: black;
 }
 /*End of merchManage.php styles*/
+/*Start of userAcc.php styles*/
+.user-image img{
+    border: 1px solid white;
+    margin: 5% 43%;
+}
+.user-info-table{
+    width: 35%;
+    margin: 10px 35%;
+    font-size: 14pt;
+}
+.user-manage-btn td{
+    text-align: center;
+}
+#edit-profile-btn{
+    margin-left: -50px;
+}
+#chg-pw-btn{
+    margin-left: 25px;
+}
+.user-manage-btn button{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 12pt;
+    font-family: cambria;
+    letter-spacing: .1em;
+    width: 38%;
+    padding: 10px 0;
+    border: 1px black solid;
+    border-radius: 5px;
+    transition: all .2s ease;
+}
+.user-manage-btn button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: white;
+    background: black;
+    border: 1px solid white;
+}
+/*End of userAcc.php styles*/
+/*Start of userAcc-edit.php styles*/
+.user-info-edit-table{
+    width: 30%;
+    margin: 10px 35%;
+    font-size: 14pt;
+}
+#user-manage-reset, #userAcc-chg-pw-reset{
+    margin-left: 15px;
+}
+#user-manage-submit, #userAcc-chg-pw-submit{
+    margin-left: 25px;
+}
+#userAcc-chg-pw-reset{
+    margin-left: -35px;
+}
+#userAcc-chg-pw-submit{
+    margin-left: 25px;
+}
+.user-info-edit-table input{
+    width: 80%;
+    margin: 10px 35%;
+    font-size: 14pt;
+}
+/*End of userAcc-edit.php styles*/

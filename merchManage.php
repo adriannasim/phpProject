@@ -59,7 +59,7 @@
                             <td>%s</td>
                             <td>%s</td>
                             <td>%s</td>
-                            <td>
+                            <td colspan='2'>
                                 <button id='edit'><a href='editMerch.php?id=$record->MerchID'>Edit</a></button>
                                 <button id='delete'><a href='deleteMerch.php?id=$record->MerchID'>Delete</a></button>
                             </td>
