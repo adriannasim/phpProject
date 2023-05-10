@@ -19,8 +19,24 @@ $UserID = "adrianna";
         require_once 'ticket-helper.php';
     ?>
 
-    <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
-    <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1>
+    <?php
+            
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                (isset($_GET["id"])) ? $id = $_GET["id"] : $id = "";
+
+            if($id==1){?>
+                <img src="img/ticket/b2.png" alt="MLBB" class="ticket-mlbb-image">
+                <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">MLBB Tournament - Grand Finale</h1><?php
+            }else if($id==2){?>
+                <img src="img/ticket/b3.png" alt="valorant" class="ticket-valorant-image" width="100%">
+                <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">VALORANT: Battle Of The Ace</h1><?php
+            }else{?>
+                <img src="img/ticket/b4.png" alt="warzone" class="ticket-mlbb-image">
+                <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">War Zone S2: Gaming Event</h1><?php
+            }
+        }
+    ?>    
+
     <br>
     <div class="ticket-mlbb-form">
     <?php 
@@ -89,7 +105,10 @@ if (mysqli_num_rows($result) == 1) {
     $email = '';
     $tel = '';
 }
-?>     
+?>  
+
+
+
     <div class="ticket-mlbb-contacttable">
     <h2><i>Contact Information</i></h2>
     <fieldset class="mlbb"><b>
@@ -102,7 +121,8 @@ if (mysqli_num_rows($result) == 1) {
             <form method="post" action="">
             <br><hr><br>
             <h2><i>Choose your seat</i></h2>
-            <img src="img\ticket\Ticket.png" alt="seat" class="ticket-mlbb-seat">
+            
+            
             <br>
             
             <div class="ticket-mlbb-seattable">

@@ -12,7 +12,7 @@ h1{
     margin-top: 10px;
     text-align: center;
 }
-.controlbtn button, .history-btn button, .ddlhistory{
+.controlbtn button{
     font-size: 16px;
     text-align: center;
     letter-spacing: 0.1em;
@@ -24,6 +24,33 @@ h1{
     margin: 20px;
     cursor: pointer;
     transition: all .3s ease; 
+}
+.ddlhistory{
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    border-radius: 25px;
+    border: 2px white solid;
+    width: 220px;
+    height: 40px;
+    margin: 20px;
+    margin-left: 100px;
+    cursor: pointer;
+    transition: all .3s ease; 
+}
+.history-btn button{
+    width: 100px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-family: cambria;
+    border-radius: 25px;
+    border: 2px white solid;
+    height: 40px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all .3s ease;
 }
 .controlbtn button{
     margin-top: 50px;
@@ -40,6 +67,7 @@ h1{
     color: white;
     border: 1px white solid; 
 }
+
 .record h3{
     color: #dadada;
     letter-spacing: .2em;
@@ -47,4 +75,48 @@ h1{
     margin-top: 100px;
     margin-bottom: 100px;
     text-align: center;
+}
+.prod-box{
+    width: 20%;
+    margin: 5px 30px 30px 30px;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: whitesmoke; 
+    color: black;
+    padding: 10px 10px 30px 10px;
+    transition: .4s;
+}
+.prod-box:hover{
+    transform: translate(0px, -20px);
+}
+.prod-box img{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+h5{
+    font-family: cambria;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px; 
+}
+.units{
+    font-size: 12pt;
+    font-family: cambria;
+    font-weight: bold;
+}
+.units input{
+    width: 40px;
+    text-align: center;
+    font-size: 12pt;
+    font-family: cambria;
+    font-weight: bold;
+    color: black;
+    border: none;
 }
