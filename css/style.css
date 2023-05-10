@@ -769,6 +769,7 @@ hr{
 }
 
 .order-details {
+    width: 100%;
     border: 2px solid white;
     margin-bottom: 20px;
     border-collapse: separate;
