@@ -70,18 +70,18 @@ $UserID = "admin";
             $error['qty'] = checkProdQty($qty);
             $error = array_filter($error);
             if (empty($error)) {
-                $sql = "UPDATE merch_info SET MerchPrice = ?, MerchDesc = ?, Material = ?, Color = ?, Style = ?, FitType = ?, MerchQty = ? WHERE MerchID = ?";
+                $sql = "UPDATE merch_info SET MerchPrice = ?, MerchDesc = ?, Material = ?, Color = ?, Style = ?, FitType = ?, Category = ?, Size = ?, MerchQty = ? WHERE MerchID = ?";
                 $stmt = $connection->prepare($sql);
-                $stmt->bind_param("ssssssss", $price, $name, $material, $color, $style, $fitType, $qty, $id);
+                $stmt->bind_param("ssssssssss", $price, $name, $material, $color, $style, $fitType, $category, $size, $qty, $id);
                 if ($stmt->execute()) {
                     echo "<script>alert('Merch Data Updated !');
                             window.location.href = 'merchManage.php';
                         </script>";
-                } else {
-                    echo '<ul class="error">';
-                    printf("<li>%s</li>", implode("<li></li>", $error));
-                    echo '</ul>';
                 }
+            } else {
+                echo '<ul class="error">';
+                printf("<li>%s</li>", implode("<li></li>", $error));
+                echo '</ul>';
             }
         }
         ?>
@@ -89,68 +89,78 @@ $UserID = "admin";
         <form action="" method="post">
             <div class="edit-form">
                 <table class="edit-form-table">
-                <div class="addMerch-form-group">
-                <label for="prod-id">Product ID</label>
-                <input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id;?>" hidden/>
-                <input type="text" name="id" id="id" value="<?php echo $id;?>" disabled/>
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-name">Product Name</label>
-                <input type="text" name="hiddenname" id="hiddenname" value="<?php echo $name;?>" hidden/>
-                <input type="text" name="name" id="name" value="<?php echo $name;?>" disabled/>
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-price">Product Price (RM)</label>
-                <input type="text" name="price" id="price"  value="<?php echo $price;?>"/>
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-desc1">Product Material</label>
-                <input type="text" name="material" id="material" value="<?php echo $material;?>" />
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-desc2">Product Color</label>
-                <input type="text" name="color" id="color" value="<?php echo $color;?>" />
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-desc3">Product Style</label>
-                <input type="text" name="style" id="style" value="<?php echo $style;?>" />
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-desc4">Product Fit Type</label>
-                <input type="text" name="fitType" id="fitType" value="<?php echo $fitType;?>" />
-            </div>
-            <div class="addMerch-form-group">
-                <label for="prod-desc4">Product Quantity</label>
-                <input type="text" name="qty" id="qty" value="<?php echo $qty; ?>" />
-            </div>
-            <div class="addMerch-form-group-rd">
-                <label for="prod-cat">Product Category</label>
-                <input type="radio" name="category" id="tshirt" value="T-Shirt">
-                <label for="tshirt">T-Shirt</label>
-                <input type="radio" name="category" id="hoodie" value="Hoodie/Sweater">
-                <label for="hoodie">Hoodie/Sweater</label>
-                <input type="radio" name="category" id="hats" value="Hats">
-                <label for="hats">Hats</label>
-                <input type="radio" name="category" id="totebags" value="Totebags">
-                <label for="totebags">Totebags</label><br />
-            </div>
-            <div class="addMerch-form-group-rd">
-                <label for="prod-size">Product Size</label>
-                <input type="radio" name="size" id="freesize" value="FreeSize" />
-                <label for="freesize">Free Size</label>
-                <input type="radio" name="size" id="unisize" value="Unisize" />
-                <label for="unisize">Unisize (S-XL)</label><br />
-            </div>
-                </table>
-                <div class="edit-form-btn">
-                    <input type="button" value="Cancel" onclick="location = 'eventManage.php'">
-                    <input type="submit" value="Submit" name="edit-form-submit">
-                </div>
-            </div>
-        </form>
-        <?php endif;  ?>
-        <div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-id">Product ID</label>
+                        <input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id;?>" hidden/>
+                        <input type="text" name="id" id="id" value="<?php echo $id;?>" disabled/>
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-name">Product Name</label>
+                        <input type="text" name="name" id="name" value="<?php echo $name;?>"/>
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-price">Product Price (RM)</label>
+                        <input type="text" name="price" id="price"  value="<?php echo $price;?>"/>
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-desc1">Product Material</label>
+                        <input type="text" name="material" id="material" value="<?php echo $material;?>" />
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-desc2">Product Color</label>
+                        <input type="text" name="color" id="color" value="<?php echo $color;?>" />
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-desc3">Product Style</label>
+                        <input type="text" name="style" id="style" value="<?php echo $style;?>" />
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-desc4">Product Fit Type</label>
+                        <input type="text" name="fitType" id="fitType" value="<?php echo $fitType;?>" />
+                    </div>
+                    <div class="addMerch-form-group">
+                        <label for="prod-desc4">Product Quantity</label>
+                        <input type="text" name="qty" id="qty" value="<?php echo $qty; ?>" />
+                    </div>
 
+                    <div class="addMerch-form-group-rd">
+                    <label for="prod-desc4">Product Category</label><br/>
+                    <?php 
+                    $categoryArray = array('T-Shirt', 'Hoodie/Sweater', 'Hats', 'Totebags');
+                    $sizeArray = array('FreeSize', 'UniSize');
+                    foreach ($categoryArray as $value) {
+                        echo '<label for="'.$value.'">' . $value . '</label>';
+                        echo '<input type="radio" name="category" id="' . $value . '" value="' . $value . '"';
+                        if ($category == $value) {
+                            echo ' checked';
+                        }
+                        echo '>';
+                    }
+                    ?>
+                    </div>
+                    <div class="addMerch-form-group-rd">
+                    <label for="prod-desc4">Product Size</label><br/>
+                    <?php
+                    foreach ($sizeArray as $value) {
+                        echo '<label for="'.$value.'">' . $value . '';
+                        echo '<input type="radio" name="size" id="' . $value . '" value="' . $value . '"';
+                        if ($size == $value) {
+                            echo ' checked';
+                        }
+                        echo '>';
+                        echo '</label>';
+                    }
+                    ?>
+                    </div>
+                </table>
+            </div>
+            <div class="edit-form-btn">
+                <input type="button" value="Cancel" onclick="location = 'eventManage.php'">
+                <input type="submit" value="Submit" name="edit-form-submit">
+            </div>
+        </div>
+    </form>
+    <?php endif;  ?>
 </body>
 
 </html>

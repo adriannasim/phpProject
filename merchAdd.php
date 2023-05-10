@@ -58,7 +58,7 @@ $UserID = "admin";
             $error = array_filter($error);
 
             if ((empty($error))) {
-                $sql = "INSERT INTO products (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO merch_info (MerchID, MerchPrice, MerchDesc, Material, Color, Style, FitType, Category, Size, MerchQty) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $connection->prepare($sql);
                 $stmt->bind_param("ssssssssss", $id, $price, $name, $material, $color, $style, $fitType, $pCategory, $size, $qty);
                 if ($stmt->execute()) {

@@ -91,8 +91,8 @@ function checkProdName($name){
         return "⚠ Please enter the product name";
     }else if(strlen($name)>50){
         return "⚠ Maximum 50 characters for product name";
-    } else if(!preg_match("/^[A-Za-z\'\ ]{3,50}$/",$name)){
-        return "⚠ Minimum 3 characters for product name/Illegal character detected";
+    }else if(strlen($name)<3){
+        return "⚠ Minimum 3 characters for product name";
     }
 }
 function checkProdPrice($price){
