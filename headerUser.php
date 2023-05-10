@@ -24,16 +24,13 @@
                     </div>
                 </div>
                 <div class="header-dropdown">
-                    <li class="header-dropBtn"><a href="merch.php">Our Merchandise</a></li>
+                    <li class="header-dropBtn"><a href="">Our Merchandise</a></li>
                     <div class="header-dropctn">
                         <ul>
                             <li><a href="merch.php">View Products</a></li>
                             <li><a href="mHistory.php">Merch Purchase History</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="header-navBtn">
-                    <li class="header-btn"><a href="helpdeskUser.php">Need Help?</a></li>
                 </div>
             </ul>
             <li class="header-navBtn-right"><a href="userAcc.php"><img src="img/header/user.png" width="30px"

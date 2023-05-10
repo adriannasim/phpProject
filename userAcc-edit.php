@@ -1,8 +1,11 @@
 <?php
     session_start();
-    include ("config/config.php");
-    $UserID = "adrianna";
-    //$UserID = $_SESSION['UserID'];
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +17,9 @@
 </head>
 
 <body>
+<div class="userAcc-header">
+        <h1>User Profile</h1>
+    </div>
     <?php
     include "config/config.php"; 
     include "headerUser.php";

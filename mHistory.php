@@ -1,8 +1,11 @@
 <?php
     session_start();
-    include ("config/config.php");
-    $UserID = "adrianna";
-    //$UserID = $_SESSION['UserID'];
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 ?>
 
 <html>
@@ -10,6 +13,7 @@
         <meta charset="UTF-8">
         <title>Purchase History</title>
         <link href="css/mHistory.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     </head>
     <body>
         <?php include "headerUser.php"?>
@@ -22,13 +26,14 @@
             <div class="history-btn">
                 <form action="" method="get">
                     <select name="bycategory" class="ddlhistory">
-                        <option selected="selected" value="All">All</option>
+                    <option selected="selected" value="All">Select To Filter</option>
+                        <option value="All">All</option>
                         <option value="T-Shirt">T-Shirts</option>
                         <option value="Hoodie/Sweater">Hoodie/Sweater</option>
                         <option value="Hats">Hats</option>
                         <option value="Totebags">Tote Bags</option>
                     </select>
-                    <button type="submit" name="search" class="hsfilterbtn">Search</button>
+                    <button type="submit" name="search" class="hsfilterbtn">Search<i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
@@ -68,15 +73,17 @@
             if ($merchResult -> num_rows>0) {
                 while($merchRec = $merchResult->fetch_object()) {
                     printf("
+                    <div class='prodHistory'>
                         <div class='prod-box'>
                             <img src='img/merch/%s.jpg' alt='alt'/>
                             <div class='box-content'>
                                 <h3>%s</h3>
                                 <h4>Price: RM %s</h4>
                                 <p class='units'>Quantity: <input type='text' value='%s' disabled>
-                                <input type='hidden' name='mbuy_id' value='%s'>
+                                <input type='hidden' name='mbuy_id' value='%s'></p>
                             </div>
                         </div>
+                    </div>
                     ",$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID);
                 }
             } else {

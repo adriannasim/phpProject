@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +16,9 @@
 </head>
 
 <body>
-    <?php include "headerUser.php"?>
+    <?php include "headerUser.php";
+    include "config/config.php";
+    ?>
     <h1>Ticket Purchase History</h1>
     <div class="controlbtn">
             <a href="merch.php"><button>Back to Merch &#10558;</button></a>
@@ -18,7 +29,7 @@
             JOIN ticket_buy tb ON ti.TicketID = tb.TicketID
             JOIN event e ON ti.EventID = e.EventID
             JOIN cart c ON tb.CartID = c.CartID
-            WHERE c.UserID = '$UserID' AND c.checkout = 1;";
+            WHERE c.UserID = ? AND c.checkout = 1;";
         $stmt = $connection->prepare($sqlTicket);
         $stmt->bind_param("s", $UserID);
         $stmt->execute();

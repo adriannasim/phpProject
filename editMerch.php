@@ -1,8 +1,11 @@
 <?php
-session_start();
-include("config/config.php");
-$UserID = "admin";
-//$UserID = $_SESSION['UserID'];
+    session_start();
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 ?>
 <html>
 
@@ -23,6 +26,8 @@ $UserID = "admin";
         <h1>Edit Merch</h1>
     </div>
     <div class="editEvent-form">
+        <form action="" method="post">
+            <div class="edit-form">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             (isset($_GET["id"])) ? $id = $_GET["id"] : $id = "";
@@ -86,8 +91,8 @@ $UserID = "admin";
         }
         ?>
         <?php if ($hideForm == false): ?>
-            <form action="" method="post">
-                <div class="edit-form">
+            
+                
                     <table class="edit-form-table">
                         <tr class="addMerch-form-group">
                             <td><label for="prod-id">Product ID</label></td>
@@ -159,7 +164,7 @@ $UserID = "admin";
                     </div>
 
                     <div class="edit-form-btn">
-                        <input type="button" value="Cancel" onclick="location = 'eventManage.php'">
+                        <input type="button" value="Cancel" onclick="location = 'merchManage.php'">
                         <input type="submit" value="Submit" name="edit-form-submit">
                     </div>
                 </div>

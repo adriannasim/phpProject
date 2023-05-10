@@ -1,8 +1,11 @@
 <?php
     session_start();
-    include ("config/config.php");
-    $UserID = "adrianna";
-    //$UserID = $_SESSION['UserID'];
+    include "config/config.php";
+    $UserID = $_SESSION['UserID'];
+
+    if ($UserID == '') {
+        header("location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +32,9 @@
         }
     }
     ?>
+    <div class="userAcc-header">
+        <h1>User Profile</h1>
+    </div>
     <div class="user-image">
         <img src="img/login/user-icon.png" width="200px" />
     </div>
@@ -53,7 +59,7 @@
             <tr class="user-manage-btn">
                 <td colspan="2">
                     <a href="userAcc-edit.php" id="edit-profile-btn"><button>Edit Profile</button></a>
-                    <a href="userAcc-chg-pw.php" id="chg-pw-btn"><button>Change Password</button></a>
+                    <a href="userAcc-chg-pw.php" id="chg-pw-btn"><button>Change Password</button></a><br>
                     <a href="logout.php" id="logout-btn"><button>Logout</button></a>
                 </td>
             </tr>
