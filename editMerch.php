@@ -47,7 +47,7 @@
         }    
         if(!empty($_POST)){
             $id = trim($_POST["hiddenid"]);
-            $name = trim($_POST["hiddenname"]);
+            $name = trim($_POST["name"]);
             $price = trim($_POST["price"]);
             $material = trim($_POST["material"]);
             $color = trim($_POST["color"]);
@@ -95,8 +95,7 @@
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-name">Product Name</label>
-                <input type="text" name="hiddenname" id="hiddenname" value="<?php echo $name;?>" hidden/>
-                <input type="text" name="name" id="name" value="<?php echo $name;?>" disabled/>
+                <input type="text" name="name" id="name" value="<?php echo $name;?>"/>
             </div>
             <div class="addMerch-form-group">
                 <label for="prod-price">Product Price (RM)</label>
