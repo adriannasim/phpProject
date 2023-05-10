@@ -17,6 +17,9 @@
 </head>
 
 <body>
+<div class="userAcc-header">
+        <h1>User Profile</h1>
+    </div>
     <?php
     include "config/config.php";
     include "headerUser.php";
@@ -60,7 +63,7 @@
     </div>
     <div class="user-info">
         <form method="post">
-            <table class="user-info-table">
+            <table class="user-info-pw-table">
                 <tr>
                     <td><label for="user-id">User ID</label></td>
                     <td><?php echo $UserID?></td>

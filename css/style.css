@@ -962,12 +962,15 @@ td {
 /*End of helpdeskAdmin.php styles*/
 
 /*Start of userAcc.php styles*/
+.userAcc-header h1{
+    text-align: center;
+}
 .user-image img {
     border: 1px solid white;
-    margin: 5% 43%;
+    margin: 2% 43%;
 }
 
-.user-info-table {
+.user-info-table, .user-info-pw-table {
     width: 35%;
     margin: 10px 35%;
     font-size: 14pt;
@@ -983,6 +986,9 @@ td {
 
 #chg-pw-btn {
     margin-left: 25px;
+}
+#logout-btn{
+    margin-left: -50px;
 }
 
 .user-manage-btn button {
@@ -1032,9 +1038,14 @@ td {
     margin-left: 25px;
 }
 
-.user-info-edit-table input {
-    width: 80%;
+.user-info-edit-table input, .user-info-pw-table input {
+    font-family: cambria;
+    letter-spacing: .1em;
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
     margin: 10px 35%;
-    font-size: 14pt;
+    font-size: 12pt;
 }
 /*End of userAcc-edit.php styles*/
