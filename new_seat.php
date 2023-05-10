@@ -42,8 +42,8 @@ $UserID = "admin";
     .seat,
     .seattypeID {
         text-align: center;
-        font-size: 150%;
-        color: black;
+        font-size: 200%;
+        color: black;   
         padding: 25px;
     }
 

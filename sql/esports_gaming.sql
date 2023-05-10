@@ -211,7 +211,8 @@ CREATE TABLE `purchase` (
 CREATE TABLE `seat` (
   `SeatID` varchar(5) NOT NULL,
   `SeatTypeID` varchar(5) NOT NULL,
-  `TicketID` varchar(5) NOT NULL
+  `TicketID` varchar(5) NOT NULL,
+  `Status` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
