@@ -105,28 +105,28 @@ function checkProdPrice($price){
 function checkProdMaterial($material){
     if($material==NULL){
         return "⚠ Please enter the product material";
-    }else if(!preg_match("/^[A-Za-z\-]{1,20}$/",$material)){
+    }else if(!preg_match("/^[A-Za-z\-\ ]{1,20}$/",$material)){
         return "⚠ Invalid product material/Illegal character detected";
     }
 }
 function checkProdColor($color){
     if($color==NULL){
         return "⚠ Please enter the product color";
-    }else if(!preg_match("/^[A-Za-z\-]{1,20}$/",$color)){
+    }else if(!preg_match("/^[A-Za-z\-\ ]{1,20}$/",$color)){
         return "⚠ Invalid product color/Illegal character detected";
     }
 }
 function checkProdStyle($style){
     if($style==NULL){
         return "⚠ Please enter the product style";
-    }else if(!preg_match("/^[A-Za-z\-]{1,20}$/",$style)){
+    }else if(!preg_match("/^[A-Za-z\-\ ]{1,20}$/",$style)){
         return "⚠ Invalid product style/Illegal character detected";
     }
 }
 function checkProdFittype($fitType){
     if($fitType==NULL){
         return "⚠ Please enter the product fit type";
-    }else if(!preg_match("/^[A-Za-z\-]{1,20}$/",$fitType)){
+    }else if(!preg_match("/^[A-Za-z\-\ ]+$/", $fitType)){
         return "⚠ Invalid product fit type/Illegal character detected";
     }
 }

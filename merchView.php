@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("config/config.php");
+$UserID = "admin";
+//$UserID = $_SESSION['UserID'];
+?>
 <html>
 
 <head>
@@ -20,29 +26,38 @@
     <div class="merchAdmin-header">
         <h1>View Orders</h1>
     </div>
-    <table class="order-info">
+    <form action='' method='post'>
+        <table class="order-info">
         <?php
-        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        $sql = "SELECT * FROM merch_buy GROUP BY MbuyID";
+        $sql = "SELECT * FROM merch_buy mb JOIN cart c ON mb.CartID = c.CartID GROUP BY MbuyID";
         foreach ($header as $value) {
             printf("
             <th>%s</th>
             ", $value);
         }
-        $status = "Pending";
         if (isset($_POST['viewMerch-update'])) {
             if (isset($_POST['status'])) {
-                $status = isset($status) ? $status = "Complete" : $status = "Pending";
-            } else {
-                $status = "Pending";
+                $CartID = $_POST['status'];
+                $update = "UPDATE cart SET checkout = '1' WHERE cart.CartID = '$CartID'";
+                $stmt = $connection->prepare($update);
+                if ($stmt->execute()) {
+                    echo "<script>alert('Orders Updated !');
+                            window.location.href = 'merchView.php';
+                        </script>";
+                }
             }
         }
         ?>
         <th>Status</th>
         <th>Update Status</th>
         <?php
-        if ($result = $con->query($sql)) {
+        if ($result = $connection->query($sql)) {
             while ($record = $result->fetch_object()) {
+                if (($record->checkout) == 1) {
+                    $status = "Completed";
+                } else {
+                    $status = "Pending";
+                }
                 printf("
                         <tr class='order-details'>
                         <td>%s</td>
@@ -50,17 +65,15 @@
                         <td>%s</td>
                         <td>%s</td>
                         <td>%s</td>
-                        <td><form action= '' method='post'><input type='checkbox' name='status'><span class='chkbox'></span></form></td>
+                        <td><input type='checkbox' value='%s' name='status'><span class='chkbox'></span></td>
                         </tr>
-                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status, $record->MbuyID);
             }
         }
         $result->free();
-        $con->close();
+        $connection->close();
         ?>
-
-    </table>
-    <form action='' method='post'>
+        </table>
         <div class="viewMerch-btn">
             <input type="reset" value="Reset" onclick="location = 'merchView.php'" />
             <input type="submit" value="Update" name="viewMerch-update" />

@@ -4,7 +4,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
 <html>
-
+<?php
+session_start();
+include("config/config.php");
+?>
 <head>
     <meta charset="UTF-8">
     <title>seating_plan</title>
@@ -12,8 +15,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 </head>
 
 <body>
-    <script>
-    </script>
         <?php include "headerUser.php" ?>
     <h1>Seating Plan</h1>
     <div class="screenNplayer">
@@ -305,7 +306,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </table>
     </div>
     <form action="" method="POST">
-        
+
     <?php include "footerUser.php"; ?>
 </body>
 

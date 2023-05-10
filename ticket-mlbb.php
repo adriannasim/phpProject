@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include("config/config.php");
+$UserID = "adrianna";
+//$UserID = $_SESSION['UserID'];
+?>
 <html>
 <head>
     <title>MLBB Tournament Registration Form</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/ticket.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body> 
@@ -23,9 +27,6 @@
         $error = array();
 
         if (!empty($_POST)) {
-            $name=trim($_POST['name']);
-            $email=trim($_POST['email']);
-            $phone=trim($_POST['phone']);
             if(isset($_POST['ticketType'])){
                 $ticketType=trim($_POST['ticketType']);
             }else{
@@ -41,10 +42,6 @@
             }else{
                 $column="";
             }
-
-            $error['name']=checkRegisterName($name);
-            $error['email']=checkRegisterEmail($email);
-            $error['phone']= checkRegisterPhone($phone);
             $error['ticketType']= checkTicketType($ticketType);
             $error['row']= checkRow($row);
             $error['column']= checkColumn($column);                
@@ -61,26 +58,8 @@
     }    
 
     if(!$hasErrors && !empty($_POST)){
-                   
-        /*
-        $con= new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-        $sql="INSERT INTO ticket_buy(name, email, phone, ticket_type, row, col) VALUES(?,?,?,?,?,?)";
-        $stmt=$con->prepare($sql);
-        $stmt->bind_param('ssssss',$name, $email, $phone, $ticketType, $row, $column);
-        $stmt->execute();
                     
-        if($stmt->affected_rows>0){
-            printf("<div class='info'>
-                Registration form for <b>%s</b> has been submitted. [<a href='ticket-payment.php'>Pay Now</a>]</div>",$name);
-            }else{
-                echo "<div class='error'>Unable to register.</div>";
-            }
-                    
-        $con->close(); 
-        $stmt->close();
-        */
-                    
-        printf("<div class='ticket-success'>Registration form has been submitted. <a href='ticket-payment.php'>Pay Now</a></div>");
+        printf("<div class='ticket-success'>Registration form has been submitted. <a href='ticket-payment.php'>Add to cart</a></div>");
                     
     }else {
         if ($formSubmitted) {
@@ -91,27 +70,36 @@
     }
                     
     ?>
+    <?php
 
-        <form method="post" action="">
-            
-            <div class="ticket-mlbb-contacttable">
-                <h2><i>Contact Information</i></h2>
-                <table>
-                    <tr>
-                        <td><label for="name"><i class="fa fa-user"><b> Full Name</b></label></td>
-                        <td>: <input type="text" id="name" name="name" placeholder="Enter your name" size="50" style="height:30px" value="<?php echo (isset($name))? $name: "";?>"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="email"><i class="fa fa-envelope"><b> Email</b></label></td>
-                        <td>: <input type="text" id="email" name="email" placeholder="Enter your email address" size="50" style="height:30px" value="<?php echo (isset($email))? $email: "";?>"> <br><small>Format: example@example.com</small></td>
-                    </tr>
-                    <tr>
-                        <td><label for="phone"><i class="fa fa-phone"></i><b> Contact Number</b></label></td>
-                        <td>: <input type="text" id="phone" name="phone"  placeholder="Enter your phone number" size="50" style="height:30px" value="<?php echo (isset($phone))? $phone: "";?>"> <br><small>Format: 012-3456789</small></td>
-                    </tr>
-                </table>
-            </div>
+//query to retrieve user details based on UserID
+$sql = "SELECT name, email, tel FROM user WHERE UserID='$UserID'";
+$result = mysqli_query($connection, $sql);
 
+//check if query was successful
+if (mysqli_num_rows($result) == 1) {
+    //fetch user details from result set
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['name'];
+    $email = $row['email'];
+    $tel = $row['tel'];
+} else {
+    //handle error if no user found with UserID
+    $name = '';
+    $email = '';
+    $tel = '';
+}
+?>     
+    <div class="ticket-mlbb-contacttable">
+    <h2><i>Contact Information</i></h2>
+    <fieldset class="mlbb"><b>
+    Name: <?php echo $name; ?><br>
+    Email: <?php echo $email; ?><br>
+    Contact: <?php echo $tel; ?><br>
+</b></fieldset>
+</div>
+
+            <form method="post" action="">
             <br><hr><br>
             <h2><i>Choose your seat</i></h2>
             <img src="img\ticket\Ticket.png" alt="seat" class="ticket-mlbb-seat">
@@ -124,9 +112,9 @@
                         <td>
                             
                             <input type="radio" id="vip" name="ticketType" value="VIP" <?php if (isset($_POST['ticketType']) && $_POST['ticketType']=="VIP") echo "checked";?>>
-                            <label for="vip">VIP [ RM50 ]</label>
+                            <label for="vip">VIP [ RM40 ]</label>
                             <input type="radio" id="standard" name="ticketType" value="Standard"<?php if (isset($_POST['ticketType']) && $_POST['ticketType']=="Standard") echo "checked";?>  >
-                            <label for="standard">Standard [ RM40 ]</label>
+                            <label for="standard">Standard [ RM20 ]</label>
                             
                         </td>
                     </tr>
