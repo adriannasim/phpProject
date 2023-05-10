@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <body>
     <script>
     </script>
-    <?php include "headerAdmin.php" ?>
+        <?php include "headerUser.php" ?>
     <h1>Seating Plan</h1>
     <div class="screenNplayer">
         <table>
@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <th>11</th>
                 <th>12</th>
             </tr>
-            <tr>
+            <tr >
                 <th>A</th>
                 <td class="seat available" data-seat="VA1"></td>
                 <td class="seat available" data-seat="VA2"></td>
@@ -304,13 +304,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </tr>
         </table>
     </div>
-    <div class="edit">
-        <a href="edit_seat.php">Edit Standard Seat</a>
-        <a href="edit_VIPseat.php">Edit VIP Seat</a>
-    </div>
-    <div class="back">
-        <a href="Event_List.php">Back</a>
-    </div>
+    <form action="" method="POST">
+        
+    <?php include "footerUser.php"; ?>
 </body>
 
 </html>

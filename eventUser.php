@@ -20,8 +20,10 @@ $UserID = "adrianna";
             while($record = $result->fetch_object()) {
                 $EventID[$i] = $record->EventID; 
                 $EventName[$i] = $record->EventName; 
-                $EventDate[$i] = $record->EventDate; 
-                $EventTime[$i] = $record->EventTime; 
+                $EventDate[$i] = DateTime::createFromFormat('Y-m-d', $record->EventDate); 
+                $EventDate[$i] = DATE_FORMAT($EventDate[$i], 'd-M-Y');
+                $EventTime[$i] = DateTime::createFromFormat('H:i:s', $record->EventTime); 
+                $EventTime[$i] = DATE_FORMAT($EventTime[$i], 'h:i A');
                 $EventVenue[$i] = $record->EventVenue; 
                 $EventDesc[$i] = mysqli_real_escape_string($connection, ($record->EventDesc));
                 $i++;
@@ -61,7 +63,7 @@ $UserID = "adrianna";
                     for ($j = 0; $j < count($EventID); $j++) {
                         if (strcmp($EventName[$j], $searchRecord->EventName) == 0) {
                             printf("
-                            <div class='event-card'>
+                            <div class='event-card' style='margin-top:-800px; margin-bottom:1000px;'>
                                 <div class='event-front'>
                                     <img src='img/event/%s.png' width='100%%'>
                                     <h2>%s</h2>

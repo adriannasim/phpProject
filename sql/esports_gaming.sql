@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2023 at 08:59 PM
+-- Generation Time: May 10, 2023 at 05:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -166,7 +166,7 @@ CREATE TABLE `merch_info` (
 --
 
 INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `Category`, `Size`, `MerchQty`) VALUES
-('M0001', 50.00, 'Gaming Controller T-Shirt', 'Cotton', 'Black', 'Casual', 'FreeSize', 'T-Shirt', 'FreeSize', 50);
+('M0001', 50.00, 'Gaming Controller T-Shirt', 'Cotton', 'Black', 'Casual', 'Oversized', 'T-Shirt', 'FreeSize', 50);
 
 -- --------------------------------------------------------
 
