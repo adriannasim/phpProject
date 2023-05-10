@@ -76,6 +76,14 @@ h1{
     margin-bottom: 100px;
     text-align: center;
 }
+.prodHistory{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
 .prod-box{
     width: 20%;
     margin: 5px 30px 30px 30px;

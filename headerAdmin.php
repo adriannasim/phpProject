@@ -38,9 +38,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="headerA-navBtn">
-                        <li class="headerA-btn"><a href="helpdeskAdmin.php">HelpDesk</a></li>
-                    </div>
                 </ul>
             </div>
         </div>
