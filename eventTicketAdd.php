@@ -40,8 +40,18 @@
             $price = trim($_POST["price"]);
             $type = trim($_POST["type"]);
             $qty = trim($_POST["qty"]);
+            $error = array();
 
-            $error['ticketID'] = checkTicketID($ticketID);
+            $sqlCheck = "SELECT TicketID FROM ticker_info WHERE TicketID = '$ticketID'";
+            $result = mysqli_query($connection, $sqlCheck);
+            if (mysqli_num_rows($result) == 1) {
+                $chkID = $ticketID;
+            } 
+            else {
+                $chkID = "";
+            }
+
+            $error['ticketID'] = checkTicketID($ticketID, $chkID);
             $error['price'] = checkTicketPrice($price);
             $error['qty'] = checkQty($qty);
             $error['type'] = checkType($type);

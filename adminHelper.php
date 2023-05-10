@@ -46,11 +46,13 @@ function checkEventDesc($desc){
 }
 /*End of eventAdd.php validation*/
 /*Start of eventTicket.php validation*/
-function checkTicketID($ticketID){
+function checkTicketID($ticketID, $chkID){
     if($ticketID == NULL){
         return "⚠ Please enter the ticket ID";
     }else if(!preg_match("/^[A-Z\d]{5}$/",$ticketID)){
         return "⚠ Please enter a valid ticket ID";
+    }else if(strcmp($ticketID, $chkID) == 0){
+        return "⚠ Product ID already exists";
     }
 }
 function checkTicketPrice($price){
