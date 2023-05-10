@@ -91,7 +91,7 @@ $UserID = "admin";
                     <table class="edit-form-table">
                         <tr class="addMerch-form-group">
                             <td><label for="prod-id">Product ID</label></td>
-                            <!-- <td><input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id; ?>" hidden /></td> -->
+                            <input type="text" name="hiddenid" id="hiddenid" value="<?php echo $id; ?>" hidden />
                             <td><input type="text" name="id" id="id" value="<?php echo $id; ?>" disabled /></td>
                         </tr>
                         <tr class="addMerch-form-group">
