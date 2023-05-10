@@ -9,7 +9,7 @@ $UserID = "adrianna";
     <title>MLBB Tournament Registration Form</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/ticket.css">
-    <link href="css/cart.css" rel="stylesheet" type="text/css"/>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -75,8 +75,8 @@ $UserID = "adrianna";
 
     if(!$hasErrors && !empty($_POST)){
                     
-        printf("<div class='ticket-success'>Registration form has been submitted.</div>"); 
-        ?><a href="#payment"><button class="checkout" onclick="showHidePayment()">Pay Now</button></a><?php
+        printf("<div class='ticket-success'>Registration form has been submitted. Please pay below.</div>"); 
+        
                     
     }else {
         if ($formSubmitted) {
@@ -121,6 +121,8 @@ if (mysqli_num_rows($result) == 1) {
             <br><hr><br>
             <h2><i>Choose your seat</i></h2>
               
+            <br>
+            <a href="user_seat.php">Check Seat Availability</a>
             <br>
             
             <div class="ticket-mlbb-seattable">
@@ -185,7 +187,7 @@ if (mysqli_num_rows($result) == 1) {
     <br><br>
 
     <script>
-    let hiddenContent = document.querySelector(".hide-payment");
+    let hiddenContent = document.querySelector(".hide-payment2");
     let isShow = true;
     hiddenContent.style.display = "none";
 
@@ -200,7 +202,7 @@ if (mysqli_num_rows($result) == 1) {
     }
     }
     </script>
-    <div class="hide-payment">
+    <div class="hide-payment2">
         <?php
             $sqlPayment = "SELECT * FROM user u
                 WHERE u.UserID = '$UserID';";
@@ -212,11 +214,11 @@ if (mysqli_num_rows($result) == 1) {
                 }
             }
         ?>
-        <h3 id="payment">Billing and Payment</h3>
-        <div class="hidden-payment">
-            <div class="payment-details">
+        <h3 id="payment2">Billing and Payment</h3>
+        <div class="hidden-payment2">
+            <div class="payment-details2">
                 <form action="" method="post">
-                        <div class="contact-details">
+                        <div class="contact-details2">
                             <p>Name<p>
                                 <input type="text" name="txtname" maxlength="50" placeholder="Enter your name" value="<?php echo $name ?>" required/><br><br>
                             <p>Email Address</p>
@@ -225,19 +227,19 @@ if (mysqli_num_rows($result) == 1) {
                             <input type="tel" name="txtphone" pattern="[0]{1}[1]{1}[0-9]{1}-[0-9]{7}" placeholder="E.g: 012-3456789" value="<?php echo $tel ?>" required/><br><br>
                         </div>
                         <p>Select payment method</p>
-                        <div class="payment-img">
+                        <div class="payment-img2">
                             <input type="radio" name="rbpayment" value="mastercard" checked><img src="img/merch/mastercard.png"></label>
                             <input type="radio" name="rbpayment" value="visa"><img src="img/merch/visa.png">
                             <input type="radio" name="rbpayment" value="paypal"><img src="img/merch/paypal.png">
                             <input type="radio" name="rbpayment" value="amex"><img src="img/merch/amex.png">
                         </div>
-                        <div class="card-details">
+                        <div class="card-details2">
                             <p >Card Owner</p>
                             <input type="text" name="txtowner" maxlength="50" placeholder="Name on card" required/>
                             <p>Card Number</p>
                             <input type="text" name="txtcardnum" maxlength="19" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1111-1111-1111-1111" required/>
                             <p>Exp Month</p>
-                            <select name="by-month" class="expdate">
+                            <select name="by-month" class="expdate2">
                         <option selected="selected" disabled>By Month</option>
                         <option>Jan</option>
                         <option>Feb</option>
@@ -253,7 +255,7 @@ if (mysqli_num_rows($result) == 1) {
                         <option>Dec</option>
                     </select>
                             <p>Exp Year</p>
-                            <select name="by-year" class="expdate">
+                            <select name="by-year" class="expdate2">
                         <option selected="selected" disabled>By Year</option>
                         <option>2023</option>
                         <option>2024</option>
@@ -263,7 +265,7 @@ if (mysqli_num_rows($result) == 1) {
                             <p>CVV</p>
                             <input type="password" name="txtcvv" maxlength="3" placeholder="CVV" required/>
                         </div>
-                        <div class="pay-btn">
+                        <div class="pay-btn2">
                             <button type="submit" name="payment" class="paybtn" >Confirm Payment</button> 
                         </div>
                     </form>
