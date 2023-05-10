@@ -3,26 +3,78 @@
     include ("config/config.php");
     $UserID = "adrianna";
     //$UserID = $_SESSION['UserID'];
-    global $fitType;
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         (isset($_GET["id"])) ? $id = $_GET["id"]: $id = "";
+        $sql = "SELECT * FROM merch_info WHERE MerchID = '$id'";
+        $result = $connection->query($sql);
+        if ($record = $result->fetch_object()) {
+            $id = $record->MerchID;
+            $name = $record->MerchDesc;
+            $price = $record->MerchPrice;
+            $material = $record->Material;
+            $color = $record->Color;
+            $style = $record->Style;
+            $fitType = $record->FitType;
+            $category = $record->Category;
+            $size = $record->Size;
+            $qty = $record->MerchQty;
+        } else {
+            header('Location: merch.php');
+        }
     }
-    $sql = "SELECT * FROM merch_info WHERE MerchID = '$id'";
-    $result = $connection->query($sql);
-    if ($record = $result->fetch_object()) {
-        $id = $record->MerchID;
-        $name = $record->MerchDesc;
-        $price = $record->MerchPrice;
-        $material = $record->Material;
-        $color = $record->Color;
-        $style = $record->Style;
-        $fitType = $record->FitType;
-        $category = $record->Category;
-        $size = $record->Size;
-        $qty = $record->MerchQty;
-    } else {
-        header('Location: merch.php');
+    if (isset($_POST['buy'])) {
+        $id = ($_POST['id']);
+        $buyQty = trim($_POST['qty']);
+        //find if user has an existing cart that have not checked out
+        $cart = "SELECT CartID FROM cart WHERE UserID = '$UserID' AND checkout = 0";
+        $cartFound = mysqli_query($connection, $cart);
+        if (mysqli_num_rows($cartFound) > 0) {
+            while($row = mysqli_fetch_assoc($cartFound)) {
+                // Use existing cart
+                $cartID = $row['CartID'];
+            }
+            //check if user already has the item in cart
+            $checkCart = "SELECT MbuyID FROM merch_buy WHERE MerchID = '$id' AND CartID = '$cartID'";
+            $merchFound = mysqli_query($connection, $checkCart);
+            if (mysqli_num_rows($merchFound) > 0) {
+                //product is already in cart
+                while($row1 = mysqli_fetch_assoc($merchFound)) {
+                    // Use existing cart
+                    $MbuyID = $row1['MbuyID'];
+                }
+                $sql1 = "UPDATE merch_buy SET MbuyQty = MbuyQty + $buyQty WHERE MbuyID = '$MbuyID'";
+                $stmt = $connection->prepare($sql1);
+                if ($stmt->execute()) {
+                    echo "<script>alert('Product added to cart.');
+                        window.location = 'merch.php'</script>";
+                }
+            } else {
+                //no existing product in cart
+                $sql1 = "INSERT INTO merch_buy (MerchID, CartID, MbuyQty) VALUES (?, ?, ?)";
+                $stmt = $connection->prepare($sql1);
+                $stmt->bind_param("sss", $id, $cartID, $buyQty);
+                if ($stmt->execute()) {
+                    echo "<script>alert('Product added to cart.');
+                        window.location = 'merch.php'</script>";
+                }
+            }
+        } else {
+            // Create new cart 
+            $sql1 = "INSERT INTO cart (UserID, checkout) VALUES (?, 0)";
+            $stmt = $connection->prepare($sql1);
+            $stmt->bind_param("s", $UserID);
+
+            if ($stmt->execute()) {
+                $sql2 = "INSERT INTO merch_buy (MerchID, CartID, MbuyQty) VALUES (?, (SELECT CartID FROM cart WHERE UserID = '$UserID' AND checkout = 0), ?)";
+                $stmt2 = $connection->prepare($sql2);
+                $stmt2->bind_param("ss", $id, $buyQty);
+                if ($stmt2->execute()) {
+                    echo "<script>alert('Product added to cart.');
+                        window.location = 'merch.php'</script>";
+                }
+            }   
+        }
     }
 ?>
 <html>
@@ -67,21 +119,7 @@
         ?>
             <div class="prod-select">
                 <form action="" method="post">
-                    <?php
-                    if ($fitType == 'UniSize') {
-                        printf("
-                        <div class='select-size'>
-                            <h4>Please select your size</h4>
-                        </div>
-                        <div class='size-btn'>
-                            <button class='size'>S</button>
-                            <button class='size'>M</button>
-                            <button class='size'>L</button>
-                            <button class='size'>XL</button><br/><br/>
-                        </div>
-                        ");
-                    }
-                    ?>
+                <input type="text" name="id" value="<?php echo $id?>" hidden/>
                     <span class="prod-qty">
                         <label for="qty">Quantity</label>
                         <input type="number" name="qty" value="1" min="1" max="30">
@@ -91,55 +129,6 @@
                         <button type="submit" name="buy" class="prodbtn" id="prodbtn2">Add To Cart&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-cart"></i></button>  
                     </div>
                 </form>
-                <?php
-                if (isset($_POST['buy'])) {
-                    $buyQty = trim($_POST['qty']);
-                    //find if user has an existing cart that have not checked out
-                    $cart = "SELECT CartID FROM cart WHERE UserID = '$UserID' AND checkout = 0";
-                    $cartFound = mysqli_query($connection, $cart);
-                    if (mysqli_num_rows($cartFound) > 0) {
-                        // Use existing cart
-                        $cartID = mysqli_fetch_assoc($cartFound)['CartID'];
-                        //check if user already has the item in cart
-                        $checkCart = "SELECT MbuyID FROM merch_buy WHERE MerchID = '$id' AND CartID = '$cartID'";
-                        $merchFound = mysqli_query($connection, $checkCart);
-                        if (mysqli_num_rows($merchFound) > 0) {
-                            //product is already in cart
-                            $MbuyID = mysqli_fetch_assoc($merchFound)['MbuyID'];
-                            $sql1 = "UPDATE merch_buy SET MbuyQty = MbuyQty + $buyQty WHERE MbuyID = '$MbuyID'";
-                            $stmt = $connection->prepare($sql1);
-                            if ($stmt->execute()) {
-                                echo "<script>alert('Product added to cart.');
-                                    window.location = 'merch.php'</script>";
-                            }
-                        } else {
-                            //no existing product in cart
-                            $sql1 = "INSERT INTO merch_buy (MerchID, CartID, MbuyQty) VALUES (?, ?, ?)";
-                            $stmt = $connection->prepare($sql1);
-                            $stmt->bind_param("sss", $id, $cartID, $buyQty);
-                            if ($stmt->execute()) {
-                                echo "<script>alert('Product added to cart.');
-                                    window.location = 'merch.php'</script>";
-                            }
-                        }
-                    } else {
-                        // Create new cart 
-                        $sql1 = "INSERT INTO cart (UserID, checkout) VALUES (?, ?)";
-                        $stmt = $connection->prepare($sql1);
-                        $stmt->bind_param("sd", $UserID, 0);
-
-                        if ($stmt->execute()) {
-                            $sql2 = "INSERT INTO merch_buy (MerchID, CartID, MbuyQty) VALUES (?, (SELECT CartID FROM cart WHERE UserID = '$UserID' AND checkout = 0), ?)";
-                            $stmt2 = $connection->prepare($sql2);
-                            $stmt2->bind_param("ss", $id, $buyQty);
-                            if ($stmt2->execute()) {
-                                echo "<script>alert('Product added to cart.');
-                                    window.location = 'merch.php'</script>";
-                            }
-                        }   
-                    }
-                }
-                ?>
             </div>
         </div>
     </body>

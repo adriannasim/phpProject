@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="header-dropdown">
-                    <li class="header-dropBtn"><a href="">Our Merchandise</a></li>
+                    <li class="header-dropBtn"><a href="merch.php">Our Merchandise</a></li>
                     <div class="header-dropctn">
                         <ul>
                             <li><a href="merch.php">View Products</a></li>
