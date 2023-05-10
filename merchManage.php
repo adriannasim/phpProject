@@ -23,7 +23,7 @@
     $header = array(
         'MerchID' => 'Product ID',
         'MerchDesc' => 'Product Name',
-        'MerchPrice' => 'Product Price',
+        'MerchPrice' => 'Product Price (RM)',
         'MerchQty' => 'Product Quantity'
     );
     ?>
