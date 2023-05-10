@@ -65,11 +65,11 @@ $UserID = "admin";
                     echo "<div class='addMerch-form-success'>";
                     printf("<p>Product Added Successfully !</p>");
                     echo "</div>";
-                } else {
+                }
+            } else {
                     echo "<div class='addMerch-form-error'>";
                     printf("<p>%s </p>", implode("</p><p>", $error));
                     echo "</div>";
-                }
             }
         }
         ?>
