@@ -73,6 +73,7 @@
             if ($merchResult -> num_rows>0) {
                 while($merchRec = $merchResult->fetch_object()) {
                     printf("
+                    <div class='prodHistory'>
                         <div class='prod-box'>
                             <img src='img/merch/%s.jpg' alt='alt'/>
                             <div class='box-content'>
@@ -82,6 +83,7 @@
                                 <input type='hidden' name='mbuy_id' value='%s'></p>
                             </div>
                         </div>
+                    </div>
                     ",$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID);
                 }
             } else {

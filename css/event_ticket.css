@@ -84,6 +84,7 @@ th {
     background-color: black;
 }
 
+
 td {
     border-color: white;
     background-color: lightskyblue;
@@ -129,18 +130,6 @@ th {
     height: 20px;
     border: 1px solid #ccc;
     cursor: pointer;
-}
-
-.seating-plan .seat.available {
-    background-color: #8bc34a;
-}
-
-.seating-plan .seat.unavailable {
-    background-color: #f44336;
-}
-
-.seating-plan .seat.selected {
-    background-color: #2196f3;
 }
 
 .seating-plan th {
