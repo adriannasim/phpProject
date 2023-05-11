@@ -9,9 +9,17 @@ session_start();
 include "config/config.php";
 ?>
 <style>
-    h1,
+    h1{
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
     button {
         text-align: center;
+        margin-left: 725px;
+        margin-right: 0;
+        border-radius:2px;
+        background-color:blue;
     }
 
     .edit,
@@ -32,7 +40,25 @@ include "config/config.php";
     require_once "seat_helper.php";
     ?>
     <h1>Edit Standard Seat</h1>
-    <!--<?php
+    <form action="" method="post">
+        <div class="edit">
+            <label for="name">Enter SeatID :</label><br />
+            <input type="text" name="id" id="id" value="<?php echo (isset($seatID)) ? $seatID : ""; ?>" />
+        </div>
+        <div class="status">
+            <label for="name">Enter Status :</label><br />
+            <input type="text" name="status" id="status" value="<?php echo (isset($status)) ? $status : ""; ?>" />
+        </div>
+    </form>
+    <table style="width:100%">
+        <tr>
+            <td>
+    <button type="submit" id="button">Edit</button>
+</td>
+</tr>
+</table>
+    <!--
+        <?php
     if (!empty($_POST)) {
         $seatID = trim($_POST['id']);
         $status = trim($_POST['status']);
@@ -65,17 +91,7 @@ include "config/config.php";
     }
     ?>
     -->
-    <form action="" method="post">
-        <div class="edit">
-            <label for="name">Enter SeatID :</label><br />
-            <input type="text" name="id" id="id" value="<?php echo (isset($seatID)) ? $seatID : ""; ?>" />
-        </div>
-        <div class="status">
-            <label for="name">Enter Status :</label><br />
-            <input type="text" name="status" id="status" value="<?php echo (isset($status)) ? $status : ""; ?>" />
-        </div>
-    </form>
-    <button type="submit">Edit</button>
+   
 </body>
 
 </html>
