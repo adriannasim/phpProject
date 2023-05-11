@@ -15,4 +15,15 @@ function isTypeIDExist($id,$chkTypeID){
         return " Please enter a valid SeatType ID";
     }
 }
+function isSeatIDExist($id,$chkSeatID){
+    if($id == NULL){
+        return " Please enter the SeatType ID";
+    }else if(strlen($id) > 5){
+        return "Maximum 5 characters for SeatType ID";
+    }else if(strcmp($id,$chkSeatID) == 0){
+        return " Seat Type ID already exists";
+    }else if(!preg_match("/^[A-Z\d]{5}$/", $id)){
+        return " Please enter a valid SeatType ID";
+    }
+}
 ?>

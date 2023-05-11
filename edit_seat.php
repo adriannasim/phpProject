@@ -6,24 +6,76 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
 <?php
 session_start();
-include("config/config.php");
-$UserID = "admin";
-//$UserID = $_SESSION['UserID'];
+include "config/config.php";
 ?>
+<style>
+    h1,
+    button {
+        text-align: center;
+    }
+
+    .edit,
+    .status {
+        text-align: center;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
     <title>Edit event seat</title>
-   
+
 </head>
+
 <body>
     <?php
     include "headerAdmin.php";
     require_once "seat_helper.php";
-        ?>
+    ?>
     <h1>Edit Standard Seat</h1>
+    <!--<?php
+    if (!empty($_POST)) {
+        $seatID = trim($_POST['id']);
+        $status = trim($_POST['status']);
+        $SeatTypeID = "";
+        $TicketID = "";
+        $sqlCheck = "SELECT SeatID FROM seat WHERE SeatID = '$seatID'";
+        $result = mysqli_query($connection, $sqlCheck);
+        if (mysqli_num_rows($result) == 1) {
+            $chkSeatID = $seatID;
+        } else {
+            $chkSeatID = "";
+        }
+        $error['id'] = isSeatIDExist($id,$chkSeatID);
+    }
 
-   
+    if ((empty($error))) {
+        $edit = "INSERT INTO seat VALUES ('$seatID','$SeatTypeID','$TicketID','$status');";
+        if (($connection->prepare($eventAdd))->execute()) {
+            printf("<p>
+                                Seat edited Successfully ! <a href='eventManage.php'>Back to Manage Events</a>
+                                </p>");
+            echo "</div>";
+        }
+    } else {
+        echo "<div class='addEvent-form-error'>";
+        printf("<p>
+                                %s
+                                </p>", implode("</p><p>", $error));
+        echo "</div>";
+    }
+    ?>
+    -->
+    <form action="" method="post">
+        <div class="edit">
+            <label for="name">Enter SeatID :</label><br />
+            <input type="text" name="id" id="id" value="<?php echo (isset($seatID)) ? $seatID : ""; ?>" />
+        </div>
+        <div class="status">
+            <label for="name">Enter Status :</label><br />
+            <input type="text" name="status" id="status" value="<?php echo (isset($status)) ? $status : ""; ?>" />
+        </div>
+    </form>
+    <button type="submit">Edit</button>
 </body>
 
 </html>
