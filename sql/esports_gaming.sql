@@ -1,5 +1,5 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
@@ -38,19 +38,6 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`UserID`, `Password`) VALUES
 ('admin', 'admin');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `booking`
---
-
-CREATE TABLE `booking` (
-  `BookingID` varchar(5) NOT NULL,
-  `EventID` varchar(5) NOT NULL,
-  `UserID` varchar(10) NOT NULL,
-  `TicketID` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -98,33 +85,6 @@ INSERT INTO `event` (`EventID`, `EventName`, `EventDate`, `EventTime`, `EventVen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedback`
---
-
-CREATE TABLE `feedback` (
-  `FeedbackID` varchar(5) NOT NULL,
-  `FeedbackDate` date NOT NULL,
-  `FeedbackTime` time NOT NULL,
-  `FeedbackContent` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `helpdesk_support`
---
-
-CREATE TABLE `helpdesk_support` (
-  `HelpID` varchar(5) NOT NULL,
-  `HelpDate` date NOT NULL,
-  `HelpTime` time NOT NULL,
-  `HelpMsg` varchar(255) NOT NULL,
-  `HelpReply` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `merch_buy`
 --
 
@@ -140,7 +100,7 @@ CREATE TABLE `merch_buy` (
 --
 
 INSERT INTO `merch_buy` (`MbuyID`, `MerchID`, `CartID`, `MbuyQty`) VALUES
-(2, 'M0001', 1, 1);
+(1, 'M0001', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -166,7 +126,14 @@ CREATE TABLE `merch_info` (
 --
 
 INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Color`, `Style`, `FitType`, `Category`, `Size`, `MerchQty`) VALUES
-('M0001', 50.00, 'Gaming Controller T-Shirt', 'Cotton', 'Black', 'Casual', 'FreeSize', 'T-Shirt', 'FreeSize', 50);
+('M0001', 50.00, 'Gaming Controller T-Shirt', 'Cotton', 'Black', 'Casual', 'Oversized', 'T-Shirt', 'FreeSize', 50),
+('M0002', 40.00, 'Typical Gamer Baseball Cap', 'Fabric', 'White', 'Trendy', 'Baseball Cap', 'Hats', 'FreeSize', 10),
+('M0003', 35.00, 'Saving The World By Levels Tote Bag', 'Polyester', 'Black', 'Casual', 'Tote Bag', 'Totebags', 'FreeSize', 10),
+('M0004', 35.00, 'I Paused My Game Tote Bag', 'Polyester', 'Black', 'Casual', 'Tote Bag', 'Totebags', 'FreeSize', 10),
+('M0005', 80.00, 'Typical Gamer Hoodie', 'Fabric', 'Blue', 'Casual', 'Oversized', 'Hoodie/Sweater', 'UniSize', 20),
+('M0006', 75.00, 'Typical Gamer Sweater', 'Fabric', 'Pink', 'Casual', 'Regular Fit', 'Hoodie/Sweater', 'FreeSize', 30),
+('M0007', 50.00, 'Hipster T-Shirt', 'Cotton', 'Black', 'Casual', 'Regular Fit', 'T-Shirt', 'UniSize', 30),
+('M0008', 40.00, 'Air Force Gaming Baseball Cap', 'Fabric', 'Blue', 'Trendy', 'Baseball Cap', 'Hats', 'FreeSize', 20);
 
 -- --------------------------------------------------------
 
@@ -400,15 +367,6 @@ INSERT INTO `seat` (`SeatID`, `TicketID`, `Status`) VALUES
 ('VE11', 'AU001', 1),
 ('VE12', 'AU001', 1);
 
---
--- Dumping data for table `seat_type`
---
-
-CREATE TABLE `seat_type` (
-  `SeatTypeID` varchar(5) NOT NULL,
-  `SeatType` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -449,7 +407,11 @@ CREATE TABLE `ticket_info` (
 
 INSERT INTO `ticket_info` (`TicketID`, `EventID`, `TicketPrice`, `TicketType`, `TicketQty`) VALUES
 ('AU001', 'CA001', 20.00, 'Standard', 120),
-('AU002', 'CA001', 40.00, 'VIP', 50);
+('AU002', 'CA001', 40.00, 'VIP', 50),
+('AU003', 'CA004', 20.00, 'Standard', 120),
+('AU004', 'CA004', 40.00, 'VIP', 50),
+('AU005', 'FA001', 20.00, 'Standard', 120),
+('AU006', 'FA001', 40.00, 'VIP', 50);
 
 -- --------------------------------------------------------
 
@@ -484,15 +446,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`UserID`);
 
 --
--- Indexes for table `booking`
---
-ALTER TABLE `booking`
-  ADD PRIMARY KEY (`BookingID`),
-  ADD UNIQUE KEY `EventID` (`EventID`),
-  ADD UNIQUE KEY `UserID` (`UserID`),
-  ADD UNIQUE KEY `TicketID` (`TicketID`);
-
---
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -503,18 +456,6 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `event`
   ADD PRIMARY KEY (`EventID`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`FeedbackID`);
-
---
--- Indexes for table `helpdesk_support`
---
-ALTER TABLE `helpdesk_support`
-  ADD PRIMARY KEY (`HelpID`);
 
 --
 -- Indexes for table `merch_buy`
@@ -583,7 +524,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `merch_buy`
 --
 ALTER TABLE `merch_buy`
-  MODIFY `MbuyID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MbuyID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `purchase`
