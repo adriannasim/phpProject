@@ -20,7 +20,6 @@ $UserID = "adrianna";
     <br>
     <br>
     <?php
-// Assuming you have already established a database connection
 $sql = "SELECT * FROM ticket_info";
 $result = mysqli_query($connection, $sql);
 
@@ -58,7 +57,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=1'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=1'">Register Now !</button>
       </div> 
   </div>
 
@@ -85,7 +84,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=2'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=2'">Register Now !</button>
       </div> 
   </div>
 
@@ -112,7 +111,7 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'ticket-mlbb.php?id=3'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=3'">Register Now !</button>
       </div> 
   </div>
     <br><br>  
