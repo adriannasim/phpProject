@@ -58,7 +58,7 @@ include "config/config.php";
         if (empty($error)) {
             $edit = "UPDATE seat SET Status='$status' WHERE SeatID='$seatID';";
             if (mysqli_query($connection, $edit)) {
-                printf("<p>Seat edited Successfully ! <a href='eventManage.php'>Back to Manage Events</a></p>");
+                printf("<p>Seat edited Successfully ! <a href='seating_plan.php'>Back to Seating Plan</a></p>");
             } else {
                 echo "<div class='addEvent-form-error'>";
                 printf("<p>Error updating seat: %s</p>", mysqli_error($connection));
