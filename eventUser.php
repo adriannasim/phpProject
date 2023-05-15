@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                     <div class='event-btn'>
-                                        <a href='ticket-mlbb?id=%s.php'><button class='book'>Book Now</button></a>
+                                        <a href='newticket.php?id=%s'><button class='book'>Book Now</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <div class='event-btn'>
-                                <a href='ticket-mlbb?id=%s.php'><button class='book'>Book Now</button></a>
+                                <a href='newticket.php?id=%s'><button class='book'>Book Now</button></a>
                             </div>
                         </div>
                     </div>

@@ -19,6 +19,7 @@
     include "adminHelper.php";
     include "headerAdmin.php";
     global $hideForm;
+
     ?>
 
     <div class="edit-header">

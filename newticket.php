@@ -1,8 +1,8 @@
 <?php
 session_start();
 include("config/config.php");
-$UserID = "adrianna";
-//$UserID = $_SESSION['UserID'];
+$UserID = $_SESSION['UserID'];
+
 ?>
 
 <html>
