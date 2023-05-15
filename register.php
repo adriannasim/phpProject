@@ -24,21 +24,23 @@
         $error['tel'] = checkUserTel($TelNo);
         $error['psw'] = checkUserPsw($Password);
         $error = array_filter($error);
-        
+        echo $UserID;
+        echo $Password;   
         if((empty($error))) {
             $sqlReg = "INSERT INTO user (UserID, PaymentID, Password, Name, Email, Tel)
                 VALUES ('$UserID', NULL, '$Password', '$Name', '$Email', '$TelNo')";
             $result = mysqli_query($connection, $sqlReg);
             if ($result) {
                 echo "<script>alert('Registration successful.');
-                    window.location = 'login.php'</script>";
+                    window.location = 'index.php'</script>";
             }
         } else {
-            echo "<div class='addEvent-form-error'>";
-            printf("<p>
-                    %s
-                    </p>", implode("</p><p>",$error));
-            echo "</div>";
+                echo "<div class='addEvent-form-error' style=";
+                echo "'color:white';";
+                printf("<p>
+                        %s
+                        </p>", implode("</p><p>",$error));
+                echo "</div>";
         }
     }
 ?>

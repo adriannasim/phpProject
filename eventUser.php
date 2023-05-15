@@ -28,7 +28,7 @@
                 $EventTime[$i] = DateTime::createFromFormat('H:i:s', $record->EventTime); 
                 $EventTime[$i] = DATE_FORMAT($EventTime[$i], 'h:i A');
                 $EventVenue[$i] = $record->EventVenue; 
-                $EventDesc[$i] = mysqli_real_escape_string($connection, ($record->EventDesc));
+                $EventDesc[$i] = $record->EventDesc;
                 $i++;
             }  
         } 
@@ -123,10 +123,11 @@
                             </div>
                         </div>
                     </div>
-                    ", $EventID[$j], $EventName[$j], $EventID[$j], $EventName[$j], $EventID[$j], $EventDesc[$j], $EventDate[$j], $EventTime[$j], $EventVenue[$j], $EventID[$j]);
+                    ", $EventID[$j], $EventName[$j], $EventID[$j], $EventName[$j], $EventID[$j], htmlspecialchars($EventDesc[$j]), $EventDate[$j], $EventTime[$j], $EventVenue[$j], $EventID[$j]);
                 }
             }
             ?>
+    
         </div> 
         <?php include "footerUser.php"; ?>
     </body>
