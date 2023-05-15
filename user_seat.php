@@ -468,7 +468,7 @@ if ($UserID == '') {
     }
     ?>
     <form action="" method="POST">
-    <a href="ticket-mlbb.php">Back</a>
+    <a href="newticket.php">Back</a>
     </form>
     <?php include "footerUser.php"; ?>
 </body>
