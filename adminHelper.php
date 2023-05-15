@@ -22,7 +22,7 @@ function checkUserName($Name){
         return "⚠ Please enter a Name";
     }else if(strlen($Name) > 30){
         return "⚠ Maximum 30 characters for Name";
-    }else if(!preg_match("/^[A-Za-z]+$/", $Name)){
+    }else if(!preg_match("/^[A-Za-z ]+$/", $Name)){
         return "⚠ Illegal character/numbers detected in Name";
     }
 }
