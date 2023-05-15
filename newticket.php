@@ -51,7 +51,7 @@ $UserID = $_SESSION['UserID'];
         } else {
           $ticket_name = "War Zone S2: Gaming Event";
         }
-  
+        
         echo '<div class="ticket-details">';
         echo '<h2>You have chosen:</h2>';
         echo '<p>Ticket for<b> '.$ticket_name.'</b></p>';
@@ -59,7 +59,7 @@ $UserID = $_SESSION['UserID'];
         echo '<p><b>VIP Ticket Quantity</b>: '.$vip_ticket_quantity.'</p>';
         echo '<p><b>Total Price</b>: <i>RM '.number_format($total_price, 2).'</i></p>';
         echo '</div>';
-          ?><br><button type="button" class="CnP" >Confirm and Pay</button><?php
+          ?><br><button type="submit" class="CnP" name="addcart">Confirm and Pay</button><?php
       }
     }
   }

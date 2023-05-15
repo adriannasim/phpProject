@@ -4,7 +4,7 @@ define("DB_HOST","localhost");
 define("DB_USER","root");
 define("DB_PASS","");
 define("DB_NAME","esports&gaming");
-function isStudentExist($seatID){
+function isSeatExist($seatID){
     $exist = false;
     
     //step 1 :connection to link PHP app with DB
@@ -36,16 +36,14 @@ function isTypeIDExist($id,$chkTypeID){
         return " Please enter a valid SeatType ID";
     }
 }
-function checkseatID($seatID) {
-    $error = null;
-    if (empty($seatID)) {
-        $error = "Please enter the SeatType ID";
-    }else if (isStudentExist($seatID)){
-        $error = "Seat Type ID already exists";
+function checkseatID($seatID) { 
+    if ($seatID == null) {
+        return "Please enter the SeatType ID";
+    }else if (isSeatExist($seatID)){
+        return  "Seat Type ID already exists";
     } else if (!preg_match("/^[A-Za-z\d]+$/", $seatID)) {
-        $error = "Please enter a valid SeatType ID";
+        return "Please enter a valid SeatType ID";
     }
-    return $error;
 }
 
 function getAllevent(){
