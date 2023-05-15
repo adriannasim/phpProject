@@ -65,16 +65,20 @@ $UserID = "admin";
     $sql = "SELECT * FROM event GROUP BY EventID";
     $result = $connection->query($sql);
 
-    if (!empty($_POST['submit'])) {
+    if (!empty($_POST)) {
         // Retrieve input from the form
         $id = trim($_POST['typeID']);
         $seatID = trim($_POST['seatID']);
         $event = trim($_POST['event']);
         $ticketID = trim($_POST['ticketID']);
+        $status = trim($_POST['status']);
 
         // Check for validation errors
-        $error["id"] = checkseatID($seatID);
+        $error["seatID"] = checkseatID($seatID);
         $error = array_filter($error);
+        if ($seatID == null){
+            $error['seatID'] ='error';
+        }
         if (empty($error)) {
             // create connection
             $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -84,11 +88,11 @@ $UserID = "admin";
             $stmt = $con->prepare($add);
 
             // bind parameters to the statement
-            $stmt->bind_param('ssss',  $seatID, $id, $ticketID,$status);
+            $stmt->bind_param('ssss',  $seatID, $id, $ticketID, $status);
 
             // execute the statement
             $stmt->execute();
-
+            
             // check if the statement was successful
             if ($stmt->affected_rows > 0) {
                 printf("Seat added!!");
@@ -99,6 +103,12 @@ $UserID = "admin";
             // close the statement and connection
             $stmt->close();
             $con->close();
+        } else {
+            echo "<div class='addEvent-form-error'>";
+            printf("<p>
+                        %s
+                        </p>", implode("</p><p>", $error));
+            echo "</div>";
         }
 
 

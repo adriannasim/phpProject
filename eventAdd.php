@@ -38,7 +38,7 @@ if ($UserID == '') {
                 if (mysqli_num_rows($result) == 1) {
                     $chkEventID = $eventID;
                 } else {
-                    $chkEventID = "";
+                    $chkEventID = "";   
                 }
 
                 $error['id'] = checkEventID($eventID, $chkEventID);
