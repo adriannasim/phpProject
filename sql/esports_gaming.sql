@@ -461,8 +461,7 @@ ALTER TABLE `event`
 -- Indexes for table `merch_buy`
 --
 ALTER TABLE `merch_buy`
-  ADD PRIMARY KEY (`MbuyID`),
-  ADD UNIQUE KEY `CartID` (`CartID`);
+  ADD PRIMARY KEY (`MbuyID`);
 
 --
 -- Indexes for table `merch_info`
@@ -494,8 +493,7 @@ ALTER TABLE `seat`
 -- Indexes for table `ticket_buy`
 --
 ALTER TABLE `ticket_buy`
-  ADD PRIMARY KEY (`TbuyID`),
-  ADD UNIQUE KEY `CartID` (`CartID`);
+  ADD PRIMARY KEY (`TbuyID`);
 
 --
 -- Indexes for table `ticket_info`

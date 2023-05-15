@@ -65,44 +65,52 @@ $UserID = "admin";
     $sql = "SELECT * FROM event GROUP BY EventID";
     $result = $connection->query($sql);
 
-    if (!empty($_POST['submit'])) {
-        //YES,user clicked on the button
-        //retrieve input from the form
+    if (!empty($_POST)) {
+        // Retrieve input from the form
         $id = trim($_POST['typeID']);
         $seatID = trim($_POST['seatID']);
         $event = trim($_POST['event']);
         $ticketID = trim($_POST['ticketID']);
-        $status =trim($_POST['status']);
-        $sqlCheck = "SELECT SeatTypeID FROM seat_type WHERE SeatTypeID ='$id'";
-        $result = mysqli_query($connection, $sqlCheck);
-        if (mysqli_num_rows($result) == 1) {
-            $chkTypeID = $id;
-        } else {
-            $chkTypeID = "";
-        }
-        //check/validate the user inputs
-        $error["id"] = isTypeIDExist($id, $chkTypeID);
+        $status = trim($_POST['status']);
+
+        // Check for validation errors
+        $error["seatID"] = checkseatID($seatID);
         $error = array_filter($error);
-        if ((empty($error))) {
-            //create connection
-            $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-            //sql statement
-            $add = "INSERT INTO seat_type(SeatID ,SeatTypeID, TicketID, Status) VALUES(?, ?, ?, ?);";
-            //pass in parameter
-            $stmt = $con->prepare($add);
-            //prevent sql injection
-            $stmt-> bind_param('ssss',$seatID ,$id, $ticketID,$status);
-            //run sql
-            $stmt ->execute();
-            if($stmt -> affected_rows > 0){
-                printf("Seat added!!");
-            }else{
-                echo "Seat FAIL to add!!";
-            }
-            // close sql
-            $connection->close();
-            $result->close();
+        if ($seatID == null){
+            $error['seatID'] ='error';
         }
+        if (empty($error)) {
+            // create connection
+            $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+            // prepare SQL statement with placeholders
+            $add = "INSERT INTO seat VALUES (?, ?, ?, ?)";
+            $stmt = $con->prepare($add);
+
+            // bind parameters to the statement
+            $stmt->bind_param('ssss',  $seatID, $id, $ticketID, $status);
+
+            // execute the statement
+            $stmt->execute();
+            
+            // check if the statement was successful
+            if ($stmt->affected_rows > 0) {
+                printf("Seat added!!");
+            } else {
+                echo "Seat failed to add!!";
+            }
+
+            // close the statement and connection
+            $stmt->close();
+            $con->close();
+        } else {
+            echo "<div class='addEvent-form-error'>";
+            printf("<p>
+                        %s
+                        </p>", implode("</p><p>", $error));
+            echo "</div>";
+        }
+
 
     }
     ?>
