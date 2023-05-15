@@ -40,7 +40,9 @@ $UserID = "admin";
     }
 
     .seat,
-    .seattypeID {
+    .seattypeID,
+    .status,
+    .ticketID {
         text-align: center;
         font-size: 200%;
         color: black;
@@ -60,17 +62,17 @@ $UserID = "admin";
     <h1>Create event seat</h1>
     <?php
     // Get data from database
-    $sql = "SELECT * FROM event GROUP BY EventName";
+    $sql = "SELECT * FROM event GROUP BY EventID";
     $result = $connection->query($sql);
-    $sql1 = "SELECT * FROM ticket_info GROUP BY TicketID";
-    $result1 = $connection->query($sql1);
-    $result2 = $connection->query($sql1);
 
-    if (!empty($_POST)) {
+    if (!empty($_POST['submit'])) {
         //YES,user clicked on the button
         //retrieve input from the form
         $id = trim($_POST['typeID']);
-        $type = trim($_POST['type']);
+        $seatID = trim($_POST['seatID']);
+        $event = trim($_POST['event']);
+        $ticketID = trim($_POST['ticketID']);
+        $status =trim($_POST['status']);
         $sqlCheck = "SELECT SeatTypeID FROM seat_type WHERE SeatTypeID ='$id'";
         $result = mysqli_query($connection, $sqlCheck);
         if (mysqli_num_rows($result) == 1) {
@@ -82,44 +84,68 @@ $UserID = "admin";
         $error["id"] = isTypeIDExist($id, $chkTypeID);
         $error = array_filter($error);
         if ((empty($error))) {
-            $add = "INSERT INTO seat_type VALUES('$id','$type');";
-            if (($connection->prepare($add))->execute()) {
+            //create connection
+            $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            //sql statement
+            $add = "INSERT INTO seat_type(SeatID ,SeatTypeID, TicketID, Status) VALUES(?, ?, ?, ?);";
+            //pass in parameter
+            $stmt = $con->prepare($add);
+            //prevent sql injection
+            $stmt-> bind_param('ssss',$seatID ,$id, $ticketID,$status);
+            //run sql
+            $stmt ->execute();
+            if($stmt -> affected_rows > 0){
+                printf("Seat added!!");
+            }else{
+                echo "Seat FAIL to add!!";
             }
+            // close sql
+            $connection->close();
+            $result->close();
         }
-    }
 
+    }
     ?>
     <form action="" method="POST">
         <div class="form">
             <div class="event">
                 <label for="event">Choose an event:</label>
-                <select name="event" id="event" value="<?php echo (isset($row['EventID']))? $row['EventID']: "";?>">
-                    <?php while ($row = $result->fetch_assoc()) { ?>
-                        <option value="<?php echo $row['EventID']; ?>" <?php if (isset($_POST['EventID']) && $_POST['EventID']==$row['EventID']) echo "selected";?>><?php echo $row['EventName'];
-                    } ?></option>
+                <select name="event" id="event">
+                    <?php
+                    $allEvent = getAllevent();
+                    (isset($event)) ? $event = $event : $event = "";
+                    foreach ($allEvent as $key => $value) {
+                        printf("<option value = '%s' %s>%s</option>", $key, ($event == $key) ? "selected" : "", $value);
+                    } ?>
                 </select>
             </div>
-
+            <div class="ticketID">
+                <label for="ticketID">Choose an Ticket Type:</label>
+                <select name="ticketID" id="ticketID">
+                    <?php
+                    $allticketID = getAllticketID();
+                    (isset($ticketID)) ? $ticketID = $ticketID : $ticketID = "";
+                    foreach ($allticketID as $key => $value) {
+                        printf("<option value = '%s' %s>%s</option>", $key, ($ticketID == $key) ? "selected" : "", $value);
+                    } ?>
+                </select>
+            </div>
             <div class="seattypeID">
-                <label for="typeID">Enter Seat Type ID :<label>
-                        <input type="text" name="typeID" value=<?php echo (isset($id)) ? $id : ""; ?> />
+                <label for="typeID">Enter Seat Type ID :</label>
+                <input type="text" name="typeID" value="<?php echo (isset($id)) ? $id : ""; ?>" />
             </div>
-            <div class="seattype">
-                <label for="type">Enter type of seat:<label>
-                        <input type="text" name="type" value=<?php echo (isset($type)) ? $type : ""; ?> />
-            </div>
+
             <div class="seat">
-                <label for="amount">Choose amount of seat:<label>
-                        <select name="amount" id="amount">
-                            <?php while ($row = $result2->fetch_assoc()) { ?>
-                                <option value="<?php echo $row['TicketID']; ?>"><?php echo $row['TicketQty'];
-                            } ?></option>
-                        </select>
+                <label for="seatID">Enter Seat ID :</label>
+                <input type="text" name="seatID" value="<?php echo (isset($seatID)) ? $seatID : ""; ?>" />
+            </div>
+            <div class="status">
+                <label for="seatID">Enter status:</label>
+                <input type="text" name="status" value="<?php echo (isset($status)) ? $status : ""; ?>" />
             </div>
             <div class="submit">
-                <input type="submit" value="Add" onclick="location:dasdas.php">
+                <input type="submit" value="Add" name="submit">
             </div>
-
         </div>
     </form>
 </body>

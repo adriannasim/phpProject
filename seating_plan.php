@@ -497,7 +497,6 @@ include("config/config.php");
     ?>
     <div class="edit">
         <a href="edit_seat.php">Edit Standard Seat</a>
-        <a href="edit_VIPseat.php">Edit VIP Seat</a>
     </div>
     <div class="back">
         <a href="eventManage.php">Back</a>

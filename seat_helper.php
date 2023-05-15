@@ -26,4 +26,17 @@ function isSeatIDExist($id,$chkSeatID){
         return " Please enter a valid SeatType ID";
     }
 }
+function getAllevent(){
+    return array(
+        "MLBB Grand Finale" => "MLBB Grand Finale",
+        "Warzone S2 Fun Camp" => "Warzone S2 Fun Camp",
+        "Valorant: Battle of the Ace" =>"Valorant: Battle of the Ace"
+    );
+}
+function getAllticketID(){
+    return array(
+        "AU001" => "Standard",
+        "AU002" => "VIP"
+    );
+}
 ?>
