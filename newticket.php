@@ -3,6 +3,9 @@ session_start();
 include("config/config.php");
 $UserID = $_SESSION['UserID'];
 
+if ($UserID == '') {
+  header("location: index.php");
+}
 ?>
 
 <html>
@@ -35,7 +38,30 @@ $UserID = $_SESSION['UserID'];
     if ($standard_ticket_quantity == 0 && $vip_ticket_quantity == 0) {
       $error_message = "<b>Please select at least one ticket quantity!</b>";
         
+    
     } else {
+      // Display text inputs for VIP ticket numbers
+      if ($vip_ticket_quantity > 0) {
+          echo '<div class="vip-ticket-numbers">';
+          for ($i = 1; $i <= $vip_ticket_quantity; $i++) {
+              echo '<label for="vip_ticket_number_'.$i.'">VIP Ticket '.$i.' Seat:</label>';
+              echo '<input type="text" id="vip_ticket_number_'.$i.'" name="vip_ticket_number_'.$i.'" value="">';
+              echo '<br><br>';
+          }
+          echo '</div>';
+      }
+      
+      // Display text inputs for standard ticket numbers
+      if ($standard_ticket_quantity > 0) {
+          echo '<div class="standard-ticket-numbers">';
+          for ($i = 1; $i <= $standard_ticket_quantity; $i++) {
+              echo '<label for="standard_ticket_number_'.$i.'">Standard Ticket '.$i.' Seat:</label>';
+              echo '<input type="text" id="standard_ticket_number_'.$i.'" name="standard_ticket_number_'.$i.'" value="">';
+              echo '<br><br>';
+          }
+          echo '</div>';
+      }
+
       // Calculate total price
       $total_price = $standard_ticket_total_price + $vip_ticket_total_price;
 
@@ -105,9 +131,11 @@ $UserID = $_SESSION['UserID'];
             <input type="number" id="basic_ticket_quantity" name="standard_ticket_quantity" min="0"
                    value="<?php echo isset($_POST['standard_ticket_quantity']) ? $_POST['standard_ticket_quantity'] : '0'; ?>">
             <br><br>
+
             <label for="vip_ticket_quantity">VIP Ticket (RM40.00)</label>
             <input type="number" id="vip_ticket_quantity" name="vip_ticket_quantity" min="0"
                    value="<?php echo isset($_POST['vip_ticket_quantity']) ? $_POST['vip_ticket_quantity'] : '0'; ?>">
+
         </div>
         <div class="button-group">
             <input type="submit" value="Confirm" class="confirmButton">

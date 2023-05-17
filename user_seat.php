@@ -468,7 +468,7 @@ if ($UserID == '') {
     }
     ?>
     <form action="" method="POST">
-    <a href="newticket.php">Back</a>
+    <a href="newTicket.php">Back</a>
     </form>
     <?php include "footerUser.php"; ?>
 </body>
