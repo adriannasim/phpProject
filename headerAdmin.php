@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include "config/config.php";
+    //$UserID = $_SESSION['UserID'];
+    $UserID = "adrianna";
+    if ($UserID == '') {
+        header("location: index.php");
+    }
+?>
 <html>
     <head>
         <meta charset="UTF-8">
