@@ -62,7 +62,7 @@
                 $stmt = $connection->prepare($sql);
                 $stmt->bind_param("ssssss", $name, $date, $time, $venue, $desc, $id);
                 if ($stmt->execute()) {
-                    echo "<div class='correct'> Event Data Updated !<br/><a href='eventManage.php'>Back to Manage Events</a></div>";
+                    echo "<div class='correct'> Event Data Updated ! <a href='eventManage.php'>Back to Manage Events</a></div>";
                 }
             } else {
                 echo '<ul class="error">';

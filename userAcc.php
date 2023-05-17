@@ -57,9 +57,10 @@
                 <td><?php echo $Tel?></td>
             </tr>
             <tr class="user-manage-btn">
-                <td colspan="2">
+                <td colspan="3">
                     <a href="userAcc-edit.php" id="edit-profile-btn"><button>Edit Profile</button></a>
-                    <a href="userAcc-chg-pw.php" id="chg-pw-btn"><button>Change Password</button></a><br>
+                    <a href="userAcc-fgt-pw.php" id="fgt-pw-btn"><button>Forgot Password</button></a><br>
+                    <a href="userAcc-chg-pw.php" id="chg-pw-btn"><button>Change Password</button></a>
                     <a href="logout.php" id="logout-btn"><button>Logout</button></a>
                 </td>
             </tr>

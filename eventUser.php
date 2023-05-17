@@ -53,11 +53,11 @@
                 <form action="" method="get">
                     <input type="text" name="searchBox" placeholder="Browse for Events"/>
                     <button type="submit" name="search" class="searchbtn">Search  <i class="fa fa-search"></i></button>
-                    <select name="bycategory" class="ddlhistory">
-                        <option selected="selected" disabled>Order By: </option>
-                        <option value="dateAsc">Date (Ascending)</option>
-                        <option value="dateDesc">Date (Descending)</option>
-                    </select>
+                    <div class="event-sort">
+                    <label for="sort-btn">Sort By Date :  </label>
+                    <input type="button" name="sort-btn" value="Latest ⬇">
+                    <input type="button" name="sort-btn" value="Oldest ⬆">
+                    </div>
                 </form>
             </div>
         </div>
