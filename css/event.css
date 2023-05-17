@@ -95,9 +95,9 @@ h1{
     background-color: black;
 }
 
-.searchEvent button{
+.searchbtn, .event-sort input{
     padding: 10px 5px;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: .1em;
     font-family: Cambria;
     width: 100px;
@@ -109,19 +109,27 @@ h1{
     
 }
 
-.searchEvent button:hover{
+.searchbtn:hover, .event-sort input:hover{
     transform: scale(1.1);
     cursor: pointer;
     background-color: white;
     color: black;
     border: 2px solid black;
 }
+.event-sort{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.event-sort input{
+    width: 110px;
+}
 
 .events{
     position: relative;
     left: 70%;
     right: -20%;
-    margin-top: 85%;
+    margin-top: 90%;
     transform: translate(-50%,-50%);
     margin-bottom: -80%;
 }
@@ -183,6 +191,7 @@ h1{
     line-height: 1.5em;
 }
 .event-desc{
+    text-align: justify;
     font-size: 16px;
     padding: 15px;
 }

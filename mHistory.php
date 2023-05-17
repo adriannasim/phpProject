@@ -33,7 +33,12 @@
                         <option value="Hats">Hats</option>
                         <option value="Totebags">Tote Bags</option>
                     </select>
-                    <button type="submit" name="search" class="hsfilterbtn">Search<i class="fa fa-search"></i></button>
+                    <button type="submit" name="search" class="hsfilterbtn">Search <i class="fa fa-search"></i></button>
+                    <div class="merch-sort">
+                    <label for="sort-btn">Sort By Date :  </label>
+                    <input type="button" name="sort-btn" value="Latest ⬇">
+                    <input type="button" name="sort-btn" value="Oldest ⬆">
+                    </div>
                 </form>
             </div>
         </div>
