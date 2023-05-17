@@ -53,6 +53,11 @@
                 <form action="" method="get">
                     <input type="text" name="searchBox" placeholder="Browse for Events"/>
                     <button type="submit" name="search" class="searchbtn">Search  <i class="fa fa-search"></i></button>
+                    <select name="bycategory" class="ddlhistory">
+                        <option selected="selected" disabled>Order By: </option>
+                        <option value="dateAsc">Date (Ascending)</option>
+                        <option value="dateDesc">Date (Descending)</option>
+                    </select>
                 </form>
             </div>
         </div>

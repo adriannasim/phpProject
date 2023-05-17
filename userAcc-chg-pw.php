@@ -22,6 +22,7 @@
     </div>
     <?php
     include "config/config.php";
+    include "adminHelper.php";
     include "headerUser.php";
     global $hideForm; 
     $sql = "SELECT * FROM user WHERE UserID = '$UserID'";
@@ -35,9 +36,9 @@
         $newPsw = $_POST["new-pw"];
         $error = array(); 
 
-        if (strcmp($chkPsw, $oldPsw) == 1) {
+        if ($chkPsw != $oldPsw) {
             echo "<script>alert('Old Password is incorrect. Please try again');
-                        window.location = 'userAcc-chg-psw.php'</script>";
+                        window.location = 'userAcc-chg-pw.php'</script>";
         } else {
             $error['psw'] = checkUserPsw($newPsw);
             $error = array_filter($error);

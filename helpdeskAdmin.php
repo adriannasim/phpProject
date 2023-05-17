@@ -27,7 +27,7 @@
         <table class="helpdesk-view-table">
             <tr>
                 <?php
-                $sql = "SELECT * FROM helpdesk_support";
+                $sql = "SELECT * FROM helpdesk";
                 foreach ($header as $value) {
                     printf("
                         <th>%s</th>
@@ -39,19 +39,19 @@
             <?php
             if ($result = $connection->query($sql)) {
                 while ($record = $result->fetch_object()) {
-                    printf("<tr>
-                <td>%s</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpID'>Reply</a></button></td>
-            </tr>", $record->HelpID, $record->HelpDate, $record->HelpTime, $record->HelpMsg,
-                        $record->HelpReply
+                    printf("
+                    <tr>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td>%s</td>
+                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpID'>Reply</a></button></td>
+                    </tr>", $record->HelpID, $record->HelpDate, $record->HelpTime, $record->HelpMsg, $record->HelpReply
                     );
                 }
             }
-            ?>
+            ?>  
         </table>
 
     </div>

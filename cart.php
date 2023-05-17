@@ -159,26 +159,26 @@
                             <p>Exp Month</p>
                             <select name="by-month" class="expdate">
                         <option selected="selected" disabled>By Month</option>
-                        <option>Jan</option>
-                        <option>Feb</option>
-                        <option>Mar</option>
-                        <option>Apr</option>
-                        <option>May</option>
-                        <option>Jun</option>
-                        <option>Jul</option>
-                        <option>Aug</option>
-                        <option>Sep</option>
-                        <option>Oct</option>
-                        <option>Nov</option>
-                        <option>Dec</option>
+                        <option value='1'>Jan</option>
+                        <option value='2'>Feb</option>
+                        <option value='3'>Mar</option>
+                        <option value='4'>Apr</option>
+                        <option value='5'>May</option>
+                        <option value='6'>Jun</option>
+                        <option value='7'>Jul</option>
+                        <option value='8'>Aug</option>
+                        <option value='9'>Sep</option>
+                        <option value='10'>Oct</option>
+                        <option value='11'>Nov</option>
+                        <option value='12'>Dec</option>
                     </select>
                             <p>Exp Year</p>
                             <select name="by-year" class="expdate">
                         <option selected="selected" disabled>By Year</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
-                        <option>2026</option>
+                        <option value='2023'>2023</option>
+                        <option value='2024'>2024</option>
+                        <option value='2025'>2025</option>
+                        <option value='2026'>2026</option>
                     </select>
                             <p>CVV</p>
                             <input type="password" name="txtcvv" maxlength="3" placeholder="CVV" required/>
@@ -196,6 +196,9 @@
 </html>
 <?php
    if (isset($_POST['payment'])) {
+    //validations
+    
+
     $PaymentMethod = $_POST['rbpayment'];
     $sqlPayment = "UPDATE user u JOIN cart c 
         SET u.PaymentID = (SELECT PaymentID FROM payment WHERE PaymentType = '$PaymentMethod'),

@@ -62,11 +62,11 @@
                 $stmt->bind_param("ssss", $price, $type, $qty, $ticketID);
                 if ($stmt->execute()) {
                     echo "<div class='correct'> Event Ticket Data Updated !<br/><a href='eventTicketManage.php'>Back to Manage Event Tickets</a></div>";
-                } else {
-                    echo '<ul class="error">';
-                    printf("<p>%s</p>", implode("<p></p>", $error));
-                    echo '</ul>';
                 }
+            } else {
+                echo '<ul class="error">';
+                printf("<p>%s</p>", implode("<p></p>", $error));
+                echo '</ul>';
             }
         }
         ?>

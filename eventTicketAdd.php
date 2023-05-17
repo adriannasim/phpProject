@@ -101,7 +101,7 @@
                         <input type="text" name="qty" id="qty" value="<?php echo isset($_POST['qty']) ? $_POST['qty'] : '';?>"/>
                     </div>
                     <div class="addEvent-form-btn">
-                        <input type="reset" onclick="location = 'eventTicketAdd.php'"/>
+                        <input type="reset"/>
                         <input type="submit" value="Add" name="addEvent-form-submit"/>
                     </div>
                 </form>

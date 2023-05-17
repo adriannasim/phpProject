@@ -63,11 +63,11 @@
                 $stmt->bind_param("ssssss", $name, $date, $time, $venue, $desc, $id);
                 if ($stmt->execute()) {
                     echo "<div class='correct'> Event Data Updated !<br/><a href='eventManage.php'>Back to Manage Events</a></div>";
-                } else {
-                    echo '<ul class="error">';
-                    printf("<li>%s</li>", implode("<li></li>", $error));
-                    echo '</ul>';
                 }
+            } else {
+                echo '<ul class="error">';
+                printf("<li>%s</li>", implode("<li></li>", $error));
+                echo '</ul>';
             }
         }
         ?>

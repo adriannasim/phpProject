@@ -22,6 +22,7 @@
     </div>
     <?php
     include "config/config.php"; 
+    include "adminHelper.php";
     include "headerUser.php";
     global $hideForm; 
     $sql = "SELECT * FROM user WHERE UserID = '$UserID'";
