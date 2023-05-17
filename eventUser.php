@@ -53,6 +53,11 @@
                 <form action="" method="get">
                     <input type="text" name="searchBox" placeholder="Browse for Events"/>
                     <button type="submit" name="search" class="searchbtn">Search  <i class="fa fa-search"></i></button>
+                    <div class="event-sort">
+                    <label for="sort-btn">Sort By Date :  </label>
+                    <input type="button" name="sort-btn" value="Latest ⬇">
+                    <input type="button" name="sort-btn" value="Oldest ⬆">
+                    </div>
                 </form>
             </div>
         </div>

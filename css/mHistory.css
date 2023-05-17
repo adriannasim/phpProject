@@ -35,11 +35,10 @@ h1{
     width: 220px;
     height: 40px;
     margin: 20px;
-    margin-left: 100px;
     cursor: pointer;
     transition: all .3s ease; 
 }
-.history-btn button{
+.history-btn button, .merch-sort input{
     width: 100px;
     font-size: 16px;
     text-align: center;
@@ -52,6 +51,9 @@ h1{
     cursor: pointer;
     transition: all .3s ease;
 }
+.merch-sort input{
+    margin: 10px;
+}
 .controlbtn button{
     margin-top: 50px;
     font-weight: bold;
@@ -61,7 +63,7 @@ h1{
     top: 0;
     left: 920px;
 }
-.history-btn button:hover, .ddlhistory:hover, .controlbtn button:hover{
+.history-btn button:hover, .ddlhistory:hover, .controlbtn button:hover, .merch-sort input:hover{
     transform: scale(1.1); 
     background-color: black;
     color: white;

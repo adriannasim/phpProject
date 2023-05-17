@@ -159,7 +159,7 @@
                     ?>
                     </div>
             <div class="addMerch-form-btn">
-                <input type="reset" onclick="location = 'merchAdd.php'" />
+                <input type="reset"/>
                 <input type="submit" value="Add" name="addMerch-form-submit" />
             </div>
         </form>

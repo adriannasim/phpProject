@@ -31,10 +31,10 @@
                 <div class="editEvents-searchBar">
                     <input type="text" name="eventName" id="eventName" placeholder="Enter Event Name" />
                     <button type="submit" class="editEvents-searchBtn" name="search">Search <i
-                            class="fa fa-search"></i></button>
-
-        </div>
-        </form>
+                            class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
         <table class="event-details">
             <?php
             if (isset($_GET['search'])) {

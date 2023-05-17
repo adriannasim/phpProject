@@ -29,8 +29,12 @@
                         <ul>
                             <li><a href="merch.php">View Products</a></li>
                             <li><a href="mHistory.php">Merch Purchase History</a></li>
+                            <li><a href="merch.php">Product Reviews</a></li>
                         </ul>
                     </div>
+                </div>
+                <div class="header-navBtn">
+                    <li class="header-btn"><a href="eventUser.php">Feedback</a></li>
                 </div>
             </ul>
             <li class="header-navBtn-right"><a href="userAcc.php"><img src="img/header/user.png" width="30px"

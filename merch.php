@@ -52,7 +52,7 @@
             } else if ($_GET['search'] == 'hats') {
                 $sql = "SELECT * FROM merch_info WHERE Category LIKE 'Hats' ORDER BY MerchID;";
             } else if ($_GET['search'] == 'totebag') {
-                $sql = "SELECT * FROM merch_info WHERE Category LIKE 'Totebag' ORDER BY MerchID;";
+                $sql = "SELECT * FROM merch_info WHERE Category LIKE 'Totebags' ORDER BY MerchID;";
             } else if ($_GET['search'] == 'all') {
                 $sql = "SELECT * FROM merch_info ORDER BY MerchID;";
             }
