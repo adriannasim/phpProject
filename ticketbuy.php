@@ -1,6 +1,11 @@
 <?php
 session_start();
-include("config/config.php");
+include "config/config.php";
+$UserID = $_SESSION['UserID'];
+
+if ($UserID == '') {
+    header("location: index.php");
+}
 
 // Check if the event ID is set in the URL
 if (isset($_GET['event_id'])) {
@@ -25,18 +30,26 @@ if (isset($_GET['event_id'])) {
     exit;
 }
 
-$show_total_price = false;
-$total_price = 0.00;
-
+/*
+// Process the form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $ticket_type = isset($_POST['ticket_type']) ? $_POST['ticket_type'] : '';
-    $ticket_qty = isset($_POST['ticket_qty']) ? $_POST['ticket_qty'] : '';
+    $ticket_type = $_POST['ticket_type'];
+    $ticket_qty = $_POST['ticket_qty'];
 
-    // Calculate total price
+    // Insert ticket data into the database
     $ticket_price = ($ticket_type == 'VIP') ? 40.00 : 20.00;
     $total_price = $ticket_price * $ticket_qty;
-    $show_total_price = true;
+
+    $cart_id = $_SESSION['CartID'];
+    $tbuy_qty = mysqli_real_escape_string($connection, $ticket_qty);
+
+    $sql_insert = "INSERT INTO ticket_buy (CartID, TicketType, TbuyQty) VALUES ('$cart_id', '$ticket_type', '$tbuy_qty')";
+    mysqli_query($connection, $sql_insert);
+
+    // Display a success message
+    echo "Ticket added to cart successfully!";
 }
+*/
 ?>
 
 <html>
@@ -65,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <td><b>Event Date</b></td> 
                         <td>: <?php echo $event_date; ?></td>
                     </tr>
-                    <?php if (!$show_total_price): ?>
                     <tr>
                         <td><b>Ticket Type</b></td>
                         <td>:
@@ -79,34 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <td><b>Quantity</b></td>
                         <td>: <input type="number" name="ticket_qty" min="1" required></td>
                     </tr>
-                    <?php endif; ?>
-                    <?php if ($show_total_price): ?>
-                    <tr>
-                        <td><b>Ticket Type</b></td>
-                        <td>: <?php echo $ticket_type; ?></td>
-                    </tr>
-                    <tr>
-                        <td><b>Quantity</b></td>
-                        <td>: <?php echo $ticket_qty; ?></td>
-                    </tr>
-                    <tr>
-                        <td><b>Total Price</b></td>
-                        <td>: RM<?php echo number_format($total_price, 2); ?></td>
-                    </tr>
-                    <?php endif; ?>
                 </table>
                 <br>
-                <?php if (!$show_total_price): ?>
-                <button type="submit">Calculate Total Price</button>
-                <?php else: ?>
-                <button type="submit">Confirm</button>
-                <?php endif; ?>
+                <button type="submit">Add to cart</button>
             </form>
         </div>
     </div>
 
     <br><br>
 
-    <?php include "footerUser.php"?>        
-    </body>
+    <?php include "footerUser.php"?>
+</body>
 </html>
+
+

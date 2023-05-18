@@ -1,0 +1,189 @@
+.feedback{
+    width: 100%;
+    max-width: 780px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 1px 16px rgb(237, 234, 234);
+    color:black;
+    font-size: 18px;
+    font-family: Cambria;
+}
+
+.divider-hr{
+    width: 100%;
+  }
+
+.feedback form input,
+.feedback form textarea{
+    width: 100%;
+    border: 3px solid #ddd;
+}
+
+.star-rating {
+  display: inline-block;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  float: right;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star-rating label:before {
+  content: "\2605";
+  font-size: 60px;
+  
+}
+
+.star-rating input:checked ~ label {
+  color: #ffca08;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffca08;
+}
+
+  span.scale-rating{
+  margin: 5px 0 15px;
+      display: inline-block;
+     
+      width: 100%;
+     
+  }
+  span.scale-rating>label {
+    position:relative;
+      -webkit-appearance: none;
+    outline:0 !important;
+      border: 1px solid grey;
+      height:33px;
+      margin: 0 5px 0 0;
+    width: calc(10% - 7px);
+      float: left;
+    cursor:pointer;
+  }
+
+  span.scale-rating label {
+    position:relative;
+      -webkit-appearance: none;
+    outline:0 !important;
+      height:33px;
+        
+      margin: 0 5px 0 0;
+    width: calc(10% - 7px);
+      float: left;
+    cursor:pointer;
+  }
+
+  span.scale-rating input[type=radio] {
+    position:absolute;
+      -webkit-appearance: none;
+    opacity:0;
+    outline:0 !important;
+      /*border-right: 1px solid grey;*/
+      height:33px;
+   
+      margin: 0 5px 0 0;
+    
+    width: 100%;
+      float: left;
+    cursor:pointer;
+    z-index:3;
+  }
+
+  span.scale-rating label:hover{
+  background:#fddf8d;
+  }
+
+  span.scale-rating input[type=radio]:last-child{
+  border-right:0;
+  }
+
+  span.scale-rating label input[type=radio]:checked ~ label{
+      -webkit-appearance: none;
+   
+      margin: 0;
+    background:#fddf8d;
+  }
+
+  span.scale-rating label:before
+  {
+    content:attr(value);
+      top: 7px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      vertical-align: middle;
+    z-index:2;
+  }
+
+  .center-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.backHome{
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 2px rgba(25, 122, 167, 0.434) solid;
+    font-size: 18px;
+    font-family: Cambria;
+    
+}
+
+.backHome:hover {
+    transform: scale(1.2) ;
+    box-shadow:0 0 15px 4px rgba(25, 122, 167, 0.434);
+}
+
+.feedbackTable {
+  margin: 0 auto;
+  max-width: 1000px; 
+}
+
+.feedbackTable table {
+  width: 100%;
+  border-collapse:collapse;
+  font-size: 18px;
+}
+
+.feedbackTable th, .feedbackTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.feedbackTable th {
+  background-color: #f2f2f2;
+  color:darkcyan;
+}
+
+.deleteButton {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
