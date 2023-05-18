@@ -13,10 +13,12 @@
         <title>E-sports Events</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         <link href="css/event.css" rel="stylesheet" type="text/css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
         <?php include "headerUser.php";
-        $sql = "SELECT * FROM event";
+        $order = isset($_GET['order']) ? $_GET['order'] : 'asc';
+        $sql = "SELECT * FROM event ORDER BY EventDate $order";
         $result = mysqli_query($connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             $i = 0;
@@ -53,9 +55,9 @@
                     <input type="text" name="searchBox" placeholder="Browse for Events"/>
                     <button type="submit" name="search" class="searchbtn">Search  <i class="fa fa-search"></i></button>
                     <div class="event-sort">
-                    <label for="sort-btn">Sort By Date :  </label>
-                    <input type="button" name="sort-btn" value="Latest ⬇">
-                    <input type="button" name="sort-btn" value="Oldest ⬆">
+                        <label for="sort-btn">Sort By Date :  </label>
+                        <input type="button" id="sort-latest" value="Latest ⬇"/>
+                        <input type="button" id="sort-oldest" value="Oldest ⬆"/>
                     </div>
                 </form>
             </div>
@@ -134,5 +136,38 @@
     
         </div> 
         <?php include "footerUser.php"; ?>
+        <script>
+            $(document).ready(function() {
+                $('#sort-latest').click(function() {
+                    var order = 'desc';
+                    
+                    $.ajax({
+                        url: 'eventUser.php',
+                        type: 'GET',
+                        data: {
+                            order: order
+                        },
+                        success: function(response) {
+                            $('.events').parent().html(response);
+                        }
+                    });
+                });
+                
+                $('#sort-oldest').click(function() {
+                    var order = 'asc';
+                    
+                    $.ajax({
+                        url: 'eventUser.php',
+                        type: 'GET',
+                        data: {
+                            order: order
+                        },
+                        success: function(response) {
+                            $('.events').parent().html(response);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

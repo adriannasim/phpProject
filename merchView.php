@@ -20,10 +20,10 @@
     include "headerAdmin.php"; ?>
     <?php
     $header = array(
-        'MbuyID' => 'Order ID',
-        'MerchID' => 'Product ID',
-        'CartID' => 'Cart ID',
-        'MbuyQty' => 'Quantity'
+        'Order ID',
+        'Product ID',
+        'Cart ID',
+        'Quantity'
     );
     ?>
     <div class="merchAdmin-header">
@@ -32,7 +32,7 @@
     <form action='' method='post'>
         <table class="order-info">
         <?php
-        $sql = "SELECT * FROM merch_buy mb JOIN cart c ON mb.CartID = c.CartID GROUP BY MbuyID";
+        $sql = "SELECT * FROM merch_buy mb JOIN cart c ON mb.CartID = c.CartID JOIN purchase p ON c.CartID = p.CartID GROUP BY MbuyID";
         foreach ($header as $value) {
             printf("
             <th>%s</th>
@@ -41,7 +41,7 @@
         if (isset($_POST['viewMerch-update'])) {
             if (isset($_POST['status'])) {
                 $CartID = $_POST['status'];
-                $update = "UPDATE cart SET checkout = '1' WHERE cart.CartID = '$CartID'";
+                $update = "UPDATE purchase SET Status = 'Completed' WHERE CartID = '$CartID'";
                 $stmt = $connection->prepare($update);
                 if ($stmt->execute()) {
                     echo "<script>alert('Orders Updated !');
@@ -51,7 +51,7 @@
             }
             else if (isset($_POST['revert'])) {
                 $CartID = $_POST['revert'];
-                $update = "UPDATE cart SET checkout = '0' WHERE cart.CartID = '$CartID'";
+                $update = "UPDATE purchase SET Status = 'Pending' WHERE CartID = '$CartID'";
                 $stmt = $connection->prepare($update);
                 if ($stmt->execute()) {
                     echo "<script>alert('Orders Updated !');
@@ -67,11 +67,6 @@
         <?php
         if ($result = $connection->query($sql)) {
             while ($record = $result->fetch_object()) {
-                if (($record->checkout) == 1) {
-                    $status = "Completed";
-                } else {
-                    $status = "Pending";
-                }
                 printf("
                         <tr class='order-details'>
                         <td>%s</td>
@@ -82,7 +77,7 @@
                         <td><input type='checkbox' value='%s' name='status'><span class='chkbox'></span></td>
                         <td><input type='checkbox' value='%s' name='revert'><span class='chkbox'></span></td>
                         </tr>
-                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $status, $record->MbuyID, $record->MbuyID);
+                    ", $record->MbuyID, $record->MerchID, $record->CartID, $record->MbuyQty, $record->Status, $record->CartID, $record->CartID);
             }
         }
         $result->free();
