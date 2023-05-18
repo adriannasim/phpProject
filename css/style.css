@@ -1118,6 +1118,7 @@ td {
     width: 300px;
     height: 400px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 .event-box{
     width: 320px;
@@ -1171,7 +1172,7 @@ td {
     height: 480px;
     box-sizing: border-box;
     margin: 30px;
-    margin-bottom: 90px;
+    margin-bottom: 140px;
 }
 .ranking img:hover{
     cursor: pointer;

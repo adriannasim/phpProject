@@ -32,7 +32,6 @@
                         <ul>
                             <li><a href="merch.php">View Products</a></li>
                             <li><a href="mHistory.php">Merch Purchase History</a></li>
-                            <li><a href="merchReview.php">Product Reviews</a></li>
                         </ul>
                     </div>
                 </div>

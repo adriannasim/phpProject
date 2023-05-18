@@ -48,17 +48,17 @@ if ($UserID == '') {
         <div class="merch-box">
             <h3>Merch Name</h3>
             <img src="/img/merch/M0001.jpg">
-            <button class="home-merch-btn">Get Yours Now</button>
+            <a href="merchBuy.php?"><button class="home-merch-btn">Get Yours Now</button></a>
         </div>
         <div class="merch-box">
             <h3>Merch Name</h3>
             <img src="/img/merch/M0002.jpg">
-            <button class="home-merch-btn">Get Yours Now</button>
+            <a href="merchBuy.php?"><button class="home-merch-btn">Get Yours Now</button></a>
         </div>
         <div class="merch-box">
             <h3>Merch Name</h3>
             <img src="/img/merch/M0003.jpg">
-            <button class="home-merch-btn">Get Yours Now</button>
+            <a href="merchBuy.php?"><button class="home-merch-btn">Get Yours Now</button></a>
         </div>
         <div class="ranking">
             <img src="/img/home/second.jpg" id="second">
