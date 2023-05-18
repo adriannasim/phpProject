@@ -60,7 +60,12 @@
     }
     ?>
     <div class="user-image">
+        <?php if ($ProfilePic != ''): ?>
+        <img src="data:image;base64,<?php echo $ProfilePic; ?>" width="200px"/>
+        <?php endif ?>
+        <?php if ($ProfilePic == ''): ?>
         <img src="img/login/user-icon.png" width="200px" />
+        <?php endif ?>
     </div>
     <div class="user-info">
         <form method="post">

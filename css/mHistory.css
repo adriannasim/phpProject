@@ -79,13 +79,28 @@ h1{
     text-align: center;
 }
 .prodHistory{
+    display: flexbox;
     width: 100%;
     justify-content: center;
     align-items: center;
     margin: 50px 0;
 }
+#prodbox-date{
+    margin-top: -30px;
+    width: 60%;
+    text-align: center;
+    background-color: white;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    font-family: cambria;
+    letter-spacing: .1em;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 10px;
+}
 .prod-box{
     width: 20%;
+    height: 75%;
     margin: 5px 30px 30px 30px;
     box-sizing: border-box;
     float: left;

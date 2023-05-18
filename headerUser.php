@@ -12,6 +12,9 @@
         <div class="header-navBar">
             <ul>
                 <div class="header-navBtn">
+                    <li class="header-btn"><a href="home.php">Home</a></li>
+                </div>
+                <div class="header-navBtn">
                     <li class="header-btn"><a href="eventUser.php">Browse Events</a></li>
                 </div>
                 <div class="header-dropdown">
@@ -24,12 +27,11 @@
                     </div>
                 </div>
                 <div class="header-dropdown">
-                    <li class="header-dropBtn"><a href="">Our Merchandise</a></li>
+                    <li class="header-dropBtn"><a href="merch.php">Our Merchandise</a></li>
                     <div class="header-dropctn">
                         <ul>
                             <li><a href="merch.php">View Products</a></li>
                             <li><a href="mHistory.php">Merch Purchase History</a></li>
-                            <li><a href="merch.php">Product Reviews</a></li>
                         </ul>
                     </div>
                 </div>
