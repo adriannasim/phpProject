@@ -35,7 +35,6 @@
         ?>
         <div class="ebanner">
             <figure>
-                <a href="homepage.php"><img src="img/event/b1.png" id="b1"></a>
                 <?php
                 for ($j = 0; $j < count($EventID); $j++) {
                     printf("<a href='#%s'><img src='img/event/%s.png' id='%s'></a>", $EventID[$j], $EventID[$j], $EventID[$j]);
@@ -44,7 +43,7 @@
                 <a href="ticket.php"><img src="img/event/b5.png" id="b5"></a>
                 <img src="img/event/b6.png" id="b6"/>
                 <a href="merch.php"><img src="img/merch/merch-banner.png" alt="alt" id="b7"/></a>
-                <img src="img/event/b1.png" id="b1"/>
+                <img src="img/event/CA001.png" id="b1"/>
             </figure>
         </div>
         <h1>Events</h1>
