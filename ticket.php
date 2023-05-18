@@ -57,18 +57,18 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=1'">Register Now !</button>
+        <button class="ticket-button" onclick="window.location.href = 'ticketbuy.php?event_id=CA001'">Register Now !</button>
       </div> 
   </div>
 
-    <br><br><br><br>
+<br><br><br><br>
 
-      <div class="ticket-container">
-          <img src="img/ticket/b3.png" alt="Valorant" class="ticket-container-image">
-          <div class="ticket-overlay">
-              <h2>VALORANT: Battle Of The Ace</h2>
-              <div class="ticket-overlay1">
-              <table>
+<div class="ticket-container">
+    <img src="img/ticket/b3.png" alt="Valorant" class="ticket-container-image">
+    <div class="ticket-overlay">
+        <h2>VALORANT: Battle Of The Ace</h2>
+        <div class="ticket-overlay1">
+            <table>
                 <tr>
                     <td><b>Fee</b></td> 
                     <td></td>
@@ -84,18 +84,18 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=2'">Register Now !</button>
-      </div> 
-  </div>
+        <button class="ticket-button" onclick="window.location.href = 'ticketbuy.php?event_id=FA001'">Register Now !</button>
+    </div> 
+</div>
 
-      <br><br><br><br>
+<br><br><br><br>
 
-      <div class="ticket-container">
-          <img src="img/ticket/b4.png" alt="War Zone" class="ticket-container-image">
-          <div class="ticket-overlay">
-              <h2>War Zone S2</h2>
-              <div class="ticket-overlay1">
-              <table>
+<div class="ticket-container">
+    <img src="img/ticket/b4.png" alt="War Zone" class="ticket-container-image">
+    <div class="ticket-overlay">
+        <h2>War Zone S2</h2>
+        <div class="ticket-overlay1">
+            <table>
                 <tr>
                     <td><b>Fee</b></td> 
                     <td></td>
@@ -111,9 +111,9 @@ if (mysqli_num_rows($result) > 0) {
             </table>
             <br>
         </div>
-        <button class="ticket-button" onclick="window.location.href = 'newticket.php?id=3'">Register Now !</button>
-      </div> 
-  </div>
+        <button class="ticket-button" onclick="window.location.href = 'ticketbuy.php?event_id=CA004'">Register Now !</button>
+    </div> 
+</div>
     <br><br>  
 
     <?php include "footerUser.php"?>        
