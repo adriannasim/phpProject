@@ -46,11 +46,29 @@ if ($UserID == '') {
         $error = array_filter($error);
 
         if ((empty($error))) {
-            $sql1 = "UPDATE user SET Name = '$Name', Email = '$Email', Tel = '$TelNo'";
-            $result1 = mysqli_query($connection, $sql1);
-            if ($result1) {
-                echo "<script>alert('Info updated.');
-                    window.location = 'userAcc.php'</script>";
+            if ($_FILES["profile-pic"]["error"] == UPLOAD_ERR_OK) {
+                $temp_name = $_FILES["profile-pic"]["tmp_name"];
+                $file_data = base64_encode(file_get_contents(addslashes($temp_name)));
+
+                $sql1 = "UPDATE user SET Name = '$Name', Email = '$Email', Tel = '$TelNo', ProfilePic = '$file_data' WHERE UserID = '$UserID'";
+                $stmt = $connection->prepare($sql1);
+                if($stmt->execute()) {
+                    echo "<script>alert('Info and profile picture updated.');
+                            window.location = 'userAcc.php'</script>";
+                } else {
+                    echo "<script>alert('Error in uploading file. Please try again.');
+                            window.location = 'userAcc.php'</script>";
+                }
+                $stmt->close();
+            } else if ($_FILES["profile-pic"] == '') {
+                $sql1 = "UPDATE user SET Name = '$Name', Email = '$Email', Tel = '$TelNo' WHERE UserID = '$UserID'";
+                $result1 = mysqli_query($connection, $sql1);
+                if ($result1) {
+                    echo "<script>alert('Info updated.');
+                        window.location = 'userAcc.php'</script>";
+                }
+            } else {
+                echo "<script>File upload error: " . $_FILES["profile-pic"]["error"] . "</script>";
             }
         } else {
             echo "<div class='addEvent-form-error'>";
@@ -62,10 +80,15 @@ if ($UserID == '') {
     }
     ?>
     <div class="user-image">
+        <?php if ($ProfilePic != ''): ?>
+        <img src="data:image;base64,<?php echo $ProfilePic; ?>" width="200px"/>
+        <?php endif ?>
+        <?php if ($ProfilePic == ''): ?>
         <img src="img/login/user-icon.png" width="200px" />
+        <?php endif ?>
     </div>
     <div class="user-info">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <table class="user-info-edit-table">
                 <div class="add-profile-pic">
                     <tr>
@@ -94,7 +117,7 @@ if ($UserID == '') {
                 <tr class="user-manage-btn">
                     <td colspan="2"><a href="userAcc-edit.php" id="user-manage-reset"><button
                                 type="reset">Reset</button></a>
-                        <a href="" id="user-manage-submit"><button type="submit" name="submit">Submit</button></a>
+                        <button type="submit" name="submit">Submit</button>
                     </td>
                 </tr>
             </table>
