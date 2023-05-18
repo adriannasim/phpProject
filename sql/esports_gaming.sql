@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 02:08 AM
+-- Generation Time: May 18, 2023 at 02:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -85,6 +85,20 @@ INSERT INTO `event` (`EventID`, `EventName`, `EventDate`, `EventTime`, `EventVen
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `helpdesk`
+--
+
+CREATE TABLE `helpdesk` (
+  `HelpdeskID` varchar(5) NOT NULL,
+  `AskDatetime` datetime NOT NULL,
+  `ReplyDatetime` datetime NOT NULL,
+  `AskContent` varchar(500) NOT NULL,
+  `ReplyContent` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `merch_buy`
 --
 
@@ -134,6 +148,22 @@ INSERT INTO `merch_info` (`MerchID`, `MerchPrice`, `MerchDesc`, `Material`, `Col
 ('M0006', 75.00, 'Typical Gamer Sweater', 'Fabric', 'Pink', 'Casual', 'Regular Fit', 'Hoodie/Sweater', 'FreeSize', 30),
 ('M0007', 50.00, 'Hipster T-Shirt', 'Cotton', 'Black', 'Casual', 'Regular Fit', 'T-Shirt', 'UniSize', 30),
 ('M0008', 40.00, 'Air Force Gaming Baseball Cap', 'Fabric', 'Blue', 'Trendy', 'Baseball Cap', 'Hats', 'FreeSize', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paydet`
+--
+
+CREATE TABLE `paydet` (
+  `PayDetID` varchar(5) NOT NULL,
+  `UserID` varchar(5) NOT NULL,
+  `CardName` varchar(30) NOT NULL,
+  `CardNo` varchar(19) NOT NULL,
+  `CardExp` date NOT NULL,
+  `PaymentID` varchar(5) NOT NULL,
+  `Cvv` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -480,7 +510,6 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `purchase`
   ADD PRIMARY KEY (`PurchaseID`),
-  ADD UNIQUE KEY `UserID` (`UserID`),
   ADD UNIQUE KEY `CartID` (`CartID`);
 
 --
