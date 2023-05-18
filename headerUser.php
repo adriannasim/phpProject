@@ -12,6 +12,9 @@
         <div class="header-navBar">
             <ul>
                 <div class="header-navBtn">
+                    <li class="header-btn"><a href="home.php">Home</a></li>
+                </div>
+                <div class="header-navBtn">
                     <li class="header-btn"><a href="eventUser.php">Browse Events</a></li>
                 </div>
                 <div class="header-dropdown">
@@ -34,7 +37,7 @@
                     </div>
                 </div>
                 <div class="header-navBtn">
-                    <li class="header-btn"><a href="eventUser.php">Feedback</a></li>
+                    <li class="header-btn"><a href="feedback.php">Feedback</a></li>
                 </div>
             </ul>
             <li class="header-navBtn-right"><a href="userAcc.php"><img src="img/header/user.png" width="30px"

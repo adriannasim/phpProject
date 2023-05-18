@@ -30,12 +30,12 @@
                         <option value="All">All</option>
                         <option value="T-Shirt">T-Shirts</option>
                         <option value="Hoodie/Sweater">Hoodie/Sweater</option>
-                        <option value="Hats">Hats</option>
+                        <option value="Hats">Hats</option> 
                         <option value="Totebags">Tote Bags</option>
                     </select>
                     <button type="submit" name="search" class="hsfilterbtn">Search <i class="fa fa-search"></i></button>
                     <div class="merch-sort">
-                    <label for="sort-btn">Sort By Date :  </label>
+                    <label for="sort-btn">Sort By Purchase :  </label>
                     <input type="button" name="sort-btn" value="Latest ⬇">
                     <input type="button" name="sort-btn" value="Oldest ⬆">
                     </div>
@@ -85,6 +85,7 @@
                     printf("
                     <div class='prodHistory'>
                         <div class='prod-box'>
+                        <input type='text' id='prodbox-date' value='CART ID #%s' disabled>
                             <img src='img/merch/%s.jpg' alt='alt'/>
                             <div class='box-content'>
                                 <h3>%s</h3>
@@ -95,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                    ",$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID, $merchRec->Status);
+                    ",$merchRec->CartID,$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID, $merchRec->Status);
                 }
             } else {
                 printf(" 
@@ -119,6 +120,7 @@
                     printf("
                     <div class='prodHistory'>
                         <div class='prod-box'>
+                        <input type='text' id='prodbox-date' value='CART ID #%s' disabled>
                             <img src='img/merch/%s.jpg' alt='alt'/>
                             <div class='box-content'>
                                 <h3>%s</h3>
@@ -129,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    ",$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID, $merchRec->Status);
+                    ",$merchRec->CartID,$merchRec->MerchID, $merchRec->MerchDesc, $merchRec->MerchPrice, $merchRec->MbuyQty, $merchRec->MbuyID, $merchRec->Status);
                 }
             } else {
                 printf(" 
