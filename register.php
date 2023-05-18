@@ -27,8 +27,8 @@
         echo $UserID;
         echo $Password;   
         if((empty($error))) {
-            $sqlReg = "INSERT INTO user (UserID, PaymentID, Password, Name, Email, Tel)
-                VALUES ('$UserID', NULL, '$Password', '$Name', '$Email', '$TelNo')";
+            $sqlReg = "INSERT INTO user (UserID, Password, Name, Email, Tel)
+                VALUES ('$UserID', '$Password', '$Name', '$Email', '$TelNo')";
             $result = mysqli_query($connection, $sqlReg);
             if ($result) {
                 echo "<script>alert('Registration successful.');
