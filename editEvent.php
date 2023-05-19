@@ -51,8 +51,18 @@
             $time = trim($_POST["time"]);
             $venue = trim($_POST["venue"]);
             $desc = trim($_POST["desc"]);
-
             $error = array();
+
+            if ($date == NULL) {
+                $error['eventDate'] = '⚠ Please enter the event date';
+            } else if ($date < date('Y-m-d')){
+                $error['eventDate'] = '⚠ Please enter the event date after today\'s date';
+            }
+
+            if ($time == NULL) {
+                $error['eventTime'] = '⚠ Please enter the event time';
+            }
+
             $error['name'] = checkEventName($name);
             $error['venue'] = checkEventVenue($venue);
             $error['desc'] = checkEventDesc($desc);
@@ -77,7 +87,7 @@
                 <table class="edit-form-table">
                     <tr>
                         <th>Event ID : </th>
-                        <td><?php echo $id;?><input type="text" name="id" id="id" value="<?php echo $id;?>" hidden/></td>
+                        <td class="editevent-id"><?php echo $id;?><input type="text" name="id" id="id" value="<?php echo $id;?>" hidden/></td>
                     </tr>
                     <tr>
                         <th>Event Name : </th>

@@ -49,6 +49,8 @@ if ($UserID == '') {
 
                 if ($date == NULL) {
                     $error['eventDate'] = '⚠ Please enter the event date';
+                } else if ($date < date('Y-m-d')){
+                    $error['eventDate'] = '⚠ Please enter the event date after today\'s date';
                 }
 
                 if ($time == NULL) {

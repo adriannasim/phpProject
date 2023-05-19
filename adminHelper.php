@@ -47,6 +47,11 @@ function checkUserPsw($Password){
         return "⚠ Maximum 50 characters for Password";
     }
 }
+function checkUserQues($Question){
+    if($Question == NULL){
+        return "⚠ Please enter your security question answer";
+    }
+}
 /*End of user validation*/
 
 /*Start of eventAdd.php validation*/
@@ -196,4 +201,11 @@ function checkProdQty($qty){
 }
 /*End of merchAdd.php validation*/
 
+function checkHelpdeskReply($reply){
+    if($reply==NULL){
+        return "⚠ Please enter your reply";
+    }else if(!preg_match("/^[\w!-_,.\?]{10,}$/", $reply)){
+        return "⚠ Illegal character detected";
+    }
+}
 ?>

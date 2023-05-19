@@ -26,41 +26,15 @@
     );
     ?>
     <div class="helpdeskAdmin-header">
-        <h1>Admin HelpDesk</h1>
+        <h1>Manage Enquiries</h1>
     </div>
     <div class="helpdesk-view">
         <table class="helpdesk-view-table">
+        <div class="helpdesk-header">
+                <h2 id="pending-hd">Pending Enquiries</h2>
+            </div>
             <tr>
-                <?php
-                $sql = "SELECT * FROM helpdesk";
-                foreach ($header as $value) {
-                    printf("
-                        <th>%s</th>
-                         ", $value);
-                }
-                ?>
-                <th>Action</th>
-            </tr>
             <?php
-            if ($result = $connection->query($sql)) {
-                while ($record = $result->fetch_object()) {
-                    printf("
-                    <tr>
-                        <td class='help-id'>%s</td>
-                        <td class='help-time'>%s</td>
-                        <td class='help-time'>%s</td>
-                        <td class='content'>%s</td>
-                        <td class='content'>%s</td>
-                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Reply</a></button></td>
-                    </tr>", $record->HelpdeskID, $record->AskDatetime, $record->ReplyDatetime, $record->AskContent, $record->ReplyContent
-                    );
-                }
-            }
-            ?>  
-        </table>
-        <table class="helpdesk-view-table">
-            <tr>
-                <?php
                 $sql = "SELECT * FROM helpdesk";
                 foreach ($header2 as $value) {
                     printf("
@@ -73,7 +47,8 @@
             <?php
             if ($result = $connection->query($sql)) {
                 while ($record = $result->fetch_object()) {
-                    printf("
+                    printf(
+                        "
                     <tr>
                         <td class='help-id'>%s</td>
                         <td class='help-time2'>%s</td>
@@ -83,7 +58,40 @@
                     );
                 }
             }
-            ?>  
+            ?>
+        </table>
+        <table class="helpdesk-view-table">
+        <div class="helpdesk-header">
+                <h2 id="answered-hd">Answered Enquiries</h2>
+            </div>
+            <tr>
+            <?php
+                $sql = "SELECT * FROM helpdesk";
+                foreach ($header as $value) {
+                    printf("
+                        <th>%s</th>
+                         ", $value);
+                }
+                ?>
+                <th>Action</th>
+            </tr>
+            <?php
+            if ($result = $connection->query($sql)) {
+                while ($record = $result->fetch_object()) {
+                    printf(
+                        "
+                    <tr>
+                        <td class='help-id'>%s</td>
+                        <td class='help-time'>%s</td>
+                        <td class='help-time'>%s</td>
+                        <td class='content'>%s</td>
+                        <td class='content'>%s</td>
+                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Edit</a></button></td>
+                    </tr>", $record->HelpdeskID, $record->AskDatetime, $record->ReplyDatetime, $record->AskContent, $record->ReplyContent
+                    );
+                }
+            }
+            ?>
         </table>
 
     </div>
