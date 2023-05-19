@@ -14,20 +14,8 @@
             <div class="helpUser-form">
                 <?php
                 if(!empty($_POST)) {
-                    $name = trim($_POST['name']);
-                    $email = trim($_POST['email']);
                     $msg = trim($_POST['msg']);
                     $error = array();
-                    $emailPattern = '/^[a-z][_a-z0-9-]+(\.[_a-z0-9-]+)*@([a-z0-9-]{2,})+(\.[a-z0-9-]{2,})*$/';
-                    if($name == NULL) {
-                        $error['name'] = 'Please enter your name';
-                    }
-                
-                    if ($email == NULL) {
-                        $error['email'] = 'Please enter your email';
-                    } else if (!preg_match($emailPattern, $email)) {
-                        $error['email'] = 'Please enter a valid email';
-                    }
                 
                     if($msg == NULL) {
                         $error['msg'] = 'Please enter your message';
@@ -52,15 +40,13 @@
                 ?>
                 <form action="" method="post">
                     <div class="helpUser-form-group">
-                        <input type="text" name="name" id="name" placeholder="Name"/>
-                    </div>
-                    <div class="helpUser-form-group">
-                        <input type="email" name="email" id="email" placeholder="Email"/>
+                        <input type="text" name="subject" id="subject" placeholder="Subject"/>
                     </div>
                     <div class="helpUser-form-group">
                         <textarea name="msg" id="msg" placeholder="Message"></textarea>
                     </div>
                     <div class="helpUser-form-btn">
+                    <input type="reset" value="Reset" name="helpUser-form-reset" onclick="location='helpDeskUser.php'"/>
                         <input type="submit" value="Submit" name="helpUser-form-submit"/>
                     </div>
                 </form>

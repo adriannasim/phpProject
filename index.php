@@ -10,7 +10,7 @@
         $row = mysqli_fetch_array($result);
         if (mysqli_num_rows($result) == 1) {
             $_SESSION["UserID"] = $UserID;
-            header("Location: eventUser.php");
+            header("Location: home.php");
         }
         else {
             echo "<script>alert('Incorrect USERNAME or PASSWORD. Please try again');

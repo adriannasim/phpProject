@@ -13,11 +13,16 @@
     include "headerAdmin.php"; ?>
     <?php
     $header = array(
-        'HelpID' => 'Enquiry ID',
-        'HelpDate' => 'Date Enquired',
-        'HelpTime' => 'Time Enquired',
-        'HelpMsg' => 'Enquiry',
-        'HelpReply' => 'Reply'
+        'HelpdeskID' => 'Enquiry ID',
+        'AskDatetime' => 'Date/Time Enquired',
+        'ReplyDatetime' => 'Date/Time Replied',
+        'AskContent' => 'Enquiry',
+        'ReplyContent' => 'Reply'
+    );
+    $header2 = array(
+        'HelpdeskID' => 'Enquiry ID',
+        'AskDatetime' => 'Date/Time Enquired',
+        'AskContent' => 'Enquiry'
     );
     ?>
     <div class="helpdeskAdmin-header">
@@ -41,13 +46,40 @@
                 while ($record = $result->fetch_object()) {
                     printf("
                     <tr>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td>%s</td>
-                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpID'>Reply</a></button></td>
-                    </tr>", $record->HelpID, $record->HelpDate, $record->HelpTime, $record->HelpMsg, $record->HelpReply
+                        <td class='help-id'>%s</td>
+                        <td class='help-time'>%s</td>
+                        <td class='help-time'>%s</td>
+                        <td class='content'>%s</td>
+                        <td class='content'>%s</td>
+                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Reply</a></button></td>
+                    </tr>", $record->HelpdeskID, $record->AskDatetime, $record->ReplyDatetime, $record->AskContent, $record->ReplyContent
+                    );
+                }
+            }
+            ?>  
+        </table>
+        <table class="helpdesk-view-table">
+            <tr>
+                <?php
+                $sql = "SELECT * FROM helpdesk";
+                foreach ($header2 as $value) {
+                    printf("
+                        <th>%s</th>
+                         ", $value);
+                }
+                ?>
+                <th>Action</th>
+            </tr>
+            <?php
+            if ($result = $connection->query($sql)) {
+                while ($record = $result->fetch_object()) {
+                    printf("
+                    <tr>
+                        <td class='help-id'>%s</td>
+                        <td class='help-time2'>%s</td>
+                        <td class='content2'>%s</td>
+                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Reply</a></button></td>
+                    </tr>", $record->HelpdeskID, $record->AskDatetime, $record->AskContent
                     );
                 }
             }

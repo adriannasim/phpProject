@@ -44,7 +44,7 @@ if ($UserID == '') {
         </div>
     </div>
     <div class="home-merch">
-        <h2>Top Selling Merch</h2>
+        <h2>Recommended Products</h2>
         <div class="merch-box">
             <h3>Merch Name</h3>
             <img src="/img/merch/M0001.jpg">
