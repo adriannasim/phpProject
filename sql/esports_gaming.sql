@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 06:14 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 19, 2023 at 07:25 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -86,18 +86,39 @@ INSERT INTO `event` (`EventID`, `EventName`, `EventDate`, `EventTime`, `EventVen
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `Name` varchar(30) NOT NULL,
+  `Stars` int(2) NOT NULL,
+  `RecPoints` int(3) NOT NULL,
+  `Comment` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `helpdesk`
 --
 
 CREATE TABLE `helpdesk` (
   `HelpdeskID` int(5) NOT NULL,
-  `UserID` varchar(5) NOT NULL,
+  `UserID` varchar(10) NOT NULL,
   `AskDatetime` datetime NOT NULL,
   `ReplyDatetime` datetime DEFAULT NULL,
   `Subject` varchar(30) NOT NULL,
   `AskContent` varchar(500) NOT NULL,
   `ReplyContent` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `helpdesk`
+--
+
+INSERT INTO `helpdesk` (`HelpdeskID`, `UserID`, `AskDatetime`, `ReplyDatetime`, `Subject`, `AskContent`, `ReplyContent`) VALUES
+(1, 'adrianna', '2023-05-20 00:48:43', '2023-05-20 01:10:48', 'test', 'test', 'testreply'),
+(2, 'adrianna', '2023-05-20 01:18:40', NULL, 'test1', 'testaskcontent1', NULL);
 
 -- --------------------------------------------------------
 
@@ -557,7 +578,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `helpdesk`
 --
 ALTER TABLE `helpdesk`
-  MODIFY `HelpdeskID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `HelpdeskID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `merch_buy`
