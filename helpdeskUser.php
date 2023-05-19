@@ -22,6 +22,8 @@
                     }
 
                     if((empty($error))) {
+                        $sql = "INSERT INTO Helpdesk (UserID, AskDatetime, Subject, AskContent) VALUES ('$UserID','','','')";
+                        
                         echo "<div class='helpUser-form-success'>";
                         printf("<p>
                                 Thank you for your message.<br/>We will get back to you as soon as possible.
