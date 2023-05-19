@@ -32,6 +32,7 @@ if ($UserID == '') {
             $Name = $record->Name;
             $Email = $record->Email;
             $TelNo = $record->Tel;
+            $ProfilePic = $record -> ProfilePic;
         }
     }
     if (isset($_POST["submit"])) {

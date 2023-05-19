@@ -1,7 +1,6 @@
 <?php
     session_start();
     include "config/config.php";
-    include "adminHelper.php";
     $UserID = $_SESSION['UserID'];
 
     if ($UserID == '') {
@@ -12,14 +11,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin HelpDesk</title>
+    <title>HelpDesk</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
     <?php
-    include "headerAdmin.php"; ?>
+    include "headerUser.php"; ?>
     <?php
     $header = array(
         'HelpdeskID' => 'Enquiry ID',
@@ -35,7 +34,7 @@
     );
     ?>
     <div class="helpdeskAdmin-header">
-        <h1>Manage Enquiries</h1>
+        <h1>Enquiries History</h1>
     </div>
     <div class="helpdesk-view">
         <table class="helpdesk-view-table">
@@ -44,14 +43,13 @@
             </div>
             <tr>
             <?php
-                $sql = "SELECT * FROM helpdesk WHERE ReplyContent IS NULL";
+                $sql = "SELECT * FROM helpdesk WHERE UserID = '$UserID' AND ReplyContent IS NULL";
                 foreach ($header2 as $value) {
                     printf("
                         <th>%s</th>
                          ", $value);
                 }
                 ?>
-                <th>Action</th>
             </tr>
             <?php
             if ($result = $connection->query($sql)) {
@@ -62,7 +60,6 @@
                         <td class='help-id'>%s</td>
                         <td class='help-time2'>%s</td>
                         <td class='content2'>%s</td>
-                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Reply</a></button></td>
                     </tr>", $record->HelpdeskID, $record->AskDatetime, $record->AskContent
                     );
                 }
@@ -75,14 +72,13 @@
             </div>
             <tr>
             <?php
-                $sql = "SELECT * FROM helpdesk WHERE ReplyContent IS NOT NULL";
+                $sql = "SELECT * FROM helpdesk WHERE UserID = '$UserID' AND ReplyContent IS NOT NULL";
                 foreach ($header as $value) {
                     printf("
                         <th>%s</th>
                          ", $value);
                 }
                 ?>
-                <th>Action</th>
             </tr>
             <?php
             if ($result = $connection->query($sql)) {
@@ -95,7 +91,6 @@
                         <td class='help-time'>%s</td>
                         <td class='content'>%s</td>
                         <td class='content'>%s</td>
-                        <td><button id='edit'><a href='helpdeskReply.php?id=$record->HelpdeskID'>Edit</a></button></td>
                     </tr>", $record->HelpdeskID, $record->AskDatetime, $record->ReplyDatetime, $record->AskContent, $record->ReplyContent
                     );
                 }

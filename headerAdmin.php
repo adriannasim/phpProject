@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="headerA-dropdown">
-                    <li class="headerA-dropBtn"><a href="">HelpDesk</a></li>
+                    <li class="headerA-dropBtn"><a href="helpdeskAdmin.php">HelpDesk</a></li>
                     <div class="headerA-dropctn">
                         <ul>
                             <li><a href="helpdeskAdmin.php">Manage Enquiries</a></li>

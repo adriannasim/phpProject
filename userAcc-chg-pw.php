@@ -29,6 +29,7 @@
     if ($result = $connection -> query($sql)) {
         while($record = $result->fetch_object()) {
             $chkPsw = $record -> Password;
+            $ProfilePic = $record -> ProfilePic;
         }
     }
     if(isset($_POST["submit"])) {

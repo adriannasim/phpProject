@@ -200,12 +200,3 @@ function checkProdQty($qty){
     }
 }
 /*End of merchAdd.php validation*/
-
-function checkHelpdeskReply($reply){
-    if($reply==NULL){
-        return "⚠ Please enter your reply";
-    }else if(!preg_match("/^[\w!-_,.\?]{10,}$/", $reply)){
-        return "⚠ Illegal character detected";
-    }
-}
-?>

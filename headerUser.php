@@ -18,7 +18,7 @@
                     <li class="header-btn"><a href="eventUser.php">Browse Events</a></li>
                 </div>
                 <div class="header-dropdown">
-                    <li class="header-dropBtn"><a href="">Buy Tickets</a></li>
+                    <li class="header-dropBtn"><a href="ticket.php">Buy Tickets</a></li>
                     <div class="header-dropctn">
                         <ul>
                             <li><a href="ticket.php">View Tickets</a></li>
@@ -35,8 +35,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="header-navBtn">
-                    <li class="header-btn"><a href="helpdeskUser.php">Help Desk</a></li>
+                <div class="header-dropdown">
+                    <li class="header-dropBtn"><a href="helpdeskUser.php">Help Desk</a></li>
+                    <div class="header-dropctn">
+                        <ul>
+                            <li><a href="helpdeskUser.php">Submit Enquiry</a></li>
+                            <li><a href="helpdeskHistory.php">Enquries History</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="header-navBtn">
                     <li class="header-btn"><a href="feedback1.php">Feedback</a></li>
