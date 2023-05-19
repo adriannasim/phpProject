@@ -36,8 +36,12 @@
                     </div>
                 </div>
                 <div class="header-navBtn">
+                    <li class="header-btn"><a href="helpdeskUser.php">Help Desk</a></li>
+                </div>
+                <div class="header-navBtn">
                     <li class="header-btn"><a href="feedback1.php">Feedback</a></li>
                 </div>
+
             </ul>
             <li class="header-navBtn-right"><a href="userAcc.php"><img src="img/header/user.png" width="30px"
                         height="30px" /></a></li>

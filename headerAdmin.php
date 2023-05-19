@@ -38,8 +38,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="headerA-navBtn">
-                        <li class="headerA-btn"><a href="https://dashboard.tawk.to/#/dashboard">HelpDesk</a></li>
+                    <div class="headerA-dropdown">
+                        <li class="headerA-dropBtn"><a href="">HelpDesk</a></li>
+                        <div class="headerA-dropctn">
+                            <ul>
+                                <li><a href="https://dashboard.tawk.to/#/dashboard">Live Chat</a></li>
+                                <li><a href="helpdeskAdmin.php">Manage Enquiries</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="headerA-navBtn">
                         <li class="headerA-btn"><a href="feedbackAdmin.php">Feedback</a></li>
