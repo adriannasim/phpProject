@@ -9,11 +9,9 @@ if (empty($UserID)) {
     exit;
 }
 
-// Check if the event ID is set in the URL
 if (isset($_GET['event_id'])) {
     $event_id = $_GET['event_id'];
 
-    // Retrieve event details based on the event ID
     $sql = "SELECT * FROM event WHERE EventID = ?";
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("s", $event_id);
@@ -25,12 +23,10 @@ if (isset($_GET['event_id'])) {
         $event_name = $row['EventName'];
         $event_date = $row['EventDate'];
     } else {
-        // Display an error message if the event is not found
         echo "Unknown event.";
         exit;
     }
 } else {
-    // Display an error message if the event ID is not provided
     echo "Event ID is missing.";
     exit;
 }
@@ -49,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate selected seats
     if (count($selected_seats) != $ticket_qty) {
-        echo "Please select $ticket_qty seat(s).";
+        echo '<script>alert("Please select ' . $ticket_qty . ' seat(s)."); window.location.href = "ticketbuy.php?event_id=CA001";</script>';
         exit;
     }
 
