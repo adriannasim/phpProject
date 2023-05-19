@@ -44,7 +44,8 @@
             <?php
             if ($result = $connection->query($sql)) {
                 while ($record = $result->fetch_object()) {
-                    printf("
+                    printf(
+                        "
                     <tr>
                         <td class='help-id'>%s</td>
                         <td class='help-time'>%s</td>
@@ -56,7 +57,7 @@
                     );
                 }
             }
-            ?>  
+            ?>
         </table>
         <table class="helpdesk-view-table">
             <tr>
@@ -73,7 +74,8 @@
             <?php
             if ($result = $connection->query($sql)) {
                 while ($record = $result->fetch_object()) {
-                    printf("
+                    printf(
+                        "
                     <tr>
                         <td class='help-id'>%s</td>
                         <td class='help-time2'>%s</td>
@@ -83,7 +85,7 @@
                     );
                 }
             }
-            ?>  
+            ?>
         </table>
 
     </div>
