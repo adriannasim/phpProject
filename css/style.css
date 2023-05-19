@@ -1223,6 +1223,12 @@ td {
 #logout-btn {
     margin-left: 25px;
 }
+#user-edit-reset{
+    margin-right: 10px;
+}
+#user-edit-submit{
+    margin-left: 10px;
+}
 
 .user-manage-btn button {
     margin-top: 20px;
@@ -1298,6 +1304,7 @@ td {
     border: none;
     border-radius: 5px;
     margin: 10px 35%;
+    margin-left: -10px;
     font-size: 12pt;
 }
 

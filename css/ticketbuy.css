@@ -30,6 +30,9 @@
     margin-bottom: 10px;
     color:black;
   }
+  .ticketbuy-table td, th{
+    color: black;
+  }
   
   .ticketBuy2 select,
   .ticketBuy2 input[type="number"] {

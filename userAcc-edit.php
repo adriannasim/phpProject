@@ -116,8 +116,8 @@ if ($UserID == '') {
                 </tr>
                 <tr class="user-manage-btn">
                     <td colspan="2"><a href="userAcc-edit.php" id="user-manage-reset"><button
-                                type="reset">Reset</button></a>
-                        <button type="submit" name="submit">Submit</button>
+                                type="reset" id="user-edit-reset">Reset</button></a>
+                        <button type="submit" name="submit" id="user-edit-submit">Submit</button>
                     </td>
                 </tr>
             </table>
