@@ -1,0 +1,52 @@
+
+.buyticket {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #F4F4F4;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color:black;
+  }
+  
+  .buyticket h2 {
+    font-size: 20px;
+    text-align: center;
+    color:black;
+  }
+  
+  .ticket-ticket {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    color:black;
+  }
+  
+  .ticket-ticket table {
+    margin-bottom: 10px;
+    color:black;
+  }
+  
+  .ticket-ticket select,
+  .ticket-ticket input[type="number"] {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color:black;
+  }
+  
+  .ticket-ticket button {
+    padding: 10px 20px;
+    background-color: #27C7C5;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .ticket-ticket button:hover {
+    background-color: #1DAAA7;
+    color:black;
+  }
+  

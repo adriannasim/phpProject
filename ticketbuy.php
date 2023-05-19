@@ -36,7 +36,7 @@ if (isset($_GET['event_id'])) {
 }
 
 // Retrieve available seat IDs
-$sql_seats = "SELECT SeatID FROM seat WHERE Status = 1";
+$sql_seats = "SELECT SeatID FROM seat WHERE Status = 0";
 $result_seats = mysqli_query($connection, $sql_seats);
 $available_seats = mysqli_fetch_all($result_seats, MYSQLI_ASSOC);
 $seat_options = array_column($available_seats, 'SeatID');
@@ -57,40 +57,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ticket_price = ($ticket_type == 'VIP') ? 40.00 : 20.00;
     $total_price = $ticket_price * $ticket_qty;
 
-    $stmt_insert = $connection->prepare("INSERT INTO ticket_buy (TbuyQty) VALUES (?)");
+    $stmt_insert = $connection->prepare("INSERT INTO ticket_buy (TicketID, TbuyQty) VALUES (?, ?)");
+    $stmt_update = $connection->prepare("UPDATE seat SET Status = 1, TicketID = ? WHERE SeatID = ?");
 
-// Create an array to store the seat IDs that need to be updated
-$seats_to_update = array();
+    // Generate the ticket ID (AU001)
+    $ticket_id = 'AU001';
 
-foreach ($selected_seats as $seat) {
-    $stmt_insert->bind_param("i", $ticket_qty);
-    $stmt_insert->execute();
+    foreach ($selected_seats as $seat) {
+        $stmt_insert->bind_param("si", $ticket_id, $ticket_qty);
+        $stmt_insert->execute();
 
-    // Retrieve the last inserted ticket ID
-    $ticket_id = $stmt_insert->insert_id;
+        // Update the seat status and associate it with the ticket ID
+        $stmt_update->bind_param("si", $ticket_id, $seat);
+        $stmt_update->execute();
+    }
 
-    // Add the seat ID and ticket ID to the array
-    $seats_to_update[] = array('seat_id' => $seat, 'ticket_id' => $ticket_id);
+    $stmt_insert->close();
+    $stmt_update->close();
+
+    // Update the status of unselected seats to 0
+    $unselected_seats = array_diff($seat_options, $selected_seats);
+    $stmt_update_unselected = $connection->prepare("UPDATE seat SET Status = 0 WHERE SeatID = ?");
+    foreach ($unselected_seats as $seat) {
+        $stmt_update_unselected->bind_param("s", $seat);
+        $stmt_update_unselected->execute();
+    }
+    $stmt_update_unselected->close();
+
+    echo '<script>alert("Ticket added successfully!"); window.location.href = "ticket.php";</script>';
+
 }
 
-$stmt_insert->close();
 
-// Update the seat status and associate it with the ticket ID
-$stmt_update = $connection->prepare("UPDATE seat SET Status = 0, TicketID = ? WHERE SeatID = ?");
-foreach ($seats_to_update as $seat_data) {
-    $stmt_update->bind_param("ii", $seat_data['ticket_id'], $seat_data['seat_id']);
-    $stmt_update->execute();
-}
-
-$stmt_update->close();
-
-}
 ?>
 
 <html>
 <head>
     <title>Buy Tickets</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/ticketbuy.css">
 </head>
 
 <body>
@@ -102,9 +107,9 @@ $stmt_update->close();
     <br>
     <br>
 
-    <div class="ticket-container">
+    <div class="buyticket">
         <h2><?php echo $event_name; ?></h2>
-        <div class="ticket-overlay1">
+        <div class="ticket-ticket">
             <form action="" method="POST">
                 <input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
                 <table>
@@ -112,6 +117,7 @@ $stmt_update->close();
                         <td><b>Event Date</b></td>
                         <td>: <?php echo $event_date; ?></td>
                     </tr>
+                    <tr><td colspan="2"><a href="user_seat.php?event_id=CA001">Preview the seats</a></td></tr>
                     <tr>
                         <td><b>Ticket Type</b></td>
                         <td>:
@@ -127,16 +133,31 @@ $stmt_update->close();
                     </tr>
                     <tr>
                         <td><b>Seat ID(s)</b></td>
-                        <td>:
-                            <?php foreach ($seat_options as $seat): ?>
-                                <input type="checkbox" name="seat_id[]" value="<?php echo $seat; ?>">
-                                <?php echo $seat; ?><br>
-                            <?php endforeach; ?>
+                        <td>
+                            <?php
+                            $seats_by_alphabet = array();
+                            foreach ($seat_options as $seat) {
+                                $first_alphabet = strtoupper(substr($seat, 0, 1));
+                                $seats_by_alphabet[$first_alphabet][] = $seat;
+                            }
+
+                            foreach ($seats_by_alphabet as $first_alphabet => $seats) {
+                                echo "<b>$first_alphabet:</b> ";
+                                foreach ($seats as $seat) {
+                                    ?>
+                                    <input type="checkbox" name="seat_id[]" value="<?php echo $seat; ?>">
+                                    <?php echo $seat; ?>&nbsp;&nbsp;
+                                    <?php
+                                }
+                                echo "<br>";
+                            }
+                            ?>
                         </td>
+
                     </tr>
                 </table>
                 <br>
-                <button type="submit">Add to cart</button>
+                <button type="submit">Add</button>
             </form>
         </div>
     </div>
