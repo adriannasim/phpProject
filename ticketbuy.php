@@ -87,8 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<script>alert("Ticket added successfully!"); window.location.href = "ticket.php";</script>';
 
 }
-
-
 ?>
 
 <html>
@@ -98,18 +96,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" type="text/css" href="css/ticketbuy.css">
 </head>
 
-<body>
+<body class="ticketfont">
     <?php include "headerUser.php"?>
     <br>
 
-    <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;">Buy Tickets</h1>
+    <h1 style="text-align: center; text-shadow: 5px 5px 5px #27C7C5;color:white;">Buy Tickets</h1>
 
     <br>
     <br>
 
-    <div class="buyticket">
+    <div class="ticketBuy">
         <h2><?php echo $event_name; ?></h2>
-        <div class="ticket-ticket">
+        <div class="ticketBuy2">
             <form action="" method="POST">
                 <input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
                 <table>

@@ -1,5 +1,8 @@
+.ticketfont {
+  color: black !important;
+}
 
-.buyticket {
+.ticketBuy {
     width: 90%;
     margin: 0 auto;
     background-color: #F4F4F4;
@@ -9,13 +12,13 @@
     color:black;
   }
   
-  .buyticket h2 {
+  .ticketBuy h2 {
     font-size: 20px;
     text-align: center;
     color:black;
   }
   
-  .ticket-ticket {
+  .ticketBuy2 {
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -23,20 +26,20 @@
     color:black;
   }
   
-  .ticket-ticket table {
+  .ticketBuy2 table {
     margin-bottom: 10px;
     color:black;
   }
   
-  .ticket-ticket select,
-  .ticket-ticket input[type="number"] {
+  .ticketBuy2 select,
+  .ticketBuy2 input[type="number"] {
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
     color:black;
   }
   
-  .ticket-ticket button {
+  .ticketBuy2 button {
     padding: 10px 20px;
     background-color: #27C7C5;
     color: black;
@@ -45,7 +48,7 @@
     cursor: pointer;
   }
   
-  .ticket-ticket button:hover {
+  .ticketBuy2 button:hover {
     background-color: #1DAAA7;
     color:black;
   }
