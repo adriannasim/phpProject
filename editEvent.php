@@ -51,8 +51,18 @@
             $time = trim($_POST["time"]);
             $venue = trim($_POST["venue"]);
             $desc = trim($_POST["desc"]);
-
             $error = array();
+
+            if ($date == NULL) {
+                $error['eventDate'] = '⚠ Please enter the event date';
+            } else if ($date < date('Y-m-d')){
+                $error['eventDate'] = '⚠ Please enter the event date after today\'s date';
+            }
+
+            if ($time == NULL) {
+                $error['eventTime'] = '⚠ Please enter the event time';
+            }
+
             $error['name'] = checkEventName($name);
             $error['venue'] = checkEventVenue($venue);
             $error['desc'] = checkEventDesc($desc);

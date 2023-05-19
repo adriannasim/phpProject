@@ -36,6 +36,7 @@
         </div>
         <div class="info_div">
             <p>Don't have an account? <a href="register.php">Register Here!</a></p>
+            <p><a href="fgtpsw.php">Forgot Password</a></p>
             <p>Admin <a href="admin-login.php">Login</a></p>
         </div>
     </form>

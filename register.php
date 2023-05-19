@@ -8,6 +8,7 @@
         $Email = $_POST["registerEmail"];
         $TelNo = $_POST["registerTel"];
         $Password = $_POST["password_txt"];
+        $Question = $_POST["question_txt"];
         $error = array(); 
 
         $sqlCheck = "SELECT * FROM user WHERE UserID = '$UserID'";
@@ -23,12 +24,11 @@
         $error['email'] = checkUserEmail($Email);
         $error['tel'] = checkUserTel($TelNo);
         $error['psw'] = checkUserPsw($Password);
-        $error = array_filter($error);
-        echo $UserID;
-        echo $Password;   
+        $error['ques'] = checkUserQues($Question);
+        $error = array_filter($error); 
         if((empty($error))) {
-            $sqlReg = "INSERT INTO user (UserID, Password, Name, Email, Tel)
-                VALUES ('$UserID', '$Password', '$Name', '$Email', '$TelNo')";
+            $sqlReg = "INSERT INTO user (UserID, Password, Name, Email, Tel, Ques)
+                VALUES ('$UserID', '$Password', '$Name', '$Email', '$TelNo', '$Question')";
             $result = mysqli_query($connection, $sqlReg);
             if ($result) {
                 echo "<script>alert('Registration successful.');
@@ -65,6 +65,8 @@
             <input class="field_class" name="registerTel" type="text" placeholder="Enter TelNo Eg. 012-3456789">
             <label>Create a password:</label>
             <input id="pass" class="field_class" name="password_txt" type="password" placeholder="Create a password">
+            <label>Security Question: What is your favourite animal?</label>
+            <input id="ques" class="field_class" name="question_txt" type="text" placeholder="Enter your security question answer">
             <button class="submit_class" type="submit" name="register">Enter</button>
     </form>
 </main>

@@ -47,6 +47,11 @@ function checkUserPsw($Password){
         return "⚠ Maximum 50 characters for Password";
     }
 }
+function checkUserQues($Question){
+    if($Question == NULL){
+        return "⚠ Please enter your security question answer";
+    }
+}
 /*End of user validation*/
 
 /*Start of eventAdd.php validation*/
