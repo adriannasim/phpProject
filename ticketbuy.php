@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="ticket-ticket">
             <form action="" method="POST">
                 <input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
-                <table>
+                <table class="ticketbuy-table">
                     <tr>
                         <td><b>Event Date</b></td>
                         <td>: <?php echo $event_date; ?></td>

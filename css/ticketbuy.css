@@ -21,11 +21,14 @@
     border-radius: 5px;
     margin-top: 20px;
     color:black;
-  }
+  }x
   
   .ticket-ticket table {
     margin-bottom: 10px;
     color:black;
+  }
+  .ticketbuy-table td, th{
+    color: black;
   }
   
   .ticket-ticket select,
