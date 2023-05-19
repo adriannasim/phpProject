@@ -87,7 +87,7 @@
                 <table class="edit-form-table">
                     <tr>
                         <th>Event ID : </th>
-                        <td><?php echo $id;?><input type="text" name="id" id="id" value="<?php echo $id;?>" hidden/></td>
+                        <td class="editevent-id"><?php echo $id;?><input type="text" name="id" id="id" value="<?php echo $id;?>" hidden/></td>
                     </tr>
                     <tr>
                         <th>Event Name : </th>
